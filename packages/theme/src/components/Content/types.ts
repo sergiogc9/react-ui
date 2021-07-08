@@ -4,7 +4,7 @@ type ContentFontSizes = Record<ContentAspectSizes, number | number[]>;
 type ContentLineHeights = Record<ContentAspectSizes, number | number[]>;
 
 export interface Content {
-  readonly fontWeights: ContentFontWeights;
-  readonly fontSizes: ContentFontSizes;
-  readonly lineHeights: ContentLineHeights;
+	readonly fontWeights: ContentFontWeights;
+	readonly fontSizes: ContentFontSizes;
+	readonly lineHeights: ContentLineHeights;
 }

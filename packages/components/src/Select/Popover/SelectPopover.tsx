@@ -8,103 +8,91 @@ import Icon from 'components/Icon';
 
 import SelectContext from '../Context';
 import {
-  StyledSelectPopover,
-  StyledSelectPopoverEmptyBox,
-  StyledSelectPopoverFooter,
-  StyledPopoverListBox
+	StyledSelectPopover,
+	StyledSelectPopoverEmptyBox,
+	StyledSelectPopoverFooter,
+	StyledPopoverListBox
 } from './styled';
 import { SelectPopoverProps } from './types';
 import { getElementText, isStringIncluded } from '../utils';
 
-const SelectPopover: React.FC<SelectPopoverProps> = React.forwardRef(
-  ({ children, ...rest }, ref) => {
-    const {
-      isAutocomplete,
-      isDisabled,
-      inputValue,
-      isMultiSelect,
-      onClearOptions,
-      onKeyPressed,
-      onShowPopover,
-      selectedOptions
-    } = React.useContext(SelectContext);
+const SelectPopover: React.FC<SelectPopoverProps> = React.forwardRef(({ children, ...rest }, ref) => {
+	const {
+		isAutocomplete,
+		isDisabled,
+		inputValue,
+		isMultiSelect,
+		onClearOptions,
+		onKeyPressed,
+		onShowPopover,
+		selectedOptions
+	} = React.useContext(SelectContext);
 
-    const theme = useTheme();
+	const theme = useTheme();
 
-    const onSaveBtnClicked = React.useCallback(
-      () => onShowPopover(false),
-      [onShowPopover]
-    );
+	const onSaveBtnClicked = React.useCallback(() => onShowPopover(false), [onShowPopover]);
 
-    const onListBoxKeyPressed = React.useCallback<
-      NonNullable<SelectPopoverProps['onKeyDown']>
-    >(
-      (ev) => {
-        onKeyPressed('listBox', ev);
-      },
-      [onKeyPressed]
-    );
+	const onListBoxKeyPressed = React.useCallback<NonNullable<SelectPopoverProps['onKeyDown']>>(
+		ev => {
+			onKeyPressed('listBox', ev);
+		},
+		[onKeyPressed]
+	);
 
-    const filteredChildren = React.useMemo(() => {
-      const childElements = React.Children.map(children, (c) => c);
+	const filteredChildren = React.useMemo(() => {
+		const childElements = React.Children.map(children, c => c);
 
-      if (!childElements) return [];
-      if (!isAutocomplete) return childElements;
+		if (!childElements) return [];
+		if (!isAutocomplete) return childElements;
 
-      return childElements.filter((element) => {
-        if (!React.isValidElement(element)) return false;
+		return childElements.filter(element => {
+			if (!React.isValidElement(element)) return false;
 
-        const optionId = element.props.id;
+			const optionId = element.props.id;
 
-        const isSearchOptionMatched =
-          isStringIncluded(getElementText(element), inputValue) ||
-          isStringIncluded(optionId, inputValue);
+			const isSearchOptionMatched =
+				isStringIncluded(getElementText(element), inputValue) || isStringIncluded(optionId, inputValue);
 
-        return isSearchOptionMatched;
-      });
-    }, [children, inputValue, isAutocomplete]);
+			return isSearchOptionMatched;
+		});
+	}, [children, inputValue, isAutocomplete]);
 
-    return (
-      <StyledSelectPopover onKeyDown={onListBoxKeyPressed} {...rest}>
-        {filteredChildren.length === 0 && (
-          <StyledSelectPopoverEmptyBox>
-            <Icon icon="alert-error" marginRight={2} styling="outlined" />
-            {getComponentLocale(theme, 'select', 'no_results')}
-          </StyledSelectPopoverEmptyBox>
-        )}
-        <StyledPopoverListBox ref={ref} role="listbox">
-          {filteredChildren}
-        </StyledPopoverListBox>
-        <Divider />
-        {isMultiSelect && filteredChildren.length > 0 && (
-          <StyledSelectPopoverFooter>
-            <Button
-              aspectSize="s"
-              data-testid="select-listbox-remove-all-btn"
-              isDisabled={
-                isDisabled || Object.keys(selectedOptions).length === 0
-              }
-              onClick={onClearOptions}
-              variant="subtle"
-            >
-              {getComponentLocale(theme, 'select', 'remove_all_btn')}
-            </Button>
-            <Button
-              aspectSize="s"
-              data-testid="select-listbox-save-btn"
-              isDisabled={
-                isDisabled || Object.keys(selectedOptions).length === 0
-              }
-              onClick={onSaveBtnClicked}
-              variant="default"
-            >
-              {getComponentLocale(theme, 'select', 'save_btn')}
-            </Button>
-          </StyledSelectPopoverFooter>
-        )}
-      </StyledSelectPopover>
-    );
-  }
-);
+	return (
+		<StyledSelectPopover onKeyDown={onListBoxKeyPressed} {...rest}>
+			{filteredChildren.length === 0 && (
+				<StyledSelectPopoverEmptyBox>
+					<Icon icon="alert-error" marginRight={2} styling="outlined" />
+					{getComponentLocale(theme, 'select', 'no_results')}
+				</StyledSelectPopoverEmptyBox>
+			)}
+			<StyledPopoverListBox ref={ref} role="listbox">
+				{filteredChildren}
+			</StyledPopoverListBox>
+			<Divider />
+			{isMultiSelect && filteredChildren.length > 0 && (
+				<StyledSelectPopoverFooter>
+					<Button
+						aspectSize="s"
+						data-testid="select-listbox-remove-all-btn"
+						isDisabled={isDisabled || Object.keys(selectedOptions).length === 0}
+						onClick={onClearOptions}
+						variant="subtle"
+					>
+						{getComponentLocale(theme, 'select', 'remove_all_btn')}
+					</Button>
+					<Button
+						aspectSize="s"
+						data-testid="select-listbox-save-btn"
+						isDisabled={isDisabled || Object.keys(selectedOptions).length === 0}
+						onClick={onSaveBtnClicked}
+						variant="default"
+					>
+						{getComponentLocale(theme, 'select', 'save_btn')}
+					</Button>
+				</StyledSelectPopoverFooter>
+			)}
+		</StyledSelectPopover>
+	);
+});
 
 export default SelectPopover;

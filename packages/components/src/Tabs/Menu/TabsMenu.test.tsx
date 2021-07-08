@@ -9,22 +9,22 @@ const tabTestId = 'TabsMenu';
 const text = 'Awesome tab';
 
 const renderTabsMenu = (props?: Partial<TabsMenuProps>) =>
-  render(
-    withTheme(
-      <TabsMenu data-testid={tabTestId} {...props}>
-        {text}
-      </TabsMenu>
-    )
-  );
+	render(
+		withTheme(
+			<TabsMenu data-testid={tabTestId} {...props}>
+				{text}
+			</TabsMenu>
+		)
+	);
 
 describe('TabsMenu component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
-  it('should render content', () => {
-    renderTabsMenu();
-    expect(screen.getByText(text)).toBeInTheDocument();
-  });
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
+	it('should render content', () => {
+		renderTabsMenu();
+		expect(screen.getByText(text)).toBeInTheDocument();
+	});
 });

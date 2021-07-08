@@ -15,15 +15,9 @@ const CustomAnimation = keyframes`
   }
 `;
 
-const AnimatedButton = Animation.withBaseAnimation(
-  Button,
-  Animation.FadeInAnimation
-);
+const AnimatedButton = Animation.withBaseAnimation(Button, Animation.FadeInAnimation);
 
-const CustomAnimatedButton = Animation.withBaseAnimation(
-  Button,
-  CustomAnimation
-);
+const CustomAnimatedButton = Animation.withBaseAnimation(Button, CustomAnimation);
 
 const ButtonAnimate = Animation.withAnimate(Button);
 

@@ -7,11 +7,11 @@ import { ModalHeaderProps } from './types';
 const ModalHeader: React.FC<ModalHeaderProps> = styled(Box)<ModalHeaderProps>``;
 
 ModalHeader.defaultProps = {
-  alignItems: 'center',
-  flexShrink: 0,
-  minHeight: '72px',
-  order: 0,
-  p: 4
+	alignItems: 'center',
+	flexShrink: 0,
+	minHeight: '72px',
+	order: 0,
+	p: 4
 };
 
 export default ModalHeader;

@@ -1,8 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
-import {
-  getFixedStoryParams,
-  getPlaygroundStoryParams
-} from 'storybook/parameters';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import Modal from 'components/Modal';
 import { ModalStory } from './Modal';
 
@@ -19,18 +16,14 @@ The `Modal.Header` component includes the `Modal.Close` button but you can use t
 
 The modal visibility can be used **uncontrolled** or **controlled** from outside. To control its visibility from outside use the `isVisible` and `onClose` props.
 
-<Story
-  name="playground"
-  args={{ aspectSize: 'm' }}
-  parameters={getPlaygroundStoryParams()}
->
-  {(args) => <ModalStory {...args} />}
+<Story name="playground" args={{ aspectSize: 'm' }} parameters={getPlaygroundStoryParams()}>
+	{args => <ModalStory {...args} />}
 </Story>
 
 <Canvas>
-  <Story name="default" args={{}} parameters={getFixedStoryParams()}>
-    {(args) => <ModalStory {...args} />}
-  </Story>
+	<Story name="default" args={{}} parameters={getFixedStoryParams()}>
+		{args => <ModalStory {...args} />}
+	</Story>
 </Canvas>
 
 ## Sizes
@@ -38,18 +31,18 @@ The modal visibility can be used **uncontrolled** or **controlled** from outside
 You can change the Modal size using the `aspectSize` prop. From smaller to bigger:
 
 <Canvas>
-  <Story name="s" args={{}} parameters={getFixedStoryParams()}>
-    {(args) => <ModalStory {...args} aspectSize="s" />}
-  </Story>
-  <Story name="m" args={{}} parameters={getFixedStoryParams()}>
-    {(args) => <ModalStory {...args} aspectSize="m" />}
-  </Story>
-  <Story name="l" args={{}} parameters={getFixedStoryParams()}>
-    {(args) => <ModalStory {...args} aspectSize="l" />}
-  </Story>
-  <Story name="xl" args={{}} parameters={getFixedStoryParams()}>
-    {(args) => <ModalStory {...args} aspectSize="xl" />}
-  </Story>
+	<Story name="s" args={{}} parameters={getFixedStoryParams()}>
+		{args => <ModalStory {...args} aspectSize="s" />}
+	</Story>
+	<Story name="m" args={{}} parameters={getFixedStoryParams()}>
+		{args => <ModalStory {...args} aspectSize="m" />}
+	</Story>
+	<Story name="l" args={{}} parameters={getFixedStoryParams()}>
+		{args => <ModalStory {...args} aspectSize="l" />}
+	</Story>
+	<Story name="xl" args={{}} parameters={getFixedStoryParams()}>
+		{args => <ModalStory {...args} aspectSize="xl" />}
+	</Story>
 </Canvas>
 
 ## Overlay
@@ -59,25 +52,17 @@ The modal, by default uses a background Overlay behind it. You can disable it wi
 With overlay:
 
 <Canvas>
-  <Story
-    name="with overlay"
-    args={{ withOverlay: true }}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => <ModalStory {...args} />}
-  </Story>
+	<Story name="with overlay" args={{ withOverlay: true }} parameters={getFixedStoryParams()}>
+		{args => <ModalStory {...args} />}
+	</Story>
 </Canvas>
 
 Without overlay:
 
 <Canvas>
-  <Story
-    name="without overlay"
-    args={{ withOverlay: false }}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => <ModalStory {...args} />}
-  </Story>
+	<Story name="without overlay" args={{ withOverlay: false }} parameters={getFixedStoryParams()}>
+		{args => <ModalStory {...args} />}
+	</Story>
 </Canvas>
 
 ## Closing the modal
@@ -87,33 +72,25 @@ The modal, by default can be closed by clicking anywhere outside of it or pressi
 Default closing behavior:
 
 <Canvas>
-  <Story name="default close" args={{}} parameters={getFixedStoryParams()}>
-    {(args) => <ModalStory {...args} />}
-  </Story>
+	<Story name="default close" args={{}} parameters={getFixedStoryParams()}>
+		{args => <ModalStory {...args} />}
+	</Story>
 </Canvas>
 
 Clicking outside closing behavior disabled:
 
 <Canvas>
-  <Story
-    name="outside click disabled"
-    args={{ closeOnOutsideClick: false }}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => <ModalStory {...args} />}
-  </Story>
+	<Story name="outside click disabled" args={{ closeOnOutsideClick: false }} parameters={getFixedStoryParams()}>
+		{args => <ModalStory {...args} />}
+	</Story>
 </Canvas>
 
 Pressing escape closing behavior disabled:
 
 <Canvas>
-  <Story
-    name="esc press disabled"
-    args={{ closeOnEsc: false }}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => <ModalStory {...args} />}
-  </Story>
+	<Story name="esc press disabled" args={{ closeOnEsc: false }} parameters={getFixedStoryParams()}>
+		{args => <ModalStory {...args} />}
+	</Story>
 </Canvas>
 
 # Modal API

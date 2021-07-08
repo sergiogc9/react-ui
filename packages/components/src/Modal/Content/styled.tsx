@@ -4,17 +4,15 @@ import styled from 'styled-components';
 import { ScrollBox } from 'components/Box';
 import { ModalContentProps } from './types';
 
-const ModalContent: React.FC<ModalContentProps> = styled(
-  ScrollBox
-)<ModalContentProps>``;
+const ModalContent: React.FC<ModalContentProps> = styled(ScrollBox)<ModalContentProps>``;
 
 ModalContent.defaultProps = {
-  flexDirection: 'column',
-  flexGrow: 1,
-  flexShrink: 2,
-  px: 4,
-  py: 6,
-  order: 1
+	flexDirection: 'column',
+	flexGrow: 1,
+	flexShrink: 2,
+	px: 4,
+	py: 6,
+	order: 1
 };
 
 export default ModalContent;

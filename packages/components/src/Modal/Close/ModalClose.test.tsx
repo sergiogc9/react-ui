@@ -9,16 +9,16 @@ import { ModalCloseProps } from './types';
 const modalCloseTestId = 'ModalClose';
 
 const renderModalClose = (props?: Partial<ModalCloseProps>) =>
-  render(withTheme(<ModalClose data-testid={modalCloseTestId} {...props} />));
+	render(withTheme(<ModalClose data-testid={modalCloseTestId} {...props} />));
 
 describe('ModalClose component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  it('should render close absolute positioned', () => {
-    renderModalClose();
+	it('should render close absolute positioned', () => {
+		renderModalClose();
 
-    expect(screen.getByTestId(modalCloseTestId)).toHaveStyle(`
+		expect(screen.getByTestId(modalCloseTestId)).toHaveStyle(`
       position: absolute;
     `);
-  });
+	});
 });

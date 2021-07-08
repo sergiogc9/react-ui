@@ -8,6 +8,6 @@ import { TooltipProps } from './types';
 
 export { TooltipProps, TooltipTriggerProps, TooltipContentProps };
 export default createNameSpacedComponent(Tooltip, {
-  Content: TooltipContent,
-  Trigger: TooltipTrigger
+	Content: TooltipContent,
+	Trigger: TooltipTrigger
 });

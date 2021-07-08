@@ -11,36 +11,36 @@ const contentText = 'Awesome content';
 const triggerText = 'Awesome trigger';
 
 const renderTooltip = (props?: Partial<TooltipProps>) =>
-  render(
-    withTheme(
-      <Tooltip data-testid={tooltipTestId} {...props}>
-        <Tooltip.Trigger>{triggerText}</Tooltip.Trigger>
-        <Tooltip.Content>{contentText}</Tooltip.Content>
-      </Tooltip>
-    )
-  );
+	render(
+		withTheme(
+			<Tooltip data-testid={tooltipTestId} {...props}>
+				<Tooltip.Trigger>{triggerText}</Tooltip.Trigger>
+				<Tooltip.Content>{contentText}</Tooltip.Content>
+			</Tooltip>
+		)
+	);
 
 describe('Tooltip component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
 
-  it('should render trigger element', () => {
-    renderTooltip();
-    expect(screen.getByText(triggerText)).toBeInTheDocument();
-  });
+	it('should render trigger element', () => {
+		renderTooltip();
+		expect(screen.getByText(triggerText)).toBeInTheDocument();
+	});
 
-  it('should not render content by default', () => {
-    renderTooltip();
-    expect(screen.queryByText(contentText)).toBeNull();
-  });
+	it('should not render content by default', () => {
+		renderTooltip();
+		expect(screen.queryByText(contentText)).toBeNull();
+	});
 
-  it('should render content if hovering the trigger', async () => {
-    renderTooltip();
-    const trigger = screen.getByText(triggerText);
-    userEvent.hover(trigger);
-    await waitFor(() => expect(screen.getByText(contentText)).toBeVisible());
-  });
+	it('should render content if hovering the trigger', async () => {
+		renderTooltip();
+		const trigger = screen.getByText(triggerText);
+		userEvent.hover(trigger);
+		await waitFor(() => expect(screen.getByText(contentText)).toBeVisible());
+	});
 });

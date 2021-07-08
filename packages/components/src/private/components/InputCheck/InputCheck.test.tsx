@@ -13,166 +13,166 @@ const label = 'Nice input!';
 const mockOnChange = jest.fn();
 const mockOnClick = jest.fn();
 const renderInputCheck = (props?: Partial<InputCheckProps>) =>
-  render(withTheme(<InputCheck data-testid={InputCheckTestId} {...props} />));
+	render(withTheme(<InputCheck data-testid={InputCheckTestId} {...props} />));
 
 describe('InputCheck component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
 
-  it('should render the InputCheck', () => {
-    renderInputCheck();
-    const InputCheckTest = screen.getByTestId(InputCheckTestId);
+	it('should render the InputCheck', () => {
+		renderInputCheck();
+		const InputCheckTest = screen.getByTestId(InputCheckTestId);
 
-    expect(InputCheckTest).toBeInTheDocument();
-    expect(InputCheckTest.querySelector('svg')).not.toBeInTheDocument();
-  });
+		expect(InputCheckTest).toBeInTheDocument();
+		expect(InputCheckTest.querySelector('svg')).not.toBeInTheDocument();
+	});
 
-  it('should render the svg icon if type is checkbox and isDefaultSelected', () => {
-    renderInputCheck({ type: 'checkbox', isDefaultSelected: true });
+	it('should render the svg icon if type is checkbox and isDefaultSelected', () => {
+		renderInputCheck({ type: 'checkbox', isDefaultSelected: true });
 
-    const InputCheckTest = screen.getByTestId(InputCheckTestId);
-    expect(InputCheckTest.querySelector('svg')).toBeInTheDocument();
-  });
+		const InputCheckTest = screen.getByTestId(InputCheckTestId);
+		expect(InputCheckTest.querySelector('svg')).toBeInTheDocument();
+	});
 
-  it('should render the correct background color if type is checkbox and isDefaultSelected', () => {
-    renderInputCheck({ type: 'checkbox', isDefaultSelected: true });
-    const InputCheckTest = screen.getByTestId(InputCheckTestId).firstChild;
+	it('should render the correct background color if type is checkbox and isDefaultSelected', () => {
+		renderInputCheck({ type: 'checkbox', isDefaultSelected: true });
+		const InputCheckTest = screen.getByTestId(InputCheckTestId).firstChild;
 
-    expect(InputCheckTest).toHaveStyleRule(
-      'background-color',
-      getColorFromTheme(theme, theme.components.inputCheck.colors.selected),
-      {
-        modifier: '::after'
-      }
-    );
-  });
+		expect(InputCheckTest).toHaveStyleRule(
+			'background-color',
+			getColorFromTheme(theme, theme.components.inputCheck.colors.selected),
+			{
+				modifier: '::after'
+			}
+		);
+	});
 
-  it('should render the correct background color if type is radio and isDefaultSelected', () => {
-    renderInputCheck({ type: 'radio', isDefaultSelected: true });
-    const InputCheckTest = screen.getByTestId(InputCheckTestId).firstChild;
+	it('should render the correct background color if type is radio and isDefaultSelected', () => {
+		renderInputCheck({ type: 'radio', isDefaultSelected: true });
+		const InputCheckTest = screen.getByTestId(InputCheckTestId).firstChild;
 
-    expect(InputCheckTest).toHaveStyleRule(
-      'background-color',
-      getColorFromTheme(theme, theme.components.inputCheck.colors.selected),
-      {
-        modifier: '::after'
-      }
-    );
-  });
+		expect(InputCheckTest).toHaveStyleRule(
+			'background-color',
+			getColorFromTheme(theme, theme.components.inputCheck.colors.selected),
+			{
+				modifier: '::after'
+			}
+		);
+	});
 
-  it('should render InputCheck as selected', () => {
-    renderInputCheck({ isSelected: true });
-    const InputCheckTest = screen.getByTestId(InputCheckTestId);
+	it('should render InputCheck as selected', () => {
+		renderInputCheck({ isSelected: true });
+		const InputCheckTest = screen.getByTestId(InputCheckTestId);
 
-    expect(InputCheckTest).toBeInTheDocument();
-  });
+		expect(InputCheckTest).toBeInTheDocument();
+	});
 
-  it('should render InputCheck as disabled', () => {
-    renderInputCheck({ isDisabled: true });
-    const InputCheckTest = screen.getByTestId(InputCheckTestId).firstChild;
+	it('should render InputCheck as disabled', () => {
+		renderInputCheck({ isDisabled: true });
+		const InputCheckTest = screen.getByTestId(InputCheckTestId).firstChild;
 
-    expect(InputCheckTest).toHaveStyle(`
+		expect(InputCheckTest).toHaveStyle(`
       opacity: 0.4;
     `);
-  });
+	});
 
-  it('should show label', () => {
-    renderInputCheck({ label });
+	it('should show label', () => {
+		renderInputCheck({ label });
 
-    expect(screen.getByText(label)).toBeInTheDocument();
-  });
+		expect(screen.getByText(label)).toBeInTheDocument();
+	});
 
-  it('should show label with correct size', () => {
-    renderInputCheck({ aspectSize: 'l', label });
+	it('should show label with correct size', () => {
+		renderInputCheck({ aspectSize: 'l', label });
 
-    expect(screen.getByText(label)).toHaveStyle(`font-size: 16px;`);
-  });
+		expect(screen.getByText(label)).toHaveStyle(`font-size: 16px;`);
+	});
 
-  it('should show label as disabled', () => {
-    renderInputCheck({ isDisabled: true, label });
+	it('should show label as disabled', () => {
+		renderInputCheck({ isDisabled: true, label });
 
-    expect(screen.getByText(label)).toHaveStyle(`
+		expect(screen.getByText(label)).toHaveStyle(`
       opacity: 0.4;
     `);
-  });
+	});
 
-  it('should call onChange when clicking on checkbox input', async () => {
-    renderInputCheck({ onChange: mockOnChange, type: 'checkbox' });
-    const InputCheckTest = screen.getByTestId(InputCheckTestId);
-    const input = InputCheckTest.querySelector('input')!;
+	it('should call onChange when clicking on checkbox input', async () => {
+		renderInputCheck({ onChange: mockOnChange, type: 'checkbox' });
+		const InputCheckTest = screen.getByTestId(InputCheckTestId);
+		const input = InputCheckTest.querySelector('input')!;
 
-    userEvent.click(input);
+		userEvent.click(input);
 
-    await waitFor(() => expect(mockOnChange).toHaveBeenCalledTimes(1));
-  });
+		await waitFor(() => expect(mockOnChange).toHaveBeenCalledTimes(1));
+	});
 
-  it('should not call onChange when clicking on checkbox input', async () => {
-    renderInputCheck({ onChange: undefined, type: 'checkbox' });
-    const InputCheckTest = screen.getByTestId(InputCheckTestId);
-    const input = InputCheckTest.querySelector('input')!;
+	it('should not call onChange when clicking on checkbox input', async () => {
+		renderInputCheck({ onChange: undefined, type: 'checkbox' });
+		const InputCheckTest = screen.getByTestId(InputCheckTestId);
+		const input = InputCheckTest.querySelector('input')!;
 
-    userEvent.click(input);
+		userEvent.click(input);
 
-    await waitFor(() => expect(mockOnChange).toHaveBeenCalledTimes(0));
-  });
+		await waitFor(() => expect(mockOnChange).toHaveBeenCalledTimes(0));
+	});
 
-  it('should not call onChange if checkbox input is disabled', async () => {
-    renderInputCheck({
-      isDisabled: true,
-      onChange: mockOnChange,
-      type: 'checkbox'
-    });
-    const InputCheckTest = screen.getByTestId(InputCheckTestId);
-    const input = InputCheckTest.querySelector('input')!;
+	it('should not call onChange if checkbox input is disabled', async () => {
+		renderInputCheck({
+			isDisabled: true,
+			onChange: mockOnChange,
+			type: 'checkbox'
+		});
+		const InputCheckTest = screen.getByTestId(InputCheckTestId);
+		const input = InputCheckTest.querySelector('input')!;
 
-    userEvent.click(input);
+		userEvent.click(input);
 
-    await waitFor(() => expect(mockOnChange).toHaveBeenCalledTimes(0));
-  });
+		await waitFor(() => expect(mockOnChange).toHaveBeenCalledTimes(0));
+	});
 
-  it('should call onChange when clicking on label', async () => {
-    renderInputCheck({ onChange: mockOnChange, label });
+	it('should call onChange when clicking on label', async () => {
+		renderInputCheck({ onChange: mockOnChange, label });
 
-    userEvent.click(screen.getByText(label));
+		userEvent.click(screen.getByText(label));
 
-    await waitFor(() => expect(mockOnChange).toHaveBeenCalledTimes(1));
-  });
+		await waitFor(() => expect(mockOnChange).toHaveBeenCalledTimes(1));
+	});
 
-  it('should not call onChange when clicking on label if disabled', async () => {
-    renderInputCheck({ isDisabled: true, onChange: mockOnChange, label });
+	it('should not call onChange when clicking on label if disabled', async () => {
+		renderInputCheck({ isDisabled: true, onChange: mockOnChange, label });
 
-    userEvent.click(screen.getByText(label));
+		userEvent.click(screen.getByText(label));
 
-    await waitFor(() => expect(mockOnChange).toHaveBeenCalledTimes(0));
-  });
+		await waitFor(() => expect(mockOnChange).toHaveBeenCalledTimes(0));
+	});
 
-  it('should call onClick when click', async () => {
-    renderInputCheck({ onClick: mockOnClick });
-    const InputCheckTest = screen.getByTestId(InputCheckTestId);
+	it('should call onClick when click', async () => {
+		renderInputCheck({ onClick: mockOnClick });
+		const InputCheckTest = screen.getByTestId(InputCheckTestId);
 
-    userEvent.click(InputCheckTest);
+		userEvent.click(InputCheckTest);
 
-    await waitFor(() => expect(mockOnClick).toHaveBeenCalledTimes(1));
-  });
+		await waitFor(() => expect(mockOnClick).toHaveBeenCalledTimes(1));
+	});
 
-  it("should not call onClick if we don't provide any", async () => {
-    renderInputCheck({ onClick: undefined });
-    const InputCheckTest = screen.getByTestId(InputCheckTestId);
+	it("should not call onClick if we don't provide any", async () => {
+		renderInputCheck({ onClick: undefined });
+		const InputCheckTest = screen.getByTestId(InputCheckTestId);
 
-    userEvent.click(InputCheckTest);
+		userEvent.click(InputCheckTest);
 
-    await waitFor(() => expect(mockOnClick).toHaveBeenCalledTimes(0));
-  });
+		await waitFor(() => expect(mockOnClick).toHaveBeenCalledTimes(0));
+	});
 
-  it('should not call onClick handler if disabled', async () => {
-    renderInputCheck({ isDisabled: true });
-    const InputCheckTest = screen.getByTestId(InputCheckTestId);
+	it('should not call onClick handler if disabled', async () => {
+		renderInputCheck({ isDisabled: true });
+		const InputCheckTest = screen.getByTestId(InputCheckTestId);
 
-    userEvent.click(InputCheckTest);
+		userEvent.click(InputCheckTest);
 
-    await waitFor(() => expect(mockOnClick).not.toHaveBeenCalled());
-  });
+		await waitFor(() => expect(mockOnClick).not.toHaveBeenCalled());
+	});
 });

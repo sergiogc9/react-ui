@@ -8,31 +8,26 @@ import { DividerProps } from './types';
 
 const testID = 'awesomeDivider';
 
-const renderDivider = (props?: DividerProps) =>
-  render(withTheme(<Divider data-testid={testID} {...props} />));
+const renderDivider = (props?: DividerProps) => render(withTheme(<Divider data-testid={testID} {...props} />));
 
 describe('Divider component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  it('should render Divider by default', () => {
-    renderDivider();
-    const divider = screen.getByTestId(testID);
-    expect(divider).toHaveStyle(
-      `background-color: ${getColorFromTheme(theme, 'neutral.100')}`
-    );
-  });
+	it('should render Divider by default', () => {
+		renderDivider();
+		const divider = screen.getByTestId(testID);
+		expect(divider).toHaveStyle(`background-color: ${getColorFromTheme(theme, 'neutral.100')}`);
+	});
 
-  it('should render Divider with custom color', () => {
-    renderDivider({ backgroundColor: 'red.500' });
-    const divider = screen.getByTestId(testID);
-    expect(divider).toHaveStyle(
-      `background-color: ${theme.colors.red['500']};`
-    );
-  });
+	it('should render Divider with custom color', () => {
+		renderDivider({ backgroundColor: 'red.500' });
+		const divider = screen.getByTestId(testID);
+		expect(divider).toHaveStyle(`background-color: ${theme.colors.red['500']};`);
+	});
 
-  it('should render Divider with custom height', () => {
-    renderDivider({ height: '2px' });
-    const divider = screen.getByTestId(testID);
-    expect(divider).toHaveStyle('height: 2px;');
-  });
+	it('should render Divider with custom height', () => {
+		renderDivider({ height: '2px' });
+		const divider = screen.getByTestId(testID);
+		expect(divider).toHaveStyle('height: 2px;');
+	});
 });

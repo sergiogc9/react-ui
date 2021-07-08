@@ -2,79 +2,67 @@ import React from 'react';
 
 import { SelectedOption, SelectProps } from './types';
 
-const getInputLabelFromSelectedOptions = (
-  selectedOptions: Record<string, SelectedOption>
-) => {
-  const values = Object.keys(selectedOptions);
-  if (values.length === 1) return selectedOptions[values[0]].label;
-  return '';
+const getInputLabelFromSelectedOptions = (selectedOptions: Record<string, SelectedOption>) => {
+	const values = Object.keys(selectedOptions);
+	if (values.length === 1) return selectedOptions[values[0]].label;
+	return '';
 };
 
 const getElementText = (element: React.ReactElement): string => {
-  if (typeof element === 'string') return element;
+	if (typeof element === 'string') return element;
 
-  if (Array.isArray(element.props.children))
-    return element.props.children.map(getElementText).join('');
+	if (Array.isArray(element.props.children)) return element.props.children.map(getElementText).join('');
 
-  if (React.isValidElement(element.props.children))
-    return getElementText(element.props.children);
+	if (React.isValidElement(element.props.children)) return getElementText(element.props.children);
 
-  return element.props.children;
+	return element.props.children;
 };
 
 const getOptionsData = (children: React.ReactNode): Record<string, string> => {
-  const optionsDataArray =
-    React.Children.map(children, (element) => {
-      if (!React.isValidElement(element)) return {};
+	const optionsDataArray =
+		React.Children.map(children, element => {
+			if (!React.isValidElement(element)) return {};
 
-      return {
-        label: getElementText(element) || '',
-        value: element.props.id
-      };
-    }) || [];
+			return {
+				label: getElementText(element) || '',
+				value: element.props.id
+			};
+		}) || [];
 
-  const optionsData = optionsDataArray.reduce<Record<string, string>>(
-    (prev, current) => {
-      const newObj = { ...prev };
-      if (current.value) newObj[current.value] = current.label || '';
+	const optionsData = optionsDataArray.reduce<Record<string, string>>((prev, current) => {
+		const newObj = { ...prev };
+		if (current.value) newObj[current.value] = current.label || '';
 
-      return newObj;
-    },
-    {}
-  );
+		return newObj;
+	}, {});
 
-  return optionsData;
+	return optionsData;
 };
 
 const getSelectOptions = (
-  defaultValue: SelectProps['defaultValue'],
-  value: SelectProps['value'],
-  children: React.ReactNode
+	defaultValue: SelectProps['defaultValue'],
+	value: SelectProps['value'],
+	children: React.ReactNode
 ): Record<string, SelectedOption> => {
-  const optionsData = getOptionsData(children);
+	const optionsData = getOptionsData(children);
 
-  let finalValues: string[] = [];
-  if (value) {
-    if (Array.isArray(value)) finalValues = value;
-    else finalValues = [value];
-  } else if (defaultValue) {
-    if (Array.isArray(defaultValue)) finalValues = defaultValue;
-    else finalValues = [defaultValue];
-  }
+	let finalValues: string[] = [];
+	if (value) {
+		if (Array.isArray(value)) finalValues = value;
+		else finalValues = [value];
+	} else if (defaultValue) {
+		if (Array.isArray(defaultValue)) finalValues = defaultValue;
+		else finalValues = [defaultValue];
+	}
 
-  return finalValues.reduce<Record<string, SelectedOption>>((prev, current) => {
-    const newObj = { ...prev };
-    newObj[current] = { label: optionsData[current] || '' };
-    return newObj;
-  }, {});
+	return finalValues.reduce<Record<string, SelectedOption>>((prev, current) => {
+		const newObj = { ...prev };
+		newObj[current] = { label: optionsData[current] || '' };
+		return newObj;
+	}, {});
 };
 
 const isStringIncluded = (baseString: string, lookupString: string) =>
-  baseString.toLowerCase().includes(lookupString.toLowerCase());
+	baseString.toLowerCase().includes(lookupString.toLowerCase());
 
-export {
-  getSelectOptions,
-  getElementText,
-  getInputLabelFromSelectedOptions,
-  isStringIncluded
-};
+export { getSelectOptions, getElementText, getInputLabelFromSelectedOptions, isStringIncluded };

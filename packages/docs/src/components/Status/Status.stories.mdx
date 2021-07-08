@@ -1,8 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
-import {
-  getFixedStoryParams,
-  getPlaygroundStoryParams
-} from 'storybook/parameters';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import Status from 'components/Status';
 
 <Meta title="Components/Status" component={Status} />
@@ -11,12 +8,8 @@ import Status from 'components/Status';
 
 Status component.
 
-<Story
-  name="playground"
-  args={{ variant: 'blue' }}
-  parameters={getPlaygroundStoryParams()}
->
-  {(args) => <Status {...args} />}
+<Story name="playground" args={{ variant: 'blue' }} parameters={getPlaygroundStoryParams()}>
+	{args => <Status {...args} />}
 </Story>
 
 ## Variants
@@ -24,21 +17,21 @@ Status component.
 Change the `Status` styling using the different availables variants changing the `variant` prop:
 
 <Canvas>
-  <Story name="grey" parameters={getFixedStoryParams()}>
-    <Status variant="grey" numberOfItems={50} />
-  </Story>
-  <Story name="red" parameters={getFixedStoryParams()}>
-    <Status variant="red" numberOfItems={50} />
-  </Story>
-  <Story name="blue" parameters={getFixedStoryParams()}>
-    <Status variant="blue" numberOfItems={50} />
-  </Story>
-  <Story name="green" parameters={getFixedStoryParams()}>
-    <Status variant="green" numberOfItems={50} />
-  </Story>
-  <Story name="yellow" parameters={getFixedStoryParams()}>
-    <Status variant="yellow" numberOfItems={50} />
-  </Story>
+	<Story name="grey" parameters={getFixedStoryParams()}>
+		<Status variant="grey" numberOfItems={50} />
+	</Story>
+	<Story name="red" parameters={getFixedStoryParams()}>
+		<Status variant="red" numberOfItems={50} />
+	</Story>
+	<Story name="blue" parameters={getFixedStoryParams()}>
+		<Status variant="blue" numberOfItems={50} />
+	</Story>
+	<Story name="green" parameters={getFixedStoryParams()}>
+		<Status variant="green" numberOfItems={50} />
+	</Story>
+	<Story name="yellow" parameters={getFixedStoryParams()}>
+		<Status variant="yellow" numberOfItems={50} />
+	</Story>
 </Canvas>
 
 # API

@@ -8,6 +8,6 @@ import { GridProps } from './types';
 
 export { GridProps, GridBoxProps, GridRowProps };
 export default createNameSpacedComponent(Grid, {
-  Box: GridBox,
-  Row: GridRow
+	Box: GridBox,
+	Row: GridRow
 });

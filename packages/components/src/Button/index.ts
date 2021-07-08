@@ -7,6 +7,6 @@ export { ButtonProps } from './types';
 export { ButtonIconProps } from './Icon/types';
 export { ButtonTextProps } from './Text/types';
 export default createNameSpacedComponent(Button, {
-  Icon: ButtonIcon,
-  Text: ButtonText
+	Icon: ButtonIcon,
+	Text: ButtonText
 });

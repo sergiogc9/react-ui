@@ -7,12 +7,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const ThemeWrapper: FunctionComponent = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <GlobalStyle />
-    {children}
-  </ThemeProvider>
+	<ThemeProvider theme={theme}>
+		<GlobalStyle />
+		{children}
+	</ThemeProvider>
 );
 
-export const withTheme = (Component: JSX.Element) => (
-  <ThemeWrapper>{Component}</ThemeWrapper>
-);
+export const withTheme = (Component: JSX.Element) => <ThemeWrapper>{Component}</ThemeWrapper>;

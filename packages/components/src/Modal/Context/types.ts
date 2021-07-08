@@ -1,3 +1,3 @@
 export type ModalContextData = {
-  readonly onCloseModal?: () => void;
+	readonly onCloseModal?: () => void;
 };

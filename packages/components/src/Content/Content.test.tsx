@@ -8,30 +8,29 @@ import { ContentProps } from './types';
 
 const testID = 'content';
 
-const renderContent = (props?: ContentProps) =>
-  render(withTheme(<Content data-testid={testID} {...props} />));
+const renderContent = (props?: ContentProps) => render(withTheme(<Content data-testid={testID} {...props} />));
 
 describe('Content component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  it('should render Content by default', () => {
-    renderContent();
-    const content = screen.getByTestId(testID);
+	it('should render Content by default', () => {
+		renderContent();
+		const content = screen.getByTestId(testID);
 
-    expect(content).toHaveStyle('font-weight: 400');
-  });
+		expect(content).toHaveStyle('font-weight: 400');
+	});
 
-  it('should render Content with custom color', () => {
-    renderContent({ color: 'red.500' });
-    const content = screen.getByTestId(testID);
+	it('should render Content with custom color', () => {
+		renderContent({ color: 'red.500' });
+		const content = screen.getByTestId(testID);
 
-    expect(content).toHaveStyle(`color: ${theme.colors.red['500']};`);
-  });
+		expect(content).toHaveStyle(`color: ${theme.colors.red['500']};`);
+	});
 
-  it('should render Content with custom alignment', () => {
-    renderContent({ textAlign: 'right' });
-    const content = screen.getByTestId(testID);
+	it('should render Content with custom alignment', () => {
+		renderContent({ textAlign: 'right' });
+		const content = screen.getByTestId(testID);
 
-    expect(content).toHaveStyle('text-align: right;');
-  });
+		expect(content).toHaveStyle('text-align: right;');
+	});
 });

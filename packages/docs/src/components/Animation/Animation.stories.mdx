@@ -1,46 +1,25 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
-import {
-  getFixedStoryParams,
-  getPlaygroundStoryParams
-} from 'storybook/parameters';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import AnimationDecorator from 'storybook/decorators/Animation';
 import Animation from 'components/Animation';
-import {
-  AnimatedButton,
-  ButtonAnimate,
-  CustomAnimatedButton,
-  CustomAnimation
-} from './Animation';
+import { AnimatedButton, ButtonAnimate, CustomAnimatedButton, CustomAnimation } from './Animation';
 
-<Meta
-  title="Components/Animation"
-  component={Animation.Animate}
-  decorators={[AnimationDecorator]}
-/>
+<Meta title="Components/Animation" component={Animation.Animate} decorators={[AnimationDecorator]} />
 
 <Story name="playground" args={{}} parameters={getPlaygroundStoryParams()}>
-  {(args) => <Animation.FadeIn {...args}>Awesome title</Animation.FadeIn>}
+	{args => <Animation.FadeIn {...args}>Awesome title</Animation.FadeIn>}
 </Story>
 
-<Story
-  name="playground multiple"
-  args={{}}
-  parameters={getPlaygroundStoryParams()}
->
-  {(args) => (
-    <Animation.Animate
-      {...args}
-      animation={[
-        Animation.FadeInAnimation,
-        CustomAnimation,
-        Animation.FadeOutAnimation,
-        Animation.FadeInAnimation
-      ]}
-      duration={['2s', '1s', '1s', '2s']}
-    >
-      This library rocks!
-    </Animation.Animate>
-  )}
+<Story name="playground multiple" args={{}} parameters={getPlaygroundStoryParams()}>
+	{args => (
+		<Animation.Animate
+			{...args}
+			animation={[Animation.FadeInAnimation, CustomAnimation, Animation.FadeOutAnimation, Animation.FadeInAnimation]}
+			duration={['2s', '1s', '1s', '2s']}
+		>
+			This library rocks!
+		</Animation.Animate>
+	)}
 </Story>
 
 # Animation
@@ -69,37 +48,35 @@ All the pre-defined components includes an animation `keyframes` object if you w
 An example using FadeIn:
 
 <Canvas>
-  <Story
-    name="fade-in"
-    parameters={{
-      ...getFixedStoryParams(),
-      docs: {
-        source: {
-          code: `<Animation.FadeIn duration="2s">This library rocks!</Animation.FadeIn>`
-        }
-      }
-    }}
-  >
-    {(args) => (
-      <Animation.FadeIn {...args} duration="2s">
-        This library rocks!
-      </Animation.FadeIn>
-    )}
-  </Story>
+	<Story
+		name="fade-in"
+		parameters={{
+			...getFixedStoryParams(),
+			docs: {
+				source: {
+					code: `<Animation.FadeIn duration="2s">This library rocks!</Animation.FadeIn>`
+				}
+			}
+		}}
+	>
+		{args => (
+			<Animation.FadeIn {...args} duration="2s">
+				This library rocks!
+			</Animation.FadeIn>
+		)}
+	</Story>
 </Canvas>
 
 You can try all available pre-defined animations selecting the story in the left sidebar.
 
 <Story
-  name="fade-out"
-  parameters={{
-    ...getFixedStoryParams(),
-    docs: { disable: true }
-  }}
+	name="fade-out"
+	parameters={{
+		...getFixedStoryParams(),
+		docs: { disable: true }
+	}}
 >
-  {(args) => (
-    <Animation.FadeOut {...args}>This library rocks!</Animation.FadeOut>
-  )}
+	{args => <Animation.FadeOut {...args}>This library rocks!</Animation.FadeOut>}
 </Story>
 
 ### Overriding an existing component
@@ -111,29 +88,29 @@ The returned component by the HOC will have all behaviors and props from `BaseAn
 An example with the Button component and the FadeIn animation:
 
 <Canvas>
-  <Story
-    name="with custom cumponent"
-    parameters={{
-      ...getFixedStoryParams(),
-      docs: {
-        source: {
-          code: `
+	<Story
+		name="with custom cumponent"
+		parameters={{
+			...getFixedStoryParams(),
+			docs: {
+				source: {
+					code: `
 import { Animation, Button } from '@sergiogc9/react-ui';
 const AnimatedButton = Animation.withBaseAnimation(
   Button,
   Animation.FadeInAnimation
 );
 <AnimatedButton duration="2s">This library rocks!</AnimatedButton>`
-        }
-      }
-    }}
-  >
-    {(args) => (
-      <AnimatedButton {...args} duration="2s">
-        This library rocks!
-      </AnimatedButton>
-    )}
-  </Story>
+				}
+			}
+		}}
+	>
+		{args => (
+			<AnimatedButton {...args} duration="2s">
+				This library rocks!
+			</AnimatedButton>
+		)}
+	</Story>
 </Canvas>
 
 ### Custom animations
@@ -143,13 +120,13 @@ You can create custom animations passing a keyframes object to the `withBaseAnim
 An example with a custom animation and the Button Component:
 
 <Canvas>
-  <Story
-    name="with custom animation"
-    parameters={{
-      ...getFixedStoryParams(),
-      docs: {
-        source: {
-          code: `
+	<Story
+		name="with custom animation"
+		parameters={{
+			...getFixedStoryParams(),
+			docs: {
+				source: {
+					code: `
 import { keyframes } from 'styled-components';
 import { Animation, Button } from '@sergiogc9/react-ui';
 const CustomAnimation = keyframes\`
@@ -168,16 +145,16 @@ const CustomAnimatedButton = Animation.withBaseAnimation(
   CustomAnimation
 );
 <CustomAnimatedButton duration="2s">This library rocks!</CustomAnimatedButton>`
-        }
-      }
-    }}
-  >
-    {(args) => (
-      <CustomAnimatedButton {...args} duration="2s">
-        This library rocks!
-      </CustomAnimatedButton>
-    )}
-  </Story>
+				}
+			}
+		}}
+	>
+		{args => (
+			<CustomAnimatedButton {...args} duration="2s">
+				This library rocks!
+			</CustomAnimatedButton>
+		)}
+	</Story>
 </Canvas>
 
 ## Animate
@@ -187,13 +164,13 @@ The Animate component lets to use more than one animation, one after each other.
 For example, following the examples above, we can use the FadeIn and FadeOut pre-defined animations together with our custom animation:
 
 <Canvas>
-  <Story
-    name="with multiple animations"
-    parameters={{
-      ...getFixedStoryParams(),
-      docs: {
-        source: {
-          code: `
+	<Story
+		name="with multiple animations"
+		parameters={{
+			...getFixedStoryParams(),
+			docs: {
+				source: {
+					code: `
 import { keyframes } from 'styled-components';
 import { Animation, Button } from '@sergiogc9/react-ui';
 const CustomAnimation = keyframes\`
@@ -219,26 +196,21 @@ const CustomAnimation = keyframes\`
 >
   This library rocks!
 </Animation.Animate>`
-        }
-      }
-    }}
-  >
-    {(args) => (
-      <Animation.Animate
-        {...args}
-        animation={[
-          CustomAnimation,
-          CustomAnimation,
-          Animation.FadeOutAnimation,
-          Animation.FadeInAnimation
-        ]}
-        direction={['normal', 'reverse', 'normal', 'normal']}
-        duration={['1s', '2000ms', '2.5s', '2s']}
-      >
-        This library rocks!
-      </Animation.Animate>
-    )}
-  </Story>
+				}
+			}
+		}}
+	>
+		{args => (
+			<Animation.Animate
+				{...args}
+				animation={[CustomAnimation, CustomAnimation, Animation.FadeOutAnimation, Animation.FadeInAnimation]}
+				direction={['normal', 'reverse', 'normal', 'normal']}
+				duration={['1s', '2000ms', '2.5s', '2s']}
+			>
+				This library rocks!
+			</Animation.Animate>
+		)}
+	</Story>
 </Canvas>
 
 ### Overriding custom components
@@ -248,13 +220,13 @@ Euqal than with `BaseAnimation`, you can use the `withAnimate` HOC to convert an
 An example using the Button component:
 
 <Canvas>
-  <Story
-    name="existing component with multiple animations"
-    parameters={{
-      ...getFixedStoryParams(),
-      docs: {
-        source: {
-          code: `
+	<Story
+		name="existing component with multiple animations"
+		parameters={{
+			...getFixedStoryParams(),
+			docs: {
+				source: {
+					code: `
 import { keyframes } from 'styled-components';
 import { Animation, Button } from '@sergiogc9/react-ui';
 const CustomAnimation = keyframes\`
@@ -281,26 +253,21 @@ const ButtonAnimate = Animation.withAnimate(Button);
 >
   This library rocks!
 </ButtonAnimate>`
-        }
-      }
-    }}
-  >
-    {(args) => (
-      <ButtonAnimate
-        {...args}
-        animation={[
-          CustomAnimation,
-          CustomAnimation,
-          Animation.FadeOutAnimation,
-          Animation.FadeInAnimation
-        ]}
-        direction={['normal', 'reverse', 'normal', 'normal']}
-        duration={['1s', '2000ms', '2.5s', '2s']}
-      >
-        This library rocks!
-      </ButtonAnimate>
-    )}
-  </Story>
+				}
+			}
+		}}
+	>
+		{args => (
+			<ButtonAnimate
+				{...args}
+				animation={[CustomAnimation, CustomAnimation, Animation.FadeOutAnimation, Animation.FadeInAnimation]}
+				direction={['normal', 'reverse', 'normal', 'normal']}
+				duration={['1s', '2000ms', '2.5s', '2s']}
+			>
+				This library rocks!
+			</ButtonAnimate>
+		)}
+	</Story>
 </Canvas>
 
 ## Start and stop the animation

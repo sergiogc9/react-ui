@@ -9,37 +9,35 @@ import { StepperCircleLineProps } from './types';
 
 const text = 'Awesome tab';
 const defaultContextData: StepperStepContextData = {
-  current: 0,
-  index: 0,
-  isLast: false,
-  showCheckIcon: false,
-  variant: 'vertical'
+	current: 0,
+	index: 0,
+	isLast: false,
+	showCheckIcon: false,
+	variant: 'vertical'
 };
 
 const renderStepperCircleLine = (
-  props: Partial<StepperCircleLineProps> = {},
-  contextData: Partial<StepperStepContextData> = {}
+	props: Partial<StepperCircleLineProps> = {},
+	contextData: Partial<StepperStepContextData> = {}
 ) =>
-  render(
-    withTheme(
-      <StepperStepContext.Provider
-        value={{ ...defaultContextData, ...contextData }}
-      >
-        <StepperCircleLine {...props}>{text}</StepperCircleLine>
-      </StepperStepContext.Provider>
-    )
-  );
+	render(
+		withTheme(
+			<StepperStepContext.Provider value={{ ...defaultContextData, ...contextData }}>
+				<StepperCircleLine {...props}>{text}</StepperCircleLine>
+			</StepperStepContext.Provider>
+		)
+	);
 
 describe('StepperCircleLine component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  it('should render content', () => {
-    renderStepperCircleLine();
-    expect(screen.getByText(text)).toBeInTheDocument();
-  });
+	it('should render content', () => {
+		renderStepperCircleLine();
+		expect(screen.getByText(text)).toBeInTheDocument();
+	});
 
-  it('should not render line', () => {
-    renderStepperCircleLine({});
-    expect(screen.getByTestId('stepper-circle-line')).toBeInTheDocument();
-  });
+	it('should not render line', () => {
+		renderStepperCircleLine({});
+		expect(screen.getByTestId('stepper-circle-line')).toBeInTheDocument();
+	});
 });

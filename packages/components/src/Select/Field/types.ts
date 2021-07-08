@@ -6,5 +6,5 @@ type Props = unknown;
 
 export type SelectFieldProps = Props & Omit<TextFieldProps, 'type'>;
 export type StyledSelectFieldProps = SelectFieldProps &
-  Pick<SelectProps, 'isAutocomplete'> &
-  Pick<SelectContextData, 'selectedOptions'>;
+	Pick<SelectProps, 'isAutocomplete'> &
+	Pick<SelectContextData, 'selectedOptions'>;

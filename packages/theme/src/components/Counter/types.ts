@@ -5,6 +5,6 @@ type CounterColors = Record<CounterVariants, Record<'color' | 'bg', string>>;
 type CounterSizes = Record<CounterAspectSizes, number>;
 
 export interface Counter {
-  readonly colors: CounterColors;
-  readonly sizes: CounterSizes;
+	readonly colors: CounterColors;
+	readonly sizes: CounterSizes;
 }

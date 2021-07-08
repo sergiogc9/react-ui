@@ -12,8 +12,8 @@ import { TabsTabProps } from './Tab/types';
 export { TabsProps, TabsContentProps, TabsTabProps };
 
 export default createNameSpacedComponent(Tabs, {
-  Content: TabsContent,
-  Header,
-  Menu,
-  Tab: TabsTab
+	Content: TabsContent,
+	Header,
+	Menu,
+	Tab: TabsTab
 });

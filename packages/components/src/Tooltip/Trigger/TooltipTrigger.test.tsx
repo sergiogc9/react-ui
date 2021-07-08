@@ -9,42 +9,39 @@ import { TooltipTriggerProps } from './types';
 const tooltipTriggerTestId = 'TooltipTrigger';
 const text = 'Awesome trigger';
 
-const ref =
-  React.createRef<HTMLDivElement>() as React.MutableRefObject<HTMLElement>;
+const ref = React.createRef<HTMLDivElement>() as React.MutableRefObject<HTMLElement>;
 const defaultContextData: PopoverContextData = {
-  popoverRef: ref
+	popoverRef: ref
 };
 
 const renderTooltipTrigger = (
-  props: Partial<TooltipTriggerProps> = {},
-  contextData: Partial<PopoverContextData> = {}
+	props: Partial<TooltipTriggerProps> = {},
+	contextData: Partial<PopoverContextData> = {}
 ) =>
-  render(
-    withTheme(
-      <PopoverContext.Provider
-        value={{ ...defaultContextData, ...contextData }}
-      >
-        <Tooltip.Trigger data-testid={tooltipTriggerTestId} {...props}>
-          {text}
-        </Tooltip.Trigger>
-      </PopoverContext.Provider>
-    )
-  );
+	render(
+		withTheme(
+			<PopoverContext.Provider value={{ ...defaultContextData, ...contextData }}>
+				<Tooltip.Trigger data-testid={tooltipTriggerTestId} {...props}>
+					{text}
+				</Tooltip.Trigger>
+			</PopoverContext.Provider>
+		)
+	);
 
 describe('TooltipTrigger component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
 
-  it('should render content', () => {
-    renderTooltipTrigger();
-    expect(screen.getByText(text)).toBeInTheDocument();
-  });
+	it('should render content', () => {
+		renderTooltipTrigger();
+		expect(screen.getByText(text)).toBeInTheDocument();
+	});
 
-  it('should pass ref correctly', () => {
-    renderTooltipTrigger();
-    expect(ref.current!.innerHTML).toEqual(text);
-  });
+	it('should pass ref correctly', () => {
+		renderTooltipTrigger();
+		expect(ref.current!.innerHTML).toEqual(text);
+	});
 });

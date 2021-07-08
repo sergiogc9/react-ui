@@ -4,7 +4,7 @@ type TitleFontSizes = Record<TitleAspectSizes, number | number[]>;
 type TitleLineHeights = Record<TitleAspectSizes, number | number[]>;
 
 export interface Title {
-  readonly fontWeights: TitleFontWeights;
-  readonly fontSizes: TitleFontSizes;
-  readonly lineHeights: TitleLineHeights;
+	readonly fontWeights: TitleFontWeights;
+	readonly fontSizes: TitleFontSizes;
+	readonly lineHeights: TitleLineHeights;
 }

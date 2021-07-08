@@ -1,8 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
-import {
-  getFixedStoryParams,
-  getPlaygroundStoryParams
-} from 'storybook/parameters';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import StepperDecorator from 'storybook/decorators/Stepper';
 import Box from 'components/Box';
 import Content from 'components/Content';
@@ -14,33 +11,29 @@ import Stepper from 'components/Stepper';
 
 A component to show the steps through a process.
 
-<Story
-  name="playground"
-  args={{ current: 2, variant: 'vertical' }}
-  parameters={getPlaygroundStoryParams()}
->
-  {(args) => (
-    <Stepper {...args} width="500px">
-      <Stepper.Step>
-        <Stepper.Circle>
-          <Stepper.Icon icon="work" styling="outlined" />
-        </Stepper.Circle>
-        <Stepper.Text>Job Description</Stepper.Text>
-      </Stepper.Step>
-      <Stepper.Step>
-        <Stepper.Circle>
-          <Stepper.Icon icon="detail" styling="outlined" />
-        </Stepper.Circle>
-        <Stepper.Text>Contract</Stepper.Text>
-      </Stepper.Step>
-      <Stepper.Step>
-        <Stepper.Circle>
-          <Stepper.Icon icon="flash" styling="outlined" />
-        </Stepper.Circle>
-        <Stepper.Text>Flash Questions</Stepper.Text>
-      </Stepper.Step>
-    </Stepper>
-  )}
+<Story name="playground" args={{ current: 2, variant: 'vertical' }} parameters={getPlaygroundStoryParams()}>
+	{args => (
+		<Stepper {...args} width="500px">
+			<Stepper.Step>
+				<Stepper.Circle>
+					<Stepper.Icon icon="work" styling="outlined" />
+				</Stepper.Circle>
+				<Stepper.Text>Job Description</Stepper.Text>
+			</Stepper.Step>
+			<Stepper.Step>
+				<Stepper.Circle>
+					<Stepper.Icon icon="detail" styling="outlined" />
+				</Stepper.Circle>
+				<Stepper.Text>Contract</Stepper.Text>
+			</Stepper.Step>
+			<Stepper.Step>
+				<Stepper.Circle>
+					<Stepper.Icon icon="flash" styling="outlined" />
+				</Stepper.Circle>
+				<Stepper.Text>Flash Questions</Stepper.Text>
+			</Stepper.Step>
+		</Stepper>
+	)}
 </Story>
 
 ## Variants
@@ -50,121 +43,105 @@ The stepper can be used in some different variants, using the `variant` prop:
 #### Vertical
 
 <Canvas>
-  <Story
-    name="vertical"
-    decorators={[StepperDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <Stepper {...args} variant="vertical">
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="work" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Job Description</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="detail" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Contract</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="flash" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Flash Questions</Stepper.Text>
-        </Stepper.Step>
-      </Stepper>
-    )}
-  </Story>
+	<Story name="vertical" decorators={[StepperDecorator]} parameters={getFixedStoryParams()}>
+		{args => (
+			<Stepper {...args} variant="vertical">
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="work" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Job Description</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="detail" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Contract</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="flash" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Flash Questions</Stepper.Text>
+				</Stepper.Step>
+			</Stepper>
+		)}
+	</Story>
 </Canvas>
 
 #### Horizontal
 
 <Canvas>
-  <Story
-    name="horizontal"
-    decorators={[StepperDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <Stepper {...args} variant="horizontal">
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="work" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Job Description</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="detail" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Contract</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="flash" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Flash Questions</Stepper.Text>
-        </Stepper.Step>
-      </Stepper>
-    )}
-  </Story>
+	<Story name="horizontal" decorators={[StepperDecorator]} parameters={getFixedStoryParams()}>
+		{args => (
+			<Stepper {...args} variant="horizontal">
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="work" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Job Description</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="detail" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Contract</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="flash" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Flash Questions</Stepper.Text>
+				</Stepper.Step>
+			</Stepper>
+		)}
+	</Story>
 </Canvas>
 
 #### Compacted
 
 <Canvas>
-  <Story
-    name="compacted"
-    decorators={[StepperDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <Stepper {...args} variant="compacted">
-        <Stepper.Step>
-          <Stepper.Circle>1</Stepper.Circle>
-          <Stepper.Text>Job Description</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>2</Stepper.Circle>
-          <Stepper.Text>Contract</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>3</Stepper.Circle>
-          <Stepper.Text>Flash Questions</Stepper.Text>
-        </Stepper.Step>
-      </Stepper>
-    )}
-  </Story>
+	<Story name="compacted" decorators={[StepperDecorator]} parameters={getFixedStoryParams()}>
+		{args => (
+			<Stepper {...args} variant="compacted">
+				<Stepper.Step>
+					<Stepper.Circle>1</Stepper.Circle>
+					<Stepper.Text>Job Description</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>2</Stepper.Circle>
+					<Stepper.Text>Contract</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>3</Stepper.Circle>
+					<Stepper.Text>Flash Questions</Stepper.Text>
+				</Stepper.Step>
+			</Stepper>
+		)}
+	</Story>
 </Canvas>
 
 #### Compacted without lines
 
 <Canvas>
-  <Story
-    name="compacted without lines"
-    decorators={[StepperDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <Stepper {...args} variant="compacted-no-line">
-        <Stepper.Step>
-          <Stepper.Circle>1</Stepper.Circle>
-          <Stepper.Text>Job Description</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>2</Stepper.Circle>
-          <Stepper.Text>Contract</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>3</Stepper.Circle>
-          <Stepper.Text>Flash Questions</Stepper.Text>
-        </Stepper.Step>
-      </Stepper>
-    )}
-  </Story>
+	<Story name="compacted without lines" decorators={[StepperDecorator]} parameters={getFixedStoryParams()}>
+		{args => (
+			<Stepper {...args} variant="compacted-no-line">
+				<Stepper.Step>
+					<Stepper.Circle>1</Stepper.Circle>
+					<Stepper.Text>Job Description</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>2</Stepper.Circle>
+					<Stepper.Text>Contract</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>3</Stepper.Circle>
+					<Stepper.Text>Flash Questions</Stepper.Text>
+				</Stepper.Step>
+			</Stepper>
+		)}
+	</Story>
 </Canvas>
 
 ## With icons
@@ -172,34 +149,30 @@ The stepper can be used in some different variants, using the `variant` prop:
 You can use the `Stepper.Icon` inside the `Stepper.Circle` to use custom icons:
 
 <Canvas>
-  <Story
-    name="with icons"
-    decorators={[StepperDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <Stepper {...args}>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="work" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Job Description</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="detail" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Contract</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="flash" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Flash Questions</Stepper.Text>
-        </Stepper.Step>
-      </Stepper>
-    )}
-  </Story>
+	<Story name="with icons" decorators={[StepperDecorator]} parameters={getFixedStoryParams()}>
+		{args => (
+			<Stepper {...args}>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="work" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Job Description</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="detail" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Contract</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="flash" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Flash Questions</Stepper.Text>
+				</Stepper.Step>
+			</Stepper>
+		)}
+	</Story>
 </Canvas>
 
 ## With numbers
@@ -207,28 +180,24 @@ You can use the `Stepper.Icon` inside the `Stepper.Circle` to use custom icons:
 You can use numbers inside the `Stepper.Circle` to use number based stepper:
 
 <Canvas>
-  <Story
-    name="with numbers"
-    decorators={[StepperDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <Stepper {...args}>
-        <Stepper.Step>
-          <Stepper.Circle>1</Stepper.Circle>
-          <Stepper.Text>Job Description</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>2</Stepper.Circle>
-          <Stepper.Text>Contract</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>3</Stepper.Circle>
-          <Stepper.Text>Flash Questions</Stepper.Text>
-        </Stepper.Step>
-      </Stepper>
-    )}
-  </Story>
+	<Story name="with numbers" decorators={[StepperDecorator]} parameters={getFixedStoryParams()}>
+		{args => (
+			<Stepper {...args}>
+				<Stepper.Step>
+					<Stepper.Circle>1</Stepper.Circle>
+					<Stepper.Text>Job Description</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>2</Stepper.Circle>
+					<Stepper.Text>Contract</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>3</Stepper.Circle>
+					<Stepper.Text>Flash Questions</Stepper.Text>
+				</Stepper.Step>
+			</Stepper>
+		)}
+	</Story>
 </Canvas>
 
 ## With custom content
@@ -236,34 +205,30 @@ You can use numbers inside the `Stepper.Circle` to use number based stepper:
 You can put whatever inside the `Stepper.Circle`:
 
 <Canvas>
-  <Story
-    name="with custom content"
-    decorators={[StepperDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <Stepper {...args}>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Content aspectSize="s">😄</Content>
-          </Stepper.Circle>
-          <Stepper.Text>Job Description</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Content aspectSize="xs">SG</Content>
-          </Stepper.Circle>
-          <Stepper.Text>Contract</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="flash" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Flash Questions</Stepper.Text>
-        </Stepper.Step>
-      </Stepper>
-    )}
-  </Story>
+	<Story name="with custom content" decorators={[StepperDecorator]} parameters={getFixedStoryParams()}>
+		{args => (
+			<Stepper {...args}>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Content aspectSize="s">😄</Content>
+					</Stepper.Circle>
+					<Stepper.Text>Job Description</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Content aspectSize="xs">SG</Content>
+					</Stepper.Circle>
+					<Stepper.Text>Contract</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="flash" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Flash Questions</Stepper.Text>
+				</Stepper.Step>
+			</Stepper>
+		)}
+	</Story>
 </Canvas>
 
 ## With only icons
@@ -271,31 +236,27 @@ You can put whatever inside the `Stepper.Circle`:
 You can use only icons without any text:
 
 <Canvas>
-  <Story
-    name="only icons"
-    decorators={[StepperDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <Stepper {...args}>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="work" styling="outlined" />
-          </Stepper.Circle>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="detail" styling="outlined" />
-          </Stepper.Circle>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="flash" styling="outlined" />
-          </Stepper.Circle>
-        </Stepper.Step>
-      </Stepper>
-    )}
-  </Story>
+	<Story name="only icons" decorators={[StepperDecorator]} parameters={getFixedStoryParams()}>
+		{args => (
+			<Stepper {...args}>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="work" styling="outlined" />
+					</Stepper.Circle>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="detail" styling="outlined" />
+					</Stepper.Circle>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="flash" styling="outlined" />
+					</Stepper.Circle>
+				</Stepper.Step>
+			</Stepper>
+		)}
+	</Story>
 </Canvas>
 
 ## With an optional text
@@ -303,71 +264,63 @@ You can use only icons without any text:
 You can use the `Stepper.TextOptional` component to print an optional label:
 
 <Canvas>
-  <Story
-    name="with optional text vertical"
-    decorators={[StepperDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <Stepper {...args}>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="work" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Job Description</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="detail" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Contract</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="flash" styling="outlined" />
-          </Stepper.Circle>
-          <Box flexDirection="column">
-            <Stepper.Text>Flash Questions</Stepper.Text>
-            <Stepper.TextOptional>Optional</Stepper.TextOptional>
-          </Box>
-        </Stepper.Step>
-      </Stepper>
-    )}
-  </Story>
+	<Story name="with optional text vertical" decorators={[StepperDecorator]} parameters={getFixedStoryParams()}>
+		{args => (
+			<Stepper {...args}>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="work" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Job Description</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="detail" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Contract</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="flash" styling="outlined" />
+					</Stepper.Circle>
+					<Box flexDirection="column">
+						<Stepper.Text>Flash Questions</Stepper.Text>
+						<Stepper.TextOptional>Optional</Stepper.TextOptional>
+					</Box>
+				</Stepper.Step>
+			</Stepper>
+		)}
+	</Story>
 </Canvas>
 
 <Canvas>
-  <Story
-    name="with optional text horizontal"
-    decorators={[StepperDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <Stepper {...args} variant="horizontal">
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="work" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Job Description</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="detail" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Contract</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="flash" styling="outlined" />
-          </Stepper.Circle>
-          <Box flexDirection="column">
-            <Stepper.Text>Flash Questions</Stepper.Text>
-            <Stepper.TextOptional>Optional</Stepper.TextOptional>
-          </Box>
-        </Stepper.Step>
-      </Stepper>
-    )}
-  </Story>
+	<Story name="with optional text horizontal" decorators={[StepperDecorator]} parameters={getFixedStoryParams()}>
+		{args => (
+			<Stepper {...args} variant="horizontal">
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="work" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Job Description</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="detail" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Contract</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="flash" styling="outlined" />
+					</Stepper.Circle>
+					<Box flexDirection="column">
+						<Stepper.Text>Flash Questions</Stepper.Text>
+						<Stepper.TextOptional>Optional</Stepper.TextOptional>
+					</Box>
+				</Stepper.Step>
+			</Stepper>
+		)}
+	</Story>
 </Canvas>
 
 ## Showing a check icon in previous steps
@@ -375,71 +328,63 @@ You can use the `Stepper.TextOptional` component to print an optional label:
 If you want to use a check icon for previous steps, use the `showCheckIcon` prop:
 
 <Canvas>
-  <Story
-    name="with check icon vertical"
-    decorators={[StepperDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <Stepper {...args} showCheckIcon>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="work" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Job Description</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="detail" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Contract</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="flash" styling="outlined" />
-          </Stepper.Circle>
-          <Box flexDirection="column">
-            <Stepper.Text>Flash Questions</Stepper.Text>
-            <Stepper.TextOptional>Optional</Stepper.TextOptional>
-          </Box>
-        </Stepper.Step>
-      </Stepper>
-    )}
-  </Story>
+	<Story name="with check icon vertical" decorators={[StepperDecorator]} parameters={getFixedStoryParams()}>
+		{args => (
+			<Stepper {...args} showCheckIcon>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="work" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Job Description</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="detail" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Contract</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="flash" styling="outlined" />
+					</Stepper.Circle>
+					<Box flexDirection="column">
+						<Stepper.Text>Flash Questions</Stepper.Text>
+						<Stepper.TextOptional>Optional</Stepper.TextOptional>
+					</Box>
+				</Stepper.Step>
+			</Stepper>
+		)}
+	</Story>
 </Canvas>
 
 <Canvas>
-  <Story
-    name="with check icon horizontal"
-    decorators={[StepperDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <Stepper {...args} showCheckIcon variant="horizontal">
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="work" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Job Description</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="detail" styling="outlined" />
-          </Stepper.Circle>
-          <Stepper.Text>Contract</Stepper.Text>
-        </Stepper.Step>
-        <Stepper.Step>
-          <Stepper.Circle>
-            <Stepper.Icon icon="flash" styling="outlined" />
-          </Stepper.Circle>
-          <Box flexDirection="column">
-            <Stepper.Text>Flash Questions</Stepper.Text>
-            <Stepper.TextOptional>Optional</Stepper.TextOptional>
-          </Box>
-        </Stepper.Step>
-      </Stepper>
-    )}
-  </Story>
+	<Story name="with check icon horizontal" decorators={[StepperDecorator]} parameters={getFixedStoryParams()}>
+		{args => (
+			<Stepper {...args} showCheckIcon variant="horizontal">
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="work" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Job Description</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="detail" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Contract</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon icon="flash" styling="outlined" />
+					</Stepper.Circle>
+					<Box flexDirection="column">
+						<Stepper.Text>Flash Questions</Stepper.Text>
+						<Stepper.TextOptional>Optional</Stepper.TextOptional>
+					</Box>
+				</Stepper.Step>
+			</Stepper>
+		)}
+	</Story>
 </Canvas>
 
 # Stepper API

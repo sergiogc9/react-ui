@@ -6,13 +6,13 @@ import aspectSize from './variants/aspectSize';
 import { ButtonIconProps } from './types';
 
 const ButtonIcon: React.FC<ButtonIconProps> = styled(Icon)<ButtonIconProps>`
-  fill: currentColor;
+	fill: currentColor;
 
-  ${aspectSize};
+	${aspectSize};
 `;
 
 ButtonIcon.defaultProps = {
-  aspectSize: 'm'
+	aspectSize: 'm'
 };
 
 const MemoButtonIcon = React.memo(ButtonIcon);

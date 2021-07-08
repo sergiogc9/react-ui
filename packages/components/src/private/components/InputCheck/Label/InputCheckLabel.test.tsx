@@ -9,30 +9,30 @@ const inputCheckLabelTestId = 'InputCheckLabel';
 const text = 'Awesome Label';
 
 const renderInputHelperText = (props?: Partial<InputCheckLabelProps>) =>
-  render(
-    withTheme(
-      <InputCheckLabel data-testid={inputCheckLabelTestId} {...props}>
-        {text}
-      </InputCheckLabel>
-    )
-  );
+	render(
+		withTheme(
+			<InputCheckLabel data-testid={inputCheckLabelTestId} {...props}>
+				{text}
+			</InputCheckLabel>
+		)
+	);
 
 describe('InputCheckLabel component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  it('should render Label text', () => {
-    renderInputHelperText();
+	it('should render Label text', () => {
+		renderInputHelperText();
 
-    expect(screen.getByText(text)).toBeInTheDocument();
-  });
+		expect(screen.getByText(text)).toBeInTheDocument();
+	});
 
-  it('should render label as disabled', () => {
-    renderInputHelperText({ isDisabled: true });
+	it('should render label as disabled', () => {
+		renderInputHelperText({ isDisabled: true });
 
-    const inputCheckLabel = screen.getByTestId(inputCheckLabelTestId);
+		const inputCheckLabel = screen.getByTestId(inputCheckLabelTestId);
 
-    expect(inputCheckLabel).toHaveStyle(`
+		expect(inputCheckLabel).toHaveStyle(`
         opacity: 0.4;
     `);
-  });
+	});
 });

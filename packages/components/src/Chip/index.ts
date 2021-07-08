@@ -8,6 +8,6 @@ export { ChipLabelProps } from './ChipLabel/types';
 export { ChipIconProps } from './ChipIcon/types';
 
 export default createNameSpacedComponent(Chip, {
-  Icon: ChipIcon,
-  Label: ChipLabel
+	Icon: ChipIcon,
+	Label: ChipLabel
 });

@@ -10,43 +10,43 @@ const inputHelperTextTestId = 'InputHelperText';
 const text = 'Awesome helper text';
 
 const renderFieldGroup = (props?: Partial<InputHelperTextProps>) =>
-  render(
-    withTheme(
-      <InputHelperText data-testid={inputHelperTextTestId} {...props}>
-        {text}
-      </InputHelperText>
-    )
-  );
+	render(
+		withTheme(
+			<InputHelperText data-testid={inputHelperTextTestId} {...props}>
+				{text}
+			</InputHelperText>
+		)
+	);
 
 describe('InputHelperText component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  it('should render helper text text', () => {
-    renderFieldGroup();
+	it('should render helper text text', () => {
+		renderFieldGroup();
 
-    expect(screen.getByText(text)).toBeInTheDocument();
-  });
+		expect(screen.getByText(text)).toBeInTheDocument();
+	});
 
-  it('should render helper text as error', () => {
-    renderFieldGroup({ isError: true });
+	it('should render helper text as error', () => {
+		renderFieldGroup({ isError: true });
 
-    const inputHelperText = screen.getByTestId(inputHelperTextTestId);
-    expect(inputHelperText).toHaveStyle(`color: ${theme.colors.red['500']};`);
-  });
+		const inputHelperText = screen.getByTestId(inputHelperTextTestId);
+		expect(inputHelperText).toHaveStyle(`color: ${theme.colors.red['500']};`);
+	});
 
-  it('should render helper text as success', () => {
-    renderFieldGroup({ isSuccess: true });
-    const inputHelperText = screen.getByTestId(inputHelperTextTestId);
+	it('should render helper text as success', () => {
+		renderFieldGroup({ isSuccess: true });
+		const inputHelperText = screen.getByTestId(inputHelperTextTestId);
 
-    expect(inputHelperText).toHaveStyle(`color: ${theme.colors.green['500']};`);
-  });
+		expect(inputHelperText).toHaveStyle(`color: ${theme.colors.green['500']};`);
+	});
 
-  it('should render helper text as disabled', () => {
-    renderFieldGroup({ isDisabled: true });
-    const inputHelperText = screen.getByTestId(inputHelperTextTestId);
+	it('should render helper text as disabled', () => {
+		renderFieldGroup({ isDisabled: true });
+		const inputHelperText = screen.getByTestId(inputHelperTextTestId);
 
-    expect(inputHelperText).toHaveStyle(`
+		expect(inputHelperText).toHaveStyle(`
         color: ${theme.colors.neutral['400']};
     `);
-  });
+	});
 });

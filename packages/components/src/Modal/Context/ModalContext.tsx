@@ -3,7 +3,7 @@ import React from 'react';
 import { ModalContextData } from './types';
 
 const defaultContext: ModalContextData = {
-  onCloseModal: () => {}
+	onCloseModal: () => {}
 };
 
 const ModalContext = React.createContext<ModalContextData>(defaultContext);

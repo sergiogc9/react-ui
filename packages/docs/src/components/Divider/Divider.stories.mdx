@@ -1,8 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
-import {
-  getFixedStoryParams,
-  getPlaygroundStoryParams
-} from 'storybook/parameters';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import Box from 'components/Box';
 import Divider from 'components/Divider';
 
@@ -13,11 +10,11 @@ import Divider from 'components/Divider';
 The divider will help you organize better your content. Really useful when you have a lot of content on your page.
 
 <Story name="playground" parameters={getPlaygroundStoryParams()}>
-  {(args) => (
-    <Box width="800px">
-      <Divider />
-    </Box>
-  )}
+	{args => (
+		<Box width="800px">
+			<Divider />
+		</Box>
+	)}
 </Story>
 
 ## Default behavior
@@ -25,11 +22,11 @@ The divider will help you organize better your content. Really useful when you h
 By default, it will adapt automatically to the width of your container. You can use a padding to trim width from X or Y axis.
 
 <Canvas>
-  <Story name="default" parameters={getFixedStoryParams()}>
-    <Box width="800px">
-      <Divider />
-    </Box>
-  </Story>
+	<Story name="default" parameters={getFixedStoryParams()}>
+		<Box width="800px">
+			<Divider />
+		</Box>
+	</Story>
 </Canvas>
 
 ## Custom divider
@@ -37,16 +34,16 @@ By default, it will adapt automatically to the width of your container. You can 
 You can customize it giving the color, height, etc.. that you need. So you can be as creative as you want.
 
 <Canvas>
-  <Story name="custom color" parameters={getFixedStoryParams()}>
-    <Box width="800px">
-      <Divider backgroundColor="red.500" height="2px" />
-    </Box>
-  </Story>
-  <Story name="creative color" parameters={getFixedStoryParams()}>
-    <Box width="800px">
-      <Divider background="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 16%, rgba(0,212,255,1) 50%)" />
-    </Box>
-  </Story>
+	<Story name="custom color" parameters={getFixedStoryParams()}>
+		<Box width="800px">
+			<Divider backgroundColor="red.500" height="2px" />
+		</Box>
+	</Story>
+	<Story name="creative color" parameters={getFixedStoryParams()}>
+		<Box width="800px">
+			<Divider background="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 16%, rgba(0,212,255,1) 50%)" />
+		</Box>
+	</Story>
 </Canvas>
 
 # API

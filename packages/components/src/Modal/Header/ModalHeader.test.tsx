@@ -9,24 +9,24 @@ const modalHeaderTestId = 'ModalHeader';
 const text = 'Awesome header content';
 
 const renderModalHeader = (props?: Partial<ModalHeaderProps>) =>
-  render(
-    withTheme(
-      <ModalHeader data-testid={modalHeaderTestId} {...props}>
-        {props?.children || text}
-      </ModalHeader>
-    )
-  );
+	render(
+		withTheme(
+			<ModalHeader data-testid={modalHeaderTestId} {...props}>
+				{props?.children || text}
+			</ModalHeader>
+		)
+	);
 
 describe('ModalHeader component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  it('should render header content', () => {
-    renderModalHeader();
-    expect(screen.queryByText(text)).toBeInTheDocument();
-  });
+	it('should render header content', () => {
+		renderModalHeader();
+		expect(screen.queryByText(text)).toBeInTheDocument();
+	});
 
-  it('should have correct order', () => {
-    renderModalHeader();
-    expect(screen.getByTestId(modalHeaderTestId)).toHaveStyle('order: 0;');
-  });
+	it('should have correct order', () => {
+		renderModalHeader();
+		expect(screen.getByTestId(modalHeaderTestId)).toHaveStyle('order: 0;');
+	});
 });

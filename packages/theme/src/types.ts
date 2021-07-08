@@ -20,37 +20,34 @@ import { Title } from './components/Title';
 import { Tooltip } from './components/Tooltip';
 
 interface ColorPalette {
-  readonly 0?: string;
-  readonly 50: string;
-  readonly 100: string;
-  readonly 200: string;
-  readonly 300: string;
-  readonly 400: string;
-  readonly 500: string;
-  readonly 600: string;
-  readonly 700: string;
-  readonly 800: string;
-  readonly 900: string;
+	readonly 0?: string;
+	readonly 50: string;
+	readonly 100: string;
+	readonly 200: string;
+	readonly 300: string;
+	readonly 400: string;
+	readonly 500: string;
+	readonly 600: string;
+	readonly 700: string;
+	readonly 800: string;
+	readonly 900: string;
 }
 
 type BrandColors = {
-  readonly linkedin: string;
+	readonly linkedin: string;
 };
 interface ThemeColors {
-  readonly primary: ColorPalette;
-  readonly secondary: string;
-  readonly neutral: ColorPalette;
-  readonly red: ColorPalette;
-  readonly yellow: ColorPalette;
-  readonly blue: ColorPalette;
-  readonly green: ColorPalette;
-  readonly brand: BrandColors;
+	readonly primary: ColorPalette;
+	readonly secondary: string;
+	readonly neutral: ColorPalette;
+	readonly red: ColorPalette;
+	readonly yellow: ColorPalette;
+	readonly blue: ColorPalette;
+	readonly green: ColorPalette;
+	readonly brand: BrandColors;
 }
 
-type BreakPoints = ArrayWithProps<
-  string,
-  Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl', string>>
->;
+type BreakPoints = ArrayWithProps<string, Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl', string>>>;
 
 type Space = number[];
 
@@ -58,71 +55,53 @@ type Fonts = ArrayWithProps<string, Partial<Record<'main', string>>>;
 
 type FontSizes = number[];
 
-type FontWeights = ArrayWithProps<
-  number,
-  Partial<Record<'light' | 'regular' | 'semibold' | 'bold', number>>
->;
+type FontWeights = ArrayWithProps<number, Partial<Record<'light' | 'regular' | 'semibold' | 'bold', number>>>;
 
 type LineHeights = string[];
 
 type BorderRadius = string[];
 
-type Shadows = ArrayWithProps<
-  string,
-  Partial<Record<'center1' | 'center2' | 'center3' | 'up' | 'down', string>>
->;
+type Shadows = ArrayWithProps<string, Partial<Record<'center1' | 'center2' | 'center3' | 'up' | 'down', string>>>;
 
 type ZIndices = ArrayWithProps<
-  number,
-  Partial<
-    Record<
-      | 'card'
-      | 'drawer'
-      | 'plain'
-      | 'overlay'
-      | 'menu'
-      | 'modal'
-      | 'popover'
-      | 'tooltip',
-      number
-    >
-  >
+	number,
+	Partial<Record<'card' | 'drawer' | 'plain' | 'overlay' | 'menu' | 'modal' | 'popover' | 'tooltip', number>>
 >;
 
 type Locale = 'en' | 'es' | 'fr' | 'it' | 'es-MX';
 
 interface Components {
-  avatar: Avatar;
-  button: Button;
-  chip: Chip;
-  content: Content;
-  counter: Counter;
-  datePicker: DatePicker;
-  icon: Icon;
-  iconButton: IconButton;
-  input: Input;
-  inputCheck: InputCheck;
-  modal: Modal;
-  select: Select;
-  status: Status;
-  stepper: Stepper;
-  switch: Switch;
-  tab: Tab;
-  textField: TextField;
-  title: Title;
-  tooltip: Tooltip;
+	avatar: Avatar;
+	button: Button;
+	chip: Chip;
+	content: Content;
+	counter: Counter;
+	datePicker: DatePicker;
+	icon: Icon;
+	iconButton: IconButton;
+	input: Input;
+	inputCheck: InputCheck;
+	modal: Modal;
+	select: Select;
+	status: Status;
+	stepper: Stepper;
+	switch: Switch;
+	tab: Tab;
+	textField: TextField;
+	title: Title;
+	tooltip: Tooltip;
 }
 export interface Theme {
-  readonly breakpoints: BreakPoints;
-  readonly colors: ThemeColors;
-  readonly components: Components;
-  readonly fonts: Fonts;
-  readonly fontSizes: FontSizes;
-  readonly fontWeights: FontWeights;
-  readonly lineHeights: LineHeights;
-  readonly locale: Locale;
-  readonly radii: BorderRadius;
-  readonly shadows: Shadows;
-  readonly space: Space;
-  readonly zIndices: ZIndices;
+	readonly breakpoints: BreakPoints;
+	readonly colors: ThemeColors;
+	readonly components: Components;
+	readonly fonts: Fonts;
+	readonly fontSizes: FontSizes;
+	readonly fontWeights: FontWeights;
+	readonly lineHeights: LineHeights;
+	readonly locale: Locale;
+	readonly radii: BorderRadius;
+	readonly shadows: Shadows;
+	readonly space: Space;
+	readonly zIndices: ZIndices;
 }

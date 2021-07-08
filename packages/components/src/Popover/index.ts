@@ -8,14 +8,9 @@ import { PopoverWrapperProps } from './Wrapper/types';
 import Popover from './Popover';
 import { PopoverProps } from './types';
 
-export {
-  PopoverProps,
-  PopoverContentProps,
-  PopoverTriggerProps,
-  PopoverWrapperProps
-};
+export { PopoverProps, PopoverContentProps, PopoverTriggerProps, PopoverWrapperProps };
 export default createNameSpacedComponent(Popover, {
-  Content: PopoverContent,
-  Trigger: PopoverTrigger,
-  Wrapper: PopoverWrapper
+	Content: PopoverContent,
+	Trigger: PopoverTrigger,
+	Wrapper: PopoverWrapper
 });

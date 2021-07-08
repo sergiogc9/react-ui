@@ -9,26 +9,26 @@ const fadeInTestId = 'FadeIn';
 const text = 'Awesome!';
 
 const renderFadeIn = (props?: Partial<BaseAnimationProps>) =>
-  render(
-    withTheme(
-      <FadeIn data-testid={fadeInTestId} {...props}>
-        {text}
-      </FadeIn>
-    )
-  );
+	render(
+		withTheme(
+			<FadeIn data-testid={fadeInTestId} {...props}>
+				{text}
+			</FadeIn>
+		)
+	);
 
 describe('FadeIn Animation component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  it('should render the content', () => {
-    renderFadeIn();
-    expect(screen.getByText(text)).toBeInTheDocument();
-  });
+	it('should render the content', () => {
+		renderFadeIn();
+		expect(screen.getByText(text)).toBeInTheDocument();
+	});
 
-  it('should have correct animation name', () => {
-    renderFadeIn();
-    expect(screen.getByTestId(fadeInTestId)).toHaveStyle(`
+	it('should have correct animation name', () => {
+		renderFadeIn();
+		expect(screen.getByTestId(fadeInTestId)).toHaveStyle(`
       animation-name: ${FadeInAnimation.getName()}
     `);
-  });
+	});
 });

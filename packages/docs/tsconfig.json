@@ -1,13 +1,13 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "docs/*": ["./src/*"],
-      "storybook/*": ["./.storybook/*"],
-      "components/*": ["./../../packages/components/src/*"]
-    }
-  },
-  "include": ["src/**/*", ".storybook/**/*"],
-  "exclude": ["node_modules"]
+	"extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"docs/*": ["./src/*"],
+			"storybook/*": ["./.storybook/*"],
+			"components/*": ["./../../packages/components/src/*"]
+		}
+	},
+	"include": ["src/**/*", ".storybook/**/*"],
+	"exclude": ["node_modules"]
 }

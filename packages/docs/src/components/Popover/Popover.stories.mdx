@@ -1,8 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
-import {
-  getFixedStoryParams,
-  getPlaygroundStoryParams
-} from 'storybook/parameters';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import Box from 'components/Box';
 import Button from 'components/Button';
 import Popover from 'components/Popover';
@@ -27,14 +24,14 @@ It is made with these components:
 **IMPORTANT**: Only use the `Popover.Wrapper` component to create a custom Popover content components (e.g. the `Popover.Content` and `Tooltip.Content` use it). If you want to use the default Popover content styling, use the Popover Content component.
 
 <Story name="playground" args={{}} parameters={getPlaygroundStoryParams()}>
-  {(args) => (
-    <Popover>
-      <Popover.Trigger>
-        <Button>Hover me</Button>
-      </Popover.Trigger>
-      <Popover.Content {...args}>This is awesome</Popover.Content>
-    </Popover>
-  )}
+	{args => (
+		<Popover>
+			<Popover.Trigger>
+				<Button>Hover me</Button>
+			</Popover.Trigger>
+			<Popover.Content {...args}>This is awesome</Popover.Content>
+		</Popover>
+	)}
 </Story>
 
 ## Timing
@@ -42,30 +39,26 @@ It is made with these components:
 You can change the enter and exit timing using the `enterDelay` and `exitDelay` props:
 
 <Canvas>
-  <Story name="enter timing" parameters={getFixedStoryParams()}>
-    {(args) => (
-      <Popover>
-        <Popover.Trigger>
-          <Button>Hover me</Button>
-        </Popover.Trigger>
-        <Popover.Content enterDelay={1000}>
-          I took a second to be here!
-        </Popover.Content>
-      </Popover>
-    )}
-  </Story>
-  <Story name="exit timing" parameters={getFixedStoryParams()}>
-    {(args) => (
-      <Popover>
-        <Popover.Trigger ml="150px">
-          <Button>Hover me</Button>
-        </Popover.Trigger>
-        <Popover.Content exitDelay={3000}>
-          I will be gone in 3 seconds 😄
-        </Popover.Content>
-      </Popover>
-    )}
-  </Story>
+	<Story name="enter timing" parameters={getFixedStoryParams()}>
+		{args => (
+			<Popover>
+				<Popover.Trigger>
+					<Button>Hover me</Button>
+				</Popover.Trigger>
+				<Popover.Content enterDelay={1000}>I took a second to be here!</Popover.Content>
+			</Popover>
+		)}
+	</Story>
+	<Story name="exit timing" parameters={getFixedStoryParams()}>
+		{args => (
+			<Popover>
+				<Popover.Trigger ml="150px">
+					<Button>Hover me</Button>
+				</Popover.Trigger>
+				<Popover.Content exitDelay={3000}>I will be gone in 3 seconds 😄</Popover.Content>
+			</Popover>
+		)}
+	</Story>
 </Canvas>
 
 ## Interactive popover
@@ -73,30 +66,26 @@ You can change the enter and exit timing using the `enterDelay` and `exitDelay` 
 By default, the popover is hidden when mousing out the trigger. This behavior can be changed using the `isInteractive` prop:
 
 <Canvas>
-  <Story name="not interactive" parameters={getFixedStoryParams()}>
-    {(args) => (
-      <Popover>
-        <Popover.Trigger>
-          <Button>Hover me</Button>
-        </Popover.Trigger>
-        <Popover.Content isInteractive={false}>
-          I'm hiding when you mouse out the icon
-        </Popover.Content>
-      </Popover>
-    )}
-  </Story>
-  <Story name="interactive" parameters={getFixedStoryParams()}>
-    {(args) => (
-      <Popover>
-        <Popover.Trigger ml="150px">
-          <Button>Hover me</Button>
-        </Popover.Trigger>
-        <Popover.Content isInteractive={true}>
-          I keep opened if you hover me
-        </Popover.Content>
-      </Popover>
-    )}
-  </Story>
+	<Story name="not interactive" parameters={getFixedStoryParams()}>
+		{args => (
+			<Popover>
+				<Popover.Trigger>
+					<Button>Hover me</Button>
+				</Popover.Trigger>
+				<Popover.Content isInteractive={false}>I'm hiding when you mouse out the icon</Popover.Content>
+			</Popover>
+		)}
+	</Story>
+	<Story name="interactive" parameters={getFixedStoryParams()}>
+		{args => (
+			<Popover>
+				<Popover.Trigger ml="150px">
+					<Button>Hover me</Button>
+				</Popover.Trigger>
+				<Popover.Content isInteractive={true}>I keep opened if you hover me</Popover.Content>
+			</Popover>
+		)}
+	</Story>
 </Canvas>
 
 ## Changing trigger event
@@ -104,28 +93,26 @@ By default, the popover is hidden when mousing out the trigger. This behavior ca
 By default, the popover is shown when hovering the trigger. You can change it using the `trigger` prop:
 
 <Canvas>
-  <Story name="on hover" parameters={getFixedStoryParams()}>
-    {(args) => (
-      <Popover>
-        <Popover.Trigger width="fit-content">
-          <Button>Hover me</Button>
-        </Popover.Trigger>
-        <Popover.Content trigger="mouseenter focus">
-          You hovered it!
-        </Popover.Content>
-      </Popover>
-    )}
-  </Story>
-  <Story name="on click" parameters={getFixedStoryParams()}>
-    {(args) => (
-      <Popover>
-        <Popover.Trigger ml="150px" width="fit-content">
-          <Button>Click me</Button>
-        </Popover.Trigger>
-        <Popover.Content trigger="click">You clicked it!</Popover.Content>
-      </Popover>
-    )}
-  </Story>
+	<Story name="on hover" parameters={getFixedStoryParams()}>
+		{args => (
+			<Popover>
+				<Popover.Trigger width="fit-content">
+					<Button>Hover me</Button>
+				</Popover.Trigger>
+				<Popover.Content trigger="mouseenter focus">You hovered it!</Popover.Content>
+			</Popover>
+		)}
+	</Story>
+	<Story name="on click" parameters={getFixedStoryParams()}>
+		{args => (
+			<Popover>
+				<Popover.Trigger ml="150px" width="fit-content">
+					<Button>Click me</Button>
+				</Popover.Trigger>
+				<Popover.Content trigger="click">You clicked it!</Popover.Content>
+			</Popover>
+		)}
+	</Story>
 </Canvas>
 
 ## Using without provider and trigger
@@ -133,13 +120,13 @@ By default, the popover is shown when hovering the trigger. You can change it us
 You can use the popover without the provider and trigger, using the `reference` prop with the element that will act as the trigger.
 
 <Canvas>
-  <Story
-    name="without provider"
-    parameters={{
-      ...getFixedStoryParams(),
-      docs: {
-        source: {
-          code: `
+	<Story
+		name="without provider"
+		parameters={{
+			...getFixedStoryParams(),
+			docs: {
+				source: {
+					code: `
   const ref = React.useRef(null);
   return (
       <Box ref={ref}>Hover me</Box>
@@ -148,12 +135,12 @@ You can use the popover without the provider and trigger, using the `reference` 
       </Popover.Content>
   );
 };`
-        }
-      }
-    }}
-  >
-    {(args) => <PopoverWithoutProvider />}
-  </Story>
+				}
+			}
+		}}
+	>
+		{args => <PopoverWithoutProvider />}
+	</Story>
 </Canvas>
 
 ## Positioning
@@ -161,29 +148,24 @@ You can use the popover without the provider and trigger, using the `reference` 
 You can locate the popover in different places around the trigger component. See the `placement` prop for all values:
 
 <Canvas>
-  <Story name="positioning" parameters={getFixedStoryParams()}>
-    {(args) =>
-      ['top', 'left', 'right', 'bottom'].map((position) => (
-        <Box key={`${position}-div`} py={5} flexWrap="wrap">
-          {['', '-end', '-start'].map((alignment, index) => (
-            <Popover key={`${position}${alignment}`}>
-              <Popover.Trigger mx="100px" my="150px">
-                <Button>Hover me</Button>
-              </Popover.Trigger>
-              <Popover.Content
-                isVisible={true}
-                placement={`${position}${alignment}`}
-                height="150px"
-                width="150px"
-              >
-                {`This is the popover content with position: ${position}${alignment}`}
-              </Popover.Content>
-            </Popover>
-          ))}
-        </Box>
-      ))
-    }
-  </Story>
+	<Story name="positioning" parameters={getFixedStoryParams()}>
+		{args =>
+			['top', 'left', 'right', 'bottom'].map(position => (
+				<Box key={`${position}-div`} py={5} flexWrap="wrap">
+					{['', '-end', '-start'].map((alignment, index) => (
+						<Popover key={`${position}${alignment}`}>
+							<Popover.Trigger mx="100px" my="150px">
+								<Button>Hover me</Button>
+							</Popover.Trigger>
+							<Popover.Content isVisible={true} placement={`${position}${alignment}`} height="150px" width="150px">
+								{`This is the popover content with position: ${position}${alignment}`}
+							</Popover.Content>
+						</Popover>
+					))}
+				</Box>
+			))
+		}
+	</Story>
 </Canvas>
 
 # Popover Content API

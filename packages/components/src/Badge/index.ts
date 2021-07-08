@@ -7,6 +7,6 @@ export { BadgeCounterProps } from './Counter/types';
 export { BadgeStatusProps } from './Status/types';
 
 export default createNameSpacedComponent(Badge, {
-  Status,
-  Counter
+	Status,
+	Counter
 });

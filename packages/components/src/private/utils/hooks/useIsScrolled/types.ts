@@ -1,5 +1,5 @@
 export type ScrollData = {
-  hasScroll: boolean;
-  percentage: number;
-  px: number;
+	hasScroll: boolean;
+	percentage: number;
+	px: number;
 };

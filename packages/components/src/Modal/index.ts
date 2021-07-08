@@ -10,16 +10,10 @@ import { ModalHeaderProps } from './Header/types';
 import Modal from './Modal';
 import { ModalProps } from './types';
 
-export {
-  ModalProps,
-  ModalCloseProps,
-  ModalContentProps,
-  ModalFooterProps,
-  ModalHeaderProps
-};
+export { ModalProps, ModalCloseProps, ModalContentProps, ModalFooterProps, ModalHeaderProps };
 export default createNameSpacedComponent(Modal, {
-  Close: ModalClose,
-  Content: ModalContent,
-  Footer: ModalFooter,
-  Header: ModalHeader
+	Close: ModalClose,
+	Content: ModalContent,
+	Footer: ModalFooter,
+	Header: ModalHeader
 });

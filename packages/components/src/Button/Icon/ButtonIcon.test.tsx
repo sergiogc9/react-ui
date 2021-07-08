@@ -8,33 +8,24 @@ import { ButtonIconProps } from './types';
 const buttonIconTestId = 'buttonIcon';
 
 const renderButton = (props?: Partial<ButtonIconProps>) =>
-  render(
-    withTheme(
-      <ButtonIcon
-        data-testid={buttonIconTestId}
-        icon="users"
-        styling="filled"
-        {...props}
-      />
-    )
-  );
+	render(withTheme(<ButtonIcon data-testid={buttonIconTestId} icon="users" styling="filled" {...props} />));
 
 describe('Button component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
 
-  it('should render render correct size', () => {
-    renderButton();
-    const buttonIcon = screen.getByTestId(buttonIconTestId);
-    expect(buttonIcon).toHaveStyle(`height: 24px;`);
-  });
+	it('should render render correct size', () => {
+		renderButton();
+		const buttonIcon = screen.getByTestId(buttonIconTestId);
+		expect(buttonIcon).toHaveStyle(`height: 24px;`);
+	});
 
-  it('should render render correct custom size', () => {
-    renderButton({ size: '300px' });
-    const buttonIcon = screen.getByTestId(buttonIconTestId);
-    expect(buttonIcon).toHaveStyle(`height: 300px;`);
-  });
+	it('should render render correct custom size', () => {
+		renderButton({ size: '300px' });
+		const buttonIcon = screen.getByTestId(buttonIconTestId);
+		expect(buttonIcon).toHaveStyle(`height: 300px;`);
+	});
 });

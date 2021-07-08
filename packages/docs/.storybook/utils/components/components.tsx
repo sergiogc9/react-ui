@@ -1,27 +1,23 @@
 import React from 'react';
 import merge from 'lodash/merge';
 import {
-  ArgsTable as SBArgsTable,
-  Meta as SBMeta,
-  Story as SBStory,
-  Canvas as SBCanvas
+	ArgsTable as SBArgsTable,
+	Meta as SBMeta,
+	Story as SBStory,
+	Canvas as SBCanvas
 } from '@storybook/addon-docs/blocks';
-import {
-  getFixedStoryParams,
-  getExcludedProps,
-  getPlaygroundStoryParams
-} from 'storybook/parameters';
+import { getFixedStoryParams, getExcludedProps, getPlaygroundStoryParams } from 'storybook/parameters';
 import { ArgsTableProps, StoryProps } from './types';
 
 export const Canvas = SBCanvas;
 export const Meta = SBMeta;
 
-export const ArgsTable: React.FC<ArgsTableProps> = (props) => {
-  const { include = [], exclude = [], ...rest } = props;
+export const ArgsTable: React.FC<ArgsTableProps> = props => {
+	const { include = [], exclude = [], ...rest } = props;
 
-  const excludedProps = getExcludedProps(include, exclude);
+	const excludedProps = getExcludedProps(include, exclude);
 
-  return <SBArgsTable {...rest} exclude={excludedProps} />;
+	return <SBArgsTable {...rest} exclude={excludedProps} />;
 };
 
 /**

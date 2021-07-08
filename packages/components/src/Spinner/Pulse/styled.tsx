@@ -11,21 +11,20 @@ const pulse = keyframes`
 `;
 
 const getPulseAnimation = (i: number) => css`
-  animation: ${pulse} 1s ${i * 0.12}s infinite
-    cubic-bezier(0.2, 0.68, 0.18, 1.08);
+	animation: ${pulse} 1s ${i * 0.12}s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
 `;
 
 const Pulse: React.FC<PulseProps> = styled(Box)<PulseProps>`
-  background-color: currentColor;
-  border-radius: 100%;
-  display: inline-block;
-  animation-fill-mode: both;
+	background-color: currentColor;
+	border-radius: 100%;
+	display: inline-block;
+	animation-fill-mode: both;
 
-  ${(props) => getPulseAnimation(props.index)}
+	${props => getPulseAnimation(props.index)}
 `;
 
 Pulse.defaultProps = {
-  as: 'span'
+	as: 'span'
 };
 
 export { Pulse };

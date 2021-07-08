@@ -7,18 +7,18 @@ import TextFieldPassword from './Password';
 import { TextFieldProps } from './types';
 
 const textFields: Record<string, React.FC<any>> = {
-  date: TextFieldDate,
-  number: TextFieldNumber,
-  password: TextFieldPassword
+	date: TextFieldDate,
+	number: TextFieldNumber,
+	password: TextFieldPassword
 };
 
 const TextField: React.FC<TextFieldProps> = React.forwardRef<
-  HTMLInputElement,
-  Omit<TextFieldProps, 'type'> & { type?: any }
+	HTMLInputElement,
+	Omit<TextFieldProps, 'type'> & { type?: any }
 >(({ type = 'text', ...rest }, ref) => {
-  const TextFieldComponent = textFields[type] || TextFieldBase;
+	const TextFieldComponent = textFields[type] || TextFieldBase;
 
-  return <TextFieldComponent ref={ref} type={type} {...rest} />;
+	return <TextFieldComponent ref={ref} type={type} {...rest} />;
 });
 
 export default React.memo(TextField);

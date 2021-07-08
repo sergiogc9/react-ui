@@ -3,8 +3,8 @@ import React from 'react';
 import { TabsContextData } from './types';
 
 const defaultContext = {
-  activeID: '',
-  onTabClicked: () => {}
+	activeID: '',
+	onTabClicked: () => {}
 };
 
 const TabsContext = React.createContext<TabsContextData>(defaultContext);

@@ -1,8 +1,8 @@
 import React from 'react';
 
 type CommonStyledComponentProps = {
-  readonly as?: keyof JSX.IntrinsicElements;
-  readonly key?: React.Key | null;
+	readonly as?: keyof JSX.IntrinsicElements;
+	readonly key?: React.Key | null;
 };
 
 /**
@@ -18,28 +18,28 @@ type CommonStyledComponentProps = {
  * The TextAreaBoxProps will have all props from Box except those related to the div element but with the textarea specified props added.
  */
 export type StyledComponentProps<
-  /**
-   * Any composed props defined in composers. e.g. ComposedBoxProps or ComposedTextProps
-   */
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  ComposedProps extends {},
-  /**
-   * The attributes for the final rendered DOM element. e.g. for an input: React.InputHTMLAttributes<HTMLInputAttributes>
-   */
-  /**
-   * This is needed to add dom-specific attributes to the component props.
-   */
-  T extends React.HTMLAttributes<any> = React.HTMLAttributes<HTMLDivElement>,
-  /**
-   *  The reference element type. If passed the component props will have a ref prop with Ref type.
-   */
-  Ref extends any = undefined
+	/**
+	 * Any composed props defined in composers. e.g. ComposedBoxProps or ComposedTextProps
+	 */
+	// eslint-disable-next-line @typescript-eslint/ban-types
+	ComposedProps extends {},
+	/**
+	 * The attributes for the final rendered DOM element. e.g. for an input: React.InputHTMLAttributes<HTMLInputAttributes>
+	 */
+	/**
+	 * This is needed to add dom-specific attributes to the component props.
+	 */
+	T extends React.HTMLAttributes<any> = React.HTMLAttributes<HTMLDivElement>,
+	/**
+	 *  The reference element type. If passed the component props will have a ref prop with Ref type.
+	 */
+	Ref extends any = undefined
 > = React.PropsWithChildren<
-  ComposedProps &
-    CommonStyledComponentProps &
-    /**
-     *  Discard from T props already added by styled-components and styled-system to avoid type conflicts.
-     */
-    Omit<T, keyof ComposedProps> &
-    (Ref extends undefined ? Record<string, unknown> : { ref?: React.Ref<Ref> })
+	ComposedProps &
+		CommonStyledComponentProps &
+		/**
+		 *  Discard from T props already added by styled-components and styled-system to avoid type conflicts.
+		 */
+		Omit<T, keyof ComposedProps> &
+		(Ref extends undefined ? Record<string, unknown> : { ref?: React.Ref<Ref> })
 >;

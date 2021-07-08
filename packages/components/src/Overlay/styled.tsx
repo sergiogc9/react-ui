@@ -9,14 +9,14 @@ import { OverlayProps } from './types';
 const StyledOverlay: React.FC<OverlayProps> = styled(Box)<OverlayProps>``;
 
 StyledOverlay.defaultProps = {
-  bg: 'neutral.900',
-  height: '100vh',
-  left: 0,
-  opacity: 0.2,
-  position: 'fixed',
-  top: 0,
-  width: '100vw',
-  zIndex: theme.zIndices.overlay
+	bg: 'neutral.900',
+	height: '100vh',
+	left: 0,
+	opacity: 0.2,
+	position: 'fixed',
+	top: 0,
+	width: '100vw',
+	zIndex: theme.zIndices.overlay
 };
 
 const OverlayFadeInAnimation = keyframes`
@@ -29,9 +29,6 @@ const OverlayFadeInAnimation = keyframes`
   }
 `;
 
-const AnimatedOverlay = Animation.withBaseAnimation(
-  StyledOverlay,
-  OverlayFadeInAnimation
-);
+const AnimatedOverlay = Animation.withBaseAnimation(StyledOverlay, OverlayFadeInAnimation);
 
 export default AnimatedOverlay;

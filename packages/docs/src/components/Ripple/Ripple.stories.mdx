@@ -1,8 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
-import {
-  getFixedStoryParams,
-  getPlaygroundStoryParams
-} from 'storybook/parameters';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import Box from 'components/Box';
 import Ripple from 'components/Ripple';
 
@@ -13,26 +10,26 @@ import Ripple from 'components/Ripple';
 Test it:
 
 <Story
-  name="playground"
-  args={{ color: 'primary.500' }}
-  parameters={getPlaygroundStoryParams({
-    docs: { disable: false },
-    include: ['color']
-  })}
+	name="playground"
+	args={{ color: 'primary.500' }}
+	parameters={getPlaygroundStoryParams({
+		docs: { disable: false },
+		include: ['color']
+	})}
 >
-  {(args) => (
-    <Box
-      bg="neutral.50"
-      border="thin solid lightgray"
-      borderRadius="50%"
-      height="300px"
-      overflow="hidden"
-      position="relative"
-      width="300px"
-    >
-      <Ripple {...args} />
-    </Box>
-  )}
+	{args => (
+		<Box
+			bg="neutral.50"
+			border="thin solid lightgray"
+			borderRadius="50%"
+			height="300px"
+			overflow="hidden"
+			position="relative"
+			width="300px"
+		>
+			<Ripple {...args} />
+		</Box>
+	)}
 </Story>
 
 # API

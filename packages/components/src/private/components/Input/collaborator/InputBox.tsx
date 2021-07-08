@@ -6,11 +6,11 @@ import Box from 'components/Box';
 import { InputBoxProps } from './types';
 
 const InputBox: React.FC<InputBoxProps> = styled(Box)<InputBoxProps>`
-  ${composers.text}
+	${composers.text}
 `;
 
 InputBox.defaultProps = {
-  as: 'input'
+	as: 'input'
 };
 
 export default InputBox;

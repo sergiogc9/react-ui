@@ -10,38 +10,35 @@ import { PopoverTriggerProps } from './types';
 const popoverTriggerTestId = 'PopoverTrigger';
 const text = 'Awesome trigger';
 
-const ref =
-  React.createRef<HTMLDivElement>() as React.MutableRefObject<HTMLElement>;
+const ref = React.createRef<HTMLDivElement>() as React.MutableRefObject<HTMLElement>;
 const defaultContextData: PopoverContextData = {
-  popoverRef: ref
+	popoverRef: ref
 };
 
 const renderPopoverTrigger = (
-  props: Partial<PopoverTriggerProps> = {},
-  contextData: Partial<PopoverContextData> = {}
+	props: Partial<PopoverTriggerProps> = {},
+	contextData: Partial<PopoverContextData> = {}
 ) =>
-  render(
-    withTheme(
-      <PopoverContext.Provider
-        value={{ ...defaultContextData, ...contextData }}
-      >
-        <Popover.Trigger data-testid={popoverTriggerTestId} {...props}>
-          {text}
-        </Popover.Trigger>
-      </PopoverContext.Provider>
-    )
-  );
+	render(
+		withTheme(
+			<PopoverContext.Provider value={{ ...defaultContextData, ...contextData }}>
+				<Popover.Trigger data-testid={popoverTriggerTestId} {...props}>
+					{text}
+				</Popover.Trigger>
+			</PopoverContext.Provider>
+		)
+	);
 
 describe('PopoverTrigger component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  it('should render content', () => {
-    renderPopoverTrigger();
-    expect(screen.getByText(text)).toBeInTheDocument();
-  });
+	it('should render content', () => {
+		renderPopoverTrigger();
+		expect(screen.getByText(text)).toBeInTheDocument();
+	});
 
-  it('should pass ref correctly', () => {
-    renderPopoverTrigger();
-    expect(ref.current!.innerHTML).toEqual(text);
-  });
+	it('should pass ref correctly', () => {
+		renderPopoverTrigger();
+		expect(ref.current!.innerHTML).toEqual(text);
+	});
 });

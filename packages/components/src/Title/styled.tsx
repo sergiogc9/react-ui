@@ -6,14 +6,14 @@ import { TitleProps } from './types';
 import aspectSize from './variants/aspectSize';
 
 export const Title: React.FC<TitleProps> = styled.span.withConfig<TitleProps>({
-  shouldForwardProp: shouldStyledComponentForwardProp
+	shouldForwardProp: shouldStyledComponentForwardProp
 })`
-  ${composers.text}
+	${composers.text}
 
-  ${(props) => aspectSize(props)}
+	${props => aspectSize(props)}
 `;
 
 Title.defaultProps = {
-  aspectSize: 'm',
-  fontFamily: 'main'
+	aspectSize: 'm',
+	fontFamily: 'main'
 };

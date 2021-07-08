@@ -1,8 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
-import {
-  getFixedStoryParams,
-  getPlaygroundStoryParams
-} from 'storybook/parameters';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import Switch from 'components/Switch';
 
 <Meta title="Components/Switch" component={Switch} />
@@ -11,12 +8,8 @@ import Switch from 'components/Switch';
 
 A component used to render a Switch, wich would to toggle the state of a single item on or off.
 
-<Story
-  name="playground"
-  args={{ aspectSize: 'm' }}
-  parameters={getPlaygroundStoryParams()}
->
-  {(args) => <Switch {...args} />}
+<Story name="playground" args={{ aspectSize: 'm' }} parameters={getPlaygroundStoryParams()}>
+	{args => <Switch {...args} />}
 </Story>
 
 ## AspectSize prop
@@ -28,12 +21,12 @@ Based on that value it changes the `width and height` styles of the Switch compo
 All sizes icons:
 
 <Canvas>
-  <Story name="s" title="s" parameters={getFixedStoryParams()}>
-    <Switch aspectSize="s" />
-  </Story>
-  <Story name="m" title="m" parameters={getFixedStoryParams()}>
-    <Switch aspectSize="m" />
-  </Story>
+	<Story name="s" title="s" parameters={getFixedStoryParams()}>
+		<Switch aspectSize="s" />
+	</Story>
+	<Story name="m" title="m" parameters={getFixedStoryParams()}>
+		<Switch aspectSize="m" />
+	</Story>
 </Canvas>
 
 ## Active state
@@ -41,9 +34,9 @@ All sizes icons:
 By default, every switch has a `on/off` state and a `hover` that will change its colours and behaviour.
 
 <Canvas>
-  <Story name="default" title="default" parameters={getFixedStoryParams()}>
-    <Switch aspectSize="m" isDefaultChecked={true} isActive={true} />
-  </Story>
+	<Story name="default" title="default" parameters={getFixedStoryParams()}>
+		<Switch aspectSize="m" isDefaultChecked={true} isActive={true} />
+	</Story>
 </Canvas>
 
 ## Disabled switch
@@ -51,9 +44,9 @@ By default, every switch has a `on/off` state and a `hover` that will change its
 You can disable it adding the `isDisabled` prop.
 
 <Canvas>
-  <Story name="disabled" title="disabled" parameters={getFixedStoryParams()}>
-    <Switch aspectSize="m" isDisabled={true} />
-  </Story>
+	<Story name="disabled" title="disabled" parameters={getFixedStoryParams()}>
+		<Switch aspectSize="m" isDisabled={true} />
+	</Story>
 </Canvas>
 
 <ArgsTable of={Switch} />

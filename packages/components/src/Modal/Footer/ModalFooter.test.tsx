@@ -9,24 +9,24 @@ const modalFooterTestId = 'ModalFooter';
 const text = 'Awesome Footer content';
 
 const renderModalFooter = (props?: Partial<ModalFooterProps>) =>
-  render(
-    withTheme(
-      <ModalFooter data-testid={modalFooterTestId} {...props}>
-        {props?.children || text}
-      </ModalFooter>
-    )
-  );
+	render(
+		withTheme(
+			<ModalFooter data-testid={modalFooterTestId} {...props}>
+				{props?.children || text}
+			</ModalFooter>
+		)
+	);
 
 describe('ModalFooter component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  it('should render Footer content', () => {
-    renderModalFooter();
-    expect(screen.queryByText(text)).toBeInTheDocument();
-  });
+	it('should render Footer content', () => {
+		renderModalFooter();
+		expect(screen.queryByText(text)).toBeInTheDocument();
+	});
 
-  it('should have correct order', () => {
-    renderModalFooter();
-    expect(screen.getByTestId(modalFooterTestId)).toHaveStyle('order: 2;');
-  });
+	it('should have correct order', () => {
+		renderModalFooter();
+		expect(screen.getByTestId(modalFooterTestId)).toHaveStyle('order: 2;');
+	});
 });

@@ -7,32 +7,32 @@ import composers from 'components/private/utils/composers';
 import { GridBoxProps } from './types';
 
 const gridItemComposers = system({
-  columns: {
-    property: 'gridColumnEnd',
-    transform: (value) => `span ${value}`
-  },
-  initialColumn: {
-    property: 'gridColumnStart',
-    transform: (value) => value.toString()
-  },
-  initialRow: {
-    property: 'gridRowStart',
-    transform: (value) => value.toString()
-  },
-  rows: {
-    property: 'gridRowEnd',
-    transform: (value) => `span ${value}`
-  }
+	columns: {
+		property: 'gridColumnEnd',
+		transform: value => `span ${value}`
+	},
+	initialColumn: {
+		property: 'gridColumnStart',
+		transform: value => value.toString()
+	},
+	initialRow: {
+		property: 'gridRowStart',
+		transform: value => value.toString()
+	},
+	rows: {
+		property: 'gridRowEnd',
+		transform: value => `span ${value}`
+	}
 });
 
 const GridBox: React.FC<GridBoxProps> = styled(Box)<GridBoxProps>`
-  ${gridItemComposers}
-  ${composers.grid}
+	${gridItemComposers}
+	${composers.grid}
 `;
 
 GridBox.defaultProps = {
-  columns: 1,
-  rows: 1
+	columns: 1,
+	rows: 1
 };
 
 export { GridBox };

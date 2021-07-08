@@ -6,13 +6,13 @@ import variant from './variants/variant';
 import { CounterProps } from './types';
 
 export const StyledCounter: React.FC<CounterProps> = styled(Box)`
-  ${aspectSize}
-  ${variant}
+	${aspectSize}
+	${variant}
 `;
 
 StyledCounter.defaultProps = {
-  alignItems: 'center',
-  aspectSize: 'm',
-  fontWeight: 'semibold',
-  justifyContent: 'center'
+	alignItems: 'center',
+	aspectSize: 'm',
+	fontWeight: 'semibold',
+	justifyContent: 'center'
 };

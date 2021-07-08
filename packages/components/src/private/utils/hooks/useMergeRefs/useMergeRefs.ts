@@ -6,22 +6,20 @@ import React from 'react';
  * @returns A ref callback function to be passed to ref prop in final DOM or React element
  */
 const useMergeRefs = <T>(
-  ...refs: Array<
-    React.MutableRefObject<T> | React.LegacyRef<T> | React.RefObject<T>
-  >
+	...refs: Array<React.MutableRefObject<T> | React.LegacyRef<T> | React.RefObject<T>>
 ): React.RefCallback<T> => {
-  const mergeFn = React.useCallback((value) => {
-    refs.forEach((ref) => {
-      const reference = ref;
-      if (typeof reference === 'function') {
-        reference(value);
-      } else if (reference != null) {
-        (reference as React.MutableRefObject<T | null>).current = value;
-      }
-    });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+	const mergeFn = React.useCallback(value => {
+		refs.forEach(ref => {
+			const reference = ref;
+			if (typeof reference === 'function') {
+				reference(value);
+			} else if (reference != null) {
+				(reference as React.MutableRefObject<T | null>).current = value;
+			}
+		});
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return mergeFn;
+	return mergeFn;
 };
 
 export default useMergeRefs;

@@ -9,22 +9,18 @@ import { ButtonTextProps } from './types';
 const buttonTextTestId = 'buttonText';
 
 const renderButton = (props?: Partial<ButtonTextProps>) =>
-  render(withTheme(<ButtonText data-testid={buttonTextTestId} {...props} />));
+	render(withTheme(<ButtonText data-testid={buttonTextTestId} {...props} />));
 
 describe('Button component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
 
-  it('should render render correct size', () => {
-    renderButton({ aspectSize: 'l' });
-    const buttonText = screen.getByTestId(buttonTextTestId);
-    expect(buttonText).toHaveStyle(
-      `font-size: ${
-        theme.fontSizes[theme.components.button.fontSizes.l as number]
-      }px`
-    );
-  });
+	it('should render render correct size', () => {
+		renderButton({ aspectSize: 'l' });
+		const buttonText = screen.getByTestId(buttonTextTestId);
+		expect(buttonText).toHaveStyle(`font-size: ${theme.fontSizes[theme.components.button.fontSizes.l as number]}px`);
+	});
 });

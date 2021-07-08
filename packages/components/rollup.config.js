@@ -8,34 +8,31 @@ import pkg from './package.json';
 import globalPkg from '../../package.json';
 
 const config = [
-  {
-    input: 'src/index.ts',
-    output: {
-      dir: 'dist',
-      format: 'cjs',
-      sourcemap: 'true'
-    },
-    external: [
-      ...Object.keys(pkg.dependencies),
-      ...Object.keys(globalPkg.peerDependencies)
-    ],
-    plugins: [typescript(), terser({ format: { comments: false } })]
-  },
-  {
-    input: 'src/index.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'cjs' }],
-    plugins: [
-      dts(),
-      alias({
-        entries: [
-          {
-            find: /^components\/(.+)/,
-            replacement: path.resolve(__dirname, './src/$1')
-          }
-        ]
-      })
-    ]
-  }
+	{
+		input: 'src/index.ts',
+		output: {
+			dir: 'dist',
+			format: 'cjs',
+			sourcemap: 'true'
+		},
+		external: [...Object.keys(pkg.dependencies), ...Object.keys(globalPkg.peerDependencies)],
+		plugins: [typescript(), terser({ format: { comments: false } })]
+	},
+	{
+		input: 'src/index.ts',
+		output: [{ file: 'dist/index.d.ts', format: 'cjs' }],
+		plugins: [
+			dts(),
+			alias({
+				entries: [
+					{
+						find: /^components\/(.+)/,
+						replacement: path.resolve(__dirname, './src/$1')
+					}
+				]
+			})
+		]
+	}
 ];
 
 export default config;

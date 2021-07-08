@@ -6,22 +6,20 @@ import Content from 'components/Content';
 import StatusColor from '../collaborator/StatusColor';
 import { InputHelperTextProps } from './types';
 
-const InputHelperText: React.FC<InputHelperTextProps> = styled(
-  Content
-)<InputHelperTextProps>`
-  ${({ theme, ...props }) => {
-    const statusColor = new StatusColor(props, theme);
+const InputHelperText: React.FC<InputHelperTextProps> = styled(Content)<InputHelperTextProps>`
+	${({ theme, ...props }) => {
+		const statusColor = new StatusColor(props, theme);
 
-    return css({
-      color: statusColor.getStatusColorWithFallback('default')
-    });
-  }}
+		return css({
+			color: statusColor.getStatusColorWithFallback('default')
+		});
+	}}
 `;
 
 InputHelperText.defaultProps = {
-  color: 'neutral.500',
-  fontSize: 0,
-  wordBreak: 'break-word'
+	color: 'neutral.500',
+	fontSize: 0,
+	wordBreak: 'break-word'
 };
 
 export default React.memo(InputHelperText);

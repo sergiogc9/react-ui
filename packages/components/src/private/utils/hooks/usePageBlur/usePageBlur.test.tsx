@@ -8,50 +8,44 @@ const rootId = 'root';
 
 type TestProps = { blurPx: number | undefined; id: string };
 const TestComponent = ({ blurPx, id }: TestProps) => {
-  usePageBlur(blurPx);
+	usePageBlur(blurPx);
 
-  return <div id={id} />;
+	return <div id={id} />;
 };
 
 const renderTestComponent = (props: Partial<TestProps> = {}) =>
-  render(<TestComponent blurPx={blurDefaultPx} id={rootId} {...props} />);
+	render(<TestComponent blurPx={blurDefaultPx} id={rootId} {...props} />);
 
 describe('usePageBlur test', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
 
-  it('should add blur styling to root div', () => {
-    const { container } = renderTestComponent();
-    expect(container.querySelector(`#${rootId}`)).toHaveStyle(
-      'filter: blur(10px);'
-    );
-  });
+	it('should add blur styling to root div', () => {
+		const { container } = renderTestComponent();
+		expect(container.querySelector(`#${rootId}`)).toHaveStyle('filter: blur(10px);');
+	});
 
-  it('should add blur styling to body if root div is not found', () => {
-    const { baseElement } = renderTestComponent({ id: 'another-id' });
-    expect(baseElement).toHaveStyle('filter: blur(10px);');
-  });
+	it('should add blur styling to body if root div is not found', () => {
+		const { baseElement } = renderTestComponent({ id: 'another-id' });
+		expect(baseElement).toHaveStyle('filter: blur(10px);');
+	});
 
-  it('should not add blur styling if blur not provided', () => {
-    const { container } = renderTestComponent({ blurPx: undefined });
-    expect(container.querySelector(`#${rootId}`)).not.toHaveStyle(
-      'filter: blur(10px);'
-    );
-  });
+	it('should not add blur styling if blur not provided', () => {
+		const { container } = renderTestComponent({ blurPx: undefined });
+		expect(container.querySelector(`#${rootId}`)).not.toHaveStyle('filter: blur(10px);');
+	});
 
-  it('should set last blur to element if more than one hook is called', async () => {
-    const TestMultiple = () => {
-      usePageBlur(10);
-      usePageBlur(20);
+	it('should set last blur to element if more than one hook is called', async () => {
+		const TestMultiple = () => {
+			usePageBlur(10);
+			usePageBlur(20);
 
-      return <div id={rootId} />;
-    };
-    const { container } = render(<TestMultiple />);
-    expect(container.querySelector(`#${rootId}`)).toHaveStyle(
-      'filter: blur(20px);'
-    );
-  });
+			return <div id={rootId} />;
+		};
+		const { container } = render(<TestMultiple />);
+		expect(container.querySelector(`#${rootId}`)).toHaveStyle('filter: blur(20px);');
+	});
 });

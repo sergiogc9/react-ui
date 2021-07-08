@@ -5,11 +5,11 @@ import location from './variants/location';
 import { BadgeStatusProps } from './types';
 
 const BadgeStatus: React.FC<BadgeStatusProps> = styled(Status)`
-  ${location}
+	${location}
 `;
 
 BadgeStatus.defaultProps = {
-  position: 'absolute'
+	position: 'absolute'
 };
 
 export { BadgeStatus };

@@ -5,15 +5,15 @@ import composers from 'components/private/utils/composers';
 import { BoxProps } from './types';
 
 const Box: React.FC<BoxProps> = styled.div.withConfig<BoxProps>({
-  shouldForwardProp: shouldStyledComponentForwardProp
+	shouldForwardProp: shouldStyledComponentForwardProp
 })`
-  ${composers.box}
+	${composers.box}
 `;
 
 Box.defaultProps = {
-  display: 'flex',
-  position: 'relative',
-  fontFamily: 'main'
+	display: 'flex',
+	position: 'relative',
+	fontFamily: 'main'
 };
 
 export default Box;

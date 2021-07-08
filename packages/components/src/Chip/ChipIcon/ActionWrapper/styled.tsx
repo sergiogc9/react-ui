@@ -6,21 +6,19 @@ import variant from './variants/variant';
 import aspectSize from './variants/aspectSize';
 import { ActionWrapperProps } from './types';
 
-const ActionWrapper: React.FC<ActionWrapperProps> = styled(
-  Box
-)<ActionWrapperProps>`
-  ${variant}
-  ${aspectSize}
+const ActionWrapper: React.FC<ActionWrapperProps> = styled(Box)<ActionWrapperProps>`
+	${variant}
+	${aspectSize}
   ${location}
 `;
 
 ActionWrapper.defaultProps = {
-  transition: 'background-color 0.15s ease-in',
-  position: 'relative',
-  borderWidth: 0,
-  cursor: 'pointer',
-  alignItems: 'center',
-  justifyContent: 'center'
+	transition: 'background-color 0.15s ease-in',
+	position: 'relative',
+	borderWidth: 0,
+	cursor: 'pointer',
+	alignItems: 'center',
+	justifyContent: 'center'
 };
 
 export default ActionWrapper;

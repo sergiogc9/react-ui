@@ -6,8 +6,8 @@ type AvatarFontSizes = Record<AvatarAspectSizes, number | number[]>;
 type AvatarRadii = Omit<Record<AvatarVariants, string | string[]>, 'circle'>;
 
 export interface Avatar {
-  readonly iconSizes: AvatarIconSizes;
-  readonly fontSizes: AvatarFontSizes;
-  readonly radii: AvatarRadii;
-  readonly sizes: AvatarSizes;
+	readonly iconSizes: AvatarIconSizes;
+	readonly fontSizes: AvatarFontSizes;
+	readonly radii: AvatarRadii;
+	readonly sizes: AvatarSizes;
 }

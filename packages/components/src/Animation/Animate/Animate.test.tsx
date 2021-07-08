@@ -1,12 +1,6 @@
 import React from 'react';
 import { keyframes } from 'styled-components';
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  waitFor
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 import { withTheme } from 'components/private/utils/tests';
 import Animate from './Animate';
@@ -37,45 +31,39 @@ const CustomAnimation2 = keyframes`
 `;
 
 const getComponent = (props?: Partial<AnimateProps>) =>
-  withTheme(
-    <Animate
-      animation={[CustomAnimation]}
-      data-testid={AnimateTestId}
-      onAnimationEnd={mockOnAnimationEnd}
-      {...props}
-    >
-      {text}
-    </Animate>
-  );
+	withTheme(
+		<Animate animation={[CustomAnimation]} data-testid={AnimateTestId} onAnimationEnd={mockOnAnimationEnd} {...props}>
+			{text}
+		</Animate>
+	);
 
-const renderAnimate = (props?: Partial<AnimateProps>) =>
-  render(getComponent(props));
+const renderAnimate = (props?: Partial<AnimateProps>) => render(getComponent(props));
 
 describe('Animate Animation component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
 
-  it('should render the content', () => {
-    renderAnimate();
+	it('should render the content', () => {
+		renderAnimate();
 
-    expect(screen.getByText(text)).toBeInTheDocument();
-  });
+		expect(screen.getByText(text)).toBeInTheDocument();
+	});
 
-  it('should have correct styles', () => {
-    renderAnimate({
-      delay: ['5s'],
-      direction: ['revert'],
-      duration: ['1s'],
-      iterationCount: [1],
-      fillMode: ['forwards'],
-      playState: ['running'],
-      timingFunction: ['ease-out']
-    });
+	it('should have correct styles', () => {
+		renderAnimate({
+			delay: ['5s'],
+			direction: ['revert'],
+			duration: ['1s'],
+			iterationCount: [1],
+			fillMode: ['forwards'],
+			playState: ['running'],
+			timingFunction: ['ease-out']
+		});
 
-    expect(screen.getByTestId(AnimateTestId)).toHaveStyle(`
+		expect(screen.getByTestId(AnimateTestId)).toHaveStyle(`
       animation-delay: 5s;
       animation-direction: revert;
       animation-duration: 1s;
@@ -84,117 +72,101 @@ describe('Animate Animation component', () => {
       animation-play-state: running;
       animation-timing-function: ease-out;
     `);
-  });
+	});
 
-  it('should have correct delay value in milliseconds', () => {
-    renderAnimate({ delay: ['5000ms'] });
+	it('should have correct delay value in milliseconds', () => {
+		renderAnimate({ delay: ['5000ms'] });
 
-    expect(screen.getByTestId(AnimateTestId)).toHaveStyle(`
+		expect(screen.getByTestId(AnimateTestId)).toHaveStyle(`
       animation-delay: 5000ms;
     `);
-  });
+	});
 
-  it('should not use animation if disabled', () => {
-    renderAnimate({ isEnabled: false });
+	it('should not use animation if disabled', () => {
+		renderAnimate({ isEnabled: false });
 
-    expect(screen.getByTestId(AnimateTestId)).not.toHaveStyle(
-      `animation-name: ${CustomAnimation.getName()};`
-    );
-  });
+		expect(screen.getByTestId(AnimateTestId)).not.toHaveStyle(`animation-name: ${CustomAnimation.getName()};`);
+	});
 
-  it('should not use render if not visible', () => {
-    renderAnimate({ isVisible: false });
+	it('should not use render if not visible', () => {
+		renderAnimate({ isVisible: false });
 
-    expect(screen.queryByTestId(AnimateTestId)).toBeNull();
-  });
+		expect(screen.queryByTestId(AnimateTestId)).toBeNull();
+	});
 
-  it('should change to next animation', async () => {
-    renderAnimate({ animation: [CustomAnimation, CustomAnimation2] });
+	it('should change to next animation', async () => {
+		renderAnimate({ animation: [CustomAnimation, CustomAnimation2] });
 
-    fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
+		fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
 
-    await waitFor(() =>
-      expect(screen.getByTestId(AnimateTestId)).toHaveStyle(
-        `animation-name: ${CustomAnimation2.getName()};`
-      )
-    );
-  });
+		await waitFor(() =>
+			expect(screen.getByTestId(AnimateTestId)).toHaveStyle(`animation-name: ${CustomAnimation2.getName()};`)
+		);
+	});
 
-  it('should call on animation end handler', async () => {
-    renderAnimate();
+	it('should call on animation end handler', async () => {
+		renderAnimate();
 
-    fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
+		fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
 
-    expect(mockOnAnimationEnd).toHaveBeenCalled();
-  });
+		expect(mockOnAnimationEnd).toHaveBeenCalled();
+	});
 
-  it('should not call on animation end handler', async () => {
-    renderAnimate({ onAnimationEnd: undefined });
+	it('should not call on animation end handler', async () => {
+		renderAnimate({ onAnimationEnd: undefined });
 
-    fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
+		fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
 
-    expect(mockOnAnimationEnd).not.toHaveBeenCalled();
-  });
+		expect(mockOnAnimationEnd).not.toHaveBeenCalled();
+	});
 
-  it('should change to previous animation', async () => {
-    const { rerender } = render(
-      getComponent({ animation: [CustomAnimation, CustomAnimation2] })
-    );
+	it('should change to previous animation', async () => {
+		const { rerender } = render(getComponent({ animation: [CustomAnimation, CustomAnimation2] }));
 
-    fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
+		fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
 
-    await waitFor(() =>
-      expect(screen.getByTestId(AnimateTestId)).toHaveStyle(
-        `animation-name: ${CustomAnimation2.getName()};`
-      )
-    );
+		await waitFor(() =>
+			expect(screen.getByTestId(AnimateTestId)).toHaveStyle(`animation-name: ${CustomAnimation2.getName()};`)
+		);
 
-    rerender(
-      getComponent({
-        animation: [CustomAnimation, CustomAnimation2],
-        isVisible: false
-      })
-    );
+		rerender(
+			getComponent({
+				animation: [CustomAnimation, CustomAnimation2],
+				isVisible: false
+			})
+		);
 
-    fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
+		fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
 
-    await waitFor(() =>
-      expect(screen.getByTestId(AnimateTestId)).toHaveStyle(
-        `animation-name: ${CustomAnimation.getName()};`
-      )
-    );
-  });
+		await waitFor(() =>
+			expect(screen.getByTestId(AnimateTestId)).toHaveStyle(`animation-name: ${CustomAnimation.getName()};`)
+		);
+	});
 
-  it('should remove from DOM after last transition', async () => {
-    const { rerender } = render(
-      getComponent({ animation: [CustomAnimation, CustomAnimation2] })
-    );
+	it('should remove from DOM after last transition', async () => {
+		const { rerender } = render(getComponent({ animation: [CustomAnimation, CustomAnimation2] }));
 
-    fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
+		fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
 
-    await waitFor(() =>
-      expect(screen.getByTestId(AnimateTestId)).toHaveStyle(
-        `animation-name: ${CustomAnimation2.getName()};`
-      )
-    );
+		await waitFor(() =>
+			expect(screen.getByTestId(AnimateTestId)).toHaveStyle(`animation-name: ${CustomAnimation2.getName()};`)
+		);
 
-    rerender(
-      getComponent({
-        animation: [CustomAnimation, CustomAnimation2],
-        isVisible: false
-      })
-    );
+		rerender(
+			getComponent({
+				animation: [CustomAnimation, CustomAnimation2],
+				isVisible: false
+			})
+		);
 
-    fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
+		fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
 
-    await waitFor(() =>
-      expect(screen.getByTestId(AnimateTestId)).toHaveStyle(
-        `animation-name: ${CustomAnimation.getName()};`
-      )
-    );
+		await waitFor(() =>
+			expect(screen.getByTestId(AnimateTestId)).toHaveStyle(`animation-name: ${CustomAnimation.getName()};`)
+		);
 
-    fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
+		fireEvent.animationEnd(screen.getByTestId(AnimateTestId));
 
-    await waitFor(() => expect(screen.queryByTestId(AnimateTestId)).toBeNull());
-  });
+		await waitFor(() => expect(screen.queryByTestId(AnimateTestId)).toBeNull());
+	});
 });

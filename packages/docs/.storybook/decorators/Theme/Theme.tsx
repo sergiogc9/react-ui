@@ -10,13 +10,13 @@ const GlobalStyle = createGlobalStyle`
 	}
 `;
 
-const ThemeDecorator: DecoratorFn = (story) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      {story()}
-    </ThemeProvider>
-  );
+const ThemeDecorator: DecoratorFn = story => {
+	return (
+		<ThemeProvider theme={theme}>
+			<GlobalStyle />
+			{story()}
+		</ThemeProvider>
+	);
 };
 
 export default ThemeDecorator;

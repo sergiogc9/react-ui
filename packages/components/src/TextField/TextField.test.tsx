@@ -8,44 +8,36 @@ import { TextFieldProps } from './types';
 const placeholderText = 'awesome placeholder';
 const textFieldTestId = 'textField';
 const renderTextField = (props?: Partial<TextFieldProps>) =>
-  render(
-    withTheme(
-      <TextField
-        data-testid={textFieldTestId}
-        placeholder={placeholderText}
-        {...props}
-      />
-    )
-  );
+	render(withTheme(<TextField data-testid={textFieldTestId} placeholder={placeholderText} {...props} />));
 
 describe('TextField component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
 
-  it('should render base text textField', () => {
-    renderTextField();
+	it('should render base text textField', () => {
+		renderTextField();
 
-    expect(screen.getByPlaceholderText(placeholderText)).toBeInTheDocument();
-  });
+		expect(screen.getByPlaceholderText(placeholderText)).toBeInTheDocument();
+	});
 
-  it('should render number textField', () => {
-    renderTextField({ type: 'number' });
+	it('should render number textField', () => {
+		renderTextField({ type: 'number' });
 
-    expect(screen.getByPlaceholderText(placeholderText)).toBeInTheDocument();
-  });
+		expect(screen.getByPlaceholderText(placeholderText)).toBeInTheDocument();
+	});
 
-  it('should render password textField', () => {
-    renderTextField({ type: 'password' });
+	it('should render password textField', () => {
+		renderTextField({ type: 'password' });
 
-    expect(screen.getByPlaceholderText(placeholderText)).toBeInTheDocument();
-  });
+		expect(screen.getByPlaceholderText(placeholderText)).toBeInTheDocument();
+	});
 
-  it('should render date textField', () => {
-    renderTextField({ type: 'date' });
+	it('should render date textField', () => {
+		renderTextField({ type: 'date' });
 
-    expect(screen.getByTestId('TextFieldDate')).toBeInTheDocument();
-  });
+		expect(screen.getByTestId('TextFieldDate')).toBeInTheDocument();
+	});
 });

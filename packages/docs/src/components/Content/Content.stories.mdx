@@ -1,8 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
-import {
-  getFixedStoryParams,
-  getPlaygroundStoryParams
-} from 'storybook/parameters';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import Content from 'components/Content';
 
 <Meta title="Components/Content" component={Content} />
@@ -12,11 +9,11 @@ import Content from 'components/Content';
 Content component.
 
 <Story
-  name="playground"
-  args={{ children: 'Play with me', textAlign: 'center', fontFamily: 'main' }}
-  parameters={getPlaygroundStoryParams()}
+	name="playground"
+	args={{ children: 'Play with me', textAlign: 'center', fontFamily: 'main' }}
+	parameters={getPlaygroundStoryParams()}
 >
-  {(args) => <Content {...args} />}
+	{args => <Content {...args} />}
 </Story>
 
 ## AspectSize prop
@@ -26,21 +23,21 @@ The prop `aspectSize` receives a `string` value.
 Based on that value it changes the `font-weight, font-size and line-height` styles of the Content component.
 
 <Canvas>
-  <Story name="xs" parameters={getFixedStoryParams()}>
-    <Content aspectSize="xs">I'm a xs content</Content>
-  </Story>
-  <Story name="s" parameters={getFixedStoryParams()}>
-    <Content aspectSize="s">I'm a s content</Content>
-  </Story>
-  <Story name="m" parameters={getFixedStoryParams()}>
-    <Content aspectSize="m">I'm a m content</Content>
-  </Story>
-  <Story name="l" parameters={getFixedStoryParams()}>
-    <Content aspectSize="l">I'm a l content</Content>
-  </Story>
-  <Story name="xl" parameters={getFixedStoryParams()}>
-    <Content aspectSize="xl">I'm a xl content</Content>
-  </Story>
+	<Story name="xs" parameters={getFixedStoryParams()}>
+		<Content aspectSize="xs">I'm a xs content</Content>
+	</Story>
+	<Story name="s" parameters={getFixedStoryParams()}>
+		<Content aspectSize="s">I'm a s content</Content>
+	</Story>
+	<Story name="m" parameters={getFixedStoryParams()}>
+		<Content aspectSize="m">I'm a m content</Content>
+	</Story>
+	<Story name="l" parameters={getFixedStoryParams()}>
+		<Content aspectSize="l">I'm a l content</Content>
+	</Story>
+	<Story name="xl" parameters={getFixedStoryParams()}>
+		<Content aspectSize="xl">I'm a xl content</Content>
+	</Story>
 </Canvas>
 
 # API

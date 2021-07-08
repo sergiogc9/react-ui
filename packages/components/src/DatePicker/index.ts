@@ -5,5 +5,5 @@ import { DatePickerProps } from './types';
 
 export { DatePickerProps, DatePickerPopoverProps };
 export default createNameSpacedComponent(DatePicker, {
-  Popover: DatePickerPopover
+	Popover: DatePickerPopover
 });

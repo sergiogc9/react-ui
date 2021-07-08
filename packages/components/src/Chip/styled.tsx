@@ -6,15 +6,15 @@ import variant from './variants/variant';
 import { ChipGroupProps } from './types';
 
 export const StyledChip: React.FC<ChipGroupProps> = styled(Box)`
-  ${aspectSize}
-  ${variant}
+	${aspectSize}
+	${variant}
   text-decoration: none;
 `;
 
 StyledChip.defaultProps = {
-  alignItems: 'center',
-  border: '1px solid',
-  boxSizing: 'border-box',
-  overflow: 'hidden',
-  transition: 'background 0.3s ease-in, border-color 0.3s ease-in'
+	alignItems: 'center',
+	border: '1px solid',
+	boxSizing: 'border-box',
+	overflow: 'hidden',
+	transition: 'background 0.3s ease-in, border-color 0.3s ease-in'
 };

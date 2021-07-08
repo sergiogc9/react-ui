@@ -6,5 +6,5 @@ import { SelectProps } from './types';
 
 export type { SelectProps, SelectOptionProps };
 export default createNameSpacedComponent(Select, {
-  Option: SelectOption
+	Option: SelectOption
 });

@@ -8,30 +8,29 @@ import { TitleProps } from './types';
 
 const testID = 'title';
 
-const renderTitle = (props?: TitleProps) =>
-  render(withTheme(<Title data-testid={testID} {...props} />));
+const renderTitle = (props?: TitleProps) => render(withTheme(<Title data-testid={testID} {...props} />));
 
 describe('Title component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  it('should render Title by default', () => {
-    renderTitle();
-    const title = screen.getByTestId(testID);
+	it('should render Title by default', () => {
+		renderTitle();
+		const title = screen.getByTestId(testID);
 
-    expect(title).toHaveStyle('font-weight: 600');
-  });
+		expect(title).toHaveStyle('font-weight: 600');
+	});
 
-  it('should render Title with custom color', () => {
-    renderTitle({ color: 'red.500' });
-    const title = screen.getByTestId(testID);
+	it('should render Title with custom color', () => {
+		renderTitle({ color: 'red.500' });
+		const title = screen.getByTestId(testID);
 
-    expect(title).toHaveStyle(`color: ${theme.colors.red['500']};`);
-  });
+		expect(title).toHaveStyle(`color: ${theme.colors.red['500']};`);
+	});
 
-  it('should render Title with custom alignment', () => {
-    renderTitle({ textAlign: 'right' });
-    const title = screen.getByTestId(testID);
+	it('should render Title with custom alignment', () => {
+		renderTitle({ textAlign: 'right' });
+		const title = screen.getByTestId(testID);
 
-    expect(title).toHaveStyle('text-align: right');
-  });
+		expect(title).toHaveStyle('text-align: right');
+	});
 });

@@ -8,31 +8,30 @@ import { BoxProps } from 'components/Box/types';
 
 const testID = 'box';
 
-const renderBox = (props?: BoxProps) =>
-  render(withTheme(<Box data-testid={testID} {...props} />));
+const renderBox = (props?: BoxProps) => render(withTheme(<Box data-testid={testID} {...props} />));
 
 describe('Box', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  it('should render box by default', () => {
-    renderBox({ justifyContent: 'center' });
-    const box = screen.getByTestId(testID);
+	it('should render box by default', () => {
+		renderBox({ justifyContent: 'center' });
+		const box = screen.getByTestId(testID);
 
-    expect(box).toHaveStyle('display: flex;');
-    expect(box).toHaveStyle('justify-content: center;');
-  });
+		expect(box).toHaveStyle('display: flex;');
+		expect(box).toHaveStyle('justify-content: center;');
+	});
 
-  it('should render box with custom color', () => {
-    renderBox({ color: 'yellow.500' });
-    const box = screen.getByTestId(testID);
+	it('should render box with custom color', () => {
+		renderBox({ color: 'yellow.500' });
+		const box = screen.getByTestId(testID);
 
-    expect(box).toHaveStyle(`color: ${theme.colors.yellow['500']};`);
-  });
+		expect(box).toHaveStyle(`color: ${theme.colors.yellow['500']};`);
+	});
 
-  it('should render box margin from theme', () => {
-    renderBox({ padding: 2 });
-    const box = screen.getByTestId(testID);
+	it('should render box margin from theme', () => {
+		renderBox({ padding: 2 });
+		const box = screen.getByTestId(testID);
 
-    expect(box).toHaveStyle(`padding: 8px;`);
-  });
+		expect(box).toHaveStyle(`padding: 8px;`);
+	});
 });

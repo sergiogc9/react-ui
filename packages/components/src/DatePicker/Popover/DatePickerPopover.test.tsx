@@ -8,27 +8,27 @@ import { DatePickerPopoverProps } from './types';
 const datePickerPopoverTestId = 'AwesomeDatePickerPopover';
 
 const renderDatePickerPopover = (props?: Partial<DatePickerPopoverProps>) =>
-  render(
-    withTheme(
-      <DatePickerPopover
-        data-testid={datePickerPopoverTestId}
-        isVisible
-        {...props}
-        datePickerProps={props?.datePickerProps || {}}
-      />
-    )
-  );
+	render(
+		withTheme(
+			<DatePickerPopover
+				data-testid={datePickerPopoverTestId}
+				isVisible
+				{...props}
+				datePickerProps={props?.datePickerProps || {}}
+			/>
+		)
+	);
 
 describe('DatePickerPopover component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  it('should render calendar', () => {
-    renderDatePickerPopover();
-    expect(screen.getByText('Mon')).toBeInTheDocument();
-  });
+	it('should render calendar', () => {
+		renderDatePickerPopover();
+		expect(screen.getByText('Mon')).toBeInTheDocument();
+	});
 
-  it('should render children in footer', () => {
-    renderDatePickerPopover({ children: <div>Awesome</div> });
-    expect(screen.getByText('Awesome')).toBeInTheDocument();
-  });
+	it('should render children in footer', () => {
+		renderDatePickerPopover({ children: <div>Awesome</div> });
+		expect(screen.getByText('Awesome')).toBeInTheDocument();
+	});
 });

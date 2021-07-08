@@ -9,27 +9,27 @@ const testID = 'gridRow';
 const text = 'Awesome text';
 
 const renderGridRow = (props?: GridRowProps) =>
-  render(
-    withTheme(
-      <GridRow data-testid={testID} {...props}>
-        {text}
-      </GridRow>
-    )
-  );
+	render(
+		withTheme(
+			<GridRow data-testid={testID} {...props}>
+				{text}
+			</GridRow>
+		)
+	);
 
 describe('Box', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  it('should render content', () => {
-    renderGridRow();
-    expect(screen.getByText(text)).toBeInTheDocument();
-  });
+	it('should render content', () => {
+		renderGridRow();
+		expect(screen.getByText(text)).toBeInTheDocument();
+	});
 
-  it('should render default grid styles', () => {
-    renderGridRow();
-    expect(screen.getByText(text)).toHaveStyle(`
+	it('should render default grid styles', () => {
+		renderGridRow();
+		expect(screen.getByText(text)).toHaveStyle(`
       grid-column: 1 / -1;
       grid-row: span 1;
     `);
-  });
+	});
 });

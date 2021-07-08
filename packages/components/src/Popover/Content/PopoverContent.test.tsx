@@ -13,104 +13,101 @@ const text = 'Awesome content';
 const mockOnMouseDown = jest.fn();
 const mockOnTouchStart = jest.fn();
 
-const ref =
-  React.createRef<HTMLDivElement>() as React.MutableRefObject<HTMLElement>;
+const ref = React.createRef<HTMLDivElement>() as React.MutableRefObject<HTMLElement>;
 const defaultContextData: PopoverContextData = {
-  popoverRef: ref
+	popoverRef: ref
 };
 
 const renderPopoverContent = (
-  props: Partial<PopoverContentProps> = {},
-  contextData: Partial<PopoverContextData> = {}
+	props: Partial<PopoverContentProps> = {},
+	contextData: Partial<PopoverContextData> = {}
 ) =>
-  render(
-    withTheme(
-      <PopoverContext.Provider
-        value={{ ...defaultContextData, ...contextData }}
-      >
-        <Popover.Content
-          data-testid={popoverContentTestId}
-          onMouseDown={mockOnMouseDown}
-          onTouchStart={mockOnTouchStart}
-          {...props}
-        >
-          {props?.children || text}
-        </Popover.Content>
-      </PopoverContext.Provider>
-    )
-  );
+	render(
+		withTheme(
+			<PopoverContext.Provider value={{ ...defaultContextData, ...contextData }}>
+				<Popover.Content
+					data-testid={popoverContentTestId}
+					onMouseDown={mockOnMouseDown}
+					onTouchStart={mockOnTouchStart}
+					{...props}
+				>
+					{props?.children || text}
+				</Popover.Content>
+			</PopoverContext.Provider>
+		)
+	);
 
 describe('PopoverContent component', () => {
-  afterEach(cleanup);
+	afterEach(cleanup);
 
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
 
-  it('should not render content by default', () => {
-    renderPopoverContent();
+	it('should not render content by default', () => {
+		renderPopoverContent();
 
-    expect(screen.queryByText(text)).toBeNull();
-  });
+		expect(screen.queryByText(text)).toBeNull();
+	});
 
-  it('should render content if visible is true', () => {
-    renderPopoverContent({ isVisible: true });
+	it('should render content if visible is true', () => {
+		renderPopoverContent({ isVisible: true });
 
-    expect(screen.getByText(text)).toBeVisible();
-  });
+		expect(screen.getByText(text)).toBeVisible();
+	});
 
-  it('should render not string children', () => {
-    const contentText = 'This is a box!';
-    renderPopoverContent({
-      children: <div>{contentText}</div>,
-      isVisible: true
-    });
+	it('should render not string children', () => {
+		const contentText = 'This is a box!';
+		renderPopoverContent({
+			children: <div>{contentText}</div>,
+			isVisible: true
+		});
 
-    expect(screen.getByText(contentText)).toBeVisible();
-  });
+		expect(screen.getByText(contentText)).toBeVisible();
+	});
 
-  it('should override default values and be visible', () => {
-    renderPopoverContent({
-      distance: 20,
-      isInteractive: true,
-      isVisible: true,
-      skidding: 30,
-      zIndex: 100
-    });
-    const popover = screen.getByTestId(popoverContentTestId);
+	it('should override default values and be visible', () => {
+		renderPopoverContent({
+			distance: 20,
+			isInteractive: true,
+			isVisible: true,
+			skidding: 30,
+			zIndex: 100
+		});
+		const popover = screen.getByTestId(popoverContentTestId);
 
-    expect(popover).toBeVisible();
-  });
+		expect(popover).toBeVisible();
+	});
 
-  it('should call onMouseDown', () => {
-    renderPopoverContent({ isVisible: true });
+	it('should call onMouseDown', () => {
+		renderPopoverContent({ isVisible: true });
 
-    userEvent.click(screen.getByText(text));
+		userEvent.click(screen.getByText(text));
 
-    expect(mockOnMouseDown).toHaveBeenCalled();
-  });
+		expect(mockOnMouseDown).toHaveBeenCalled();
+	});
 
-  it('should not call onMouseDown if not provided', () => {
-    renderPopoverContent({ isVisible: true, onMouseDown: undefined });
+	it('should not call onMouseDown if not provided', () => {
+		renderPopoverContent({ isVisible: true, onMouseDown: undefined });
 
-    userEvent.click(screen.getByText(text));
+		userEvent.click(screen.getByText(text));
 
-    expect(mockOnMouseDown).not.toHaveBeenCalled();
-  });
+		expect(mockOnMouseDown).not.toHaveBeenCalled();
+	});
 
-  it('should call onTouchStart', () => {
-    renderPopoverContent({ isVisible: true });
+	it('should call onTouchStart', () => {
+		renderPopoverContent({ isVisible: true });
 
-    fireEvent.touchStart(screen.getByText(text));
+		fireEvent.touchStart(screen.getByText(text));
 
-    expect(mockOnTouchStart).toHaveBeenCalled();
-  });
+		expect(mockOnTouchStart).toHaveBeenCalled();
+	});
 
-  it('should not call onTouchStart if not provided', () => {
-    renderPopoverContent({ isVisible: true, onTouchStart: undefined });
+	it('should not call onTouchStart if not provided', () => {
+		renderPopoverContent({ isVisible: true, onTouchStart: undefined });
 
-    fireEvent.touchStart(screen.getByText(text));
+		fireEvent.touchStart(screen.getByText(text));
 
-    expect(mockOnTouchStart).not.toHaveBeenCalled();
-  });
+		expect(mockOnTouchStart).not.toHaveBeenCalled();
+	});
 });

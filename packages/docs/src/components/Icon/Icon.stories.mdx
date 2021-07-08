@@ -1,8 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
-import {
-  getFixedStoryParams,
-  getPlaygroundStoryParams
-} from 'storybook/parameters';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import IconsDecorator from 'storybook/decorators/Icon';
 import Icon from 'components/Icon';
 import { filledIconsStory, outlinedIconsStory } from './Icon';
@@ -14,17 +11,17 @@ import { filledIconsStory, outlinedIconsStory } from './Icon';
 A component to render an icon.
 
 <Story
-  name="playground"
-  args={{
-    aspectSize: 'l',
-    icon: 'add-a-photo',
-    styling: 'filled',
-    fill: 'primary.500'
-  }}
-  decorators={[IconsDecorator]}
-  parameters={getPlaygroundStoryParams({ include: ['fill'] })}
+	name="playground"
+	args={{
+		aspectSize: 'l',
+		icon: 'add-a-photo',
+		styling: 'filled',
+		fill: 'primary.500'
+	}}
+	decorators={[IconsDecorator]}
+	parameters={getPlaygroundStoryParams({ include: ['fill'] })}
 >
-  {(args) => <Icon {...args} />}
+	{args => <Icon {...args} />}
 </Story>
 
 ## AspectSize prop
@@ -34,34 +31,18 @@ The prop `aspectSize` receives a `string` value.
 Based on that value it changes the `width and height` styles of the Icon component.
 
 <Canvas>
-  <Story
-    name="s"
-    decorators={[IconsDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    <Icon aspectSize="s" icon="add-a-photo" styling="filled" />
-  </Story>
-  <Story
-    name="m"
-    decorators={[IconsDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    <Icon aspectSize="m" icon="add-a-photo" styling="filled" />
-  </Story>
-  <Story
-    name="l"
-    decorators={[IconsDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    <Icon aspectSize="l" icon="add-a-photo" styling="filled" />
-  </Story>
-  <Story
-    name="xl"
-    decorators={[IconsDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    <Icon aspectSize="xl" icon="add-a-photo" styling="filled" />
-  </Story>
+	<Story name="s" decorators={[IconsDecorator]} parameters={getFixedStoryParams()}>
+		<Icon aspectSize="s" icon="add-a-photo" styling="filled" />
+	</Story>
+	<Story name="m" decorators={[IconsDecorator]} parameters={getFixedStoryParams()}>
+		<Icon aspectSize="m" icon="add-a-photo" styling="filled" />
+	</Story>
+	<Story name="l" decorators={[IconsDecorator]} parameters={getFixedStoryParams()}>
+		<Icon aspectSize="l" icon="add-a-photo" styling="filled" />
+	</Story>
+	<Story name="xl" decorators={[IconsDecorator]} parameters={getFixedStoryParams()}>
+		<Icon aspectSize="xl" icon="add-a-photo" styling="filled" />
+	</Story>
 </Canvas>
 
 ## Pre-defined icons
@@ -75,23 +56,15 @@ Passing a wrong combination of `styling` and `icon` props will show no icon.
 Sample:
 
 <Canvas>
-  <Story
-    name="filled sample"
-    decorators={[IconsDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    <Icon aspectSize="m" icon="add-a-photo" styling="filled" />
-  </Story>
+	<Story name="filled sample" decorators={[IconsDecorator]} parameters={getFixedStoryParams()}>
+		<Icon aspectSize="m" icon="add-a-photo" styling="filled" />
+	</Story>
 </Canvas>
 
 All filled icons:
 
 <Canvas>
-  <Story
-    name="filled icons"
-    story={filledIconsStory}
-    parameters={getFixedStoryParams()}
-  />
+	<Story name="filled icons" story={filledIconsStory} parameters={getFixedStoryParams()} />
 </Canvas>
 
 #### Outlined icons
@@ -99,23 +72,15 @@ All filled icons:
 Sample:
 
 <Canvas>
-  <Story
-    name="outlined sample"
-    decorators={[IconsDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    <Icon aspectSize="m" icon="add-a-photo" styling="outlined" />
-  </Story>
+	<Story name="outlined sample" decorators={[IconsDecorator]} parameters={getFixedStoryParams()}>
+		<Icon aspectSize="m" icon="add-a-photo" styling="outlined" />
+	</Story>
 </Canvas>
 
 All outlined icons:
 
 <Canvas>
-  <Story
-    name="outlined icons"
-    story={outlinedIconsStory}
-    parameters={getFixedStoryParams()}
-  />
+	<Story name="outlined icons" story={outlinedIconsStory} parameters={getFixedStoryParams()} />
 </Canvas>
 
 ## Custom icons
@@ -123,20 +88,16 @@ All outlined icons:
 You can use the Icon component with a custom svg `content` and `viewBox`. If viewBox is not provided, a default of 24px is used.
 
 <Canvas>
-  <Story
-    name="custom icon"
-    decorators={[IconsDecorator]}
-    parameters={getFixedStoryParams()}
-  >
-    <Icon
-      aspectSize="m"
-      icon="custom"
-      content={
-        <path d="M23,12l-2.44-2.79l0.34-3.69l-3.61-0.82L15.4,1.5L12,2.96L8.6,1.5L6.71,4.69L3.1,5.5L3.44,9.2L1,12l2.44,2.79l-0.34,3.7 l3.61,0.82L8.6,22.5l3.4-1.47l3.4,1.46l1.89-3.19l3.61-0.82l-0.34-3.69L23,12z M10.09,16.72l-3.8-3.81l1.48-1.48l2.32,2.33 l5.85-5.87l1.48,1.48L10.09,16.72z" />
-      }
-      fill="green.500"
-    />
-  </Story>
+	<Story name="custom icon" decorators={[IconsDecorator]} parameters={getFixedStoryParams()}>
+		<Icon
+			aspectSize="m"
+			icon="custom"
+			content={
+				<path d="M23,12l-2.44-2.79l0.34-3.69l-3.61-0.82L15.4,1.5L12,2.96L8.6,1.5L6.71,4.69L3.1,5.5L3.44,9.2L1,12l2.44,2.79l-0.34,3.7 l3.61,0.82L8.6,22.5l3.4-1.47l3.4,1.46l1.89-3.19l3.61-0.82l-0.34-3.69L23,12z M10.09,16.72l-3.8-3.81l1.48-1.48l2.32,2.33 l5.85-5.87l1.48,1.48L10.09,16.72z" />
+			}
+			fill="green.500"
+		/>
+	</Story>
 </Canvas>
 
 <ArgsTable of={Icon} include={['fill']} />
