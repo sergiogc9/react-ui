@@ -3204,10 +3204,10 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@sergiogc9/eslint-config@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/eslint-config/-/eslint-config-1.0.4.tgz#251bc9c68278cdb57100295325fe3ef0f98b73ff"
-  integrity sha512-5NHCGxQTu9JGO7JYSzuqyz9k/l1tUR0UHSh3goav3XdQxJwRhokD08b70/SFfMLuQMkC0SuHKair7ZWaaNCqKg==
+"@sergiogc9/eslint-config@1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/eslint-config/-/eslint-config-1.0.5.tgz#8506fd5132e58695e0bd1b04affb5f4f9734c926"
+  integrity sha512-fSpl4/0CEEiWi8KDR4xvzTDncnGygUNx0FtjFMH1SqbzOJJLrf83XaXRCfixaz5YObpGQG7Zic1SBL5h+SJEYA==
   dependencies:
     "@typescript-eslint/parser" "4.15.0"
     eslint-config-airbnb "18.2.1"
