@@ -1,0 +1,73 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import {
+  getFixedStoryParams,
+  getPlaygroundStoryParams
+} from 'storybook/parameters';
+
+import Link from 'components/Link';
+import Content from 'components/Content';
+
+<Meta title="Components/Link" component={Link} />
+
+# Link
+
+This simple component will apply the link style a the text inside it. It extends all the `Content` component props.
+
+It should be used if you need inside a paragraph or a WYSIWYG. To another cases use the `Button` with the `link` variant.
+
+<Story
+  name="playground"
+  args={{ children: 'Awesome link' }}
+  parameters={getPlaygroundStoryParams()}
+>
+  {(args) => <Link {...args} />}
+</Story>
+
+## Default behavior
+
+<Canvas>
+  <Story name="default" parameters={getFixedStoryParams()}>
+    <Link>I'm a default link</Link>
+  </Story>
+</Canvas>
+
+## Opposite behavior
+
+You can pass `opposite` to the `behavior` prop and the underline will be hidden by default and showed on ':hover'.
+
+<Canvas>
+  <Story name="opposite" parameters={getFixedStoryParams()}>
+    <Link behavior="opposite">I'm an opposite link</Link>
+  </Story>
+</Canvas>
+
+## Link as `<button>`
+
+You can render a `<button>` tag on the DOM if you create the Link with `as="button"`. The style is the same, though.
+
+<Canvas>
+  <Story name="link as button" parameters={getFixedStoryParams()}>
+    <Link as="button">I'm a default link</Link>
+  </Story>
+</Canvas>
+
+## Link inside a paragraph
+
+If you need to style a link inside a paragraph or some text coming from a WYSIWYG ( for example ). It will look like this.
+
+Disclaimer: This is just an example of how it will look. We still need to define which `wrapper` we need to use in order to create the `stylesheet`rule.
+
+<Canvas>
+  <Story name="inside a paragraph" parameters={getFixedStoryParams()}>
+    <Content aspectSize="s">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      <Link aspectSize="s"> I'm a link inside a lorem ipsum</Link> Lorem Ipsum has
+      been the industry's standard dummy text ever since the 1500s, when an unknown
+      printer took a galley of type and scrambled it to make a type specimen book.
+      It has survived not only five centuries, but also the leap into electronic
+      typesetting, remaining essentially unchanged.
+    </Content>
+  </Story>
+</Canvas>
+
+<ArgsTable of={Link} />

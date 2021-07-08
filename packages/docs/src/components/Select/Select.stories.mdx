@@ -1,0 +1,376 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+
+import SelectDecorator from 'storybook/decorators/Select';
+import {
+  getFixedStoryParams,
+  getPlaygroundStoryParams
+} from 'storybook/parameters';
+import Content from 'components/Content';
+import Icon from 'components/Icon';
+import Select from 'components/Select';
+
+<Meta
+  title="Components/Select"
+  component={Select}
+  decorators={[SelectDecorator]}
+/>
+
+<Story
+  name="playground"
+  args={{
+    label: 'Awesome options'
+  }}
+  argTypes={{
+    onInputChange: { action: 'inputChanged' },
+    onOptionChange: { action: 'changed' }
+  }}
+  parameters={getPlaygroundStoryParams()}
+>
+  {(args) => (
+    <Select
+      {...args}
+      width={300}
+      isMultiSelect
+      defaultValue={['option-1', 'option-2']}
+    >
+      <Select.Option id="option-1">Option 1</Select.Option>
+      <Select.Option id="option-2">Option 2</Select.Option>
+      <Select.Option id="option-3">Option 3</Select.Option>
+      <Select.Option id="option-4">Option 4</Select.Option>
+      <Select.Option id="option-5">my fifth option</Select.Option>
+      <Select.Option id="option-6">my sixth option</Select.Option>
+      <Select.Option id="option-6">California</Select.Option>
+      <Select.Option id="option-6">Colorado</Select.Option>
+    </Select>
+  )}
+</Story>
+
+# Select
+
+A select component with multi selection and autocomplete features.
+
+Most important features:
+
+- Select one or many options (single or multi select).
+- Type inside input to filter options (autocomplete).
+- Dynamic option updates while user writes. The options are updated from outside the component.
+- Navigable using the keyboard.
+- Use it as controlled or uncontrolled component.
+- Disabled, error and success styles supported.
+
+## Sizes
+
+Use one of the different sizes to match your design:
+
+<Canvas>
+  <Story name="s" parameters={getFixedStoryParams()}>
+    <Select aspectSize="s" minHeight={150} placeholder="Select option">
+      <Select.Option id="option-1">Option 1</Select.Option>
+      <Select.Option id="option-2">Option 2</Select.Option>
+    </Select>
+  </Story>
+  <Story name="m" parameters={getFixedStoryParams()}>
+    <Select aspectSize="m" minHeight={150} placeholder="Select option">
+      <Select.Option id="option-1">Option 1</Select.Option>
+      <Select.Option id="option-2">Option 2</Select.Option>
+    </Select>
+  </Story>
+  <Story name="l" parameters={getFixedStoryParams()}>
+    <Select aspectSize="l" minHeight={150} placeholder="Select option">
+      <Select.Option id="option-1">Option 1</Select.Option>
+      <Select.Option id="option-2">Option 2</Select.Option>
+    </Select>
+  </Story>
+</Canvas>
+
+## Variants
+
+Use one of the different variants to match your design:
+
+<Canvas>
+  <Story name="neutral" parameters={getFixedStoryParams()}>
+    <Select minHeight={130} placeholder="Select option" variant="neutral">
+      <Select.Option id="option-1">Option 1</Select.Option>
+      <Select.Option id="option-2">Option 2</Select.Option>
+    </Select>
+  </Story>
+  <Story name="primary" parameters={getFixedStoryParams()}>
+    <Select minHeight={130} placeholder="Select option" variant="primary">
+      <Select.Option id="option-1">Option 1</Select.Option>
+      <Select.Option id="option-2">Option 2</Select.Option>
+    </Select>
+  </Story>
+</Canvas>
+
+## States
+
+The Select has different states implement. Useful to use inside a form, for example:
+
+<Canvas>
+  <Story name="default" parameters={getFixedStoryParams()}>
+    <Select placeholder="Select option">
+      <Select.Option id="option-1">Option 1</Select.Option>
+      <Select.Option id="option-2">Option 2</Select.Option>
+    </Select>
+  </Story>
+  <Story name="disabled" parameters={getFixedStoryParams()}>
+    <Select isDisabled placeholder="Select option">
+      <Select.Option id="option-1">Option 1</Select.Option>
+      <Select.Option id="option-2">Option 2</Select.Option>
+    </Select>
+  </Story>
+  <Story name="error" parameters={getFixedStoryParams()}>
+    <Select isError placeholder="Select option">
+      <Select.Option id="option-1">Option 1</Select.Option>
+      <Select.Option id="option-2">Option 2</Select.Option>
+    </Select>
+  </Story>
+  <Story name="success" parameters={getFixedStoryParams()}>
+    <Select isSuccess placeholder="Select option">
+      <Select.Option id="option-1">Option 1</Select.Option>
+      <Select.Option id="option-2">Option 2</Select.Option>
+    </Select>
+  </Story>
+</Canvas>
+
+## Multi selection
+
+You can enable or disable the possibility to select more than one option. Enabling the `isMultiSelect` prop will cause the `onOptionChange`, `defaultValue` and `value` props to work with arrays instead:
+
+<Canvas height={'500px'}>
+  <Story name="single select" parameters={getFixedStoryParams()}>
+    <Select label="Select only one" isMultiSelect={false} minHeight={275}>
+      <Select.Option id="option-1">Option 1</Select.Option>
+      <Select.Option id="option-2">Option 2</Select.Option>
+      <Select.Option id="option-3">Option 3</Select.Option>
+      <Select.Option id="option-4">Option 4</Select.Option>
+    </Select>
+  </Story>
+  <Story name="multi select" parameters={getFixedStoryParams()}>
+    <Select label="Select many options" isMultiSelect minHeight={275}>
+      <Select.Option id="option-1">Option 1</Select.Option>
+      <Select.Option id="option-2">Option 2</Select.Option>
+      <Select.Option id="option-3">Option 3</Select.Option>
+      <Select.Option id="option-4">Option 4</Select.Option>
+    </Select>
+  </Story>
+</Canvas>
+
+## Autocomplete
+
+You can enable the input to let the user to filter the options while is typing. Enable this feature using the `isAutocomplete` prop. It works in both single and select modes.
+
+The Select component can be also used as an asynchronous autocomplete. To achieve this use the `onInputChange` handler to update options passed as children with newer refetched options.
+
+<Canvas>
+  <Story name="without autocomplete" parameters={getFixedStoryParams()}>
+    <Select label="Select an option" isAutocomplete={false} minHeight={230}>
+      <Select.Option id="option-1">Option 1</Select.Option>
+      <Select.Option id="option-2">This is the option 2</Select.Option>
+      <Select.Option id="option-3">This is the option 3</Select.Option>
+      <Select.Option id="option-4">Option 4</Select.Option>
+    </Select>
+  </Story>
+  <Story name="with autocomplete" parameters={getFixedStoryParams()}>
+    <Select label="Filter options" isAutocomplete minHeight={230}>
+      <Select.Option id="option-1">Option 1</Select.Option>
+      <Select.Option id="option-2">This is the option 2</Select.Option>
+      <Select.Option id="option-3">This is the option 3</Select.Option>
+      <Select.Option id="option-4">Option 4</Select.Option>
+    </Select>
+  </Story>
+</Canvas>
+
+## With custom icon
+
+You can add some content at left of the input using the TextField prop `leftContent`. Keep in mind that nothing but an Icon should be used:
+
+<Canvas>
+  <Story
+    name="with custom icon"
+    args={{
+      placeholder: 'Select a favourite'
+    }}
+    parameters={getFixedStoryParams()}
+  >
+    {(args) => (
+      <Select
+        leftContent={<Icon icon="star" styling="filled" />}
+        minHeight={215}
+        {...args}
+      >
+        <Select.Option id="option-1">Favourite option 1</Select.Option>
+        <Select.Option id="option-2">Favourite option 2</Select.Option>
+        <Select.Option id="option-3">Favourite option 3</Select.Option>
+        <Select.Option id="option-4">Favourite option 4</Select.Option>
+      </Select>
+    )}
+  </Story>
+</Canvas>
+
+## Labels, placeholder and helper text
+
+You can use the props `label`, `labelPosition`, `placeholder` and `helperText` which are inherited from TextField:
+
+Without label or placeholder:
+
+<Canvas>
+  <Story
+    name="without label and placeholder"
+    parameters={getFixedStoryParams()}
+  >
+    {(args) => (
+      <Select {...args} minHeight={130}>
+        <Select.Option id="option-1">Option 1</Select.Option>
+        <Select.Option id="option-2">Option 2</Select.Option>
+      </Select>
+    )}
+  </Story>
+</Canvas>
+
+With inside and outside label:
+
+<Canvas>
+  <Story name="with inside label" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Select {...args} label="City" minHeight={130}>
+        <Select.Option id="option-1">Girona</Select.Option>
+        <Select.Option id="option-2">Barcelona</Select.Option>
+      </Select>
+    )}
+  </Story>
+  <Story name="with outside label" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Select {...args} label="City" labelPosition="outside" minHeight={130}>
+        <Select.Option id="option-1">Girona</Select.Option>
+        <Select.Option id="option-2">Barcelona</Select.Option>
+      </Select>
+    )}
+  </Story>
+</Canvas>
+
+With placeholder:
+
+<Canvas>
+  <Story name="with placeholder" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Select {...args} placeholder="Select a city" minHeight={130}>
+        <Select.Option id="option-1">Girona</Select.Option>
+        <Select.Option id="option-2">Barcelona</Select.Option>
+      </Select>
+    )}
+  </Story>
+</Canvas>
+
+With both label and placeholder:
+
+<Canvas>
+  <Story name="with label and placeholder" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Select
+        {...args}
+        label="City"
+        placeholder="Select a city"
+        minHeight={130}
+      >
+        <Select.Option id="option-1">Girona</Select.Option>
+        <Select.Option id="option-2">Barcelona</Select.Option>
+      </Select>
+    )}
+  </Story>
+</Canvas>
+
+With helper text:
+
+<Canvas>
+  <Story name="with helper text" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Select
+        {...args}
+        label="City"
+        placeholder="Select a city"
+        helperText="Required"
+      >
+        <Select.Option id="option-1">Girona</Select.Option>
+        <Select.Option id="option-2">Barcelona</Select.Option>
+      </Select>
+    )}
+  </Story>
+  <Story name="with helper text error" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Select
+        {...args}
+        isError
+        label="City"
+        placeholder="Select a city"
+        helperText="Required"
+      >
+        <Select.Option id="option-1">Girona</Select.Option>
+        <Select.Option id="option-2">Barcelona</Select.Option>
+      </Select>
+    )}
+  </Story>
+  <Story name="with helper text success" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Select
+        {...args}
+        label="City"
+        isSuccess
+        placeholder="Select a city"
+        helperText="Required"
+      >
+        <Select.Option id="option-1">Girona</Select.Option>
+        <Select.Option id="option-2">Barcelona</Select.Option>
+      </Select>
+    )}
+  </Story>
+  <Story name="with helper text disabled" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Select
+        {...args}
+        isDisabled
+        label="City"
+        placeholder="Select a city"
+        helperText="Required"
+      >
+        <Select.Option id="option-1">Girona</Select.Option>
+        <Select.Option id="option-2">Barcelona</Select.Option>
+      </Select>
+    )}
+  </Story>
+</Canvas>
+
+## Full customizable option values
+
+You can use plain text, html, SVG or emojis as option value.
+
+Using non plain text may cause selected option and filtered option matching input text (in autocomplete mode) to appear as bold to not work. This feature should only be used when needed.
+
+<Canvas style={{ width: '100%' }}>
+  <Story
+    name="with custom option values"
+    args={{
+      placeholder: 'Select option'
+    }}
+    parameters={getFixedStoryParams()}
+  >
+    {(args) => (
+      <Select {...args} minHeight={215}>
+        <Select.Option id="option-1">
+          🤟 <Content>Option</Content> 👌 1
+        </Select.Option>
+        <Select.Option id="option-2">Option 2</Select.Option>
+        <Select.Option id="option-3">Option 3</Select.Option>
+        <Select.Option id="option-4">Option 4</Select.Option>
+      </Select>
+    )}
+  </Story>
+</Canvas>
+
+## Select API
+
+<ArgsTable of={Select} />
+
+## Select.Option API
+
+<ArgsTable of={Select.Option} />

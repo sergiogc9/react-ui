@@ -1,0 +1,71 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import {
+  getFixedStoryParams,
+  getPlaygroundStoryParams
+} from 'storybook/parameters';
+import Counter from 'components/Counter';
+
+<Meta title="Components/Counter" component={Counter} />
+
+# Counter
+
+Counter component.
+
+<Story
+  args={{ numberOfItems: 100 }}
+  name="playground"
+  parameters={getPlaygroundStoryParams()}
+>
+  {(args) => <Counter {...args} />}
+</Story>
+
+## Sizes
+
+The Counter size can be modified using the `aspectSize` prop:
+
+<Canvas>
+  <Story name="s simple" parameters={getFixedStoryParams()}>
+    <Counter aspectSize="s" numberOfItems={2} />
+  </Story>
+  <Story name="s double number" parameters={getFixedStoryParams()}>
+    <Counter aspectSize="s" numberOfItems={36} />
+  </Story>
+  <Story name="s over 1000" parameters={getFixedStoryParams()}>
+    <Counter aspectSize="s" numberOfItems={1234} />
+  </Story>
+  <Story name="m simple" parameters={getFixedStoryParams()}>
+    <Counter aspectSize="m" numberOfItems={2} />
+  </Story>
+  <Story name="m double number" parameters={getFixedStoryParams()}>
+    <Counter aspectSize="m" numberOfItems={36} />
+  </Story>
+  <Story name="m over 1000" parameters={getFixedStoryParams()}>
+    <Counter aspectSize="m" numberOfItems={1234} />
+  </Story>
+</Canvas>
+
+## Variants
+
+Change the `Counter` styling using the different availables variants changing the `variant` prop:
+
+<Canvas>
+  <Story name="grey" parameters={getFixedStoryParams()}>
+    <Counter variant="grey" numberOfItems={50} />
+  </Story>
+  <Story name="red" parameters={getFixedStoryParams()}>
+    <Counter variant="red" numberOfItems={50} />
+  </Story>
+  <Story name="blue" parameters={getFixedStoryParams()}>
+    <Counter variant="blue" numberOfItems={50} />
+  </Story>
+  <Story name="green" parameters={getFixedStoryParams()}>
+    <Counter variant="green" numberOfItems={50} />
+  </Story>
+  <Story name="yellow" parameters={getFixedStoryParams()}>
+    <Counter variant="yellow" numberOfItems={50} />
+  </Story>
+</Canvas>
+
+# API
+
+<ArgsTable of={Counter} />

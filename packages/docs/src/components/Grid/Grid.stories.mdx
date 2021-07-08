@@ -1,0 +1,313 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import {
+  getFixedStoryParams,
+  getPlaygroundStoryParams
+} from 'storybook/parameters';
+import Grid from 'components/Grid';
+
+<Meta title="Components/Grid" component={Grid} />
+
+# Grid
+
+<Story
+  name="playground"
+  parameters={getPlaygroundStoryParams({ include: ['columnGap', 'rowGap'] })}
+>
+  {(args) => (
+    <Grid {...args} width={800}>
+      <Grid.Row bg="green.300">Grid.Row</Grid.Row>
+      <Grid.Box bg="blue.300" columns={8} rows={2}>
+        Grid.Box
+      </Grid.Box>
+      <Grid.Box bg="yellow.500" columns={4}>
+        Grid.Box
+      </Grid.Box>
+      <Grid.Box
+        alignBoxs="center"
+        bg="green.700"
+        columns={4}
+        height={150}
+        initialColumn={9}
+      >
+        Grid.Box
+      </Grid.Box>
+      <Grid.Box bg="red.300" columns={8}>
+        Grid.Box
+      </Grid.Box>
+      <Grid.Box bg="primary.200" columns={4}>
+        Grid.Box
+      </Grid.Box>
+    </Grid>
+  )}
+</Story>
+
+The `Grid` set of components are useful to create layouts using the `grid css` API. More info about it here:
+https://developer.mozilla.org/es/docs/Web/CSS/CSS_Grid_Layout<br/>
+https://css-tricks.com/snippets/css/complete-guide-grid
+
+⚠️ This documentation assumes the knowledge of the API.
+
+The goal of this set of components is to easily build a layout without using the exact css grid props, simplifying the API with easier to use props as `columns` or `rows`.
+
+## Grid container
+
+The main `Grid` components is the container div with `display: grid`. It has all features as `Box` components plus all css props related to grid css API:
+
+<Canvas>
+  <Story name="default grid" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Grid width={800}>
+        <Grid.Row bg="green.300">Grid.Row</Grid.Row>
+        <Grid.Box bg="blue.300" columns={8} rows={2}>
+          Grid.Box
+        </Grid.Box>
+        <Grid.Box bg="yellow.500" columns={4}>
+          Grid.Box
+        </Grid.Box>
+        <Grid.Box
+          alignBoxs="center"
+          bg="green.700"
+          columns={4}
+          height={150}
+          initialColumn={9}
+        >
+          Grid.Box
+        </Grid.Box>
+        <Grid.Box bg="red.300" columns={8}>
+          Grid.Box
+        </Grid.Box>
+        <Grid.Box bg="primary.200" columns={4}>
+          Grid.Box
+        </Grid.Box>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
+
+By default, it creates a grid layout with `12` explicit columns and `1` explicit row:
+
+<Canvas>
+  <Story name="default columns and rows" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Grid width={800}>
+        <Grid.Box bg="blue.300">Box 1</Grid.Box>
+        <Grid.Box bg="blue.300">Box 2</Grid.Box>
+        <Grid.Box bg="blue.300">Box 3</Grid.Box>
+        <Grid.Box bg="blue.300">Box 4</Grid.Box>
+        <Grid.Box bg="blue.300">Box 5</Grid.Box>
+        <Grid.Box bg="blue.300">Box 6</Grid.Box>
+        <Grid.Box bg="blue.300">Box 7</Grid.Box>
+        <Grid.Box bg="blue.300">Box 8</Grid.Box>
+        <Grid.Box bg="blue.300">Box 9</Grid.Box>
+        <Grid.Box bg="blue.300">Box 10</Grid.Box>
+        <Grid.Box bg="blue.300">Box 11</Grid.Box>
+        <Grid.Box bg="blue.300">Box 12</Grid.Box>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
+
+This behavior can be changed using the `rows` and `columns` props:
+
+<Canvas>
+  <Story name="custom number of columns" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Grid columns={8} width={800}>
+        <Grid.Box bg="blue.300">Box 1</Grid.Box>
+        <Grid.Box bg="blue.300">Box 2</Grid.Box>
+        <Grid.Box bg="blue.300">Box 3</Grid.Box>
+        <Grid.Box bg="blue.300">Box 4</Grid.Box>
+        <Grid.Box bg="blue.300">Box 5</Grid.Box>
+        <Grid.Box bg="blue.300">Box 6</Grid.Box>
+        <Grid.Box bg="blue.300">Box 7</Grid.Box>
+        <Grid.Box bg="blue.300">Box 8</Grid.Box>
+        <Grid.Box bg="blue.300">Box 9</Grid.Box>
+        <Grid.Box bg="blue.300">Box 10</Grid.Box>
+        <Grid.Box bg="blue.300">Box 11</Grid.Box>
+        <Grid.Box bg="blue.300">Box 12</Grid.Box>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
+
+By default it uses an equal width for all columns (it uses `1fr`). You can change this passing a `false` value to `hasEqualColumns` prop:
+
+<Canvas>
+  <Story name="without equal columns width" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Grid columns={8} hasEqualColumns={false} width={800}>
+        <Grid.Box bg="blue.300">Box 1</Grid.Box>
+        <Grid.Box bg="blue.300">Box 2</Grid.Box>
+        <Grid.Box bg="blue.300">Box 3</Grid.Box>
+        <Grid.Box bg="blue.300">Box 4. I'm bigger</Grid.Box>
+        <Grid.Box bg="blue.300">Box 5</Grid.Box>
+        <Grid.Box bg="blue.300">Box 6</Grid.Box>
+        <Grid.Box bg="blue.300">Box 7</Grid.Box>
+        <Grid.Box bg="blue.300">Box 8</Grid.Box>
+        <Grid.Box bg="blue.300">Box 9</Grid.Box>
+        <Grid.Box bg="blue.300">Box 10</Grid.Box>
+        <Grid.Box bg="blue.300">Box 11</Grid.Box>
+        <Grid.Box bg="blue.300">Box 12</Grid.Box>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
+
+The Grid container has a default `gap` value. You can modify them using the `columnGap` and `rowGap` props:
+
+<Canvas>
+  <Story name="with custom gap" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Grid columns={8} columnGap={50} rowGap={70} width={800}>
+        <Grid.Box bg="blue.300">Box 1</Grid.Box>
+        <Grid.Box bg="blue.300">Box 2</Grid.Box>
+        <Grid.Box bg="blue.300">Box 3</Grid.Box>
+        <Grid.Box bg="blue.300">Box 4</Grid.Box>
+        <Grid.Box bg="blue.300">Box 5</Grid.Box>
+        <Grid.Box bg="blue.300">Box 6</Grid.Box>
+        <Grid.Box bg="blue.300">Box 7</Grid.Box>
+        <Grid.Box bg="blue.300">Box 8</Grid.Box>
+        <Grid.Box bg="blue.300">Box 9</Grid.Box>
+        <Grid.Box bg="blue.300">Box 10</Grid.Box>
+        <Grid.Box bg="blue.300">Box 11</Grid.Box>
+        <Grid.Box bg="blue.300">Box 12</Grid.Box>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
+
+Finally, you can override all these default behaviors using the final grid css props (e.g. `gridTemplateColumns`, `gridTemplateRows`, etc.):
+
+<Canvas>
+  <Story name="with custom css" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Grid gridTemplateColumns="100px 200px 100px 200px" width={800}>
+        <Grid.Box bg="blue.300">Box 1</Grid.Box>
+        <Grid.Box bg="blue.300">Box 2</Grid.Box>
+        <Grid.Box bg="blue.300">Box 3</Grid.Box>
+        <Grid.Box bg="blue.300">Box 4</Grid.Box>
+        <Grid.Box bg="blue.300">Box 5</Grid.Box>
+        <Grid.Box bg="blue.300">Box 6</Grid.Box>
+        <Grid.Box bg="blue.300">Box 7</Grid.Box>
+        <Grid.Box bg="blue.300">Box 8</Grid.Box>
+        <Grid.Box bg="blue.300">Box 9</Grid.Box>
+        <Grid.Box bg="blue.300">Box 10</Grid.Box>
+        <Grid.Box bg="blue.300">Box 11</Grid.Box>
+        <Grid.Box bg="blue.300">Box 12</Grid.Box>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
+
+## Grid Box
+
+The `Grid.Box` component represents a grid item inside the container. By default it represents a unique cell (i.e. 1 column and 1 row) but it can be easily changed using its props.
+
+You can specify how many columns does the Box takes using the `columns` prop:
+
+<Canvas>
+  <Story name="with custom box columns" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Grid width={800}>
+        <Grid.Box bg="blue.300" columns={8}>
+          Box 1 with 8 columns
+        </Grid.Box>
+        <Grid.Box bg="yellow.300" columns={4}>
+          Box 2 with 4 columns
+        </Grid.Box>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
+
+You can change the start column for a Box, you can use the `initialColumn` prop:
+
+<Canvas>
+  <Story
+    name="with custom box initial column"
+    parameters={getFixedStoryParams()}
+  >
+    {(args) => (
+      <Grid width={800}>
+        <Grid.Box bg="blue.300" columns={8} initialColumn={5}>
+          Box 1 with 8 columns at top right
+        </Grid.Box>
+        <Grid.Box bg="yellow.300" columns={4}>
+          Box 2 with 4 columns at bottom left
+        </Grid.Box>
+        <Grid.Box bg="green.300" columns={4} initialColumn={9}>
+          Box 3 with 4 columns at bottom right
+        </Grid.Box>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
+
+You can use the same approach with rows using the `rows` and `intialRow` props:
+
+<Canvas>
+  <Story name="with custom rows" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Grid width={800}>
+        <Grid.Box bg="blue.300" columns={8} initialRow={1} rows={8}>
+          Box 1 with 8 rows
+        </Grid.Box>
+        <Grid.Box bg="yellow.300" columns={4} initialRow={3} rows={4}>
+          Box 2 with 4 rows starting from row 3
+        </Grid.Box>
+        <Grid.Box bg="green.300" columns={12}>
+          I don't care in which row I am
+        </Grid.Box>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
+
+If the layout depends on the device, all props can be used as responsive arrays or objects:
+
+<Canvas>
+  <Story name="with responsive values" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Grid width={800}>
+        <Grid.Box bg="blue.300" columns={{ xs: 12, md: 8 }}>
+          Box 1 with 8 columns in desktop and full width in mobile
+        </Grid.Box>
+        <Grid.Box bg="yellow.300" columns={{ xs: 12, md: 4 }}>
+          Box 2 with 4 columns in desktop and full width in mobile
+        </Grid.Box>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
+
+## Grid Row
+
+The `Grid.Row` is baiscally a `Box` component with grid css API features added. By default it takes up the space of the following available row:
+
+You can specify how many columns does the Box takes using the `columns` prop:
+
+<Canvas>
+  <Story name="with row" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <Grid width={800}>
+        <Grid.Row bg="blue.300">Row 1</Grid.Row>
+        <Grid.Row bg="yellow.300">Row 2</Grid.Row>
+        <Grid.Row bg="green.300">Row 3</Grid.Row>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
+
+⚠️ Keep in mind that the `Grid.Row` component is not a grid container. You can not use a `Grid.Box` component inside it.
+
+# Grid API
+
+<ArgsTable of={Grid} />
+
+# Grid.Box API
+
+<ArgsTable of={Grid.Box} />
+
+# Grid Row API
+
+<ArgsTable of={Grid.Row} />

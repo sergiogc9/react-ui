@@ -1,0 +1,39 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import {
+  getFixedStoryParams,
+  getPlaygroundStoryParams
+} from 'storybook/parameters';
+import Overlay from 'components/Overlay';
+import { OverlayDocsStory, OverlayPlaygroundStory } from './Overlay';
+
+<Meta title="Components/Overlay" component={Overlay} />
+
+# Overlay
+
+The Overlay component is useful to keep the user out of focus from the page content to make him focus to another component (e.g. a modal, dialog, etc.).
+
+Each overlay is inserted inside a div with an id equal to `overlays` that should be located outside the `root` div where React is mounted in. If the `overlays` div is not found, the overlay is inserted as a `body` child.
+
+<Story
+  name="playground"
+  args={{ blur: 5 }}
+  parameters={getPlaygroundStoryParams()}
+>
+  {(args) => <OverlayPlaygroundStory {...args} />}
+</Story>
+
+<Canvas>
+  <Story name="default" args={{}} parameters={getFixedStoryParams()}>
+    {(args) => <OverlayDocsStory {...args} />}
+  </Story>
+</Canvas>
+
+## Blur
+
+You can use a blur effect to hide the content from the page passing a value to `blur` prop. It is a number representing the blur px used. If the `isVisible` prop is `false`, the blur effect is also disabled.
+
+🛈 The blur effect can not be tested in the docs tab. Please test it using the playground story.
+
+# Overlay API
+
+<ArgsTable of={Overlay} />

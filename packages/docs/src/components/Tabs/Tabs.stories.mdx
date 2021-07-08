@@ -1,0 +1,160 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import {
+  getFixedStoryParams,
+  getPlaygroundStoryParams
+} from 'storybook/parameters';
+import Tabs from 'components/Tabs';
+import TabsHeader from 'components/Tabs/Header';
+import TabsMenu from 'components/Tabs/Menu';
+import TabsTab from 'components/Tabs/Tab';
+import TabsContent from 'components/Tabs/Content';
+
+<Meta title="Components/Tabs" component={Tabs} />
+
+# Tabs
+
+A component used to render tabs to organize content across different views, and where only one view can be visible at a time.
+
+When the list of tab exceeds the width of the Tabs component , the user must scroll to the right to see the next ones.
+
+The active tab may be set using the `defaultTab` prop.
+
+### Tabs.Header vs Tabs.Menu
+
+The reason for having two nested `Box` like this relapses on the different kind of situations and designs that `Tabs` can have.
+
+By default the `Tabs.Header` will come with a border on the bottom. So it's easy to identify it.
+
+You can play with those `Box` depending if you need a fluid content or inside a container.
+
+<Story
+  name="playground"
+  args={{
+    defaultTab: 'tab_1',
+    width: '100%',
+    maxWidth: '100%'
+  }}
+  parameters={getPlaygroundStoryParams()}
+>
+  {(args) => (
+    <Tabs {...args}>
+      <Tabs.Header>
+        <Tabs.Menu>
+          {[
+            'tab_1',
+            'tab_2',
+            'tab_3',
+            'tab_4',
+            'tab_5',
+            'tab_6',
+            'tab_7',
+            'tab_8'
+          ].map((tab_id, index) => (
+            <Tabs.Tab key={`${tab_id}`} id={`${tab_id}`}>
+              {`${tab_id}`}
+            </Tabs.Tab>
+          ))}
+        </Tabs.Menu>
+      </Tabs.Header>
+      {[
+        'tab_1',
+        'tab_2',
+        'tab_3',
+        'tab_4',
+        'tab_5',
+        'tab_6',
+        'tab_7',
+        'tab_8'
+      ].map((tab_id, index) => (
+        <Tabs.Content key={`${tab_id}`} id={`${tab_id}`} px={3} height={200}>
+          This is the content of {`${tab_id}`}
+        </Tabs.Content>
+      ))}
+    </Tabs>
+  )}
+</Story>
+
+## Default state
+
+By default, every tab has `hover` state except the active one.
+
+<Canvas>
+  <Story name="default" title="default" parameters={getFixedStoryParams()}>
+    <Tabs defaultTab="tab_1" mt={3}>
+      <Tabs.Header>
+        <Tabs.Menu>
+          <Tabs.Tab id="tab_1">Tab 1</Tabs.Tab>
+          <Tabs.Tab id="tab_2">Tab 2</Tabs.Tab>
+        </Tabs.Menu>
+      </Tabs.Header>
+      <Tabs.Content id="tab_1" px={3} height={200}>
+        This is the content of Tab 1
+      </Tabs.Content>
+      <Tabs.Content id="tab_2" px={3} height={200}>
+        This is the content of Tab 2
+      </Tabs.Content>
+    </Tabs>
+  </Story>
+</Canvas>
+
+## With error
+
+You can add the `isError` prop to a tab, to hightlight errors.
+
+<Canvas>
+  <Story name="error" title="error" parameters={getFixedStoryParams()}>
+    <Tabs defaultTab="tab_1" mt={3}>
+      <Tabs.Header>
+        <Tabs.Menu>
+          <Tabs.Tab isError id="tab_1">
+            Tab 1
+          </Tabs.Tab>
+        </Tabs.Menu>
+      </Tabs.Header>
+      <Tabs.Content id="tab_1" px={3} height={200}>
+        This is the content of Tab 1
+      </Tabs.Content>
+    </Tabs>
+  </Story>
+</Canvas>
+
+## Disabled tab
+
+Also, you can disable id adding the `isDisabled` prop.
+
+<Canvas>
+  <Story name="disabled" title="disabled" parameters={getFixedStoryParams()}>
+    <Tabs defaultTab="tab_1" mt={3}>
+      <Tabs.Header>
+        <Tabs.Menu>
+          <Tabs.Tab isDisabled id="tab_1">
+            Tab 1
+          </Tabs.Tab>
+        </Tabs.Menu>
+      </Tabs.Header>
+      <Tabs.Content id="tab_1" px={3} height={200}>
+        This is the content of Tab 1
+      </Tabs.Content>
+    </Tabs>
+  </Story>
+</Canvas>
+
+# Tabs API
+
+<ArgsTable of={Tabs} />
+
+# Tabs Header API
+
+<ArgsTable of={TabsHeader} />
+
+# Tabs Menu API
+
+<ArgsTable of={TabsMenu} />
+
+# Tabs Tab API
+
+<ArgsTable of={TabsTab} />
+
+# Tabs Content API
+
+<ArgsTable of={TabsContent} />

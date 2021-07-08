@@ -1,0 +1,498 @@
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import {
+  getFixedStoryParams,
+  getPlaygroundStoryParams
+} from 'storybook/parameters';
+
+import ChipDecorator from 'storybook/decorators/Chip';
+import Chip, { ChipProps } from 'components/Chip';
+import { IconProps } from 'components/Icon';
+
+<Meta title="Components/Chip" component={Chip} />
+
+# Chip
+
+Chips are small elements to display tags, links or useful information.
+
+<Story
+  name="playground"
+  args={{
+    variant: 'blue',
+    aspectSize: 's',
+    children: 'Click me',
+    iconLeft: 'location',
+    iconRight: 'close',
+    showLeftIcon: true,
+    showRightIcon: true
+  }}
+  argTypes={{
+    aspectSize: {
+      control: {
+        type: 'radio',
+        options: ['s', 'm']
+      }
+    },
+    variant: {
+      control: {
+        type: 'radio',
+        options: ['white', 'blue', 'grey', 'yellow', 'red', 'green']
+      }
+    }
+  }}
+  parameters={getPlaygroundStoryParams()}
+>
+  {({
+    children,
+    variant,
+    aspectSize,
+    iconLeft,
+    iconRight,
+    showLeftIcon,
+    showRightIcon
+  }) => (
+    <Chip variant={variant} aspectSize={aspectSize}>
+      {showLeftIcon && (
+        <Chip.Icon styling="filled" icon={iconLeft} location="left" />
+      )}
+      <Chip.Label>{children}</Chip.Label>
+      {showRightIcon && (
+        <Chip.Icon
+          styling="outlined"
+          icon={iconRight}
+          location="right"
+          onClick={() => console.log('TEST')}
+        />
+      )}
+    </Chip>
+  )}
+</Story>
+
+## Chip Label
+
+It can be used as a simple label and two `aspectSize` are actually available, `s`and `m`.
+
+<Canvas>
+  <Story
+    parameters={getFixedStoryParams()}
+    name="label with link"
+    decorators={[ChipDecorator]}
+  >
+    <Chip variant="white" aspectSize="s">
+      <Chip.Label>Chip as label</Chip.Label>
+    </Chip>
+    <Chip variant="blue" aspectSize="s">
+      <Chip.Label>Chip as label</Chip.Label>
+    </Chip>
+    <Chip variant="grey" aspectSize="s">
+      <Chip.Label>Chip as label</Chip.Label>
+    </Chip>
+    <Chip variant="yellow" aspectSize="s">
+      <Chip.Label>Chip as label</Chip.Label>
+    </Chip>
+    <Chip variant="red" aspectSize="s">
+      <Chip.Label>Chip as label</Chip.Label>
+    </Chip>
+    <Chip variant="green" aspectSize="s">
+      <Chip.Label>Chip as label</Chip.Label>
+    </Chip>
+    <Chip variant="white" aspectSize="m">
+      <Chip.Label>Chip as label</Chip.Label>
+    </Chip>
+    <Chip variant="blue" aspectSize="m">
+      <Chip.Label>Chip as label</Chip.Label>
+    </Chip>
+    <Chip variant="grey" aspectSize="m">
+      <Chip.Label>Chip as label</Chip.Label>
+    </Chip>
+    <Chip variant="yellow" aspectSize="m">
+      <Chip.Label>Chip as label</Chip.Label>
+    </Chip>
+    <Chip variant="red" aspectSize="m">
+      <Chip.Label>Chip as label</Chip.Label>
+    </Chip>
+    <Chip variant="green" aspectSize="m">
+      <Chip.Label>Chip as label</Chip.Label>
+    </Chip>
+  </Story>
+</Canvas>
+
+## Chip Label with link
+
+But it can be also a link, just add the `href` prop to the parent.
+
+<Canvas>
+  <Story
+    parameters={getFixedStoryParams()}
+    name="chip as link"
+    decorators={[ChipDecorator]}
+  >
+    <Chip href="#" variant="white" aspectSize="s">
+      <Chip.Label>Chip as link</Chip.Label>
+    </Chip>
+    <Chip href="#" variant="blue" aspectSize="s">
+      <Chip.Label>Chip as link</Chip.Label>
+    </Chip>
+    <Chip href="#" variant="grey" aspectSize="s">
+      <Chip.Label>Chip as link</Chip.Label>
+    </Chip>
+    <Chip href="#" variant="yellow" aspectSize="s">
+      <Chip.Label>Chip as link</Chip.Label>
+    </Chip>
+    <Chip href="#" variant="red" aspectSize="s">
+      <Chip.Label>Chip as link</Chip.Label>
+    </Chip>
+    <Chip href="#" variant="green" aspectSize="s">
+      <Chip.Label>Chip as link</Chip.Label>
+    </Chip>
+    <Chip href="#" variant="white" aspectSize="m">
+      <Chip.Label>Chip as link</Chip.Label>
+    </Chip>
+    <Chip href="#" variant="blue" aspectSize="m">
+      <Chip.Label>Chip as link</Chip.Label>
+    </Chip>
+    <Chip href="#" variant="grey" aspectSize="m">
+      <Chip.Label>Chip as link</Chip.Label>
+    </Chip>
+    <Chip href="#" variant="yellow" aspectSize="m">
+      <Chip.Label>Chip as link</Chip.Label>
+    </Chip>
+    <Chip href="#" variant="red" aspectSize="m">
+      <Chip.Label>Chip as link</Chip.Label>
+    </Chip>
+    <Chip href="#" variant="green" aspectSize="m">
+      <Chip.Label>Chip as link</Chip.Label>
+    </Chip>
+  </Story>
+</Canvas>
+
+## Chip Label with Icon
+
+Chip has the possibility to integrate icons, they are all passed via children. Remember to choose their position using the `location` prop.
+
+<Canvas>
+  <Story
+    parameters={getFixedStoryParams()}
+    name="chip + icon"
+    decorators={[ChipDecorator]}
+  >
+    {['s', 'm'].map((size) =>
+      ['white', 'blue', 'grey', 'yellow', 'red', 'green'].map((variant) => (
+        <Chip variant={variant} aspectSize={size}>
+          <Chip.Icon styling="filled" icon="bookmark" location="left" />
+          <Chip.Label>Bookmarked</Chip.Label>
+        </Chip>
+      ))
+    )}
+  </Story>
+</Canvas>
+
+## Chip Label with Handler
+
+An icon can have an handler. Adding an `onClick`function to the component will let the parent know this icon needs to be actionable.
+
+<Canvas>
+  <Story
+    parameters={getFixedStoryParams()}
+    name="chip + handler"
+    decorators={[ChipDecorator]}
+  >
+    <Chip variant="white" aspectSize="s">
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="blue" aspectSize="s">
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="grey" aspectSize="s">
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="yellow" aspectSize="s">
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="red" aspectSize="s">
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="green" aspectSize="s">
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="white" aspectSize="m">
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="blue" aspectSize="m">
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="grey" aspectSize="m">
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="yellow" aspectSize="m">
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="red" aspectSize="m">
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="green" aspectSize="m">
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+  </Story>
+</Canvas>
+
+## Chip with Handler and Icon
+
+It is possible to compose the chip using all of its pieces.
+
+<Canvas>
+  <Story
+    parameters={getFixedStoryParams()}
+    name="chip + handler + icon"
+    decorators={[ChipDecorator]}
+  >
+    <Chip variant="white" aspectSize="s">
+      <Chip.Icon styling="filled" icon="bookmark" location="left" />
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="blue" aspectSize="s">
+      <Chip.Icon styling="filled" icon="bookmark" location="left" />
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="grey" aspectSize="s">
+      <Chip.Icon styling="filled" icon="bookmark" location="left" />
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="warning" aspectSize="s">
+      <Chip.Icon styling="filled" icon="bookmark" location="left" />
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="red" aspectSize="s">
+      <Chip.Icon styling="filled" icon="bookmark" location="left" />
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="green" aspectSize="s">
+      <Chip.Icon styling="filled" icon="bookmark" location="left" />
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="white" aspectSize="m">
+      <Chip.Icon styling="filled" icon="bookmark" location="left" />
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="blue" aspectSize="m">
+      <Chip.Icon styling="filled" icon="bookmark" location="left" />
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="grey" aspectSize="m">
+      <Chip.Icon styling="filled" icon="bookmark" location="left" />
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="warning" aspectSize="m">
+      <Chip.Icon styling="filled" icon="bookmark" location="left" />
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="red" aspectSize="m">
+      <Chip.Icon styling="filled" icon="bookmark" location="left" />
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+    <Chip variant="green" aspectSize="m">
+      <Chip.Icon styling="filled" icon="bookmark" location="left" />
+      <Chip.Label>Bookmarked</Chip.Label>
+      <Chip.Icon
+        styling="outlined"
+        icon="close"
+        location="right"
+        onClick={() => console.log('TEST')}
+      />
+    </Chip>
+  </Story>
+</Canvas>
+
+## Custom Chip
+
+The Chip has been built to be composable, be creative!
+
+<Canvas>
+  <Story
+    parameters={getFixedStoryParams()}
+    name="custom chips"
+    decorators={[ChipDecorator]}
+  >
+    <Chip
+      variant="blue"
+      aspectSize="s"
+      background="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 16%, rgba(0,212,255,1) 50%)"
+    >
+      <Chip.Icon
+        fill="yellow.200"
+        styling="filled"
+        icon="star"
+        location="left"
+      />
+      <Chip.Icon
+        fill="yellow.300"
+        styling="filled"
+        icon="star"
+        location="left"
+      />
+      <Chip.Icon
+        fill="yellow.400"
+        styling="filled"
+        icon="star"
+        location="left"
+      />
+      <Chip.Icon
+        fill="yellow.500"
+        styling="filled"
+        icon="star"
+        location="left"
+      />
+      <Chip.Icon
+        fill="yellow.600"
+        styling="filled"
+        icon="star"
+        location="left"
+      />
+      <Chip.Label>Buy on sight</Chip.Label>
+      <Chip.Icon
+        styling="filled"
+        icon="alert-error"
+        location="right"
+        onClick={() => console.log('TEST')}
+        fill="red.600"
+      />
+    </Chip>
+  </Story>
+</Canvas>

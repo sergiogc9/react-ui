@@ -1,0 +1,243 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import {
+  getFixedStoryParams,
+  getPlaygroundStoryParams
+} from 'storybook/parameters';
+import Icon from 'components/Icon';
+import TextField from 'components/TextField';
+import TextFieldDate from 'components/TextField/Date';
+
+<Meta title="Components/TextField" component={TextField} />
+
+# TextField
+
+TextField component.
+
+<Story
+  name="playground"
+  args={{ label: 'Enter some text', placeholder: '' }}
+  argTypes={{
+    min: {
+      control: {
+        type: 'number'
+      }
+    },
+    max: {
+      control: {
+        type: 'number'
+      }
+    },
+    onBlur: { action: 'blurred' },
+    onChange: { action: 'changed' }
+  }}
+  parameters={getPlaygroundStoryParams()}
+>
+  {(args) => <TextField id="text-field-playground" {...args} />}
+</Story>
+
+## States
+
+<Canvas>
+  <Story name="default" parameters={getFixedStoryParams()}>
+    <TextField label="Enter some text" title="default" />
+  </Story>
+  <Story name="disabled" parameters={getFixedStoryParams()}>
+    <TextField isDisabled label="Enter some text" title="disabled" />
+  </Story>
+  <Story name="error" parameters={getFixedStoryParams()}>
+    <TextField isError label="Enter some text" title="error" />
+  </Story>
+  <Story name="success" parameters={getFixedStoryParams()}>
+    <TextField isSuccess label="Enter some text" title="success" />
+  </Story>
+</Canvas>
+
+## Content
+
+You can add content to left or right using the `leftContent` and `rightContent` props.
+
+The left content should be used to add informative content and the right content should be used to add actionable or clickable content.
+
+<Canvas>
+  <Story name="only input" parameters={getFixedStoryParams()}>
+    <TextField label="Enter some text" />
+  </Story>
+  <Story name="with left icon" parameters={getFixedStoryParams()}>
+    <TextField
+      label="Enter some text"
+      leftContent={<Icon styling="outlined" icon="help" />}
+    />
+  </Story>
+  <Story name="with right icon" parameters={getFixedStoryParams()}>
+    <TextField
+      label="Enter some text"
+      rightContent={<Icon styling="outlined" icon="cloud-upload" />}
+    />
+  </Story>
+  <Story name="with both icons" parameters={getFixedStoryParams()}>
+    <TextField
+      label="Enter some text"
+      leftContent={<Icon styling="outlined" icon="help" />}
+      rightContent={<Icon styling="outlined" icon="cloud-upload" />}
+    />
+  </Story>
+</Canvas>
+
+## Labels and placeholders
+
+You can pass a label using the `label` prop and a placeholder using the `placeholder` prop.
+
+Labels can be positioned inside or outside the input element using the `labelPosition` prop:
+
+#### With labels outside:
+
+<Canvas>
+  <Story name="only input label outside" parameters={getFixedStoryParams()}>
+    <TextField label="Enter some text" labelPosition="outside" />
+  </Story>
+  <Story name="with left icon label outside" parameters={getFixedStoryParams()}>
+    <TextField
+      label="Enter some text"
+      labelPosition="outside"
+      leftContent={<Icon styling="outlined" icon="help" />}
+    />
+  </Story>
+  <Story
+    name="with right icon label outside"
+    parameters={getFixedStoryParams()}
+  >
+    <TextField
+      label="Enter some text"
+      labelPosition="outside"
+      rightContent={<Icon styling="outlined" icon="cloud-upload" />}
+    />
+  </Story>
+  <Story
+    name="with both icons label outside"
+    parameters={getFixedStoryParams()}
+  >
+    <TextField
+      label="Enter some text"
+      labelPosition="outside"
+      leftContent={<Icon styling="outlined" icon="help" />}
+      rightContent={<Icon styling="outlined" icon="cloud-upload" />}
+    />
+  </Story>
+</Canvas>
+
+#### With placeholder:
+
+<Canvas>
+  <Story name="only input and placeholder" parameters={getFixedStoryParams()}>
+    <TextField
+      label="Enter your email"
+      placeholder="email@gironafc.cat"
+      type="email"
+    />
+  </Story>
+  <Story
+    name="with left icon and placeholder"
+    parameters={getFixedStoryParams()}
+  >
+    <TextField
+      label="Enter your email"
+      placeholder="email@gironafc.cat"
+      type="email"
+      leftContent={<Icon styling="outlined" icon="help" />}
+    />
+  </Story>
+  <Story
+    name="with right icon and placeholder"
+    parameters={getFixedStoryParams()}
+  >
+    <TextField
+      label="Enter your email"
+      placeholder="email@gironafc.cat"
+      type="email"
+      rightContent={<Icon styling="outlined" icon="cloud-upload" />}
+    />
+  </Story>
+  <Story
+    name="with both icons and placeholder"
+    parameters={getFixedStoryParams()}
+  >
+    <TextField
+      label="Enter your email"
+      placeholder="email@gironafc.cat"
+      type="email"
+      leftContent={<Icon styling="outlined" icon="help" />}
+      rightContent={<Icon styling="outlined" icon="cloud-upload" />}
+    />
+  </Story>
+</Canvas>
+
+## Helper text and counter
+
+#### With helper text:
+
+A helper text under the input can be shown using the `helperText` prop.
+
+<Canvas>
+  <Story name="with helper text" parameters={getFixedStoryParams()}>
+    <TextField
+      helperText="You can type unlimited characters"
+      label="Enter some text"
+    />
+  </Story>
+</Canvas>
+
+#### With characters counter:
+
+Also the number of characters can be limited using the `maxLength` prop:
+
+<Canvas>
+  <Story name="with counter" parameters={getFixedStoryParams()}>
+    <TextField
+      helperText="Type up to 10 characters"
+      label="Enter some text"
+      maxLength={10}
+    />
+  </Story>
+</Canvas>
+
+## Custom
+
+You can use some provided custom textfields using the `type` prop:
+
+#### Date
+
+A custom TextField for dates using the `DatePicker` component.
+
+<Canvas>
+  <Story name="date" parameters={getFixedStoryParams()}>
+    <TextField type="date" label="Select a day" />
+  </Story>
+</Canvas>
+
+#### Numeric
+
+A TextField for numeric values. It has custom arrows and a default minimum value of `0`.
+
+<Canvas>
+  <Story name="number" parameters={getFixedStoryParams()}>
+    <TextField type="number" defaultValue={25} label="Enter your age" />
+  </Story>
+</Canvas>
+
+#### Password
+
+A custom TextField for passwords where password can be shown or hidden.
+
+<Canvas>
+  <Story name="password" parameters={getFixedStoryParams()}>
+    <TextField type="password" label="Enter your password" />
+  </Story>
+</Canvas>
+
+# TextField API
+
+<ArgsTable of={TextField} />
+
+# TextField Date API
+
+<ArgsTable of={TextFieldDate} />

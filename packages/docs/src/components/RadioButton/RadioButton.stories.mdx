@@ -1,0 +1,81 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import {
+  getFixedStoryParams,
+  getPlaygroundStoryParams
+} from 'storybook/parameters';
+import RadioButton from 'components/RadioButton';
+
+<Meta title="Components/RadioButton" component={RadioButton} />
+
+# RadioButton
+
+Radio buttons allows you to select one option from a set.
+
+<Story name="playground" args={{}} parameters={getPlaygroundStoryParams()}>
+  {(args) => <RadioButton {...args} />}
+</Story>
+
+## Default Selected
+
+By default, RadioButtons will change their status on `click` .
+
+If you pass the `isDefaultSelected` prop to `true` it will be checked by default.
+
+<Canvas>
+  <Story name="selected" title="selected" parameters={getFixedStoryParams()}>
+    <RadioButton isDefaultSelected={true} />
+  </Story>
+  <Story
+    name="not selected"
+    title="not selected"
+    parameters={getFixedStoryParams()}
+  >
+    <RadioButton />
+  </Story>
+</Canvas>
+
+## Disabled RadioButton
+
+You can disable it adding the `isDisabled` prop.
+
+<Canvas>
+  <Story name="disabled" title="disabled" parameters={getFixedStoryParams()}>
+    <RadioButton isDisabled={true} />
+  </Story>
+</Canvas>
+
+## With label
+
+<Canvas>
+  <Story
+    name="with label"
+    title="with label"
+    parameters={getFixedStoryParams()}
+  >
+    <RadioButton label="Don't show this message again" />
+  </Story>
+  <Story
+    name="with label disabled"
+    title="with label disabled"
+    parameters={getFixedStoryParams()}
+  >
+    <RadioButton isDisabled={true} label="Don't show this message again" />
+  </Story>
+</Canvas>
+
+## Sizes
+
+The size only modifies the label but not the input.
+
+<Canvas>
+  <Story name="size m" title="size m" parameters={getFixedStoryParams()}>
+    <RadioButton aspectSize="m" label="Don't show this message again" />
+  </Story>
+  <Story name="size l" title="size l" parameters={getFixedStoryParams()}>
+    <RadioButton aspectSize="l" label="Don't show this message again" />
+  </Story>
+</Canvas>
+
+# API
+
+<ArgsTable of={RadioButton} />

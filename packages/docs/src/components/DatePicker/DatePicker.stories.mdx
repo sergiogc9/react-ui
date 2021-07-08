@@ -1,0 +1,397 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import {
+  getFixedStoryParams,
+  getPlaygroundStoryParams
+} from 'storybook/parameters';
+import TextField from 'components/TextField';
+import DatePicker from 'components/DatePicker';
+import {
+  DatePickerWithPopoverStory,
+  HolidaysModifierWrapper
+} from './DatePicker';
+
+<Meta title="Components/DatePicker" component={DatePicker} />
+
+# DatePicker
+
+The Date Picker components lets the user to select a date using a calendar.
+
+The DatePicker has the following features:
+
+- Select a single date or a range of two dates.
+- Show one or more months.
+- Define a minimum and maximum date. The user won't be able to select a date outside of them.
+- Use any locale available in Intl browser API.
+- Set some days as disabled
+- Specify dies with custom modifiers to style them.
+
+<Story
+  name="playground"
+  args={{}}
+  argTypes={{
+    date: {
+      control: {
+        type: 'date'
+      }
+    },
+    defaultDate: {
+      control: {
+        type: 'date'
+      }
+    },
+    maxDate: {
+      control: {
+        type: 'date'
+      }
+    },
+    minDate: {
+      control: {
+        type: 'date'
+      }
+    },
+    onDateChange: { action: 'changed' }
+  }}
+  parameters={getPlaygroundStoryParams({
+    exclude: ['isRange', 'defaultDateRange', 'dateRange', 'onDateRangeChange']
+  })}
+>
+  {(args) => <DatePicker {...args} />}
+</Story>
+
+<Story
+  name="playground range"
+  args={{}}
+  argTypes={{
+    onDateRangeChange: { action: 'changed' },
+    maxDate: {
+      control: {
+        type: 'date'
+      }
+    },
+    minDate: {
+      control: {
+        type: 'date'
+      }
+    }
+  }}
+  parameters={getPlaygroundStoryParams({
+    exclude: ['isRange', 'defaultDate', 'date', 'onDateChange']
+  })}
+>
+  {(args) => <DatePicker isRange {...args} />}
+</Story>
+
+<Story
+  name="playground month view"
+  args={{ view: 'month' }}
+  argTypes={{
+    date: {
+      control: {
+        type: 'date'
+      }
+    },
+    defaultDate: {
+      control: {
+        type: 'date'
+      }
+    },
+    maxDate: {
+      control: {
+        type: 'date'
+      }
+    },
+    minDate: {
+      control: {
+        type: 'date'
+      }
+    },
+    onDateChange: { action: 'changed' }
+  }}
+  parameters={getPlaygroundStoryParams({
+    exclude: ['isRange', 'defaultDateRange', 'dateRange', 'onDateRangeChange']
+  })}
+>
+  {(args) => <DatePicker {...args} />}
+</Story>
+
+<Story
+  name="playground month view range"
+  args={{
+    view: 'month',
+    defaultVisibleYear: new Date('2021-05-10T08:00:00.000Z'),
+    defaultDateRange: {
+      start: new Date('2021-05-10T08:00:00.000Z'),
+      end: new Date('2021-11-10T08:00:00.000Z')
+    }
+  }}
+  argTypes={{
+    date: {
+      control: {
+        type: 'date'
+      }
+    },
+    defaultDate: {
+      control: {
+        type: 'date'
+      }
+    },
+    maxDate: {
+      control: {
+        type: 'date'
+      }
+    },
+    minDate: {
+      control: {
+        type: 'date'
+      }
+    },
+    onDateRangeChange: { action: 'changed' }
+  }}
+  parameters={getPlaygroundStoryParams({
+    exclude: ['isRange', 'defaultDate', 'date', 'onDateChange']
+  })}
+>
+  {(args) => <DatePicker isRange {...args} />}
+</Story>
+
+## Single date
+
+To select a unique date, use the `isRange` prop with a `false` value:
+
+<Canvas>
+  <Story name="single date" parameters={getFixedStoryParams()}>
+    {(args) => <DatePicker />}
+  </Story>
+</Canvas>
+
+## Range dates
+
+To select a range of two dates, use the `isRange` prop with a `true` value:
+
+<Canvas>
+  <Story name="range date" parameters={getFixedStoryParams()}>
+    {(args) => <DatePicker isRange />}
+  </Story>
+</Canvas>
+
+## Selecting only months
+
+To let the user only select months (not days) change the DatePicker `prop` to `month`. It works for both single and range dates:
+
+<Canvas>
+  <Story name="month view single date" parameters={getFixedStoryParams()}>
+    {(args) => <DatePicker view="month" />}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="month view range date" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <DatePicker
+        defaultVisibleMonth={new Date('2021-05-10T08:00:00.000Z')}
+        defaultDateRange={{
+          start: new Date('2021-05-10T08:00:00.000Z'),
+          end: new Date('2021-11-10T08:00:00.000Z')
+        }}
+        isRange
+        view="month"
+      />
+    )}
+  </Story>
+</Canvas>
+
+## Showing more months
+
+By default, the DatePicker shows only one month. You can show more months using the prop `numberOfMonths`:
+
+<Canvas>
+  <Story name="multiple months" parameters={getFixedStoryParams()}>
+    {(args) => <DatePicker isRange numberOfMonths={2} />}
+  </Story>
+</Canvas>
+
+## Limit dates
+
+You can set a minimum or maximum date. If set, the user will not be able to select a date previous or later of the dates specified. You can specify these date using the `minDate` and `maxDate` props.
+
+For example, to enable only a range between `5th May 2021` and `15th May 2021`:
+
+<Canvas>
+  <Story name="limit dates" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <DatePicker
+        defaultDate={new Date(2021, 4, 15)}
+        defaultVisibleMonth={new Date(2021, 4, 15)}
+        maxDate={new Date(2021, 4, 25)}
+        minDate={new Date(2021, 4, 5)}
+      />
+    )}
+  </Story>
+</Canvas>
+
+## Using a custom locale
+
+If you want months and days to be displayed using another locale than the defaul (en-US), use the `locale` prop. The `Intl` browser API is used to get the text values.
+
+<Canvas>
+  <Story name="change locale" parameters={getFixedStoryParams()}>
+    {(args) => <DatePicker locale="ca-ES" />}
+  </Story>
+</Canvas>
+
+## Disable days
+
+You can disable days in order to prevent the user to select them. This can be done using the `disabledDays` prop which receive a Modifier or an array of modifiers.
+See more info about the prop and modifiers here:<br/>
+http://react-day-picker.js.org/api/DayPicker#disabledDays<br/>
+http://react-day-picker.js.org/docs/matching-days
+
+#### Disable single and range of days
+
+An example where `April 10th 2021` and the range between `April 20th 2021` and `April 25th 2021` are disabled:
+
+<Canvas>
+  <Story name="days disabled" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <DatePicker
+        defaultDate={new Date(2021, 3, 15)}
+        defaultVisibleMonth={new Date(2021, 3, 15)}
+        disabledDays={[
+          new Date(2021, 3, 10),
+          { from: new Date(2021, 3, 20), to: new Date(2021, 3, 25) }
+        ]}
+      />
+    )}
+  </Story>
+</Canvas>
+
+#### Disable days of week
+
+An example where weekend days are disabled:
+
+<Canvas>
+  <Story name="weekends disabled" parameters={getFixedStoryParams()}>
+    {(args) => <DatePicker disabledDays={{ daysOfWeek: [0, 6] }} />}
+  </Story>
+</Canvas>
+
+## Custom modifiers
+
+You can style the days using custom modifiers. See more info about modifiers here:<br/>
+http://react-day-picker.js.org/docs/matching-days
+
+An example using a custom modifier to show holidays. You should set the styles using a wrapper outside the DatePicker:
+
+```tsx
+const HolidaysModifierWrapper = styled(Box)`
+  .DayPicker-Day--holidays:not(.DayPicker-Day--selected) {
+    color: green;
+    font-weight: bold;
+
+    &:hover {
+      background: rgba(60, 179, 113, 0.4);
+    }
+  }
+`;
+```
+
+<Canvas>
+  <Story name="custom modifiers" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <HolidaysModifierWrapper>
+        <DatePicker
+          defaultDate={new Date(2021, 7, 5)}
+          defaultVisibleMonth={new Date(2021, 7, 15)}
+          modifiers={{
+            holidays: { from: new Date(2021, 7, 10), to: new Date(2021, 7, 27) }
+          }}
+        />
+      </HolidaysModifierWrapper>
+    )}
+  </Story>
+</Canvas>
+
+## Using the Input
+
+You can use DatePicker with an input using the `TextField` component and the `type` prop with a `date` value. The Input only works with single dates (i.e. not works with date ranges).
+
+Pass all props to DatePicker using the `datePickerProps` prop.
+
+<Canvas>
+  <Story name="with input" parameters={getFixedStoryParams()}>
+    {(args) => (
+      <TextField
+        datePickerProps={{ locale: 'ca-ES' }}
+        label="Selecciona un dia"
+        name="date-picker"
+        onDateChange={console.log}
+        type="date"
+      />
+    )}
+  </Story>
+</Canvas>
+
+## Using the Popover
+
+You can use DatePicker inside a popover using the `DatePicker.Popover` component.
+
+It is basically a `Popover.Content` that renders a DatePicker inside it and renders the children content inside the footer.
+
+Pass all props to DatePicker using the `datePickerProps` prop.
+
+<Canvas>
+  <Story
+    name="with popover"
+    parameters={{
+      ...getFixedStoryParams(),
+      docs: {
+        source: {
+          code: `const DatePickerWithPopoverStory = (props: Partial<DatePickerPopoverProps>) => {
+  const [isVisible, setIsVisible] = React.useState(false);
+  const btnRef = React.useRef<HTMLButtonElement>(null);
+  return (
+    <>
+      <Button ref={btnRef} onClick={() => setIsVisible(true)}>
+        Select a date
+      </Button>
+      <DatePicker.Popover
+        datePickerProps={props}
+        isVisible={isVisible}
+        reference={btnRef}
+      >
+        <Box justifyContent="flex-end" padding={3}>
+          <Button
+            aspectSize="s"
+            variant="secondary"
+            onClick={() => setIsVisible(false)}
+          >
+            Cancel
+          </Button>
+          <Button
+            aspectSize="s"
+            variant="default"
+            ml={3}
+            onClick={() => setIsVisible(false)}
+          >
+            Done
+          </Button>
+        </Box>
+      </DatePicker.Popover>
+    </>
+  );
+};`
+        }
+      }
+    }}
+  >
+    {(args) => <DatePickerWithPopoverStory />}
+  </Story>
+</Canvas>
+
+# DatePicker API
+
+<ArgsTable of={DatePicker} />
+
+# DatePicker.Popover API
+
+<ArgsTable of={DatePicker.Popover} />

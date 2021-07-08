@@ -1,0 +1,58 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import {
+  getFixedStoryParams,
+  getPlaygroundStoryParams
+} from 'storybook/parameters';
+import Spinner from 'components/Spinner';
+
+<Meta title="Components/Spinner/Pulse" component={Spinner.Pulse} />
+
+# Pulse spinner
+
+<Story
+  name="playground"
+  args={{
+    color: 'primary.500',
+    size: '10px',
+    margin: '2.5px'
+  }}
+  parameters={getPlaygroundStoryParams({ include: ['color'] })}
+>
+  {(args) => (
+    <Spinner>
+      <Spinner.Pulse index={1} {...args} />
+      <Spinner.Pulse index={1} {...args} />
+      <Spinner.Pulse index={1} {...args} />
+    </Spinner>
+  )}
+</Story>
+
+# API
+
+You can change the color, distance between pulse elements and size using the props used in Box.
+
+To handle different animation starting points between Pulse elements, use the index prop:
+
+<Canvas>
+  <Story name="one" parameters={getFixedStoryParams()}>
+    <Spinner>
+      <Spinner.Pulse index={1} size="10px" color="primary.500" margin="2.5px" />
+    </Spinner>
+  </Story>
+  <Story name="many same time" parameters={getFixedStoryParams()}>
+    <Spinner>
+      <Spinner.Pulse index={1} size="10px" color="yellow.500" margin="2.5px" />
+      <Spinner.Pulse index={1} size="10px" color="yellow.500" margin="2.5px" />
+      <Spinner.Pulse index={1} size="10px" color="yellow.500" margin="2.5px" />
+    </Spinner>
+  </Story>
+  <Story name="many different time" parameters={getFixedStoryParams()}>
+    <Spinner>
+      <Spinner.Pulse index={1} size="10px" color="green.500" margin="2.5px" />
+      <Spinner.Pulse index={2} size="10px" color="green.500" margin="2.5px" />
+      <Spinner.Pulse index={3} size="10px" color="green.500" margin="2.5px" />
+    </Spinner>
+  </Story>
+</Canvas>
+
+<ArgsTable of={Spinner.Pulse} include={['color']} />
