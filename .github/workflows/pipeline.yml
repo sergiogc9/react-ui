@@ -49,3 +49,18 @@ jobs:
         run: yarn
       - name: Validate code quality
         run: yarn lint && yarn typescript:check && yarn test --runInBand
+      - name: Publish to Github
+        if: contains(github.ref, 'master')
+        run: yarn lerna publish from-package --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up node for NPM
+        uses: actions/setup-node@v2
+        with:
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@sergiogc9'
+      - name: Publish to NPM
+        if: contains(github.ref, 'master')
+        run: echo //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }} > .npmrc && yarn lerna publish from-package --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
