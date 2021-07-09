@@ -51,8 +51,6 @@ jobs:
         run: yarn lint && yarn typescript:check
       - name: Unit testing
         run: yarn test --runInBand
-      - name: Build
-        run: yarn bootstrap
       - name: Publish to Github
         if: contains(github.ref, 'master')
         run: yarn run publish --yes --no-verify-access
