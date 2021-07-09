@@ -2,6 +2,7 @@
 	"name": "@sergiogc9/react-ui-theme",
 	"version": "0.0.2-alpha.0",
 	"description": "@sergiogc9 React UI Kit Theme",
+	"repository": "git://github.com/sergiogc9/react-ui.git",
 	"license": "UNLICENSED",
 	"publishConfig": {
 		"access": "public"
