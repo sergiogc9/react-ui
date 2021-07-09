@@ -1,6 +1,6 @@
 {
 	"name": "@sergiogc9/react-ui-docs",
-	"version": "0.0.1",
+	"version": "0.0.2-alpha.0",
 	"description": "@sergiogc9 React UI Kit Storybook",
 	"private": true,
 	"files": [
@@ -20,8 +20,8 @@
 		"@types/lodash": "4.14.162"
 	},
 	"dependencies": {
-		"@sergiogc9/react-ui": "0.0.1",
-		"@sergiogc9/react-ui-theme": "0.0.1",
+		"@sergiogc9/react-ui": "^0.0.2-alpha.0",
+		"@sergiogc9/react-ui-theme": "^0.0.2-alpha.0",
 		"lodash": "4.17.20",
 		"react": "17.0.1",
 		"react-dom": "17.0.1",
