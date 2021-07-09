@@ -1,6 +1,6 @@
 {
 	"name": "@sergiogc9/react-ui",
-	"version": "0.0.2-alpha.0",
+	"version": "0.0.2-alpha.1",
 	"description": "@sergiogc9 React UI Kit Components",
 	"repository": "git://github.com/sergiogc9/react-ui.git",
 	"main": "dist/index.js",
@@ -37,7 +37,7 @@
 		"ts-jest": "26.4.4"
 	},
 	"dependencies": {
-		"@sergiogc9/react-ui-theme": "^0.0.2-alpha.0",
+		"@sergiogc9/react-ui-theme": "^0.0.2-alpha.1",
 		"@styled-system/css": "5.1.5",
 		"@styled-system/should-forward-prop": "5.1.5",
 		"@tippyjs/react": "4.2.4",
