@@ -23,6 +23,7 @@
 		"prettier": "prettier --write . --ignore-path .gitignore",
 		"prettier:check": "prettier --check . --ignore-path .gitignore",
 		"typescript:check": "tsc --noEmit -p ./packages/components/ && tsc --noEmit -p ./packages/docs/ && tsc --noEmit -p ./packages/theme/",
+		"publish": "lerna publish from-package",
 		"bump:version:patch": "lerna version patch --yes",
 		"bump:version:minor": "lerna version minor --yes",
 		"bump:version:major": "lerna version major --yes"
