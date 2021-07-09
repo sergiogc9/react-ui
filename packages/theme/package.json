@@ -3,6 +3,9 @@
 	"version": "0.0.1",
 	"description": "@sergiogc9 React UI Kit Theme",
 	"license": "UNLICENSED",
+	"publishConfig": {
+		"access": "public"
+	},
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"files": [
