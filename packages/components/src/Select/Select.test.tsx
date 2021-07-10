@@ -44,6 +44,7 @@ describe('Select', () => {
 	afterEach(cleanup);
 
 	beforeEach(() => {
+		jest.useRealTimers();
 		jest.clearAllMocks();
 	});
 
@@ -309,6 +310,33 @@ describe('Select', () => {
 		expect(screen.queryByText(optionOne)).not.toBeVisible();
 	});
 
+	it('should not show counter if no option is selected', () => {
+		renderSelect({
+			defaultValue: [],
+			isMultiSelect: true
+		});
+
+		expect(screen.queryByTestId('select-multiple-counter')).toBeNull();
+	});
+
+	it('should not show counter if one option is selected', () => {
+		renderSelect({
+			defaultValue: [optionOneID],
+			isMultiSelect: true
+		});
+
+		expect(screen.queryByTestId('select-multiple-counter')).toBeNull();
+	});
+
+	it('should show counter if more than one option are selected', () => {
+		renderSelect({
+			defaultValue: [optionOneID, optionTwoID],
+			isMultiSelect: true
+		});
+
+		expect(screen.getByTestId('select-multiple-counter')).toBeInTheDocument();
+	});
+
 	it('should input be readonly by default', () => {
 		renderSelect();
 
@@ -547,6 +575,57 @@ describe('Select', () => {
 		);
 
 		expect(input).toHaveValue('Español');
+	});
+
+	it('should not filter options if they are already filtered from outside', () => {
+		renderSelect({ isAutocomplete: true, isExternalFiltered: true });
+
+		const input = screen.getByTestId(selectTestId).querySelector('input')!;
+		userEvent.clear(input);
+		userEvent.type(input, 'celo');
+
+		expect(screen.getByTestId(optionOneID)).toBeVisible();
+	});
+
+	it('should call on blur method after timeout', async () => {
+		jest.useFakeTimers();
+		const mockOnBlur = jest.fn();
+		renderSelect({ onBlur: mockOnBlur });
+
+		const input = screen.getByTestId(selectTestId).querySelector('input')!;
+		userEvent.click(input);
+		userEvent.click(document.body);
+		await waitFor(() => jest.runAllTimers());
+
+		expect(mockOnBlur).toHaveBeenCalled();
+	});
+
+	it('should not call on blur method after timeout if not provided', async () => {
+		jest.useFakeTimers();
+		const mockOnBlur = jest.fn();
+		renderSelect();
+
+		const input = screen.getByTestId(selectTestId).querySelector('input')!;
+		userEvent.click(input);
+		userEvent.click(document.body);
+		await waitFor(() => jest.runAllTimers());
+
+		expect(mockOnBlur).not.toHaveBeenCalled();
+	});
+
+	it('should not call on blur method after timeout if unmounted', async () => {
+		jest.useFakeTimers();
+		const mockOnBlur = jest.fn();
+		const { rerender } = renderSelect({ onBlur: mockOnBlur });
+
+		const input = screen.getByTestId(selectTestId).querySelector('input')!;
+		userEvent.click(input);
+		userEvent.click(document.body);
+		rerender(<></>);
+
+		await waitFor(() => jest.runAllTimers());
+
+		expect(mockOnBlur).not.toHaveBeenCalled();
 	});
 
 	it('should focus first option with enter key in input', async () => {

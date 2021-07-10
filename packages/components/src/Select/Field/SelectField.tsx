@@ -50,7 +50,7 @@ const SelectField: React.FC<SelectFieldProps> = React.forwardRef<HTMLInputElemen
 					<SelectFieldCounter
 						cursor={isAutocomplete ? 'text' : 'pointer'}
 						data-testid="select-multiple-counter"
-						isVisible={isMultiSelect && !!Object.keys(selectedOptions).length}
+						isVisible={isMultiSelect && Object.keys(selectedOptions).length > 1}
 						marginRight={1}
 						numberOfItems={Math.max(1, Object.keys(selectedOptions).length)}
 					/>

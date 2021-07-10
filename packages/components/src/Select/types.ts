@@ -22,6 +22,11 @@ type Props = {
 	readonly isAutocomplete?: boolean;
 
 	/**
+	 * Boolean to disable built-in option filtering feature in autocomplete mode. Use this prop when updating dynamically options from outside the Select component.
+	 */
+	readonly isExternalFiltered?: boolean;
+
+	/**
 	 * Boolean to enable multi selection. If true, the user will be able to select more than one option.
 	 */
 	readonly isMultiSelect?: boolean;

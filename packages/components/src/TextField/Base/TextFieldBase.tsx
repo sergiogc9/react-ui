@@ -58,6 +58,13 @@ const TextField: React.FC<TextFieldBaseProps> = React.forwardRef<HTMLInputElemen
 			return maxLength ? val.toString().substr(0, maxLength) : val;
 		}, [currentValue, maxLength, value]);
 
+		const rightInputPadding = React.useMemo(() => {
+			let paddingRight = hasRemoveButton ? 6 : 3;
+			if (rightContent) paddingRight += 4;
+
+			return paddingRight;
+		}, [hasRemoveButton, rightContent]);
+
 		return (
 			<StyledTextFieldBaseWrapper isDisabled={isDisabled} {...rest}>
 				<StyledTextFieldBase labelPosition={labelPosition}>
@@ -112,7 +119,7 @@ const TextField: React.FC<TextFieldBaseProps> = React.forwardRef<HTMLInputElemen
 						onClick={onClick}
 						placeholder={placeholder}
 						pl={leftContent ? 7 : 3}
-						pr={rightContent ? 10 : 7}
+						pr={rightInputPadding}
 						ref={mergeRefs}
 						type={type}
 						value={finalValue}

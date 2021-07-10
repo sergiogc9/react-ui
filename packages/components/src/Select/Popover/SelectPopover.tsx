@@ -19,6 +19,7 @@ import { getElementText, isStringIncluded } from '../utils';
 const SelectPopover: React.FC<SelectPopoverProps> = React.forwardRef(({ children, ...rest }, ref) => {
 	const {
 		isAutocomplete,
+		isExternalFiltered,
 		isDisabled,
 		inputValue,
 		isMultiSelect,
@@ -43,7 +44,7 @@ const SelectPopover: React.FC<SelectPopoverProps> = React.forwardRef(({ children
 		const childElements = React.Children.map(children, c => c);
 
 		if (!childElements) return [];
-		if (!isAutocomplete) return childElements;
+		if (!isAutocomplete || isExternalFiltered) return childElements;
 
 		return childElements.filter(element => {
 			if (!React.isValidElement(element)) return false;
@@ -55,7 +56,7 @@ const SelectPopover: React.FC<SelectPopoverProps> = React.forwardRef(({ children
 
 			return isSearchOptionMatched;
 		});
-	}, [children, inputValue, isAutocomplete]);
+	}, [children, inputValue, isAutocomplete, isExternalFiltered]);
 
 	return (
 		<StyledSelectPopover onKeyDown={onListBoxKeyPressed} {...rest}>

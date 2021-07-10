@@ -9,11 +9,12 @@ type KeySource = 'textField' | 'listBox' | 'option';
 export type SelectContextData = {
 	readonly aspectSize: NonNullable<SelectProps['aspectSize']>;
 	readonly inputValue: string;
+	readonly isAutocomplete: NonNullable<SelectProps['isAutocomplete']>;
 	readonly isDisabled: NonNullable<SelectProps['isDisabled']>;
 	readonly isError: NonNullable<SelectProps['isError']>;
 	readonly isOpen: boolean;
 	readonly isSuccess: NonNullable<SelectProps['isSuccess']>;
-	readonly isAutocomplete: NonNullable<SelectProps['isAutocomplete']>;
+	readonly isExternalFiltered: NonNullable<SelectProps['isExternalFiltered']>;
 	readonly isMultiSelect: NonNullable<SelectProps['isMultiSelect']>;
 	readonly onClearOptions: () => void;
 	readonly onKeyPressed: (from: KeySource, ev: React.KeyboardEvent) => void;

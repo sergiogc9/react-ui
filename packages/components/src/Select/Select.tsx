@@ -1,6 +1,7 @@
 import React from 'react';
 
 import useClickOutside from 'components/private/utils/hooks/useClickOutside';
+import useIsMounted from 'components/private/utils/hooks/useIsMounted';
 import useUpdateEffect from 'components/private/utils/hooks/useUpdateEffect';
 import Box from 'components/Box';
 
@@ -22,6 +23,7 @@ const Select: React.FC<SelectProps> = ({
 	helperText,
 	inputProps,
 	isAutocomplete = false,
+	isExternalFiltered = false,
 	isError = false,
 	isSuccess = false,
 	isDisabled = false,
@@ -48,6 +50,8 @@ const Select: React.FC<SelectProps> = ({
 	const listBoxRef = React.useRef<HTMLUListElement>(null);
 	const inputRef = React.useRef<HTMLInputElement>(null);
 	const fieldBoxRef = React.useRef<HTMLDivElement>(null);
+
+	const isMounted = useIsMounted();
 
 	useUpdateEffect(() => {
 		if (onOptionChange) {
@@ -135,6 +139,7 @@ const Select: React.FC<SelectProps> = ({
 			aspectSize,
 			inputValue,
 			isAutocomplete,
+			isExternalFiltered,
 			isDisabled,
 			isError,
 			isMultiSelect,
@@ -151,6 +156,7 @@ const Select: React.FC<SelectProps> = ({
 			aspectSize,
 			inputValue,
 			isAutocomplete,
+			isExternalFiltered,
 			isDisabled,
 			isError,
 			isMultiSelect,
@@ -180,9 +186,25 @@ const Select: React.FC<SelectProps> = ({
 		[]
 	);
 
+	const onSelectBlur = React.useCallback<NonNullable<SelectFieldProps['onBlur']>>(
+		ev => {
+			ev.stopPropagation();
+			const { currentTarget } = ev;
+			setTimeout(() => {
+				if (!currentTarget.contains(document.activeElement)) {
+					if (isMounted()) {
+						if (onBlur) onBlur(ev);
+						setIsOpen(false);
+					}
+				}
+			}, 100);
+		},
+		[isMounted, onBlur]
+	);
+
 	return (
 		<SelectContext.Provider value={contextData}>
-			<StyledSelect {...rest}>
+			<StyledSelect onBlur={onSelectBlur} {...rest}>
 				<Box aria-haspopup="listbox" aria-expanded={isOpen} height="fit-content" ref={fieldBoxRef} width="100%">
 					<SelectField
 						aspectSize={aspectSize}
@@ -193,7 +215,6 @@ const Select: React.FC<SelectProps> = ({
 						labelPosition={labelPosition}
 						leftContent={leftContent}
 						name={name}
-						onBlur={onBlur}
 						onChange={onTextFieldChanged}
 						onRemoveButtonClick={onTextFieldRemoveBtnClicked}
 						placeholder={placeholder}
