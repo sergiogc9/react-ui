@@ -1,6 +1,6 @@
 import React from 'react';
+import { createNameSpacedComponent } from '@sergiogc9/react-utils';
 
-import { createNameSpacedComponent } from 'components/private/utils/components';
 import StyledSpinner from './styled';
 import { Pulse } from './Pulse';
 import { SpinnerProps } from './types';

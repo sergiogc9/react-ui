@@ -1,6 +1,5 @@
 import React from 'react';
-
-import Keyboard from 'components/private/utils/keyboard';
+import { Keyboard } from '@sergiogc9/react-utils';
 
 import { SelectContextData } from './Context';
 
@@ -31,7 +30,7 @@ const focusLastOption = (listBoxElement: HTMLUListElement) => {
 const handleListBoxPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressHelpers) => {
 	const { onAlphanumericKeyPressed, setIsOpen, textFieldInput } = helpers;
 
-	if (Keyboard.isTab(ev.key) || Keyboard.isEscape(ev.key)) {
+	if (Keyboard.isKey('Tab', ev.key) || Keyboard.isKey('Escape', ev.key)) {
 		ev.preventDefault();
 
 		setIsOpen(false);
@@ -44,7 +43,7 @@ const handleListBoxPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressHel
 const handleOptionPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressHelpers) => {
 	const { listBoxElement } = helpers;
 
-	if (Keyboard.isArrowUp(ev.key)) {
+	if (Keyboard.isKey('ArrowUp', ev.key)) {
 		ev.preventDefault();
 
 		const currentOption = ev.target as HTMLLIElement;
@@ -52,7 +51,7 @@ const handleOptionPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressHelp
 
 		if (previousOption) (previousOption as HTMLLIElement).focus();
 		else focusLastOption(listBoxElement);
-	} else if (Keyboard.isArrowDown(ev.key)) {
+	} else if (Keyboard.isKey('ArrowDown', ev.key)) {
 		ev.preventDefault();
 
 		const currentOption = ev.target as HTMLLIElement;
@@ -60,7 +59,7 @@ const handleOptionPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressHelp
 
 		if (nextOption) (nextOption as HTMLLIElement).focus();
 		else focusFirstOption(listBoxElement);
-	} else if (Keyboard.isEnter(ev.key) || Keyboard.isSpace(ev.key)) {
+	} else if (Keyboard.isKey('Enter', ev.key) || Keyboard.isKey('Space', ev.key)) {
 		ev.preventDefault();
 
 		const currentOption = ev.target as HTMLLIElement;
@@ -71,7 +70,7 @@ const handleOptionPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressHelp
 const handleTextFieldPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressHelpers) => {
 	const { clearOptions, isAutocomplete, isOpen, listBoxElement, onAlphanumericKeyPressed, setIsOpen } = helpers;
 
-	if (Keyboard.isEnter(ev.key)) {
+	if (Keyboard.isKey('Enter', ev.key)) {
 		ev.preventDefault();
 
 		if (isOpen) {
@@ -81,22 +80,22 @@ const handleTextFieldPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressH
 
 		setIsOpen(true);
 		focusFirstOption(listBoxElement);
-	} else if (Keyboard.isEscape(ev.key)) {
+	} else if (Keyboard.isKey('Escape', ev.key)) {
 		ev.preventDefault();
 
 		setIsOpen(false);
-	} else if (Keyboard.isBackSpace(ev.key)) {
+	} else if (Keyboard.isKey('Backspace', ev.key)) {
 		if (!isAutocomplete) {
 			ev.preventDefault();
 
 			clearOptions();
 		}
-	} else if (Keyboard.isArrowDown(ev.key)) {
+	} else if (Keyboard.isKey('ArrowDown', ev.key)) {
 		ev.preventDefault();
 
 		setIsOpen(true);
 		focusFirstOption(listBoxElement);
-	} else if (Keyboard.isArrowUp(ev.key)) {
+	} else if (Keyboard.isKey('ArrowUp', ev.key)) {
 		ev.preventDefault();
 
 		setIsOpen(true);

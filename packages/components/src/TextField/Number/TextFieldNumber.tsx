@@ -1,7 +1,7 @@
 import React from 'react';
+import { useMergeRefs } from '@sergiogc9/react-hooks';
+import { Keyboard } from '@sergiogc9/react-utils';
 
-import Keyboard from 'components/private/utils/keyboard';
-import useMergeRefs from 'components/private/utils/hooks/useMergeRefs';
 import dispatchOnChange from 'components/private/components/Input/utils';
 import Box from 'components/Box';
 import Icon from 'components/Icon';
@@ -69,8 +69,8 @@ const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInp
 		const onKeyPressed = React.useCallback<NonNullable<TextFieldNumberProps['onKeyDown']>>(
 			event => {
 				const num = value ?? numberValue;
-				if (Keyboard.isArrowDown(event.key)) dispatchOnChange(innerRef, (+num - 1).toString());
-				else if (Keyboard.isArrowUp(event.key)) dispatchOnChange(innerRef, (+num + 1).toString());
+				if (Keyboard.isKey('ArrowDown', event.key)) dispatchOnChange(innerRef, (+num - 1).toString());
+				else if (Keyboard.isKey('ArrowUp', event.key)) dispatchOnChange(innerRef, (+num + 1).toString());
 			},
 			[numberValue, value]
 		);

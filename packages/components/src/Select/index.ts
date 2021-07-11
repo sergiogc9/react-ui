@@ -1,4 +1,4 @@
-import { createNameSpacedComponent } from 'components/private/utils/components';
+import { createNameSpacedComponent } from '@sergiogc9/react-utils';
 
 import SelectOption, { SelectOptionProps } from './Option';
 import Select from './Select';

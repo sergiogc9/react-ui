@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { usePageBlur, usePortal } from '@sergiogc9/react-hooks';
 
-import usePortal from 'components/private/utils/hooks/usePortal';
-import usePageBlur from 'components/private/utils/hooks/usePageBlur';
 import StyledOverlay from './styled';
 import { OverlayProps } from './types';
 

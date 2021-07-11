@@ -1,4 +1,5 @@
-import { createNameSpacedComponent } from 'components/private/utils/components';
+import { createNameSpacedComponent } from '@sergiogc9/react-utils';
+
 import Badge from './Badge';
 import Status from './Status';
 import Counter from './Counter';

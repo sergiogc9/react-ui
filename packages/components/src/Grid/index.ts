@@ -1,4 +1,5 @@
-import { createNameSpacedComponent } from 'components/private/utils/components';
+import { createNameSpacedComponent } from '@sergiogc9/react-utils';
+
 import { GridBox } from './Box';
 import { GridBoxProps } from './Box/types';
 import { GridRow } from './Row';

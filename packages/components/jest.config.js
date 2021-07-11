@@ -9,7 +9,9 @@ module.exports = {
 	testRegex: '.*.test.(ts|tsx)?$',
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 	moduleNameMapper: {
-		'^components/(.*)': '<rootDir>/src/$1'
+		'^components/(.*)': '<rootDir>/src/$1',
+		'^react$': '<rootDir>../../node_modules/react',
+		'^react-dom$': '<rootDir>../../node_modules/react-dom'
 	},
 	coverageReporters: ['json', 'lcov', 'text', 'clover', 'text-summary', 'cobertura'],
 	collectCoverageFrom: ['**/*.{ts,tsx}', '!src/testUtils/**', '!src/index.ts'],

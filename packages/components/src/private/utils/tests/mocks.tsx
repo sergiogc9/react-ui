@@ -1,8 +1,7 @@
 import React from 'react';
+import { useClickOutside, useMergeRefs } from '@sergiogc9/react-hooks';
 
 import Box from 'components/Box';
-import useClickOutside from 'components/private/utils/hooks/useClickOutside';
-import useMergeRefs from 'components/private/utils/hooks/useMergeRefs';
 
 // Mocking popover component to drastically reduce test execution timing
 const getPopoverContentMock = () => ({

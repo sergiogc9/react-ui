@@ -1,4 +1,5 @@
-import { createNameSpacedComponent } from 'components/private/utils/components';
+import { createNameSpacedComponent } from '@sergiogc9/react-utils';
+
 import Chip from './Chip';
 import ChipIcon from './ChipIcon';
 import ChipLabel from './ChipLabel';

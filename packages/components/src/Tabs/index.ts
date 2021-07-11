@@ -1,4 +1,4 @@
-import { createNameSpacedComponent } from 'components/private/utils/components';
+import { createNameSpacedComponent } from '@sergiogc9/react-utils';
 
 import Header from './Header';
 import Menu from './Menu';

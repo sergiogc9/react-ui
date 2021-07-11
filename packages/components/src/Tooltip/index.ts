@@ -1,4 +1,5 @@
-import { createNameSpacedComponent } from 'components/private/utils/components';
+import { createNameSpacedComponent } from '@sergiogc9/react-utils';
+
 import TooltipContent from './Content';
 import { TooltipContentProps } from './Content/types';
 import TooltipTrigger from './Trigger';

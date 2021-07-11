@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css, Keyframes } from 'styled-components';
+import { useMergeRefs } from '@sergiogc9/react-hooks';
 
-import useMergeRefs from 'components/private/utils/hooks/useMergeRefs';
 import { BaseAnimationProps } from './types';
 
 // eslint-disable-next-line @typescript-eslint/ban-types

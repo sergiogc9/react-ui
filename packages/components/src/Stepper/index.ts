@@ -1,4 +1,5 @@
-import { createNameSpacedComponent } from 'components/private/utils/components';
+import { createNameSpacedComponent } from '@sergiogc9/react-utils';
+
 import StepperCircle from './Circle';
 import { StepperCircleProps } from './Circle/types';
 import StepperIcon from './Icon';

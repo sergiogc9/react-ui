@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useRef } from 'react';
+import { useMergeRefs } from '@sergiogc9/react-hooks';
 
-import useMergeRefs from 'components/private/utils/hooks/useMergeRefs';
 import dispatchOnChange from 'components/private/components/Input/utils';
 import { bottomInputContentAnimation, InputCounter, InputHelperText } from 'components/private/components/Input';
 import Animation from 'components/Animation';

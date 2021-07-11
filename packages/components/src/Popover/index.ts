@@ -1,4 +1,5 @@
-import { createNameSpacedComponent } from 'components/private/utils/components';
+import { createNameSpacedComponent } from '@sergiogc9/react-utils';
+
 import PopoverContent from './Content';
 import { PopoverContentProps } from './Content/types';
 import PopoverTrigger from './Trigger';

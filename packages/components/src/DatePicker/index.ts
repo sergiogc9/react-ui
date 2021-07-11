@@ -1,4 +1,5 @@
-import { createNameSpacedComponent } from 'components/private/utils/components';
+import { createNameSpacedComponent } from '@sergiogc9/react-utils';
+
 import DatePickerPopover, { DatePickerPopoverProps } from './Popover';
 import DatePicker from './DatePicker';
 import { DatePickerProps } from './types';

@@ -1,8 +1,6 @@
 import React from 'react';
+import { useClickOutside, useIsMounted, useUpdateEffect } from '@sergiogc9/react-hooks';
 
-import useClickOutside from 'components/private/utils/hooks/useClickOutside';
-import useIsMounted from 'components/private/utils/hooks/useIsMounted';
-import useUpdateEffect from 'components/private/utils/hooks/useUpdateEffect';
 import Box from 'components/Box';
 
 import SelectContext, { SelectContextData } from './Context';

@@ -1,6 +1,6 @@
 import React from 'react';
+import { useMergeRefs } from '@sergiogc9/react-hooks';
 
-import useMergeRefs from 'components/private/utils/hooks/useMergeRefs';
 import DatePicker, { DatePickerProps } from 'components/DatePicker';
 import Icon from 'components/Icon';
 import TextFieldBase from '../Base';

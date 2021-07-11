@@ -3214,6 +3214,16 @@
     eslint-config-airbnb-typescript "12.3.1"
     eslint-config-prettier "7.2.0"
 
+"@sergiogc9/react-hooks@0.0.0-alpha.3":
+  version "0.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-hooks/-/react-hooks-0.0.0-alpha.3.tgz#2cc559bb4a5a1d72a4024d757dda6e96000a176a"
+  integrity sha512-DlpdX45kCwVNIqdi3Zm2J38WI93IOWLQRMn03Nl4qqdpEwO9QbMv/kIQ7CQLodLjo8y6RDdXVbMjU0v8uLe5tg==
+
+"@sergiogc9/react-utils@0.0.0-alpha.3":
+  version "0.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-utils/-/react-utils-0.0.0-alpha.3.tgz#9084cdf31622e1c70a2d405bdb98e25a1846077d"
+  integrity sha512-I3DoNonFdwAW8ibCU6G9kBV75IZEa3ACZ13T5VH8a20QHagSTFIrTR06w9iyslKI76Xq8mptDyxQWtuOb/h+pQ==
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.8.2.tgz#858f5c4b48d80778fde4b9d541f27edc0d56488b"

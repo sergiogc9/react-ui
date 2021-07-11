@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import usePortal from 'components/private/utils/hooks/usePortal';
-import useClickOutside from 'components/private/utils/hooks/useClickOutside';
-import useKeyPressed from 'components/private/utils/hooks/useKeyPressed';
+import { useClickOutside, useKeyPressed, usePortal } from '@sergiogc9/react-hooks';
+
 import Overlay from 'components/Overlay';
 
 import ModalContext from './Context';

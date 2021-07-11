@@ -1,6 +1,5 @@
 import React from 'react';
-
-import useIsScrolled from 'components/private/utils/hooks/useIsScrolled';
+import { useIsScrolled } from '@sergiogc9/react-hooks';
 
 import Box from '..';
 import { ScrollBoxProps } from './types';
