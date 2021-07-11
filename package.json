@@ -22,7 +22,7 @@
 		"lint:fix": "yarn run lint -- --fix",
 		"prettier": "prettier --write . --ignore-path .gitignore",
 		"prettier:check": "prettier --check . --ignore-path .gitignore",
-		"typescript:check": "tsc --noEmit -p ./packages/components/ && tsc --noEmit -p ./packages/docs/ && tsc --noEmit -p ./packages/theme/",
+		"typescript:check": "lerna exec --parallel \"tsc --noEmit -p .\"",
 		"publish": "lerna publish from-package",
 		"bump:version:patch": "lerna version patch --yes",
 		"bump:version:minor": "lerna version minor --yes",
