@@ -15,7 +15,7 @@ const config = [
 			format: 'cjs',
 			sourcemap: 'true'
 		},
-		external: [...Object.keys(pkg.dependencies), ...Object.keys(globalPkg.peerDependencies)],
+		external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(globalPkg.peerDependencies || {})],
 		plugins: [typescript(), terser({ format: { comments: false } })]
 	},
 	{
