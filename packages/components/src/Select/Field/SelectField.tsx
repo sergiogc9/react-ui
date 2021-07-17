@@ -15,6 +15,7 @@ const SelectField: React.FC<SelectFieldProps> = React.forwardRef<HTMLInputElemen
 			isAutocomplete,
 			isDisabled,
 			isError,
+			isExternalFiltered,
 			isMultiSelect,
 			isOpen,
 			isSuccess,
@@ -54,18 +55,20 @@ const SelectField: React.FC<SelectFieldProps> = React.forwardRef<HTMLInputElemen
 						marginRight={1}
 						numberOfItems={Math.max(1, Object.keys(selectedOptions).length)}
 					/>
-					<Icon
-						cursor="pointer"
-						data-testid={isOpen ? 'select-field-arrow-up-icon' : 'select-field-arrow-down-icon'}
-						fill="neutral.400"
-						icon={isOpen ? 'arrow-up' : 'arrow-down'}
-						onClick={onArrowClicked}
-						pointerEvents="auto"
-						styling="outlined"
-					/>
+					{!isExternalFiltered && (
+						<Icon
+							cursor="pointer"
+							data-testid={isOpen ? 'select-field-arrow-up-icon' : 'select-field-arrow-down-icon'}
+							fill="neutral.400"
+							icon={isOpen ? 'arrow-up' : 'arrow-down'}
+							onClick={onArrowClicked}
+							pointerEvents="auto"
+							styling="outlined"
+						/>
+					)}
 				</>
 			);
-		}, [isAutocomplete, isMultiSelect, isOpen, onArrowClicked, selectedOptions]);
+		}, [isAutocomplete, isExternalFiltered, isMultiSelect, isOpen, onArrowClicked, selectedOptions]);
 
 		const finalInputProps = React.useMemo<SelectFieldProps['inputProps']>(
 			() => ({
@@ -81,7 +84,7 @@ const SelectField: React.FC<SelectFieldProps> = React.forwardRef<HTMLInputElemen
 			<StyledSelectField
 				aspectSize={aspectSize}
 				data-testid="select-field"
-				hasRemoveButton={hasRemoveButton}
+				hasRemoveButton={hasRemoveButton ?? isExternalFiltered}
 				helperText={helperText}
 				inputProps={finalInputProps}
 				isDisabled={isDisabled}

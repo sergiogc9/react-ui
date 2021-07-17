@@ -1,5 +1,5 @@
 import React from 'react';
-import { useClickOutside, useIsMounted, useUpdateEffect } from '@sergiogc9/react-hooks';
+import { useUpdateEffect } from '@sergiogc9/react-hooks';
 
 import Box from 'components/Box';
 
@@ -9,15 +9,16 @@ import { handlePressedKey } from './keyboard';
 import { SelectOptionProps } from './Option';
 import SelectPopover from './Popover';
 import { useFocusOptionWhilePressingKey } from './hooks';
-import { getInputLabelFromSelectedOptions, getSelectOptions } from './utils';
+import { getInputLabelFromSelectedOptions, getSelectedIds, getSelectOptions } from './utils';
 import StyledSelect from './styled';
 import { SelectedOption, SelectProps } from './types';
 
 const Select: React.FC<SelectProps> = ({
+	areExternalOptionsValid = false,
 	aspectSize = 'm',
 	children,
 	defaultValue,
-	hasRemoveButton = false,
+	hasRemoveButton,
 	helperText,
 	inputProps,
 	isAutocomplete = false,
@@ -43,24 +44,17 @@ const Select: React.FC<SelectProps> = ({
 	);
 
 	const [inputValue, setInputValue] = React.useState(() => getInputLabelFromSelectedOptions(selectedOptions));
+	const [lastUserInputChangedValue, setLastUserInputChangedValue] = React.useState(inputValue);
 	const [isOpen, setIsOpen] = React.useState(false);
 
 	const listBoxRef = React.useRef<HTMLUListElement>(null);
 	const inputRef = React.useRef<HTMLInputElement>(null);
 	const fieldBoxRef = React.useRef<HTMLDivElement>(null);
 
-	const isMounted = useIsMounted();
-
-	useUpdateEffect(() => {
-		if (onOptionChange) {
-			if (isMultiSelect) onOptionChange(Object.keys(selectedOptions));
-			else onOptionChange(Object.keys(selectedOptions).length ? Object.keys(selectedOptions)[0] : null);
-		}
-	}, [isMultiSelect, selectedOptions]);
-
 	useUpdateEffect(() => {
 		const newSelectedOptions = value ? getSelectOptions(undefined, value, children) : {};
 
+		setSelectedOptions(newSelectedOptions);
 		setInputValue(getInputLabelFromSelectedOptions(newSelectedOptions));
 	}, [value]);
 
@@ -74,16 +68,8 @@ const Select: React.FC<SelectProps> = ({
 			const newInputValue = getInputLabelFromSelectedOptions(newSelectedOptions);
 
 			if (newInputValue !== inputValue) setInputValue(newInputValue);
-			setSelectedOptions(newSelectedOptions);
 		}
 	}, [children]);
-
-	const onClickedOutside = React.useCallback(() => {
-		setIsOpen(false);
-		setInputValue(getInputLabelFromSelectedOptions(selectedOptions));
-	}, [selectedOptions]);
-
-	useClickOutside(fieldBoxRef, onClickedOutside);
 
 	const onOptionClicked = React.useCallback<NonNullable<SelectOptionProps['onClick']>>(
 		ev => {
@@ -95,26 +81,28 @@ const Select: React.FC<SelectProps> = ({
 			const option = ev.currentTarget as HTMLLIElement;
 			const optionLabel = option.textContent || '';
 
-			setSelectedOptions(currentOptions => {
-				let newOptions = { ...currentOptions };
+			let newOptions = { ...selectedOptions };
 
-				if (isMultiSelect) {
-					if (newOptions[option.id]) delete newOptions[option.id];
-					else newOptions[option.id] = { label: optionLabel };
-				} else newOptions = { [option.id]: { label: optionLabel } };
+			if (isMultiSelect) {
+				if (newOptions[option.id]) delete newOptions[option.id];
+				else newOptions[option.id] = { label: optionLabel };
+			} else newOptions = { [option.id]: { label: optionLabel } };
 
-				if (!isAutocomplete || !isMultiSelect) setInputValue(getInputLabelFromSelectedOptions(newOptions));
+			if (!isAutocomplete || !isMultiSelect) setInputValue(getInputLabelFromSelectedOptions(newOptions));
+			setLastUserInputChangedValue('option selected'); // Needed to avoid cleaning selected option in autocomplete when blurring
 
-				return newOptions;
-			});
+			if (onOptionChange) onOptionChange(getSelectedIds(newOptions, isMultiSelect));
+
+			setSelectedOptions(newOptions);
 		},
-		[isAutocomplete, isMultiSelect]
+		[isAutocomplete, isMultiSelect, onOptionChange, selectedOptions]
 	);
 
 	const onClearOptions = React.useCallback(() => {
 		setSelectedOptions({});
 		setInputValue('');
-	}, []);
+		if (onOptionChange) onOptionChange(getSelectedIds({}, isMultiSelect));
+	}, [isMultiSelect, onOptionChange]);
 
 	const onAlphanumericKeyPressed = useFocusOptionWhilePressingKey(listBoxRef, isAutocomplete, setIsOpen);
 	const onKeyPressed = React.useCallback<SelectContextData['onKeyPressed']>(
@@ -134,6 +122,7 @@ const Select: React.FC<SelectProps> = ({
 
 	const contextData = React.useMemo<SelectContextData>(
 		() => ({
+			areExternalOptionsValid,
 			aspectSize,
 			inputValue,
 			isAutocomplete,
@@ -151,6 +140,7 @@ const Select: React.FC<SelectProps> = ({
 			variant
 		}),
 		[
+			areExternalOptionsValid,
 			aspectSize,
 			inputValue,
 			isAutocomplete,
@@ -173,31 +163,29 @@ const Select: React.FC<SelectProps> = ({
 			const { value: newValue } = ev.target;
 
 			setInputValue(newValue);
+			setLastUserInputChangedValue(newValue);
 			setIsOpen(true);
 			if (onInputChange) onInputChange(newValue);
 		},
 		[onInputChange]
 	);
 
-	const onTextFieldRemoveBtnClicked = React.useCallback<NonNullable<SelectFieldProps['onRemoveButtonClick']>>(
-		() => setSelectedOptions({}),
-		[]
-	);
-
 	const onSelectBlur = React.useCallback<NonNullable<SelectFieldProps['onBlur']>>(
 		ev => {
 			ev.stopPropagation();
-			const { currentTarget } = ev;
-			setTimeout(() => {
-				if (!currentTarget.contains(document.activeElement)) {
-					if (isMounted()) {
-						if (onBlur) onBlur(ev);
-						setIsOpen(false);
-					}
-				}
-			}, 100);
+
+			if (!ev.relatedTarget || !ev.currentTarget.contains(ev.relatedTarget as Element)) {
+				setIsOpen(false);
+
+				if (isAutocomplete && !lastUserInputChangedValue.trim().length) {
+					setSelectedOptions({});
+					if (onOptionChange) onOptionChange(getSelectedIds({}, isMultiSelect));
+				} else setInputValue(getInputLabelFromSelectedOptions(selectedOptions));
+
+				if (onBlur) setTimeout(() => onBlur(ev), 100);
+			}
 		},
-		[isMounted, onBlur]
+		[isAutocomplete, isMultiSelect, lastUserInputChangedValue, onBlur, onOptionChange, selectedOptions]
 	);
 
 	return (
@@ -214,7 +202,7 @@ const Select: React.FC<SelectProps> = ({
 						leftContent={leftContent}
 						name={name}
 						onChange={onTextFieldChanged}
-						onRemoveButtonClick={onTextFieldRemoveBtnClicked}
+						onRemoveButtonClick={onClearOptions}
 						placeholder={placeholder}
 						ref={inputRef}
 					/>

@@ -14,7 +14,8 @@ StyledSelectOption.defaultProps = {
 	alignItems: 'center',
 	as: 'li',
 	cursor: 'pointer',
-	paddingX: 3,
 	flexShrink: 0,
-	outline: 'none'
+	outline: 'none',
+	paddingX: 3,
+	paddingY: 1
 };

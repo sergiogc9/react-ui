@@ -4,9 +4,10 @@ import { SelectProps } from 'components/Select';
 
 import { SelectedOption } from '../types';
 
-type KeySource = 'textField' | 'listBox' | 'option';
+type KeySource = 'listBox' | 'option' | 'textField';
 
 export type SelectContextData = {
+	readonly areExternalOptionsValid: NonNullable<SelectProps['areExternalOptionsValid']>;
 	readonly aspectSize: NonNullable<SelectProps['aspectSize']>;
 	readonly inputValue: string;
 	readonly isAutocomplete: NonNullable<SelectProps['isAutocomplete']>;

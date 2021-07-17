@@ -110,7 +110,7 @@ describe('Select', () => {
 		expect(screen.getByText(optionTwo)).toHaveAttribute('aria-selected', 'true');
 	});
 
-	it('should change option from controlled value', () => {
+	it('should change option from controlled value', async () => {
 		const { rerender } = render(getSelectComponent());
 
 		const input = screen.getByTestId(selectTestId).querySelector('input')!;
@@ -122,12 +122,10 @@ describe('Select', () => {
 		userEvent.click(input);
 
 		expect(screen.getByText(optionThree)).toHaveAttribute('aria-selected', 'true');
-		expect(mockOnOptionChange).toHaveBeenCalledWith(optionThreeID);
 
 		rerender(getSelectComponent({ value: null }));
 
 		expect(screen.getByText(optionThree)).toHaveAttribute('aria-selected', 'false');
-		expect(mockOnOptionChange).toHaveBeenCalledWith(null);
 	});
 
 	it('should show options when clicking input', () => {
@@ -250,7 +248,6 @@ describe('Select', () => {
 		userEvent.click(input);
 
 		expect(screen.getByText(optionThree)).toHaveAttribute('aria-selected', 'true');
-		expect(mockOnOptionChange).toHaveBeenCalledWith([optionThreeID]);
 	});
 
 	it('should select option when clicking with multi select', () => {
@@ -587,6 +584,15 @@ describe('Select', () => {
 		expect(screen.getByTestId(optionOneID)).toBeVisible();
 	});
 
+	it('should not show no results text if input is empty', () => {
+		render(withTheme(<Select data-testid={selectTestId} isAutocomplete isExternalFiltered />));
+
+		const input = screen.getByTestId(selectTestId).querySelector('input')!;
+		userEvent.clear(input);
+
+		expect(screen.queryByText('No results')).toBeNull();
+	});
+
 	it('should call on blur method after timeout', async () => {
 		jest.useFakeTimers();
 		const mockOnBlur = jest.fn();
@@ -608,21 +614,6 @@ describe('Select', () => {
 		const input = screen.getByTestId(selectTestId).querySelector('input')!;
 		userEvent.click(input);
 		userEvent.click(document.body);
-		await waitFor(() => jest.runAllTimers());
-
-		expect(mockOnBlur).not.toHaveBeenCalled();
-	});
-
-	it('should not call on blur method after timeout if unmounted', async () => {
-		jest.useFakeTimers();
-		const mockOnBlur = jest.fn();
-		const { rerender } = renderSelect({ onBlur: mockOnBlur });
-
-		const input = screen.getByTestId(selectTestId).querySelector('input')!;
-		userEvent.click(input);
-		userEvent.click(document.body);
-		rerender(<></>);
-
 		await waitFor(() => jest.runAllTimers());
 
 		expect(mockOnBlur).not.toHaveBeenCalled();

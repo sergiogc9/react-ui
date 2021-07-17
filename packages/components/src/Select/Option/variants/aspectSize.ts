@@ -5,7 +5,7 @@ import { StyledSelectOptionProps } from '../types';
 
 export default (props: StyledProps<StyledSelectOptionProps>) => {
 	const generateCSS = (aspectSize: StyledSelectOptionProps['aspectSize']) => ({
-		height: props.theme.components.select.option.height[aspectSize!]
+		minHeight: props.minHeight ?? props.theme.components.select.option.height[aspectSize!]
 	});
 
 	return variant({

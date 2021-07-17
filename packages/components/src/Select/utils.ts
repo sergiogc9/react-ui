@@ -62,7 +62,13 @@ const getSelectOptions = (
 	}, {});
 };
 
+const getSelectedIds = (selectedOptions: Record<string, SelectedOption>, isMultiSelect: boolean) => {
+	if (isMultiSelect) return Object.keys(selectedOptions);
+
+	return Object.keys(selectedOptions).length ? Object.keys(selectedOptions)[0] : null;
+};
+
 const isStringIncluded = (baseString: string, lookupString: string) =>
 	baseString.toLowerCase().includes(lookupString.toLowerCase());
 
-export { getSelectOptions, getElementText, getInputLabelFromSelectedOptions, isStringIncluded };
+export { getSelectOptions, getElementText, getInputLabelFromSelectedOptions, getSelectedIds, isStringIncluded };

@@ -20,15 +20,13 @@ import Select from 'components/Select';
 	parameters={getPlaygroundStoryParams()}
 >
 	{args => (
-		<Select {...args} width={300} isMultiSelect defaultValue={['option-1', 'option-2']}>
+		<Select {...args} width={300}>
 			<Select.Option id="option-1">Option 1</Select.Option>
 			<Select.Option id="option-2">Option 2</Select.Option>
 			<Select.Option id="option-3">Option 3</Select.Option>
 			<Select.Option id="option-4">Option 4</Select.Option>
 			<Select.Option id="option-5">my fifth option</Select.Option>
 			<Select.Option id="option-6">my sixth option</Select.Option>
-			<Select.Option id="option-6">California</Select.Option>
-			<Select.Option id="option-6">Colorado</Select.Option>
 		</Select>
 	)}
 </Story>
@@ -148,7 +146,7 @@ You can enable or disable the possibility to select more than one option. Enabli
 
 You can enable the input to let the user to filter the options while is typing. Enable this feature using the `isAutocomplete` prop. It works in both single and select modes.
 
-The Select component can be also used as an asynchronous autocomplete. To achieve this use the `onInputChange` handler to update options passed as children with newer refetched options.
+The Select component can be also used as an asynchronous autocomplete. To achieve this use the `onInputChange` handler to update options passed as children with newer refetched options. You should also check `isExternalFiltered` and `areExternalOptionsValid` props.
 
 <Canvas>
 	<Story name="without autocomplete" parameters={getFixedStoryParams()}>

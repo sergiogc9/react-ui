@@ -7,6 +7,11 @@ export type SelectedOption = Record<'label', string>;
 
 type Props = {
 	/**
+	 * Boolean to tell the Select component that an external options are fetched and updated with last input change. It should be false at first, and only be true once a fetch is done.
+	 */
+	readonly areExternalOptionsValid?: boolean;
+
+	/**
 	 * SelectWrapper size
 	 */
 	readonly aspectSize?: 's' | 'm' | 'l';
