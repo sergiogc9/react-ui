@@ -8,7 +8,12 @@ import Status from 'components/Status';
 
 Status component.
 
-<Story name="playground" args={{ variant: 'blue' }} parameters={getPlaygroundStoryParams()}>
+<Story
+	argTypes={{ bg: { control: { type: 'text' } } }}
+	args={{ variant: 'blue' }}
+	name="playground"
+	parameters={getPlaygroundStoryParams()}
+>
 	{args => <Status {...args} />}
 </Story>
 
@@ -31,6 +36,9 @@ Change the `Status` styling using the different availables variants changing the
 	</Story>
 	<Story name="yellow" parameters={getFixedStoryParams()}>
 		<Status variant="yellow" numberOfItems={50} />
+	</Story>
+	<Story name="custom background" parameters={getFixedStoryParams()}>
+		<Status numberOfItems={50} bg="#F0B27A" />
 	</Story>
 </Canvas>
 

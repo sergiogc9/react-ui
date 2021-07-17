@@ -29,6 +29,9 @@ The Badge accept any kind of children but it's main use is with `Icon` and `Avat
 				type: 'radio',
 				options: ['top-left', 'top-right', 'bottom-left', 'bottom-right']
 			}
+		},
+		bg: {
+			control: { type: 'text' }
 		}
 	}}
 	args={{
@@ -40,10 +43,10 @@ The Badge accept any kind of children but it's main use is with `Icon` and `Avat
 	name="playground-avatar"
 	parameters={getPlaygroundStoryParams()}
 >
-	{({ children, variant, location, withIcon, numberOfItems }) => (
+	{({ bg, children, location, numberOfItems, variant, withIcon }) => (
 		<Badge>
 			<Avatar children={children} aspectSize="s" />
-			<Badge.Status variant={variant} location={location} />
+			<Badge.Status variant={variant} location={location} bg={bg} />
 		</Badge>
 	)}
 </Story>
@@ -53,7 +56,7 @@ The Badge accept any kind of children but it's main use is with `Icon` and `Avat
 		variant: {
 			control: {
 				type: 'radio',
-				options: ['green', 'red', 'yellow', 'blue']
+				options: ['blue', 'green', 'grey', 'red', 'yellow']
 			}
 		},
 		location: {
@@ -64,6 +67,12 @@ The Badge accept any kind of children but it's main use is with `Icon` and `Avat
 		},
 		numberOfItems: {
 			control: { type: 'number' }
+		},
+		bg: {
+			control: { type: 'text' }
+		},
+		color: {
+			control: { type: 'text' }
 		}
 	}}
 	args={{
@@ -72,12 +81,12 @@ The Badge accept any kind of children but it's main use is with `Icon` and `Avat
 		numberOfItems: 1000
 	}}
 	name="playground-icon"
-	parameters={getPlaygroundStoryParams()}
+	parameters={getPlaygroundStoryParams({ include: ['color'] })}
 >
-	{({ variant, location, numberOfItems }) => (
+	{({ bg, color, location, numberOfItems, variant }) => (
 		<Badge>
 			<Icon icon="mail" styling="outlined" />
-			<Badge.Counter numberOfItems={numberOfItems} variant={variant} location={location} />
+			<Badge.Counter numberOfItems={numberOfItems} variant={variant} location={location} bg={bg} color={color} />
 		</Badge>
 	)}
 </Story>
@@ -142,6 +151,12 @@ The Badge accept any kind of children but it's main use is with `Icon` and `Avat
 			<Badge.Status variant="red" location="bottom-right" />
 		</Badge>
 	</Story>
+	<Story name="badge bottom-right with icon custom background" parameters={getFixedStoryParams()}>
+		<Badge>
+			<Icon icon="mail" styling="outlined" />
+			<Badge.Status variant="red" location="bottom-right" bg="#F0B27A" />
+		</Badge>
+	</Story>
 </Canvas>
 
 <Canvas>
@@ -167,6 +182,18 @@ The Badge accept any kind of children but it's main use is with `Icon` and `Avat
 		<Badge>
 			<Icon icon="mail" styling="outlined" />
 			<Badge.Counter numberOfItems={33} variant="red" location="bottom-right" />
+		</Badge>
+	</Story>
+	<Story name="badge with custom background" parameters={getFixedStoryParams()}>
+		<Badge>
+			<Icon icon="mail" styling="outlined" />
+			<Badge.Counter numberOfItems={33} variant="red" location="bottom-right" bg="#C6E8FF" />
+		</Badge>
+	</Story>
+	<Story name="badge with custom background and custom color" parameters={getFixedStoryParams()}>
+		<Badge>
+			<Icon icon="mail" styling="outlined" />
+			<Badge.Counter numberOfItems={33} variant="red" location="bottom-right" bg="#C6E8FF" color="#0084CC" />
 		</Badge>
 	</Story>
 </Canvas>

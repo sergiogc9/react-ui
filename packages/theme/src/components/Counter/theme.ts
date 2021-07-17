@@ -3,23 +3,23 @@ import { Counter } from './types';
 const counterTheme: Counter = {
 	colors: {
 		blue: {
-			bg: 'blue.500',
-			color: 'neutral.0'
+			bg: 'blue.100',
+			color: 'blue.900'
 		},
 		green: {
-			bg: 'green.500',
-			color: 'neutral.0'
+			bg: 'green.100',
+			color: 'green.900'
 		},
 		grey: {
 			bg: 'neutral.100',
-			color: 'neutral.900'
+			color: 'neutral.800'
 		},
 		red: {
-			bg: 'red.500',
-			color: 'neutral.0'
+			bg: 'red.100',
+			color: 'red.700'
 		},
 		yellow: {
-			bg: 'yellow.500',
+			bg: 'yellow.100',
 			color: 'neutral.800'
 		}
 	},

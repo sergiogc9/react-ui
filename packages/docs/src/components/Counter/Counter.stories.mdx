@@ -8,7 +8,14 @@ import Counter from 'components/Counter';
 
 Counter component.
 
-<Story args={{ numberOfItems: 100 }} name="playground" parameters={getPlaygroundStoryParams()}>
+<Story
+	args={{ numberOfItems: 100 }}
+	argTypes={{
+		bg: { control: { type: 'text' }, description: 'Custom background color' }
+	}}
+	name="playground"
+	parameters={getPlaygroundStoryParams()}
+>
 	{args => <Counter {...args} />}
 </Story>
 
