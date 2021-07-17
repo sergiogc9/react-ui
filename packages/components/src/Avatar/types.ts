@@ -10,6 +10,10 @@ type Props = {
 	 */
 	readonly iconType?: 'user' | 'business';
 	/**
+	 * Boolean to tell the Avatar component that the src url is being fetched from outside
+	 */
+	readonly isFetchingSource?: boolean;
+	/**
 	 * The image source
 	 */
 	readonly src?: string;

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
 import Icon from 'components/Icon';
+import Skeleton from 'components/Skeleton';
+
 import StyledAvatar from './styled';
 import { AvatarProps } from './types';
 
@@ -15,6 +17,7 @@ const Avatar: React.FC<AvatarProps> = ({
 	aspectSize = 'm',
 	children,
 	iconType = 'user',
+	isFetchingSource = false,
 	src,
 	variant = 'circle',
 	...props
@@ -22,22 +25,39 @@ const Avatar: React.FC<AvatarProps> = ({
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [error, setError] = useState(false);
 
+	const skeletonContent = React.useMemo(
+		() => (
+			<Skeleton height="100%" position="absolute">
+				{variant === 'circle' ? (
+					<Skeleton.Circle width="100%" height="100%" />
+				) : (
+					<Skeleton.Rect width="100%" height="100%" />
+				)}
+			</Skeleton>
+		),
+		[variant]
+	);
+
 	const avatarContent = React.useMemo(() => {
+		if (isFetchingSource) return skeletonContent;
 		if (src && !error)
 			return (
-				<img
-					alt={`avatar ${typeof children === 'string' ? children : ''}`}
-					onLoad={() => {
-						setError(false);
-						setIsLoaded(true);
-					}}
-					onError={() => {
-						setError(true);
-						setIsLoaded(false);
-					}}
-					src={src}
-					style={{ visibility: isLoaded ? 'visible' : 'hidden' }}
-				/>
+				<>
+					{!isLoaded && skeletonContent}
+					<img
+						alt={`avatar ${typeof children === 'string' ? children : ''}`}
+						onLoad={() => {
+							setError(false);
+							setIsLoaded(true);
+						}}
+						onError={() => {
+							setError(true);
+							setIsLoaded(false);
+						}}
+						src={src}
+						style={{ visibility: isLoaded ? 'visible' : 'hidden' }}
+					/>
+				</>
 			);
 		if (children) {
 			if (typeof children === 'string') return <span>{getInitials(children).toUpperCase()}</span>;
@@ -46,7 +66,7 @@ const Avatar: React.FC<AvatarProps> = ({
 		}
 
 		return <Icon styling="outlined" fill="neutral.0" icon={iconType} />;
-	}, [src, error, children, isLoaded, iconType]);
+	}, [children, error, iconType, isFetchingSource, isLoaded, skeletonContent, src]);
 
 	return (
 		<StyledAvatar
