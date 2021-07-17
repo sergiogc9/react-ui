@@ -1,0 +1,177 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+
+import SkeletonDecorator from 'storybook/decorators/Skeleton';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
+import Box from 'components/Box';
+import Grid from 'components/Grid';
+import Skeleton from 'components/Skeleton';
+
+<Meta title="Components/Skeleton" component={Skeleton} decorators={[SkeletonDecorator]} />
+
+<Story name="playground" parameters={getPlaygroundStoryParams({ include: ['color'] })}>
+	{args => (
+		<Skeleton {...args} height={120}>
+			<Skeleton.Circle left="0" top="0" size={50} />
+			<Skeleton.Rect height={10} left="12.5%" position="absolute" top="12px" width="75%" />
+			<Skeleton.Rect height={6} left="12.5%" position="absolute" top="32px" width="12.5%" />
+			<Skeleton.Rect left="0" height={8} position="absolute" top="59px" width="70%" />
+			<Skeleton.Rect height={8} left="0" position="absolute" top="77px" width="70%" />
+			<Skeleton.Rect height={8} left="0" position="absolute" top="94px" width="40%" />
+		</Skeleton>
+	)}
+</Story>
+
+# Skeleton
+
+The Skeleton component can be used as a loading fallback before some data is fetched or loaded.
+
+Most important features:
+
+- Renders a customizable skeleton based on children.
+- The animation is performed through all children elements.
+- Circle and Rect namespaced components are provided. Use them as `Skeleton.Circle` and `Skeleton.Rect`.
+- Change color from theme colors or use a custom one.
+- Disable or customize animation speed.
+- Use an absolute based layout, a flex layout or a grid layout using `Box` and `Grid` components. The Skeleton component is a `Box` component itself.
+
+A sample example:
+
+<Canvas>
+	<Story name="default" parameters={getFixedStoryParams()}>
+		<Skeleton height={120}>
+			<Skeleton.Circle left="0" top="0" size={50} />
+			<Skeleton.Rect height={10} left="12.5%" position="absolute" top="12px" width="75%" />
+			<Skeleton.Rect height={6} left="12.5%" position="absolute" top="32px" width="12.5%" />
+			<Skeleton.Rect left="0" height={8} position="absolute" top="59px" width="70%" />
+			<Skeleton.Rect height={8} left="0" position="absolute" top="77px" width="70%" />
+			<Skeleton.Rect height={8} left="0" position="absolute" top="94px" width="40%" />
+		</Skeleton>
+	</Story>
+</Canvas>
+
+## Custom colors
+
+Use the `color` prop to use a different color. You can also customize each child element with a custom color:
+
+<Canvas>
+	<Story name="with custom colors" parameters={getFixedStoryParams()}>
+		<Skeleton color="primary.100" height={120}>
+			<Skeleton.Circle left="0" top="0" size={50} />
+			<Skeleton.Rect height={10} left="12.5%" position="absolute" top="12px" width="75%" />
+			<Skeleton.Rect height={6} left="12.5%" position="absolute" top="32px" width="12.5%" />
+			<Skeleton.Rect bg="green.100" left="0" height={8} position="absolute" top="59px" width="70%" />
+			<Skeleton.Rect bg="green.100" height={8} left="0" position="absolute" top="77px" width="70%" />
+			<Skeleton.Rect bg="green.100" height={8} left="0" position="absolute" top="94px" width="40%" />
+		</Skeleton>
+	</Story>
+</Canvas>
+
+## Without animation
+
+Use the `animate` prop with a false value to disable the animation.
+
+<Canvas>
+	<Story name="without animation" parameters={getFixedStoryParams()}>
+		<Skeleton animate={false} height={120}>
+			<Skeleton.Circle left="0" top="0" size={50} />
+			<Skeleton.Rect height={10} left="12.5%" position="absolute" top="12px" width="75%" />
+			<Skeleton.Rect height={6} left="12.5%" position="absolute" top="32px" width="12.5%" />
+			<Skeleton.Rect left="0" height={8} position="absolute" top="59px" width="70%" />
+			<Skeleton.Rect height={8} left="0" position="absolute" top="77px" width="70%" />
+			<Skeleton.Rect height={8} left="0" position="absolute" top="94px" width="40%" />
+		</Skeleton>
+	</Story>
+</Canvas>
+
+## Customizing animation
+
+Use the `duration` prop to modify the animation speed:
+
+<Canvas>
+	<Story name="with custom animation" parameters={getFixedStoryParams()}>
+		<Skeleton duration={2.5} height={120}>
+			<Skeleton.Circle left="0" top="0" size={50} />
+			<Skeleton.Rect height={10} left="12.5%" position="absolute" top="12px" width="75%" />
+			<Skeleton.Rect height={6} left="12.5%" position="absolute" top="32px" width="12.5%" />
+			<Skeleton.Rect left="0" height={8} position="absolute" top="59px" width="70%" />
+			<Skeleton.Rect height={8} left="0" position="absolute" top="77px" width="70%" />
+			<Skeleton.Rect height={8} left="0" position="absolute" top="94px" width="40%" />
+		</Skeleton>
+	</Story>
+</Canvas>
+
+## Different layouts
+
+You can use three different layouts or even a combination of them:
+
+- Absolute layout: Use childs with absolute position.
+- Flex layout: Use simple Box components or flex containers as children.
+- Grid layout: Use a `Grid` component as the first child.
+
+#### Absolute layout
+
+You can define the layout using an absolute position. Use childs with an `absolute` position prop to handle it:
+
+<Canvas>
+	<Story name="with absolute layout" parameters={getFixedStoryParams()}>
+		<Skeleton height={120}>
+			<Skeleton.Circle left="0" top="0" size={50} />
+			<Skeleton.Rect height={10} left="12.5%" position="absolute" top="12px" width="75%" />
+			<Skeleton.Rect height={6} left="12.5%" position="absolute" top="32px" width="12.5%" />
+			<Skeleton.Rect left="0" height={8} position="absolute" top="59px" width="70%" />
+			<Skeleton.Rect height={8} left="0" position="absolute" top="77px" width="70%" />
+			<Skeleton.Rect height={8} left="0" position="absolute" top="94px" width="40%" />
+		</Skeleton>
+	</Story>
+</Canvas>
+
+#### Flex layout
+
+Use simple Box components or flex containers as children. The `Skeleton.Circle` and `Skeleton.Rect` namespaced components are Box components by default.
+
+<Canvas>
+	<Story name="with flex layout" parameters={getFixedStoryParams()}>
+		<Skeleton flexDirection="column">
+			<Box>
+				<Skeleton.Rect height={30} width="20%" />
+				<Skeleton.Rect height={30} flexGrow={1} ml="5%" />
+			</Box>
+			<Box my={3}>
+				<Skeleton.Rect height={30} width="20%" />
+				<Skeleton.Rect height={30} flexGrow={1} ml="5%" />
+			</Box>
+			<Skeleton.Rect bg="blue.100" height={30} />
+		</Skeleton>
+	</Story>
+</Canvas>
+
+#### Grid layout
+
+Use a `Grid` component as the first child. Then use the prop `type` with a `grid` value in `Skeleton.Circle` and `Skeleton.Rect` components to convert them to a `Grid.Box` component.
+
+<Canvas>
+	<Story name="with grid layout" parameters={getFixedStoryParams()}>
+		<Skeleton flexDirection="column">
+			<Grid rowGap={3}>
+				<Skeleton.Rect color="green.100" columns={12} height={50} type="grid" />
+				<Skeleton.Rect columns={6} height={30} type="grid" />
+				<Skeleton.Rect columns={6} height={30} type="grid" />
+				<Skeleton.Rect columns={6} height={30} type="grid" />
+				<Skeleton.Rect columns={6} height={30} type="grid" />
+				<Skeleton.Rect color="primary.100" columns={12} height={50} type="grid" />
+			</Grid>
+		</Skeleton>
+	</Story>
+</Canvas>
+
+## Skeleton API
+
+<ArgsTable of={Skeleton} include={['color']} />
+
+## Skeleton.Circle API
+
+<ArgsTable of={Skeleton.Circle} />
+
+## Skeleton.Rect API
+
+<ArgsTable of={Skeleton.Rect} />
