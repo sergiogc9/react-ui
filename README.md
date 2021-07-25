@@ -1,4 +1,88 @@
-## Getting started
+# React UI library
+
+![](https://github.com/sergiogc9/nodejs-server/workflows/Github%20Pipeline/badge.svg?branch=master)
+
+This repository contains a React UI library divided in some packages. The UI library is based on a **design system** using `React`, `styled-components`, `styled-system`, `storybook`, `lerna`, `typescript` and more.
+
+ℹ️ The library is still in a beta stage as I am still migrating many components here.
+
+ℹ️ This library has been implemented by me and for me, hence it is highly opinionated.
+
+Packages:
+
+- [`@sergiogc9/react-ui`](/packages/components):
+
+  A set of components ready to be used together with `styled-components`. There is no a public demo available yet but you can test it starting the project locally.
+
+  ![](https://badgen.net/npm/v/@sergiogc9/react-ui?icon=npm&label)
+  ![](https://badgen.net//bundlephobia/minzip/@sergiogc9/react-ui)
+
+- [`@sergiogc9/react-ui-theme`](/packages/theme):
+
+  The theme source used in components inside this library. The theme provided by this package should be passed to the `styled-components` provider. The theme can be used as is or can be partially modified keeping the same structure (i.e. only changing values).
+
+  ![](https://badgen.net/npm/v/@sergiogc9/react-ui-theme?icon=npm&label)
+  ![](https://badgen.net//bundlephobia/minzip/@sergiogc9/react-ui-theme)
+
+## Usage
+
+#### Installation
+
+Install both packages from npm or github packages:
+
+```
+yarn add -S @sergiogc9/react-ui @sergiogc9/react-ui-theme
+```
+
+Then import the provided theme and use it together with the styled-components provider at a higher app level:
+
+```tsx
+import { ThemeProvider } from 'styled-components';
+import theme from '@sergiogc9/react-ui-theme';
+
+const App = () => {
+   const finalTheme = merge(theme, {...}); // Customize theme if wanted
+
+   return (
+      <ThemeProvider theme={finalTheme}>
+         {...}
+      </Theme>
+   )
+}
+```
+
+Finally use any component from the UI library. These components must be used wrapped with the styled-components provider as shown above:
+
+```tsx
+import { Box, Button, Content, Grid, Title } from '@sergiogc9/react-ui';
+
+const Page = () => {
+	return (
+		<Box flexDirection="column">
+			<Box as="header">
+				<Title aspectSize="xl">This page is awesome</Title>
+			</Box>
+			<Grid>
+				<Grid.Box columns={4}>
+					<Content>The UI Library rocks!</Content>
+				</Grid.Box>
+				<Grid.Box columns={8}>
+					<Content>You should learn about styled-components and styled-system before :)</Content>
+				</Grid.Box>
+				<Grid.Row>
+					<Button aspectSize="l" variant="primary">
+						Click me!
+					</Button>
+				</Grid.Row>
+			</Grid>
+		</Box>
+	);
+};
+```
+
+## Development
+
+You can start the project to see the Storybook and test all the components as well as looking into their documentation:
 
 1. First, install the suggested NodeJS version. You can check the version in `.nvmrc` file.
 
@@ -10,7 +94,7 @@
 
    `yarn start`
 
-## Using the packages locally in other projects
+#### Using the packages locally in other projects
 
 If you need to test the changes outside this project (e.g. inside an application which uses some package), you can follow these steps:
 
@@ -46,80 +130,77 @@ If you need to test the changes outside this project (e.g. inside an application
 
    This npm link process can cause your app to have more than one react instance running, which will cause breaking errors. This doesn't happen with `Parcel` and it's related with how `Webpack` resolves imported packages.
 
-## Publishing a new version
+#### Publishing a new version
 
 New final versions are published automatically by the pipeline, never manually! To create and publish a new version, follow these steps:
 
-1. Create a new branch from `master` or use a previous created release branch with changes related to the new version to be added. The branch can't have pending changes and must exist in remote.
+1. Create a new branch from `master`.
+2. Perform your changes.
 
-2. Execute the script to add a new version (see script info below):
+3. Execute the script to add a new version (see script info below) or use the `lerna version`:
 
-   `yarn bump:version:[patch | minor | major]` or `yarn version:change x.x.x`
+   `yarn bump:version:[patch | minor | major]`
 
-   This script creates a new commit and adds a tag with the selected version.
+   Once version is confirmed, this script creates a new commit and adds a tag with the selected version.
 
-3. Once PR is merged, the pipeline will handle the new version creating and publishing the new version.
+4. Create a PR to merge changes including the version upgrade.
+5. Once PR is merged, the pipeline will handle the new version publishing the new version.
 
-## Available scripts
+#### Available scripts
 
-### `yarn start`
+##### `yarn start`
 
 Runs the storybook in a development server.<br />
 Open [http://localhost:6006](http://localhost:6006) to view it in the browser.
 
-The page will reload if you edit the source files.<br />
+The page will reload if you edit the source files as it works in watch mode.
 
-⚠️ You need to install peer dependencies to run the storybook locally.
+##### `yarn link:all`
 
-### `yarn link:all`
-
-Creates a link inside yarn to use this project packages in other projects without needing to publish anything.
+Creates a link inside yarn to use this project packages in other projects locally without needing to publish anything.
 
 This only has to be done once.
 
-### `yarn unlink:all`
+##### `yarn unlink:all`
 
 Removes the links created using the previous script.
 
-### `npm test`
+##### `yarn test`
 
 Runs all unitary tests from components. It also checks the coverage of the code.<br>
 
-It can be executed only for desired tests, using a pattern: `npm test user.test.ts`
+It can be executed only for desired tests, using a pattern: `yarn test user.test.ts`
 
-### `yarn test:local`
+##### `yarn test:local`
 
-Runs all unitary tests from components in watch mode (i.e. testing again automatically when editing the code). It does not check the code coverage.<br>
+Runs all unitary tests from components in watch mode. It does not check the code coverage.<br>
 
-It can be executed only for desired tests, using a pattern: `npm test:local user.test.ts`
+It can be executed only for desired tests, using a pattern: `yarn test:local user.test.ts`
 
-### `yarn test:local:file $file`
+##### `yarn test:local:file $file`
 
-Runs `yarn test:local` including all tests in the repo. Running without the `file` parameter, will run all tests including the puppeteer ones making the test to fail.<br>
+Runs `yarn test:local` including all tests in the repo that matches `$file` pattern.
 
-The goal of this script is to only run tests matching the `file` parameter pattern.
+The goal of this script is to only run tests you are modifying or developing.
 
 Example to only execute tests for Focus component:<br/>
-`yarn test:local:file Focus.test.tsx` <br/>
-
-If pattern matches any puppeteer test, run including the `__tests__` directory:<br/>
-`yarn test:local:file __tests__/.*/Focus.test.tsx`
+`yarn test:local:file Button.test.tsx` <br/>
 
 🛈 You can force doing the coverage check by adding `--coverage` at the end of the command.
 
-### `yarn bootstrap`
+##### `yarn bootstrap`
 
 Builds all packages using rollup.<br>
 The builds are generated inside a `dist` folder on each package.
 
-### `yarn bump:version:[patch | minor | major]`
+##### `yarn bump:version:[patch | minor | major]`
 
 In order to bump the package's version. previously to push the latests change, it is necessary to run one of this commands
 
-```
-yarn bump:version:patch // -> increases the patch version based on semantic versioning x.x.1
-yarn bump:version:minor // -> increases the minor version based on semantic versioning x.1.x
-yarn bump:version:major // -> increases the major version based on semantic versioning 1.x.x.
-```
+`yarn bump:version:patch` increases the patch version based on semantic versioning x.x.1
+`yarn bump:version:minor` increases the minor version based on semantic versioning x.1.x
+`yarn bump:version:major` increases the major version based on semantic versioning 1.x.x.
 
-🚫🚫🚫 **NEVER PUBLISH TO THE PACKAGE NEITHER FROM LOCAL MACHINE NOR ANOTHER BRANCH THAT'S NOT MASTER**🚫🚫🚫
+The script will always ask for a confirmation before performing the changes.
+
+🚫 **REMEMBER THAT PUBLISHING LOCALLY IS FORBIDDEN, IT MUST BE DONE BY THE PIPELINE** 🚫

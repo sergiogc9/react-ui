@@ -1,7 +1,7 @@
 {
 	"name": "@sergiogc9/react-ui-docs",
 	"version": "0.0.2",
-	"description": "@sergiogc9 React UI Kit Storybook",
+	"description": "React UI Kit Storybook",
 	"repository": "git://github.com/sergiogc9/react-ui.git",
 	"private": true,
 	"files": [
