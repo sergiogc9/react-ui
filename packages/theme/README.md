@@ -1,6 +1,6 @@
 # React UI Theme
 
-![](https://github.com/sergiogc9/nodejs-server/workflows/Github%20Pipeline/badge.svg?branch=master)
+![](https://github.com/sergiogc9/react-ui/workflows/Github%20Pipeline/badge.svg?branch=master)
 ![](https://badgen.net/npm/v/@sergiogc9/react-ui-theme?icon=npm&label)
 ![](https://badgen.net//bundlephobia/minzip/@sergiogc9/react-ui-theme)
 

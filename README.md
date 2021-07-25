@@ -1,6 +1,6 @@
 # React UI library
 
-![](https://github.com/sergiogc9/nodejs-server/workflows/Github%20Pipeline/badge.svg?branch=master)
+![](https://github.com/sergiogc9/react-ui/workflows/Github%20Pipeline/badge.svg?branch=master)
 
 This repository contains a React UI library divided in some packages. The UI library is based on a **design system** using `React`, `styled-components`, `styled-system`, `storybook`, `lerna`, `typescript` and more.
 
