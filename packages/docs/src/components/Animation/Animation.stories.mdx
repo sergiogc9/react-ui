@@ -79,6 +79,26 @@ You can try all available pre-defined animations selecting the story in the left
 	{args => <Animation.FadeOut {...args}>This library rocks!</Animation.FadeOut>}
 </Story>
 
+<Story
+	name="slide-down"
+	parameters={{
+		...getFixedStoryParams(),
+		docs: { disable: true }
+	}}
+>
+	{args => <Animation.SlideDown {...args}>This library rocks!</Animation.SlideDown>}
+</Story>
+
+<Story
+	name="slide-up"
+	parameters={{
+		...getFixedStoryParams(),
+		docs: { disable: true }
+	}}
+>
+	{args => <Animation.SlideUp {...args}>This library rocks!</Animation.SlideUp>}
+</Story>
+
 ### Overriding an existing component
 
 The example above uses a wrapper div (i.e. a Box component). If you don't want this Box wrapper, you can create custom animation components using the HOC `withBaseAnimation`.

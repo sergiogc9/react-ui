@@ -6,6 +6,10 @@ All notable changes to this package will be documented in this file.
 
 #### Added
 
+- Added SlideDown and SlideUp animations.
+
+#### Fixed
+
 - Fixed wrong polished dependency.
 
 ## [v0.0.3] - July, 2021

@@ -1,5 +1,14 @@
 import Animate, { withAnimate } from './Animate';
-import { FadeIn, FadeInAnimation, FadeOut, FadeOutAnimation } from './animations';
+import {
+	FadeIn,
+	FadeInAnimation,
+	FadeOut,
+	FadeOutAnimation,
+	SlideDown,
+	SlideDownAnimation,
+	SlideUp,
+	SlideUpAnimation
+} from './animations';
 import BaseAnimation, { BaseAnimationProps, withBaseAnimation } from './Base';
 
 export { BaseAnimationProps };
@@ -11,5 +20,9 @@ export default {
 	FadeIn,
 	FadeInAnimation,
 	FadeOut,
-	FadeOutAnimation
+	FadeOutAnimation,
+	SlideDown,
+	SlideDownAnimation,
+	SlideUp,
+	SlideUpAnimation
 };
