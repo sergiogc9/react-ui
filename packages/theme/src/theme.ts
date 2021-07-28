@@ -1,6 +1,7 @@
 /* eslint-disable prefer-destructuring */
 
 import colors from './colors';
+import alertTheme from './components/Alert';
 import avatarTheme from './components/Avatar';
 import buttonTheme from './components/Button';
 import chipTheme from './components/Chip';
@@ -94,6 +95,7 @@ const theme: Theme = {
 	shadows,
 	zIndices,
 	components: {
+		alert: alertTheme,
 		avatar: avatarTheme,
 		button: buttonTheme,
 		chip: chipTheme,

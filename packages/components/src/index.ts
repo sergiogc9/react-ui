@@ -1,3 +1,4 @@
+export { default as Alert, AlertProps, AlertIconProps, AlertTextProps } from './Alert';
 export { default as Animation, BaseAnimationProps } from './Animation';
 export { default as Avatar, AvatarProps } from './Avatar';
 export { default as Box, BoxProps, ScrollBox } from './Box';

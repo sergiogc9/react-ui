@@ -1,4 +1,5 @@
 import { ArrayWithProps } from './global.types';
+import { Alert } from './components/Alert';
 import { Avatar } from './components/Avatar';
 import { Button } from './components/Button';
 import { Chip } from './components/Chip';
@@ -71,6 +72,7 @@ type ZIndices = ArrayWithProps<
 type Locale = 'en' | 'es' | 'fr' | 'it' | 'es-MX';
 
 interface Components {
+	alert: Alert;
 	avatar: Avatar;
 	button: Button;
 	chip: Chip;
