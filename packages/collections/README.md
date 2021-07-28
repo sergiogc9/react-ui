@@ -1,4 +1,4 @@
-# React UI Components
+# React UI Collections
 
 ![](https://github.com/sergiogc9/react-ui/workflows/Github%20Pipeline/badge.svg?branch=master)
 ![](https://badgen.net/npm/v/@sergiogc9/react-ui-collections?icon=npm&label)

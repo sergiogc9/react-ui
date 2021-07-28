@@ -2,6 +2,18 @@
 
 All notable changes to this package will be documented in this file.
 
+## [v0.0.5] - July, 2021
+
+#### Added
+
+- Added Alert component.
+- Added Toasts component.
+- Added Image component.
+
+#### Fixed
+
+- Fixed wrong polished dependency.
+
 ## [v0.0.4] - July, 2021
 
 #### Added
