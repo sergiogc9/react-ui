@@ -1,24 +1,20 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 
 import ImageDecorator from 'storybook/decorators/Image';
-import {
-  getFixedStoryParams,
-  getPlaygroundStoryParams
-} from 'storybook/parameters';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import Image from 'components/Image';
 
 <Meta
-  title="Components/Image"
-  args={{
-    src:
-      'https://www.conector.com/wp-content/uploads/18403419-1454830741242403-2752884136058597031-n-1.png'
-  }}
-  component={Image}
-  decorators={[ImageDecorator]}
+	title="Components/Image"
+	args={{
+		src: 'https://www.conector.com/wp-content/uploads/18403419-1454830741242403-2752884136058597031-n-1.png'
+	}}
+	component={Image}
+	decorators={[ImageDecorator]}
 />
 
 <Story name="playground" parameters={getPlaygroundStoryParams()}>
-  {(args) => <Image {...args} />}
+	{args => <Image {...args} />}
 </Story>
 
 # Image
@@ -35,28 +31,24 @@ Most important features:
 Use `size`, `width` and / or `width` props to size the image:
 
 <Canvas>
-  <Story
-    decorators={[ImageDecorator]}
-    name="small"
-    parameters={getFixedStoryParams()}
-  >
-    <Image
-      size={100}
-      src="https://www.conector.com/wp-content/uploads/18403419-1454830741242403-2752884136058597031-n-1.png"
-    />
-  </Story>
-  <Story name="medium" parameters={getFixedStoryParams()}>
-    <Image
-      size={250}
-      src="https://www.conector.com/wp-content/uploads/18403419-1454830741242403-2752884136058597031-n-1.png"
-    />
-  </Story>
-  <Story name="large" parameters={getFixedStoryParams()}>
-    <Image
-      size={500}
-      src="https://www.conector.com/wp-content/uploads/18403419-1454830741242403-2752884136058597031-n-1.png"
-    />
-  </Story>
+	<Story decorators={[ImageDecorator]} name="small" parameters={getFixedStoryParams()}>
+		<Image
+			size={100}
+			src="https://www.conector.com/wp-content/uploads/18403419-1454830741242403-2752884136058597031-n-1.png"
+		/>
+	</Story>
+	<Story name="medium" parameters={getFixedStoryParams()}>
+		<Image
+			size={250}
+			src="https://www.conector.com/wp-content/uploads/18403419-1454830741242403-2752884136058597031-n-1.png"
+		/>
+	</Story>
+	<Story name="large" parameters={getFixedStoryParams()}>
+		<Image
+			size={500}
+			src="https://www.conector.com/wp-content/uploads/18403419-1454830741242403-2752884136058597031-n-1.png"
+		/>
+	</Story>
 </Canvas>
 
 ## Image API

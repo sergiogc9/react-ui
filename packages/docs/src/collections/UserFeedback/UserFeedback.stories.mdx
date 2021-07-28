@@ -1,0 +1,46 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+
+import AlertDecorator from 'storybook/decorators/Alert';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
+import UserFeedback from 'collections/UserFeedback';
+
+<Meta
+	title="Collections/User Feedback"
+	args={{
+		buttonText: 'Click me',
+		imageSrc: 'https://www.conector.com/wp-content/uploads/18403419-1454830741242403-2752884136058597031-n-1.png',
+		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+		titleText: 'Lorem ipsum dolor sit amet'
+	}}
+	argTypes={{
+		onButtonClick: { action: 'click' }
+	}}
+	component={UserFeedback}
+	decorators={[AlertDecorator]}
+/>
+
+# User Feedback
+
+A composed component to give feedback to the user after something happened.
+
+It includes:
+
+- An image (required).
+- A title (required).
+- A text or custom React element (optional).
+- A button (optional).
+
+<Canvas>
+	<Story
+		name="playground"
+		parameters={getPlaygroundStoryParams({
+			docs: { disable: false }
+		})}
+	>
+		{args => <UserFeedback {...args} />}
+	</Story>
+</Canvas>
+
+## UserFeedback API
+
+<ArgsTable of={UserFeedback} />
