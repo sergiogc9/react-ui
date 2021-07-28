@@ -28,7 +28,7 @@
 	"dependencies": {
 		"@sergiogc9/react-hooks": "0.1.1",
 		"@sergiogc9/react-ui-theme": "^0.0.5",
-		"@sergiogc9/react-utils": "0.0.3",
+		"@sergiogc9/react-utils": "0.0.4",
 		"@styled-system/css": "5.1.5",
 		"@styled-system/should-forward-prop": "5.1.5",
 		"@tippyjs/react": "4.2.4",

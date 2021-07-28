@@ -3187,6 +3187,16 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
+"@reduxjs/toolkit@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@reduxjs/toolkit/-/toolkit-1.4.0.tgz#ee2e2384cc3d1d76780d844b9c2da3580d32710d"
+  integrity sha512-hkxQwVx4BNVRsYdxjNF6cAseRmtrkpSlcgJRr3kLUcHPIAMZAmMJkXmHh/eUEGTMqPzsYpJLM7NN2w9fxQDuGw==
+  dependencies:
+    immer "^7.0.3"
+    redux "^4.0.0"
+    redux-thunk "^2.3.0"
+    reselect "^4.0.0"
+
 "@rollup/plugin-alias@3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-alias/-/plugin-alias-3.1.1.tgz#bb96cf37fefeb0a953a6566c284855c7d1cd290c"
@@ -3226,11 +3236,12 @@
   resolved "https://registry.yarnpkg.com/@sergiogc9/react-hooks/-/react-hooks-0.1.1.tgz#8622b5f95346af4ff715bfb8f0a91c3a34b69d10"
   integrity sha512-3IoUl1xF62IMqOdQoJwrR9Glq7+zqggTIUtN0crYnWxmt/ZqTl7PxdKNVh1/uM2iW+J8fGAZtUU8vVt0cnFlqw==
 
-"@sergiogc9/react-utils@0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-utils/-/react-utils-0.0.3.tgz#00dc9941f3affe047c7b8daa17a87189bbcbebdd"
-  integrity sha512-Ovo+/wVlWhMsKW9xHdJqdnMzqiCXQ5i5DPs62IwYpJjitfK7oPbJ7RTcwCyqkaSpMkdevFyM8P5d/DBX2BofZQ==
+"@sergiogc9/react-utils@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-utils/-/react-utils-0.0.4.tgz#2582e27a1f33df0d31005dc55d2cdd9ad8c59611"
+  integrity sha512-7eknc3isG+HOdpYnmdKPi4N1o9tyBImwOn/mVNd1QDCeXjOTCTJ35SinhNrz7mmZ3iWSn7KQOs+wjqmXz+tJgw==
   dependencies:
+    "@reduxjs/toolkit" "1.4.0"
     lodash "4.17.20"
     luxon "1.26.0"
 
@@ -9414,6 +9425,11 @@ immer@8.0.1:
   resolved "https://registry.yarnpkg.com/immer/-/immer-8.0.1.tgz#9c73db683e2b3975c424fb0572af5889877ae656"
   integrity sha512-aqXhGP7//Gui2+UrEtvxZxSquQVXTpZ7KDxfCcKAF3Vysvw0CViVaW9RZ1j1xlIYqaaaipBoqdqeibkc18PNvA==
 
+immer@^7.0.3:
+  version "7.0.15"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-7.0.15.tgz#dc3bc6db87401659d2e737c67a21b227c484a4ad"
+  integrity sha512-yM7jo9+hvYgvdCQdqvhCNRRio0SCXc8xDPzA25SvKWa7b1WVPjLwQs1VYU5JPXjcJPTqAa5NP5dqpORGYBQ2AA==
+
 import-fresh@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-2.0.0.tgz#d81355c15612d386c61f9ddd3922d4304822a546"
@@ -13367,6 +13383,18 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
+redux-thunk@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+  integrity sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw==
+
+redux@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.1.0.tgz#eb049679f2f523c379f1aff345c8612f294c88d4"
+  integrity sha512-uI2dQN43zqLWCt6B/BMGRMY6db7TTY4qeHHfGeKb3EOhmOKjU3KdWvNLJyqaHRksv/ErdNH7cFZWg9jXtewy4g==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+
 refractor@^3.1.0:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/refractor/-/refractor-3.3.1.tgz#ebbc04b427ea81dc25ad333f7f67a0b5f4f0be3a"
@@ -13612,6 +13640,11 @@ requireindex@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.2.0.tgz#3463cdb22ee151902635aa6c9535d4de9c2ef1ef"
   integrity sha512-L9jEkOi3ASd9PYit2cwRfyppc9NoABujTP8/5gFcbERmo5jUoAKovIC3fsF17pkTnGsrByysqX+Kxd2OTNI1ww==
+
+reselect@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/reselect/-/reselect-4.0.0.tgz#f2529830e5d3d0e021408b246a206ef4ea4437f7"
+  integrity sha512-qUgANli03jjAyGlnbYVAV5vvnOmJnODyABz51RdBN7M4WaVu8mecZWgyQNkG8Yqe3KRGRt0l4K4B3XVEULC4CA==
 
 resolve-cwd@^2.0.0:
   version "2.0.0"
