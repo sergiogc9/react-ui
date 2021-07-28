@@ -1,6 +1,6 @@
 {
 	"name": "@sergiogc9/react-ui-collections",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "React UI Kit Collections",
 	"repository": "git://github.com/sergiogc9/react-ui.git",
 	"main": "dist/index.js",
@@ -23,9 +23,9 @@
 		"@types/styled-system__css": "5.0.15"
 	},
 	"dependencies": {
-		"@sergiogc9/react-ui": "^0.0.4",
-		"@sergiogc9/react-ui-theme": "^0.0.4",
 		"@sergiogc9/react-hooks": "0.1.1",
+		"@sergiogc9/react-ui": "^0.0.5",
+		"@sergiogc9/react-ui-theme": "^0.0.5",
 		"@sergiogc9/react-utils": "0.0.3"
 	},
 	"peerDependencies": {
