@@ -10,6 +10,13 @@ This repository contains a React UI library divided in some packages. The UI lib
 
 Packages:
 
+- [`@sergiogc9/react-ui-theme`](/packages/theme):
+
+  The theme source used in components inside this library. The theme provided by this package should be passed to the `styled-components` provider. The theme can be used as is or can be partially modified keeping the same structure (i.e. only changing values).
+
+  ![](https://badgen.net/npm/v/@sergiogc9/react-ui-theme?icon=npm&label)
+  ![](https://badgen.net//bundlephobia/minzip/@sergiogc9/react-ui-theme)
+
 - [`@sergiogc9/react-ui`](/packages/components):
 
   A set of components ready to be used together with `styled-components`. There is no a public demo available yet but you can test it starting the project locally.
@@ -17,12 +24,12 @@ Packages:
   ![](https://badgen.net/npm/v/@sergiogc9/react-ui?icon=npm&label)
   ![](https://badgen.net//bundlephobia/minzip/@sergiogc9/react-ui)
 
-- [`@sergiogc9/react-ui-theme`](/packages/theme):
+- [`@sergiogc9/react-ui-collections`](/packages/collections):
 
-  The theme source used in components inside this library. The theme provided by this package should be passed to the `styled-components` provider. The theme can be used as is or can be partially modified keeping the same structure (i.e. only changing values).
+  A set of components built with many components from the `@sergiogc9/react-ui` package. There is no a public demo available yet but you can test it starting the project locally.
 
-  ![](https://badgen.net/npm/v/@sergiogc9/react-ui-theme?icon=npm&label)
-  ![](https://badgen.net//bundlephobia/minzip/@sergiogc9/react-ui-theme)
+  ![](https://badgen.net/npm/v/@sergiogc9/react-ui-collections?icon=npm&label)
+  ![](https://badgen.net//bundlephobia/minzip/@sergiogc9/react-ui-collections)
 
 ## Usage
 

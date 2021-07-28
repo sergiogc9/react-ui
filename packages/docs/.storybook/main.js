@@ -10,6 +10,7 @@ module.exports = {
 		 * Needed for handling component types in docs section correctly.
 		 * Using @sergiogc9/react-ui in mdx is not working.
 		 */
+		config.resolve.alias.collections = path.resolve(__dirname, '../../collections/src');
 		config.resolve.alias.components = path.resolve(__dirname, '../../components/src');
 		config.resolve.alias.theme = path.resolve(__dirname, '../../theme/src');
 

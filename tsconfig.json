@@ -15,6 +15,12 @@
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"strict": true,
-		"target": "es5"
+		"target": "es5",
+		"baseUrl": ".",
+		"paths": {
+			"collections/*": ["./packages/collections/src/*"],
+			"components/*": ["./packages/components/src/*"],
+			"theme/*": ["./packages/theme/src/*"]
+		}
 	}
 }

@@ -5,6 +5,7 @@
 		"paths": {
 			"docs/*": ["./src/*"],
 			"storybook/*": ["./.storybook/*"],
+			"collections/*": ["./../../packages/collections/src/*"],
 			"components/*": ["./../../packages/components/src/*"]
 		}
 	},
