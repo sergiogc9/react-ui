@@ -49,4 +49,5 @@ export {
 	TextFieldNumberProps
 } from './TextField';
 export { default as Title, TitleProps } from './Title';
+export { default as Toasts, ToastOptions, ToastsProps, useToasts } from './Toasts';
 export { default as Tooltip, TooltipProps, TooltipContentProps, TooltipTriggerProps } from './Tooltip';
