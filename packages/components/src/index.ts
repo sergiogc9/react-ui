@@ -13,6 +13,7 @@ export { default as Divider, DividerProps } from './Divider';
 export { default as Grid, GridProps, GridBoxProps, GridRowProps } from './Grid';
 export { default as Icon, IconProps } from './Icon';
 export { default as IconButton, IconButtonProps } from './IconButton';
+export { default as Image, ImageProps } from './Image';
 export { default as Link, LinkProps } from './Link';
 export { default as Modal, ModalProps } from './Modal';
 export { default as Overlay, OverlayProps } from './Overlay';
