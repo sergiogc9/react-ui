@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css, keyframes } from 'styled-components';
 
 import Box from 'components/Box';
-import { PulseProps } from './types';
+import { SpinnerPulseProps } from './types';
 
 const pulse = keyframes`
 	0% {transform: scale(1); opacity: 1}
@@ -14,7 +14,7 @@ const getPulseAnimation = (i: number) => css`
 	animation: ${pulse} 1s ${i * 0.12}s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
 `;
 
-const Pulse: React.FC<PulseProps> = styled(Box)<PulseProps>`
+const Pulse: React.FC<SpinnerPulseProps> = styled(Box)<SpinnerPulseProps>`
 	background-color: currentColor;
 	border-radius: 100%;
 	display: inline-block;

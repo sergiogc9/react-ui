@@ -28,7 +28,7 @@ export {
 export { default as RadioButton, RadioButtonProps } from './RadioButton';
 export { default as Ripple, RippleProps } from './Ripple';
 export { default as Skeleton, SkeletonProps, SkeletonCircleProps, SkeletonRectProps } from './Skeleton';
-export { default as Spinner, SpinnerProps } from './Spinner';
+export { default as Spinner, SpinnerProps, SpinnerCircleProps, SpinnerPulseProps } from './Spinner';
 export { default as Status, StatusProps } from './Status';
 export {
 	default as Stepper,

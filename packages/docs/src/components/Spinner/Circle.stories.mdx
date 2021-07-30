@@ -1,0 +1,133 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
+import Spinner from 'components/Spinner';
+
+<Meta title="Components/Spinner/Circle" component={Spinner.Circle} />
+
+# Circle spinner
+
+<Story
+	name="playground"
+	args={{
+		size: 100
+	}}
+	parameters={getPlaygroundStoryParams({ include: ['color'] })}
+>
+	{args => (
+		<Spinner>
+			<Spinner.Circle {...args} />
+		</Spinner>
+	)}
+</Story>
+
+## Number of circles
+
+There are 3 different variants depending on the number of circles visible:
+
+<Canvas>
+	<Story name="one circle" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle circles={1} />
+		</Spinner>
+	</Story>
+	<Story name="two circles" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle circles={2} />
+		</Spinner>
+	</Story>
+	<Story name="three circles" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle circles={3} />
+		</Spinner>
+	</Story>
+</Canvas>
+
+## Customizing colors
+
+Change the default used colors using the props `color`, `color2` and `color3` colors:
+
+<Canvas>
+	<Story name="one circle custom color" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle circles={1} color="green.400" />
+		</Spinner>
+	</Story>
+	<Story name="two circles custom color" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle circles={2} color="yellow.700" color2="yellow.400" />
+		</Spinner>
+	</Story>
+	<Story name="three circles custom color" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle circles={3} color="red.500" color2="yellow.700" color3="yellow.400" />
+		</Spinner>
+	</Story>
+</Canvas>
+
+## Customizing size
+
+Use the prop `size` and `circleSizes` to resize the spinner and achieve custom results:
+
+<Canvas>
+	<Story name="one small" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle circles={1} circleSize={1} size={24} />
+		</Spinner>
+	</Story>
+	<Story name="two small" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle circles={2} circleSize={1} size={24} />
+		</Spinner>
+	</Story>
+	<Story name="trhee small" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle circles={3} circleSize={1} size={24} />
+		</Spinner>
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story name="one big" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle circles={1} circleSize={10} size={250} />
+		</Spinner>
+	</Story>
+	<Story name="two big" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle circles={2} circleSize={10} size={250} />
+		</Spinner>
+	</Story>
+	<Story name="trhee big" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle circles={3} circleSize={10} size={250} />
+		</Spinner>
+	</Story>
+</Canvas>
+
+<!-- You can change the number of circles and their sizes. You would change the circle size while changing the spinner size.
+
+To handle different animation starting points between Circle elements, use the index prop:
+
+<Canvas>
+	<Story name="one" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle index={1} size="10px" color="primary.500" margin="2.5px" />
+		</Spinner>
+	</Story>
+	<Story name="many same time" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle index={1} size="10px" color="yellow.500" margin="2.5px" />
+			<Spinner.Circle index={1} size="10px" color="yellow.500" margin="2.5px" />
+			<Spinner.Circle index={1} size="10px" color="yellow.500" margin="2.5px" />
+		</Spinner>
+	</Story>
+	<Story name="many different time" parameters={getFixedStoryParams()}>
+		<Spinner>
+			<Spinner.Circle index={1} size="10px" color="green.500" margin="2.5px" />
+			<Spinner.Circle index={2} size="10px" color="green.500" margin="2.5px" />
+			<Spinner.Circle index={3} size="10px" color="green.500" margin="2.5px" />
+		</Spinner>
+	</Story>
+</Canvas> -->
+
+<ArgsTable of={Spinner.Circle} include={['color']} />

@@ -7,4 +7,4 @@ type Props = {
 	index: number;
 };
 
-export type PulseProps = Props & BoxProps;
+export type SpinnerPulseProps = Props & BoxProps;

@@ -3,10 +3,10 @@ import { cleanup, render, screen } from '@testing-library/react';
 
 import { withTheme } from 'components/private/utils/tests';
 import Spinner from 'components/Spinner';
-import { PulseProps } from './types';
+import { SpinnerPulseProps } from './types';
 
 const spinnerPulseTestId = 'spinner';
-const renderSpinner = (props?: Partial<PulseProps>) =>
+const renderSpinner = (props?: Partial<SpinnerPulseProps>) =>
 	render(
 		withTheme(
 			<Spinner data-testid={spinnerPulseTestId}>
