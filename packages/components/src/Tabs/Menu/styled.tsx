@@ -17,7 +17,7 @@ StyledTabsMenu.defaultProps = {
 	flexWrap: 'nowrap',
 	margin: 0,
 	overflowX: 'auto',
-	padding: 0,
+	px: { xs: 4, lg: 0 },
 	width: '100%'
 };
 

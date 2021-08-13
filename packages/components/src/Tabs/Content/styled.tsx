@@ -7,9 +7,11 @@ const StyledTabsContent: React.FC<TabsContentProps> = styled(Box)<TabsContentPro
 
 StyledTabsContent.defaultProps = {
 	flexGrow: 1,
+	flexDirection: 'column',
 	flexWrap: 'nowrap',
-	py: { xs: 5, md: 8 },
-	px: 1
+	px: { xs: 4, lg: 0 },
+	py: { xs: 4, md: 6 },
+	width: '100%'
 };
 
 export default StyledTabsContent;

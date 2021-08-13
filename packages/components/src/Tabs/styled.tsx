@@ -7,7 +7,8 @@ import { TabsProps } from './types';
 const StyledTabs: React.FC<TabsProps> = styled(Box)``;
 
 StyledTabs.defaultProps = {
-	flexDirection: 'column'
+	flexDirection: 'column',
+	width: '100%'
 };
 
 export default StyledTabs;
