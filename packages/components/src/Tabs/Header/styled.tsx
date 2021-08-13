@@ -7,12 +7,12 @@ import { TabsHeaderProps } from './types';
 const StyledTabsHeader: React.FC<TabsHeaderProps> = styled(Box)`
 	&::after {
 		content: '';
-		height: 2px;
+		height: 1px;
 		width: 100%;
 		position: absolute;
 		left: 0px;
 		bottom: 0px;
-		background-color: ${props => props.theme.colors.neutral['200']};
+		background-color: ${props => props.theme.colors.neutral['100']};
 	}
 `;
 

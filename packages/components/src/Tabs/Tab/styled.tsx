@@ -24,7 +24,7 @@ const StyledTabsTab = styled(Box)<StyledTabsTabProps>`
 		border-radius: 4px;
 		bottom: 0px;
 		content: '';
-		height: 4px;
+		height: 3px;
 		left: 0px;
 		position: absolute;
 		transition: all 150ms ease-in-out 0s;
@@ -97,7 +97,7 @@ StyledTabsTab.defaultProps = {
 	marginRight: 2,
 	padding: 1,
 	paddingTop: 2,
-	paddingBottom: 3,
+	paddingBottom: 2,
 	transition: 'all 200ms ease-in-out',
 	whiteSpace: 'nowrap'
 };
