@@ -95,6 +95,12 @@ const reset = css`
 	html {
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	}
+
+	/* Remove default edge password show icon on focus */
+	input::-ms-reveal,
+	input::-ms-clear {
+		display: none;
+	}
 `;
 
 export default reset;
