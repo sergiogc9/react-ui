@@ -13,6 +13,5 @@ export const Content: React.FC<ContentProps> = styled.span.withConfig<ContentPro
 `;
 
 Content.defaultProps = {
-	aspectSize: 'm',
-	fontFamily: 'main'
+	aspectSize: 'm'
 };

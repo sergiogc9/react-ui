@@ -32,8 +32,12 @@ breakpoints.xl = breakpoints[4];
 
 const space: Theme['space'] = [0, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80];
 
-const fonts: Theme['fonts'] = ["'Nunito', sans-serif"];
+const fonts: Theme['fonts'] = [
+	'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;',
+	"'Lato', sans-serif"
+];
 fonts.main = fonts[0];
+fonts.headings = fonts[1];
 
 const fontSizes: Theme['fontSizes'] = [12, 14, 16, 18, 20, 24, 28, 30, 34, 36, 46];
 

@@ -26,7 +26,6 @@ const commonStyles = css`
 			borderRadius: 0,
 			borderStyle: 'solid',
 			borderWidth: '1px',
-			fontFamily: 'main',
 			fontSize: 2,
 			position: 'relative',
 			transition: 'all ease-in 0.2s, height 0s'

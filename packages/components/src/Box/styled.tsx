@@ -12,8 +12,7 @@ const Box: React.FC<BoxProps> = styled.div.withConfig<BoxProps>({
 
 Box.defaultProps = {
 	display: 'flex',
-	position: 'relative',
-	fontFamily: 'main'
+	position: 'relative'
 };
 
 export default Box;

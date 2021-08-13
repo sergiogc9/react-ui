@@ -56,7 +56,7 @@ const reset = css`
 		text-rendering: optimizeSpeed;
 		line-height: 1.5;
 
-		font-family: ${props => props.theme.fonts};
+		font-family: ${props => props.theme.fonts.main};
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}

@@ -33,7 +33,6 @@ Grid.defaultProps = {
 	columns: 12,
 	columnGap: { xs: 3, lg: 4 },
 	display: 'grid',
-	fontFamily: 'main',
 	hasEqualColumns: true,
 	position: 'relative',
 	rowGap: { xs: 3, lg: 4 },

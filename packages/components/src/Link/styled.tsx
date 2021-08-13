@@ -40,7 +40,6 @@ StyledLink.defaultProps = {
 	behavior: 'default',
 	color: 'blue.700',
 	cursor: 'pointer',
-	fontFamily: 'main',
 	p: 0,
 	width: 'fit-content'
 };

@@ -52,7 +52,7 @@ type BreakPoints = ArrayWithProps<string, Partial<Record<'xs' | 'sm' | 'md' | 'l
 
 type Space = number[];
 
-type Fonts = ArrayWithProps<string, Partial<Record<'main', string>>>;
+type Fonts = ArrayWithProps<string, Partial<Record<'main' | 'headings', string>>>;
 
 type FontSizes = number[];
 

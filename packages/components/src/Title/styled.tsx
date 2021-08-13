@@ -15,5 +15,5 @@ export const Title: React.FC<TitleProps> = styled.span.withConfig<TitleProps>({
 
 Title.defaultProps = {
 	aspectSize: 'm',
-	fontFamily: 'main'
+	fontFamily: 'headings'
 };
