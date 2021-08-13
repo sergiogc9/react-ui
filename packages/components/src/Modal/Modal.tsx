@@ -4,10 +4,9 @@ import { useClickOutside, useKeyPressed, usePortal } from '@sergiogc9/react-hook
 
 import Overlay from 'components/Overlay';
 
-import ModalContext from './Context';
-import StyledModal from './styled';
+import ModalContext, { ModalContextData } from './Context';
+import StyledModal, { StyledModalWrapper } from './styled';
 import { ModalProps } from './types';
-import { ModalContextData } from './Context/types';
 
 const Modal: React.FC<ModalProps> = ({
 	aspectSize = 'm',
@@ -22,6 +21,7 @@ const Modal: React.FC<ModalProps> = ({
 	...rest
 }) => {
 	const [uncontrolledIsModalVisible, setIsModalVisible] = React.useState(true);
+
 	const wrapperRef = usePortal('modals');
 
 	const onModalClosed = React.useCallback(() => {
@@ -53,18 +53,20 @@ const Modal: React.FC<ModalProps> = ({
 	const content = (
 		<ModalContext.Provider value={contextData}>
 			{withOverlay && <Overlay blur={2} isVisible={isModalVisible} />}
-			<StyledModal
-				aria-modal="true"
-				aspectSize={aspectSize}
-				duration="0.3s"
-				isMobileFullScreen={isMobileFullScreen}
-				isVisible={isModalVisible}
-				// eslint-disable-next-line jsx-a11y/aria-role
-				role="modal"
-				{...rest}
-			>
-				{children}
-			</StyledModal>
+			<StyledModalWrapper isVisible={isModalVisible}>
+				<StyledModal
+					aria-modal="true"
+					aspectSize={aspectSize}
+					duration="0.3s"
+					isMobileFullScreen={isMobileFullScreen}
+					isVisible={isModalVisible}
+					// eslint-disable-next-line jsx-a11y/aria-role
+					role="modal"
+					{...rest}
+				>
+					{children}
+				</StyledModal>
+			</StyledModalWrapper>
 		</ModalContext.Provider>
 	);
 

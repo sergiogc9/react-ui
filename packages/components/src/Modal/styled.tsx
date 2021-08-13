@@ -41,15 +41,31 @@ StyledModal.defaultProps = {
 	flexDirection: 'column',
 	height: 'auto',
 	justifyContent: 'space-between',
-	left: '50%',
 	overflow: 'auto',
+	maxWidth: '100%'
+};
+
+const StyledModalWrapper: React.FC<ModalProps> = styled(Box)<ModalProps>`
+	${props =>
+		props.isVisible &&
+		css`
+			display: flex;
+		`}
+`;
+
+StyledModalWrapper.defaultProps = {
+	alignItems: 'center',
+	display: 'none',
+	height: '100%',
+	justifyContent: 'center',
+	left: '0',
 	position: 'fixed',
-	maxWidth: '100%',
-	top: '50%',
-	transform: 'translate(-50%, -50%)',
+	top: '0',
+	width: '100%',
 	zIndex: theme.zIndices.modal
 };
 
 const AnimatedModal = Animation.withBaseAnimation(StyledModal, Animation.FadeInAnimation);
 
+export { StyledModalWrapper };
 export default AnimatedModal;
