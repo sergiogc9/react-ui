@@ -1,6 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 
-import AlertDecorator from 'storybook/decorators/Alert';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import UserFeedback from 'collections/UserFeedback';
 
@@ -16,7 +15,6 @@ import UserFeedback from 'collections/UserFeedback';
 		onButtonClick: { action: 'click' }
 	}}
 	component={UserFeedback}
-	decorators={[AlertDecorator]}
 />
 
 # User Feedback
