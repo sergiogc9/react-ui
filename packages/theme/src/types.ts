@@ -71,6 +71,8 @@ type ZIndices = ArrayWithProps<
 
 type Locale = 'en' | 'es' | 'fr' | 'it' | 'es-MX';
 
+type Keys = Record<'googleMapsAPI', string>;
+
 interface Components {
 	alert: Alert;
 	avatar: Avatar;
@@ -100,6 +102,7 @@ export interface Theme {
 	readonly fonts: Fonts;
 	readonly fontSizes: FontSizes;
 	readonly fontWeights: FontWeights;
+	readonly keys: Keys;
 	readonly lineHeights: LineHeights;
 	readonly locale: Locale;
 	readonly radii: BorderRadius;

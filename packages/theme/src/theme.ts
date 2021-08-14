@@ -86,12 +86,17 @@ zIndices.modal = zIndices[4];
 zIndices.tooltip = zIndices[5];
 zIndices.popover = zIndices[5];
 
+const keys: Theme['keys'] = {
+	googleMapsAPI: ''
+};
+
 const theme: Theme = {
 	breakpoints,
 	colors,
 	fonts,
 	fontSizes,
 	fontWeights,
+	keys,
 	lineHeights,
 	locale: 'en',
 	radii,

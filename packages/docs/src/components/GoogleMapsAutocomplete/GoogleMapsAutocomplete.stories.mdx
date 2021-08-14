@@ -1,0 +1,28 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
+import GoogleMapsAutocomplete from 'components/GoogleMapsAutocomplete';
+import Content from 'components/Content';
+import Icon from 'components/Icon';
+
+<Meta title="Components/GoogleMapsAutocomplete" component={GoogleMapsAutocomplete} />
+
+# GoogleMapsAutocomplete
+
+⚠️ DISCLAIMER: This component has not a playground or live examples to avoid sharing any API key.
+
+This component is a wrapper of the `Select` component working in autocomplete mode. It lets the user to search for places worldwide using the GoogleMaps API.
+
+- Search for a place using the Google Maps API.
+- Search only for an specified set of countries.
+- Search only regions (i.e. streets, business won't be shown).
+
+⚠️ IMPORTANT: To make this component to work, a valid Google Maps Javascript API key must be provided in the theme at `theme.keys.googleMapsAPI`.
+
+## Custom search
+
+Use the props `onlyRegions` and `countries` to filter results.
+
+## GoogleMapsAutocomplete API
+
+<ArgsTable of={GoogleMapsAutocomplete} />

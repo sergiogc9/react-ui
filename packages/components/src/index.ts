@@ -10,6 +10,11 @@ export { default as Content, ContentProps } from './Content';
 export { default as Counter, CounterProps } from './Counter';
 export { default as DatePicker, DatePickerProps, DatePickerPopoverProps } from './DatePicker';
 export { default as Divider, DividerProps } from './Divider';
+export {
+	default as GoogleMapsAutocomplete,
+	GoogleMapsAutocompleteProps,
+	GoogleMapsPlace
+} from './GoogleMapsAutocomplete';
 export { default as Grid, GridProps, GridBoxProps, GridRowProps } from './Grid';
 export { default as Icon, IconProps } from './Icon';
 export { default as IconButton, IconButtonProps } from './IconButton';

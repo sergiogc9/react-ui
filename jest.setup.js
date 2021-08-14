@@ -11,3 +11,7 @@ class ResizeObserverFake {
 }
 
 global.ResizeObserver = ResizeObserverFake;
+
+// Comment next line to see errors in tests
+// eslint-disable-next-line no-console, no-undef
+console.error = jest.fn();
