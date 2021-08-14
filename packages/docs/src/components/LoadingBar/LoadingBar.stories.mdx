@@ -1,0 +1,28 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+
+import LoadingBarDecorator from 'storybook/decorators/LoadingBar';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
+import LoadingBar from 'components/LoadingBar';
+
+<Meta title="Components/LoadingBar" component={LoadingBar} decorators={[LoadingBarDecorator]} />
+
+<Story name="playground" args={{ isVisible: true }} parameters={getPlaygroundStoryParams()}>
+	{args => <LoadingBar {...args} />}
+</Story>
+
+# Loading Bar
+
+A bar fixed on top of the page that simulates a pending process. Useful when want to show the user that a network request is happenning.
+
+Most important features:
+
+- Show or hide the loading bar using the `isVisible` prop.
+- The bar performs a fake loading status animation.
+- The minimum visible time is 1 second.
+- Slide down and slide up animations when entering and exiting.
+
+See the live demo using the playground story.
+
+## LoadingBar API
+
+<ArgsTable of={LoadingBar} />
