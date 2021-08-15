@@ -1,3 +1,5 @@
+require('regenerator-runtime/runtime');
+
 class ResizeObserverFake {
 	constructor(callback) {
 		callback();

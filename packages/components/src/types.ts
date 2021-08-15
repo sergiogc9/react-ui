@@ -43,3 +43,7 @@ export type StyledComponentProps<
 		Omit<T, keyof ComposedProps> &
 		(Ref extends undefined ? Record<string, unknown> : { ref?: React.Ref<Ref> })
 >;
+
+export type RecursivePartial<T> = {
+	[P in keyof T]?: RecursivePartial<T[P]>;
+};

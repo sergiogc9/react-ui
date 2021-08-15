@@ -3221,10 +3221,10 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@sergiogc9/eslint-config@1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/eslint-config/-/eslint-config-1.0.5.tgz#8506fd5132e58695e0bd1b04affb5f4f9734c926"
-  integrity sha512-fSpl4/0CEEiWi8KDR4xvzTDncnGygUNx0FtjFMH1SqbzOJJLrf83XaXRCfixaz5YObpGQG7Zic1SBL5h+SJEYA==
+"@sergiogc9/eslint-config@1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/eslint-config/-/eslint-config-1.0.7.tgz#d4c3ff2ca844733bcc558761a4bec4713b669657"
+  integrity sha512-M1WCD7iPYsertUK83+q1T8OvFbwZ51dnL+GmifR2hRCKSWr4S9XtI/oEpGEaKUdk/nwDrEyzUuyYDZ9cf5S6dA==
   dependencies:
     "@typescript-eslint/parser" "4.15.0"
     eslint-config-airbnb "18.2.1"
@@ -4470,6 +4470,13 @@
   version "11.0.5"
   resolved "https://registry.yarnpkg.com/@types/react-syntax-highlighter/-/react-syntax-highlighter-11.0.5.tgz#0d546261b4021e1f9d85b50401c0a42acb106087"
   integrity sha512-VIOi9i2Oj5XsmWWoB72p3KlZoEbdRAcechJa8Ztebw7bDl2YmR+odxIqhtJGp1q2EozHs02US+gzxJ9nuf56qg==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-table@7.7.2":
+  version "7.7.2"
+  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.7.2.tgz#434f8230eb011c7eed8f3550fdf25befafebcfac"
+  integrity sha512-NwB78t3YV5pZ1NK3m2vylb/d0DKVyWH4y4GMCtlE4tg2n5ENM4ejzKnT46YKuqG2cPjWc+PIxuRVMd5OYX1z4A==
   dependencies:
     "@types/react" "*"
 
@@ -13200,6 +13207,11 @@ react-syntax-highlighter@^13.5.3:
     lowlight "^1.14.0"
     prismjs "^1.21.0"
     refractor "^3.1.0"
+
+react-table@7.7.0:
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.7.0.tgz#e2ce14d7fe3a559f7444e9ecfe8231ea8373f912"
+  integrity sha512-jBlj70iBwOTvvImsU9t01LjFjy4sXEtclBovl3mTiqjz23Reu0DKnRza4zlLtOPACx6j2/7MrQIthIK1Wi+LIA==
 
 react-textarea-autosize@^8.3.0:
   version "8.3.2"

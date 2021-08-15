@@ -37,7 +37,7 @@
 		"@babel/core": "7.13.14",
 		"@rollup/plugin-alias": "3.1.1",
 		"@rollup/plugin-typescript": "8.1.0",
-		"@sergiogc9/eslint-config": "1.0.5",
+		"@sergiogc9/eslint-config": "1.0.7",
 		"@testing-library/jest-dom": "5.11.5",
 		"@testing-library/react": "11.1.0",
 		"@testing-library/user-event": "12.1.10",

@@ -46,6 +46,22 @@ export {
 } from './Stepper';
 export { default as Switch, SwitchProps } from './Switch';
 export { default as Svg, SvgProps, SvgPathProps } from './Svg';
+export {
+	default as Table,
+	TableProps,
+	TableCellDateProps,
+	TableCellDefaultProps,
+	TableCellProps,
+	TableColumn,
+	TableContentProps,
+	TableHeaderCellProps,
+	TableOptions,
+	TablePaginationProps,
+	TableSkeletonContentProps,
+	TableSkeletonProps,
+	TableToolbarProps,
+	TableTotalResultsProps
+} from './Table';
 export { default as Tabs, TabsProps } from './Tabs';
 export { default as TextArea, TextAreaProps } from './TextArea';
 export {

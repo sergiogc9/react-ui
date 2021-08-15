@@ -18,6 +18,7 @@
 		"@storybook/node-logger": "6.2.1",
 		"@storybook/react": "6.2.1",
 		"@svgr/webpack": "5.5.0",
+		"@types/faker": "5.5.0",
 		"@types/lodash": "4.14.162",
 		"react": "17.0.1",
 		"react-dom": "17.0.1",
@@ -26,6 +27,7 @@
 	"dependencies": {
 		"@sergiogc9/react-ui": "^0.0.5",
 		"@sergiogc9/react-ui-theme": "^0.0.5",
+		"faker": "5.5.3",
 		"lodash": "4.17.20"
 	},
 	"engines": {
