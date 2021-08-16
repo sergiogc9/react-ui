@@ -30,7 +30,7 @@ const Grid: React.FC<GridProps> = React.memo(styled.div.withConfig<GridProps>({
 `);
 
 Grid.defaultProps = {
-	columns: 12,
+	columns: { xs: 4, md: 8, lg: 12 },
 	columnGap: { xs: 3, lg: 4 },
 	display: 'grid',
 	hasEqualColumns: true,

@@ -22,11 +22,13 @@ describe('Box', () => {
 
 	it('should render content', () => {
 		renderGrid();
+
 		expect(screen.getByText(text)).toBeInTheDocument();
 	});
 
-	it('should render default grid styles', () => {
-		renderGrid();
+	it('should render grid with custom columns', () => {
+		renderGrid({ columns: 12 });
+
 		expect(screen.getByText(text)).toHaveStyle(`
       grid-template-columns: repeat(12,1fr);
       grid-template-rows: repeat(1,auto);
@@ -34,7 +36,8 @@ describe('Box', () => {
 	});
 
 	it('should render not equal columns', () => {
-		renderGrid({ hasEqualColumns: false });
+		renderGrid({ columns: 12, hasEqualColumns: false });
+
 		expect(screen.getByText(text)).toHaveStyle(`
       grid-template-columns: repeat(12,auto);
     `);
@@ -42,6 +45,7 @@ describe('Box', () => {
 
 	it('should render custom gaps', () => {
 		renderGrid({ columnGap: 100, rowGap: 50 });
+
 		expect(screen.getByText(text)).toHaveStyle(`
       column-gap: 100px;
       row-gap: 50px;
@@ -53,6 +57,7 @@ describe('Box', () => {
 			gridTemplateColumns: '200px 100px',
 			gridTemplateRows: '100px 200px'
 		});
+
 		expect(screen.getByText(text)).toHaveStyle(`
       grid-template-columns: 200px 100px;
       grid-template-rows: 100px 200px;

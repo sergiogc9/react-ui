@@ -1,4 +1,5 @@
 import React from 'react';
+import { ResponsiveValue } from 'styled-system';
 
 import { StyledComponentProps } from 'components/types';
 import { ComposedGridProps } from 'components/private/utils/composers/types';
@@ -7,7 +8,7 @@ type Props = {
 	/**
 	 * The number of explicit columns the grid will use
 	 */
-	readonly columns?: number;
+	readonly columns?: ResponsiveValue<number>;
 	/**
 	 * A boolean to change between `1fr` (true) or `auto` (false) for columns width.
 	 */
