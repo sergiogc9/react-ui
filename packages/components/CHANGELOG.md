@@ -2,6 +2,27 @@
 
 All notable changes to this package will be documented in this file.
 
+## [v0.1.0] - August, 2021
+
+#### Added
+
+- Added Spinner.Circle component.
+- Added GoogleMapsAutocomplete component.
+- Added LoadingBar component.
+- Added Table component.
+
+#### Updated
+
+- Changed font to use system fonts.
+- Improved some components design.
+- Updated Grid default columns.
+- Updated icons to new designs.
+
+#### Fixed
+
+- Fixed eye password icon in TextField showing twice in Edge.
+- Fixed blurry behavior in Modal component.
+
 ## [v0.0.5] - July, 2021
 
 #### Added
