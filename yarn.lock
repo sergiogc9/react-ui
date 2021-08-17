@@ -3231,15 +3231,17 @@
     eslint-config-airbnb-typescript "12.3.1"
     eslint-config-prettier "7.2.0"
 
-"@sergiogc9/react-hooks@0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-hooks/-/react-hooks-0.1.1.tgz#8622b5f95346af4ff715bfb8f0a91c3a34b69d10"
-  integrity sha512-3IoUl1xF62IMqOdQoJwrR9Glq7+zqggTIUtN0crYnWxmt/ZqTl7PxdKNVh1/uM2iW+J8fGAZtUU8vVt0cnFlqw==
+"@sergiogc9/react-hooks@0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-hooks/-/react-hooks-0.2.1.tgz#6387d8ca210398b89aa52eb9439e0ee56a4f721d"
+  integrity sha512-/150PitsUijOfPhwxbE2yDW2unPEXifqeLqPNhp53TxpbN49nvFTc1ciNC7SutPfbzTvOWjDtOTqOO3prvOFHQ==
+  dependencies:
+    screenfull "5.1.0"
 
-"@sergiogc9/react-utils@0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-utils/-/react-utils-0.0.4.tgz#2582e27a1f33df0d31005dc55d2cdd9ad8c59611"
-  integrity sha512-7eknc3isG+HOdpYnmdKPi4N1o9tyBImwOn/mVNd1QDCeXjOTCTJ35SinhNrz7mmZ3iWSn7KQOs+wjqmXz+tJgw==
+"@sergiogc9/react-utils@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-utils/-/react-utils-0.0.6.tgz#545d822eaf7db6b3ca3969b49a56a9fb9ffb98d4"
+  integrity sha512-NKr/H9kbyKef6XS47YUsokAT83fkPXCSSaEHfc4SDS0jhoyNFSZr6+dmVgFVt4kBClWbW1beLVlvd3j+JNwp6A==
   dependencies:
     "@reduxjs/toolkit" "1.4.0"
     lodash "4.17.20"
@@ -13921,6 +13923,11 @@ schema-utils@^3.0.0:
     "@types/json-schema" "^7.0.6"
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
+
+screenfull@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/screenfull/-/screenfull-5.1.0.tgz#85c13c70f4ead4c1b8a935c70010dfdcd2c0e5c8"
+  integrity sha512-dYaNuOdzr+kc6J6CFcBrzkLCfyGcMg+gWkJ8us93IQ7y1cevhQAugFsaCdMHb6lw8KV3xPzSxzH7zM1dQap9mA==
 
 select@^1.1.2:
   version "1.1.2"

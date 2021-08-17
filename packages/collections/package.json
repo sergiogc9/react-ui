@@ -23,10 +23,10 @@
 		"@types/styled-system__css": "5.0.15"
 	},
 	"dependencies": {
-		"@sergiogc9/react-hooks": "0.1.1",
+		"@sergiogc9/react-hooks": "0.2.1",
 		"@sergiogc9/react-ui": "^0.0.5",
 		"@sergiogc9/react-ui-theme": "^0.0.5",
-		"@sergiogc9/react-utils": "0.0.4"
+		"@sergiogc9/react-utils": "0.0.6"
 	},
 	"peerDependencies": {
 		"react": "17.0.1",
