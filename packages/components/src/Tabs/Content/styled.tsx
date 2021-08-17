@@ -9,7 +9,7 @@ StyledTabsContent.defaultProps = {
 	flexGrow: 1,
 	flexDirection: 'column',
 	flexWrap: 'nowrap',
-	px: { xs: 4, lg: 0 },
+	px: { xs: 3, lg: 0 },
 	py: { xs: 4, md: 6 },
 	width: '100%'
 };
