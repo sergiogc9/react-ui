@@ -79,6 +79,7 @@ const reset = css`
 	textarea,
 	select {
 		font: inherit;
+		margin: 0;
 	}
 
 	/* Remove all animations and transitions for people that prefer not to see them */
