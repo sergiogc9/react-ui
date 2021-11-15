@@ -15,9 +15,9 @@ const StyledTabsMenu: React.FC<TabsMenuProps> = styled(Box)`
 StyledTabsMenu.defaultProps = {
 	flexShrink: 0,
 	flexWrap: 'nowrap',
+	justifyContent: { xs: 'space-between', md: 'flex-start' },
 	margin: 0,
 	overflowX: 'auto',
-	px: { xs: 4, lg: 0 },
 	width: '100%'
 };
 

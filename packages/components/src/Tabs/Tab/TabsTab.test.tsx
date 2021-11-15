@@ -46,14 +46,14 @@ describe('TabsTab component', () => {
 		renderTabsTab({ isError: true });
 		const tab = screen.getByTestId(tabTestId);
 		expect(tab).toHaveStyle(`
-      color: ${theme.colors.red['900']};
+      color: ${theme.colors.red['500']};
     `);
 	});
 	it('should render tab as disabled', () => {
 		renderTabsTab({ isDisabled: true });
 		const tab = screen.getByTestId(tabTestId);
 		expect(tab).toHaveStyle(`
-        color: ${theme.colors.neutral['800']};
+        color: ${theme.colors.neutral['600']};
         opacity: 0.4;
         background: inherit;
     `);

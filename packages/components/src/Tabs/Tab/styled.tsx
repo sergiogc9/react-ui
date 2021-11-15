@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import systemCSS from '@styled-system/css';
 import { getColorFromTheme } from '@sergiogc9/react-ui-theme';
 
 import Box from 'components/Box';
@@ -9,7 +10,13 @@ const StyledTabsTab = styled(Box)<StyledTabsTabProps>`
 	cursor: pointer;
 	text-transform: uppercase;
 
+	&:first-child {
+		${systemCSS({ marginLeft: [3, 3, 3, 0] })}
+	}
+
 	> span {
+		align-items: center;
+		display: inline-flex;
 		transition: all 200ms ease-in-out;
 	}
 
@@ -24,8 +31,8 @@ const StyledTabsTab = styled(Box)<StyledTabsTabProps>`
 		border-radius: 4px;
 		bottom: 0px;
 		content: '';
-		height: 3px;
-		left: 0px;
+		height: 4px;
+		left: 0;
 		position: absolute;
 		transition: all 150ms ease-in-out 0s;
 		transform: scaleX(0);
@@ -62,16 +69,17 @@ const StyledTabsTab = styled(Box)<StyledTabsTabProps>`
 		props.isDisabled &&
 		css`
 			cursor: default;
+			pointer-events: none;
 			&,
 			&:hover,
 			&:focus-within {
 				background: inherit;
-				color: ${props.theme.colors.neutral['800']};
 				opacity: 0.4;
 			}
-			&::after {
-				background-color: ${props.theme.colors.neutral['500']};
-				visibility: visible;
+			&::after,
+			&:hover::after {
+				visibility: hidden;
+				transform: scaleX(0);
 			}
 		`}
 
@@ -79,10 +87,12 @@ const StyledTabsTab = styled(Box)<StyledTabsTabProps>`
 		props.isError &&
 		css`
 			 {
-				color: ${props.theme.colors.red['900']};
+				${props.activeID !== props.id &&
+				css`
+					color: ${props.theme.colors.red['500']};
+				`}
 
 				&::after {
-					background-color: ${props.theme.colors.red['900']};
 					visibility: visible;
 				}
 			}
@@ -90,14 +100,15 @@ const StyledTabsTab = styled(Box)<StyledTabsTabProps>`
 `;
 
 StyledTabsTab.defaultProps = {
+	alignItems: 'flex-start',
 	color: 'neutral.600',
-	flexGrow: 0,
+	flexGrow: { xs: 1, md: 0 },
 	fontSize: 0,
+	height: { xs: 36, md: 40 },
 	justifyContent: 'center',
-	marginRight: 2,
-	padding: 1,
-	paddingTop: 2,
-	paddingBottom: 2,
+	mx: { xs: 3, md: 2 },
+	px: 1,
+	pt: '2px',
 	transition: 'all 200ms ease-in-out',
 	whiteSpace: 'nowrap'
 };
