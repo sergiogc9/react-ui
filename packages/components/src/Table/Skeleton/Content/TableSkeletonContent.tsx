@@ -23,7 +23,7 @@ const TableSkeletonContent: React.FC<TableSkeletonContentProps> = props => {
 						<Skeleton.Rect bg="neutral.200" height={40} width="100%" />
 					</Grid.Box>
 				</Grid>
-				{Array.from(Array(SKELETON_TABLE_ROWS).keys()).map((n, index) => (
+				{Array.from(Array(SKELETON_TABLE_ROWS).keys()).map((_, index) => (
 					// eslint-disable-next-line react/no-array-index-key
 					<Grid key={index} mt={3}>
 						<Grid.Box columns={3}>

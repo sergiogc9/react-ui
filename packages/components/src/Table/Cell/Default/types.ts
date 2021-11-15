@@ -1,5 +1,5 @@
 import { CellProps } from 'react-table';
 
-import { ContentProps } from 'components/Content';
+import { BoxProps } from 'components/Box';
 
-export type TableCellDefaultProps = CellProps<any> & ContentProps;
+export type TableCellDefaultProps = CellProps<any> & BoxProps;

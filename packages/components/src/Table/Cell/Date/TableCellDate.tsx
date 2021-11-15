@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from 'styled-components';
 
-import TableCellDefault from '../Default';
+import TableCellText from '../Text';
 import { TableCellDateProps } from './types';
 
 /**
@@ -15,13 +15,13 @@ const TableCellDate: React.FC<TableCellDateProps> = props => {
 	const date = value instanceof Date ? value : new Date(value);
 
 	return (
-		<TableCellDefault aspectSize="s" {...props}>
+		<TableCellText aspectSize="s" {...props}>
 			{date.toLocaleDateString(theme.locale, {
 				year: 'numeric',
 				month: 'short',
 				day: 'numeric'
 			})}
-		</TableCellDefault>
+		</TableCellText>
 	);
 };
 

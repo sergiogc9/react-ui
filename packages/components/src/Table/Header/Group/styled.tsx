@@ -8,12 +8,13 @@ const StyledTableHeaderGroup: React.FC<TableHeaderGroupProps> = styled(Box)<Tabl
 
 StyledTableHeaderGroup.defaultProps = {
 	alignItems: 'stretch',
-	bg: 'neutral.50',
-	borderColor: 'neutral.100',
+	bg: 'primary.100',
+	borderColor: 'primary.100',
 	borderRadius: 1,
 	borderStyle: 'solid',
 	borderWidth: '1px',
 	minHeight: 48,
+	overflow: 'hidden',
 	width: '100%'
 };
 

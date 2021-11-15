@@ -1,7 +1,7 @@
 import { createNameSpacedComponent } from '@sergiogc9/react-utils';
 
 import TableHeaderCell, { TableHeaderCellProps } from './Header/Cell';
-import TableCell, { TableCellDefaultProps, TableCellDateProps } from './Cell';
+import TableCell, { TableCellDefaultProps, TableCellDateProps, TableCellTextProps } from './Cell';
 import TableContent, { TableContentProps } from './Content';
 import TablePagination, { TablePaginationProps } from './Pagination';
 import TableSkeleton, { TableSkeletonProps, TableSkeletonContentProps } from './Skeleton';
@@ -15,6 +15,7 @@ export type {
 	TableColumn,
 	TableCellDateProps,
 	TableCellDefaultProps,
+	TableCellTextProps,
 	TableContentProps,
 	TableHeaderCellProps,
 	TableOptions,

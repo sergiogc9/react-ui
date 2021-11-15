@@ -16,7 +16,8 @@ const TableContent: React.FC<TableContentProps> = (props: TableContentProps) => 
 	const { minWidth, ...rest } = props;
 
 	const {
-		tableInstance: { headerGroups, getTableBodyProps, getTableProps, page, prepareRow }
+		onRowClick,
+		tableInstance: { getTableBodyProps, getTableProps, headerGroups, page, prepareRow }
 	} = React.useContext(TableContext);
 
 	const scrollContentRef = React.useRef(null);
@@ -26,26 +27,37 @@ const TableContent: React.FC<TableContentProps> = (props: TableContentProps) => 
 
 	return (
 		<Box position="relative">
-			<StyledContentTable {...rest} {...getTableProps()} ref={scrollContentRef}>
+			<StyledContentTable {...rest} {...getTableProps()} minWidth="0 !important" ref={scrollContentRef}>
 				<Box alignItems="center" flexDirection="column" minWidth={minWidth}>
 					{headerGroups.map(headerGroup => (
 						// eslint-disable-next-line react/jsx-key
 						<TableHeaderGroup {...headerGroup.getHeaderGroupProps()}>
 							{headerGroup.headers.map(column => {
-								return column.render('Header', column.getHeaderProps());
+								return column.render('Header', {
+									...column.getHeaderProps(),
+									maxWidth: column.maxWidth
+								});
 							})}
 						</TableHeaderGroup>
 					))}
 				</Box>
-				<Box {...getTableBodyProps()} alignItems="center" flexDirection="column" minWidth={minWidth}>
+				<Box {...getTableBodyProps()} alignItems="center" flexDirection="column" minWidth={minWidth} mt={2}>
 					{page.map(row => {
 						prepareRow(row);
 						return (
 							<React.Fragment key={row.getRowProps().key}>
-								<TableBodyRow {...row.getRowProps()}>
+								<TableBodyRow
+									{...row.getRowProps()}
+									cursor={onRowClick ? 'pointer' : 'unset'}
+									onClick={() => {
+										if (onRowClick) onRowClick(row);
+									}}
+								>
 									{row.cells.map(cell => (
 										// eslint-disable-next-line react/jsx-key
-										<TableBodyCell {...cell.getCellProps()}>{cell.render('Cell')}</TableBodyCell>
+										<TableBodyCell {...cell.getCellProps()} maxWidth={cell.column.maxWidth}>
+											{cell.render('Cell')}
+										</TableBodyCell>
 									))}
 								</TableBodyRow>
 								<Divider paddingX={2} />

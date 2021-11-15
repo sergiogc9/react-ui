@@ -7,3 +7,4 @@ export type TableHeaderCellProps = BoxProps & HeaderProps<any>;
 export type StyledTableHeaderCellProps = BoxProps & {
 	readonly canSort: ColumnInstance['canSort'];
 };
+export type StyledTableHeaderCellContentProps = BoxProps;

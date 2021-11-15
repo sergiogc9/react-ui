@@ -2,7 +2,7 @@ import React from 'react';
 
 import Icon, { IconProps } from 'components/Icon';
 
-import StyledTableHeaderCell from './styled';
+import StyledTableHeaderCell, { StyledTableHeaderCellContent } from './styled';
 import { TableHeaderCellProps } from './types';
 
 const TableHeaderCell: React.FC<TableHeaderCellProps> = props => {
@@ -37,7 +37,7 @@ const TableHeaderCell: React.FC<TableHeaderCellProps> = props => {
 
 	return (
 		<StyledTableHeaderCell {...rest} canSort={canSort} onClick={onHeaderClicked}>
-			{children}
+			<StyledTableHeaderCellContent>{children}</StyledTableHeaderCellContent>
 			{rightContent}
 		</StyledTableHeaderCell>
 	);

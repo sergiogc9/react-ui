@@ -1,16 +1,19 @@
 import React from 'react';
 
-import Content from 'components/Content';
+import Box from 'components/Box';
 
 import { TableCellDefaultProps } from './types';
+import TableCellText from '../Text';
 
 const TableCellDefault: React.FC<TableCellDefaultProps> = props => {
 	const { children, data, headers, value, ...rest } = props;
 
-	return (
-		<Content aspectSize="s" color="neutral.900" {...rest}>
-			{children ?? value}
-		</Content>
+	return children ? (
+		<Box height="100%" width="100%" {...rest}>
+			{children}
+		</Box>
+	) : (
+		<TableCellText data={data} headers={headers} value={value} {...rest} />
 	);
 };
 

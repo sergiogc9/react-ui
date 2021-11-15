@@ -4,18 +4,24 @@ import {
 	Filters,
 	SortingRule,
 	TableOptions as ReactTableOptions,
+	TableState as ReactTableState,
 	UseSortByColumnOptions,
 	UseFiltersColumnOptions,
+	UseFiltersState,
 	UseGlobalFiltersColumnOptions,
+	UseGlobalFiltersState,
 	UseFiltersOptions,
 	UseGlobalFiltersOptions,
 	UsePaginationOptions,
-	UseSortByOptions
+	UsePaginationState,
+	UseSortByOptions,
+	UseSortByState,
+	Row
 } from 'react-table';
 
 import { BoxProps } from 'components/Box';
 
-type Props<D extends Record<string, unknown>> = {
+type Props<D extends object> = {
 	/**
 	 * The table column definitions
 	 */
@@ -35,6 +41,17 @@ type Props<D extends Record<string, unknown>> = {
 	 * The global filter to filter with.
 	 */
 	readonly globalFilter?: any;
+
+	/**
+	 * An array containing the ids of the columns to be hidden.
+	 */
+	readonly hiddenColumns?: TableState<D>['hiddenColumns'];
+
+	/**
+	 * Event called when a row is clicked.
+	 * @param row: The row data.
+	 */
+	readonly onRowClick?: (row: Row<D>) => void;
 
 	/**
 	 * Event to handle sort change. Useful when controlling from outside the order.
@@ -77,20 +94,26 @@ type Props<D extends Record<string, unknown>> = {
 	readonly tableOptions?: Omit<TableOptions<D>, 'data' | 'columns'>;
 };
 
-export type TableProps<D extends Record<string, unknown>> = Props<D> & BoxProps;
+export type TableProps<D extends object> = Props<D> & BoxProps;
 export type StyledTableWrapperProps = BoxProps;
 
-export type TableColumn<D extends Record<string, unknown> = Record<string, unknown>> = Column<D> &
+export type TableColumn<D extends object = {}> = Column<D> &
 	UseFiltersColumnOptions<D> &
 	UseGlobalFiltersColumnOptions<D> &
 	UseSortByColumnOptions<D> & {
 		getCellWidthText?: (row: D) => string;
 	};
 
-export type TableOptions<D extends Record<string, unknown>> = ReactTableOptions<D> &
+export type TableOptions<D extends object> = Omit<ReactTableOptions<D>, 'initialState'> &
 	UseFiltersOptions<D> &
 	UseGlobalFiltersOptions<D> &
 	UsePaginationOptions<D> &
-	UseSortByOptions<D>;
+	UseSortByOptions<D> & {
+		initialState?: TableState<D>;
+	};
 
-export type TableCellProps<D extends Record<string, unknown>> = CellProps<D>;
+export type TableState<D extends object> = Partial<
+	ReactTableState<D> & UseFiltersState<D> & UseGlobalFiltersState<D> & UsePaginationState<D> & UseSortByState<D>
+>;
+
+export type TableCellProps<D extends object> = CellProps<D>;

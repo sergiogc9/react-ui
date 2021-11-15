@@ -8,8 +8,8 @@ import { TableSkeletonToolbarProps } from './types';
 const TableSkeletonToolbar: React.FC<TableSkeletonToolbarProps> = () => {
 	return (
 		<Box justifyContent="space-between" marginY={3}>
-			<Skeleton.Rect height={24} width={150} />
-			<Skeleton.Rect height={24} width={200} />
+			<Skeleton.Rect height={24} width={150} mr={3} />
+			<Skeleton.Rect flexShrink={1} height={24} width={200} />
 		</Box>
 	);
 };

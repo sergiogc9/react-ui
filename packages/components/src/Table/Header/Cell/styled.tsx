@@ -3,7 +3,7 @@ import css from '@styled-system/css';
 
 import Box from 'components/Box';
 
-import { StyledTableHeaderCellProps } from './types';
+import { StyledTableHeaderCellProps, StyledTableHeaderCellContentProps } from './types';
 
 const StyledTableHeaderCell: React.FC<StyledTableHeaderCellProps> = styled(Box)<StyledTableHeaderCellProps>`
 	flex-shrink: 1 !important;
@@ -13,7 +13,7 @@ const StyledTableHeaderCell: React.FC<StyledTableHeaderCellProps> = styled(Box)<
 		css({
 			cursor: 'pointer',
 			'&:hover': {
-				bg: 'neutral.100'
+				bg: 'primary.50'
 			}
 		})}
 
@@ -29,15 +29,37 @@ const StyledTableHeaderCell: React.FC<StyledTableHeaderCellProps> = styled(Box)<
 			visibility: visible;
 		}
 	}
+
+	&:first-child {
+		${css({ pl: 3 })}
+	}
+
+	&:last-child {
+		${css({ pr: 3 })}
+	}
 `;
 
 StyledTableHeaderCell.defaultProps = {
 	alignItems: 'center',
-	color: 'neutral.900',
-	fontSize: 0,
+	color: 'primary.800',
+	fontSize: 1,
 	fontWeight: 'semibold',
-	padding: 3,
+	overflow: 'hidden',
+	px: '12px',
 	transition: 'background-color ease-in 0.15s'
 };
 
+const StyledTableHeaderCellContent: React.FC<StyledTableHeaderCellContentProps> = styled(Box)`
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+`;
+
+StyledTableHeaderCellContent.defaultProps = {
+	maxWidth: '100%',
+	overflow: 'hidden',
+	wordBreak: 'break-word'
+};
+
+export { StyledTableHeaderCellContent };
 export default StyledTableHeaderCell;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Column } from 'react-table';
 import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import merge from 'lodash/merge';
 
 import { withTheme } from 'components/private/utils/tests';
@@ -29,16 +30,24 @@ const defaultData: TestData[] = [
 
 const defaultTableOptions: TableProps<TestData>['tableOptions'] = {};
 
+const mockOnRowClick = jest.fn();
+
 const Component: React.FC<{
 	contentProps: TableContentProps;
 	columns: TableProps<TestData>['columns'];
 	data: TableProps<TestData>['data'];
 	tableOptions: TableProps<TestData>['tableOptions'];
+	onRowClick?: TableProps<TestData>['onRowClick'];
 }> = props => {
-	const { contentProps, tableOptions } = props;
+	const { contentProps, onRowClick, tableOptions } = props;
 
 	return (
-		<Table columns={defaultColumns} data={defaultData} tableOptions={merge(defaultTableOptions, tableOptions)}>
+		<Table
+			columns={defaultColumns}
+			data={defaultData}
+			onRowClick={onRowClick}
+			tableOptions={merge(defaultTableOptions, tableOptions)}
+		>
 			<TableContent data-testid={tableContentTestId} {...contentProps} />
 		</Table>
 	);
@@ -48,7 +57,8 @@ const getComponent = (
 	contentProps: Partial<TableContentProps> = {},
 	columns: TableProps<TestData>['columns'] = [],
 	data: TableProps<TestData>['data'] = [],
-	tableOptions: TableProps<TestData>['tableOptions'] = {}
+	tableOptions: TableProps<TestData>['tableOptions'] = {},
+	onRowClick?: TableProps<TestData>['onRowClick']
 ) => {
 	return render(
 		withTheme(
@@ -56,6 +66,7 @@ const getComponent = (
 				contentProps={contentProps}
 				columns={merge(defaultColumns, columns)}
 				data={merge(defaultData, data)}
+				onRowClick={onRowClick}
 				tableOptions={merge(defaultTableOptions, tableOptions)}
 			/>
 		)
@@ -74,6 +85,10 @@ const mockElementWidths = () => {
 };
 
 describe('TableContent', () => {
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
+
 	it('should render headers', () => {
 		getComponent();
 
@@ -88,7 +103,7 @@ describe('TableContent', () => {
 		expect(screen.getByText(defaultData[1].name as string)).toBeInTheDocument();
 	});
 
-	it('should render gradients to ilustrate scroll to the right', () => {
+	it('should render gradients to illustrate scroll to the right', () => {
 		mockElementWidths();
 
 		getComponent();
@@ -97,7 +112,7 @@ describe('TableContent', () => {
 		expect(screen.getByTestId('gradient-right')).toBeInTheDocument();
 	});
 
-	it('should render gradients to ilustrate scroll', () => {
+	it('should render gradients to illustrate scroll', () => {
 		mockElementWidths();
 
 		getComponent();
@@ -108,5 +123,25 @@ describe('TableContent', () => {
 
 		expect(screen.getByTestId('gradient-left')).toBeInTheDocument();
 		expect(screen.getByTestId('gradient-right')).toBeInTheDocument();
+	});
+
+	it('should call on row click handler', () => {
+		getComponent({}, [], [], {}, mockOnRowClick);
+
+		const row = screen.getAllByRole('row')[1];
+		userEvent.click(row);
+
+		expect(row).toHaveStyle('cursor: pointer;');
+		expect(mockOnRowClick).toHaveBeenCalled();
+	});
+
+	it('should not call on row click if not provided', () => {
+		getComponent();
+
+		const row = screen.getAllByRole('row')[1];
+		userEvent.click(row);
+
+		expect(row).toHaveStyle('cursor: unset;');
+		expect(mockOnRowClick).not.toHaveBeenCalled();
 	});
 });

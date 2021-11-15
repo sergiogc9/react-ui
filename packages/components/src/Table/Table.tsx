@@ -19,7 +19,7 @@ import StyledTableWrapper from './styled';
 import { TableColumn, TableOptions, TableProps } from './types';
 import TableContext from './Context';
 
-const getColumnWidth = <Data extends Record<string, unknown>>(
+const getColumnWidth = <Data extends object>(
 	rows: Data[],
 	accessor: TableColumn<Data>['accessor'],
 	headerText: string,
@@ -48,7 +48,7 @@ const getColumnWidth = <Data extends Record<string, unknown>>(
 	return Math.min(maxWidth, Math.max(cellLength * magicSpacing, minWidth));
 };
 
-const generateFinalColumnsData = <Data extends Record<string, unknown>>(
+const generateFinalColumnsData = <Data extends object>(
 	columns: TableColumn<Data>[],
 	data: Data[]
 ): TableColumn<Data>[] => {
@@ -71,21 +71,23 @@ const generateFinalColumnsData = <Data extends Record<string, unknown>>(
 	}));
 };
 
-const generateFinalInitialState = <Data extends Record<string, unknown>>(
+const generateFinalInitialState = <Data extends object>(
 	tableOptions: TableProps<Data>['tableOptions'],
 	filters: TableProps<Data>['filters'],
 	globalFilter: TableProps<Data>['globalFilter'],
+	hiddenColumns: TableProps<Data>['hiddenColumns'],
 	pageIndex: TableProps<Data>['pageIndex'],
 	pageSize: TableProps<Data>['pageSize']
 ): Partial<TableState<Data>> => ({
 	...tableOptions?.initialState,
 	filters: tableOptions?.initialState?.filters ?? filters ?? [],
 	globalFilter: tableOptions?.initialState?.globalFilter ?? globalFilter,
+	hiddenColumns: tableOptions?.initialState?.hiddenColumns ?? hiddenColumns ?? [],
 	pageIndex: tableOptions?.initialState?.pageIndex ?? pageIndex ?? 0,
 	pageSize: tableOptions?.initialState?.pageSize ?? pageSize ?? 10
 });
 
-const generateFinalSortTypes = <Data extends Record<string, unknown>>(
+const generateFinalSortTypes = <Data extends object>(
 	sortTypes: TableOptions<Data>['sortTypes'] = {}
 ): TableOptions<Data>['sortTypes'] => ({
 	boolean: (rowA, rowB, columnId) => {
@@ -96,13 +98,18 @@ const generateFinalSortTypes = <Data extends Record<string, unknown>>(
 	...sortTypes
 });
 
-const Table = <Data extends Record<string, unknown>>(props: TableProps<Data>) => {
+/**
+ * How-to use docs: https://dev.azure.com/EurofirmsSolution/CJP/_wiki/wikis/CJP.wiki/263/Table
+ */
+const Table = <Data extends object>(props: TableProps<Data>) => {
 	const {
 		children,
 		columns,
 		data,
 		filters,
 		globalFilter,
+		hiddenColumns,
+		onRowClick,
 		onSettingsChange,
 		onSortChange,
 		pageCount,
@@ -116,8 +123,8 @@ const Table = <Data extends Record<string, unknown>>(props: TableProps<Data>) =>
 	const finalColumns = React.useMemo(() => generateFinalColumnsData(columns, data), [columns, data]);
 
 	const finalInitialState = React.useMemo(
-		() => generateFinalInitialState(tableOptions, filters, globalFilter, pageIndex, pageSize),
-		[filters, globalFilter, pageIndex, pageSize, tableOptions]
+		() => generateFinalInitialState(tableOptions, filters, globalFilter, hiddenColumns, pageIndex, pageSize),
+		[filters, globalFilter, hiddenColumns, pageIndex, pageSize, tableOptions]
 	);
 
 	const finalSortTypes = React.useMemo(() => generateFinalSortTypes(tableOptions.sortTypes), [tableOptions.sortTypes]);
@@ -139,30 +146,34 @@ const Table = <Data extends Record<string, unknown>>(props: TableProps<Data>) =>
 		useFlexLayout
 	);
 
-	const { gotoPage, setAllFilters, setGlobalFilter, setPageSize, state } = tableInstance;
+	const { gotoPage, setAllFilters, setGlobalFilter, setHiddenColumns, setPageSize, state } = tableInstance;
 
 	useUpdateEffect(() => {
 		if (onSortChange) {
 			if (state.sortBy.length) onSortChange(state.sortBy[0].id, state.sortBy[0].desc);
 			else onSortChange();
 		}
-	}, [state.sortBy]); // eslint-disable-line react-hooks/exhaustive-deps
+	}, [state.sortBy]);
 
 	useUpdateEffect(() => {
 		setAllFilters(filters || []);
-	}, [filters]); // eslint-disable-line react-hooks/exhaustive-deps
+	}, [filters]);
 
 	useUpdateEffect(() => {
 		setGlobalFilter(globalFilter);
-	}, [globalFilter]); // eslint-disable-line react-hooks/exhaustive-deps
+	}, [globalFilter]);
+
+	useUpdateEffect(() => {
+		setHiddenColumns(hiddenColumns || []);
+	}, [hiddenColumns]);
 
 	useUpdateEffect(() => {
 		setPageSize(pageSize || 10);
-	}, [pageSize]); // eslint-disable-line react-hooks/exhaustive-deps
+	}, [pageSize]);
 
 	useUpdateEffect(() => {
 		gotoPage(pageIndex || 0);
-	}, [pageIndex]); // eslint-disable-line react-hooks/exhaustive-deps
+	}, [pageIndex]);
 
 	const onSettingsChanged = React.useCallback(
 		(settings: { pageIndex: number; pageSize: number; sortBy: SortingRule<Data>[] }) => {
@@ -187,7 +198,7 @@ const Table = <Data extends Record<string, unknown>>(props: TableProps<Data>) =>
 	}, [onSettingsChange, state.pageIndex, state.pageSize, state.sortBy]);
 
 	return (
-		<TableContext.Provider value={{ rowsCount, tableInstance }}>
+		<TableContext.Provider value={{ onRowClick, rowsCount, tableInstance }}>
 			<StyledTableWrapper {...rest}>{children}</StyledTableWrapper>
 		</TableContext.Provider>
 	);

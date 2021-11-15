@@ -472,4 +472,38 @@ describe('Table', () => {
 			flex: 20 0 auto;
 		`);
 	});
+
+	it('should hide columns provided by prop', () => {
+		renderComponent({ hiddenColumns: ['name'] });
+
+		expect(screen.queryByText(defaultData[0].name)).toBeNull();
+	});
+
+	it('should hide columns provided by initialState prop', () => {
+		renderComponent({
+			tableOptions: { initialState: { hiddenColumns: ['name'] } }
+		});
+
+		expect(screen.queryByText(defaultData[0].name)).toBeNull();
+	});
+
+	it('should hide columns after updating prop', () => {
+		const { rerender } = render(getComponent());
+
+		expect(screen.getByText(defaultData[0].name)).toBeInTheDocument();
+
+		rerender(getComponent({ hiddenColumns: ['name'] }));
+
+		expect(screen.queryByText(defaultData[0].name)).toBeNull();
+	});
+
+	it('should revert hide columns after updating prop', () => {
+		const { rerender } = render(getComponent({ hiddenColumns: ['name'] }));
+
+		expect(screen.queryByText(defaultData[0].name)).toBeNull();
+
+		rerender(getComponent());
+
+		expect(screen.getByText(defaultData[0].name)).toBeInTheDocument();
+	});
 });
