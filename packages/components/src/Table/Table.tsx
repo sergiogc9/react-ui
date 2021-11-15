@@ -19,7 +19,7 @@ import StyledTableWrapper from './styled';
 import { TableColumn, TableOptions, TableProps } from './types';
 import TableContext from './Context';
 
-const getColumnWidth = <Data extends object>(
+const getColumnWidth = <Data extends Record<string, unknown>>(
 	rows: Data[],
 	accessor: TableColumn<Data>['accessor'],
 	headerText: string,
@@ -48,7 +48,7 @@ const getColumnWidth = <Data extends object>(
 	return Math.min(maxWidth, Math.max(cellLength * magicSpacing, minWidth));
 };
 
-const generateFinalColumnsData = <Data extends object>(
+const generateFinalColumnsData = <Data extends Record<string, unknown>>(
 	columns: TableColumn<Data>[],
 	data: Data[]
 ): TableColumn<Data>[] => {
@@ -71,7 +71,7 @@ const generateFinalColumnsData = <Data extends object>(
 	}));
 };
 
-const generateFinalInitialState = <Data extends object>(
+const generateFinalInitialState = <Data extends Record<string, unknown>>(
 	tableOptions: TableProps<Data>['tableOptions'],
 	filters: TableProps<Data>['filters'],
 	globalFilter: TableProps<Data>['globalFilter'],
@@ -87,7 +87,7 @@ const generateFinalInitialState = <Data extends object>(
 	pageSize: tableOptions?.initialState?.pageSize ?? pageSize ?? 10
 });
 
-const generateFinalSortTypes = <Data extends object>(
+const generateFinalSortTypes = <Data extends Record<string, unknown>>(
 	sortTypes: TableOptions<Data>['sortTypes'] = {}
 ): TableOptions<Data>['sortTypes'] => ({
 	boolean: (rowA, rowB, columnId) => {
@@ -101,7 +101,7 @@ const generateFinalSortTypes = <Data extends object>(
 /**
  * How-to use docs: https://dev.azure.com/EurofirmsSolution/CJP/_wiki/wikis/CJP.wiki/263/Table
  */
-const Table = <Data extends object>(props: TableProps<Data>) => {
+const Table = <Data extends Record<string, unknown>>(props: TableProps<Data>) => {
 	const {
 		children,
 		columns,

@@ -21,7 +21,7 @@ import {
 
 import { BoxProps } from 'components/Box';
 
-type Props<D extends object> = {
+type Props<D extends Record<string, unknown>> = {
 	/**
 	 * The table column definitions
 	 */
@@ -94,17 +94,17 @@ type Props<D extends object> = {
 	readonly tableOptions?: Omit<TableOptions<D>, 'data' | 'columns'>;
 };
 
-export type TableProps<D extends object> = Props<D> & BoxProps;
+export type TableProps<D extends Record<string, unknown>> = Props<D> & BoxProps;
 export type StyledTableWrapperProps = BoxProps;
 
-export type TableColumn<D extends object = {}> = Column<D> &
+export type TableColumn<D extends Record<string, unknown>> = Column<D> &
 	UseFiltersColumnOptions<D> &
 	UseGlobalFiltersColumnOptions<D> &
 	UseSortByColumnOptions<D> & {
 		getCellWidthText?: (row: D) => string;
 	};
 
-export type TableOptions<D extends object> = Omit<ReactTableOptions<D>, 'initialState'> &
+export type TableOptions<D extends Record<string, unknown>> = Omit<ReactTableOptions<D>, 'initialState'> &
 	UseFiltersOptions<D> &
 	UseGlobalFiltersOptions<D> &
 	UsePaginationOptions<D> &
@@ -112,8 +112,8 @@ export type TableOptions<D extends object> = Omit<ReactTableOptions<D>, 'initial
 		initialState?: TableState<D>;
 	};
 
-export type TableState<D extends object> = Partial<
+export type TableState<D extends Record<string, unknown>> = Partial<
 	ReactTableState<D> & UseFiltersState<D> & UseGlobalFiltersState<D> & UsePaginationState<D> & UseSortByState<D>
 >;
 
-export type TableCellProps<D extends object> = CellProps<D>;
+export type TableCellProps<D extends Record<string, unknown>> = CellProps<D>;
