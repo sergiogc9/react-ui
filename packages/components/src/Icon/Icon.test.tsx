@@ -1,6 +1,6 @@
 import React from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
-import theme from '@cornerjob/kui-theme';
+import theme from '@sergiogc9/react-ui-theme';
 
 import { withTheme } from 'components/private/utils/tests';
 import Icon from 'components/Icon';
