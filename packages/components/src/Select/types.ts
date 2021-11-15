@@ -22,6 +22,11 @@ type Props = {
 	readonly defaultValue?: string | string[];
 
 	/**
+	 * Custom content to be shown in popover when no results are available.
+	 */
+	readonly emptyResultsContent?: React.ReactNode;
+
+	/**
 	 * Boolean to enable autocomplete feature. If true, the user will be able to type inside the input to filter the options.
 	 */
 	readonly isAutocomplete?: boolean;

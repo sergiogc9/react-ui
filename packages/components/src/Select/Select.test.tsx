@@ -593,6 +593,23 @@ describe('Select', () => {
 		expect(screen.queryByText('No results')).toBeNull();
 	});
 
+	it('should show default no results content if not options', () => {
+		render(withTheme(<Select data-testid={selectTestId} />));
+
+		userEvent.click(screen.getByTestId(selectTestId));
+
+		expect(screen.getByText('No results')).toBeInTheDocument();
+	});
+
+	it('should show custom no results content if not options', () => {
+		render(withTheme(<Select data-testid={selectTestId} emptyResultsContent={<div>Custom content!</div>} />));
+
+		userEvent.click(screen.getByTestId(selectTestId));
+
+		expect(screen.queryByText('No results')).toBeNull();
+		expect(screen.getByText('Custom content!')).toBeInTheDocument();
+	});
+
 	it('should call on blur method after timeout', async () => {
 		jest.useFakeTimers();
 		const mockOnBlur = jest.fn();

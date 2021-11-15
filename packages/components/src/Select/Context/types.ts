@@ -9,6 +9,7 @@ type KeySource = 'listBox' | 'option' | 'textField';
 export type SelectContextData = {
 	readonly areExternalOptionsValid: NonNullable<SelectProps['areExternalOptionsValid']>;
 	readonly aspectSize: NonNullable<SelectProps['aspectSize']>;
+	readonly emptyResultsContent: SelectProps['emptyResultsContent'];
 	readonly inputValue: string;
 	readonly isAutocomplete: NonNullable<SelectProps['isAutocomplete']>;
 	readonly isDisabled: NonNullable<SelectProps['isDisabled']>;

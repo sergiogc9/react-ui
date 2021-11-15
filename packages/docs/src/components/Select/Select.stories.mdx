@@ -2,6 +2,7 @@ import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 
 import SelectDecorator from 'storybook/decorators/Select';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
+import Box from 'components/Box';
 import Content from 'components/Content';
 import Icon from 'components/Icon';
 import Select from 'components/Select';
@@ -314,6 +315,50 @@ Using non plain text may cause selected option and filtered option matching inpu
 				<Select.Option id="option-3">Option 3</Select.Option>
 				<Select.Option id="option-4">Option 4</Select.Option>
 			</Select>
+		)}
+	</Story>
+</Canvas>
+
+## Customize empty results content
+
+When no options are provided (or there are no results that matches the text in autocomplete) a "No results" content is shown by default.
+
+This can be customized using the `emptyResultsContent` prop.
+
+Example with default content:
+
+<Canvas style={{ width: '100%' }}>
+	<Story
+		name="with default no results content"
+		args={{
+			placeholder: 'Select option'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => <Select {...args} minHeight={215}></Select>}
+	</Story>
+</Canvas>
+
+Example with custom content:
+
+<Canvas style={{ width: '100%' }}>
+	<Story
+		name="with custom no results content"
+		args={{
+			placeholder: 'Select option'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<Select
+				{...args}
+				emptyResultsContent={
+					<Box p={4}>
+						<Content color="blue.500">That's weird... no results have been found!</Content>
+					</Box>
+				}
+				minHeight={215}
+			></Select>
 		)}
 	</Story>
 </Canvas>

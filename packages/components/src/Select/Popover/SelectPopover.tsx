@@ -21,6 +21,7 @@ const SelectPopover: React.FC<SelectPopoverProps> = React.forwardRef(({ children
 		isAutocomplete,
 		isExternalFiltered,
 		areExternalOptionsValid,
+		emptyResultsContent,
 		isDisabled,
 		inputValue,
 		isMultiSelect,
@@ -65,12 +66,13 @@ const SelectPopover: React.FC<SelectPopoverProps> = React.forwardRef(({ children
 
 	return (
 		<StyledSelectPopover onKeyDown={onListBoxKeyPressed} {...rest}>
-			{filteredChildren.length === 0 && (
-				<StyledSelectPopoverEmptyBox>
-					<Icon icon="alert-error" marginRight={2} styling="outlined" />
-					{getComponentLocale(theme, 'select', 'no_results')}
-				</StyledSelectPopoverEmptyBox>
-			)}
+			{filteredChildren.length === 0 &&
+				(emptyResultsContent ?? (
+					<StyledSelectPopoverEmptyBox>
+						<Icon icon="alert-error" marginRight={2} styling="outlined" />
+						{getComponentLocale(theme, 'select', 'no_results')}
+					</StyledSelectPopoverEmptyBox>
+				))}
 			<StyledPopoverListBox ref={ref} role="listbox">
 				{filteredChildren}
 			</StyledPopoverListBox>

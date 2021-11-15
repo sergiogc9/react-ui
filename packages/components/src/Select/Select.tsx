@@ -18,6 +18,7 @@ const Select: React.FC<SelectProps> = ({
 	aspectSize = 'm',
 	children,
 	defaultValue,
+	emptyResultsContent,
 	hasRemoveButton,
 	helperText,
 	inputProps,
@@ -124,6 +125,7 @@ const Select: React.FC<SelectProps> = ({
 		() => ({
 			areExternalOptionsValid,
 			aspectSize,
+			emptyResultsContent,
 			inputValue,
 			isAutocomplete,
 			isExternalFiltered,
@@ -142,6 +144,7 @@ const Select: React.FC<SelectProps> = ({
 		[
 			areExternalOptionsValid,
 			aspectSize,
+			emptyResultsContent,
 			inputValue,
 			isAutocomplete,
 			isExternalFiltered,

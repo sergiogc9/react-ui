@@ -45,11 +45,18 @@ const SelectField: React.FC<SelectFieldProps> = React.forwardRef<HTMLInputElemen
 			} else textFieldRef.current?.click();
 		}, [isAutocomplete, isOpen, onShowPopover]);
 
+		const cursor = React.useMemo(() => {
+			if (isDisabled) return 'default';
+			if (isAutocomplete) return 'text';
+
+			return 'pointer';
+		}, [isAutocomplete, isDisabled]);
+
 		const rightContent = React.useMemo(() => {
 			return (
 				<>
 					<SelectFieldCounter
-						cursor={isAutocomplete ? 'text' : 'pointer'}
+						cursor={cursor}
 						data-testid="select-multiple-counter"
 						isVisible={isMultiSelect && Object.keys(selectedOptions).length > 1}
 						marginRight={1}
@@ -57,7 +64,7 @@ const SelectField: React.FC<SelectFieldProps> = React.forwardRef<HTMLInputElemen
 					/>
 					{!isExternalFiltered && (
 						<Icon
-							cursor="pointer"
+							cursor={cursor}
 							data-testid={isOpen ? 'select-field-arrow-up-icon' : 'select-field-arrow-down-icon'}
 							fill="neutral.400"
 							icon={isOpen ? 'arrow-up' : 'arrow-down'}
@@ -68,16 +75,16 @@ const SelectField: React.FC<SelectFieldProps> = React.forwardRef<HTMLInputElemen
 					)}
 				</>
 			);
-		}, [isAutocomplete, isExternalFiltered, isMultiSelect, isOpen, onArrowClicked, selectedOptions]);
+		}, [cursor, isExternalFiltered, isMultiSelect, isOpen, onArrowClicked, selectedOptions]);
 
 		const finalInputProps = React.useMemo<SelectFieldProps['inputProps']>(
 			() => ({
 				...inputProps,
 				autoComplete: 'off',
-				cursor: isAutocomplete ? 'text' : 'pointer',
+				cursor,
 				readOnly: !isAutocomplete
 			}),
-			[inputProps, isAutocomplete]
+			[cursor, inputProps, isAutocomplete]
 		);
 
 		return (
