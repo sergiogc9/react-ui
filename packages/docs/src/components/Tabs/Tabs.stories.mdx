@@ -1,5 +1,9 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
+import Content from 'components/Content';
+import Counter from 'components/Counter';
+import Icon from 'components/Icon';
+import Status from 'components/Status';
 import Tabs from 'components/Tabs';
 import TabsHeader from 'components/Tabs/Header';
 import TabsMenu from 'components/Tabs/Menu';
@@ -113,6 +117,61 @@ Also, you can disable id adding the `isDisabled` prop.
 			</Tabs.Header>
 			<Tabs.Content id="tab_1" px={3} height={200}>
 				This is the content of Tab 1
+			</Tabs.Content>
+		</Tabs>
+	</Story>
+</Canvas>
+
+## Tabs with counter
+
+You can use Counter to show errors in a tab, inside a form, for example.
+
+<Canvas>
+	<Story name="with counter" title="with counter" parameters={getFixedStoryParams()}>
+		<Tabs defaultTab="description" width={500}>
+			<Tabs.Header>
+				<Tabs.Menu>
+					<Tabs.Tab id="description">Description</Tabs.Tab>
+					<Tabs.Tab id="settings" isError>
+						Settings
+						<Counter aspectSize="s" ml={2} numberOfItems={5} variant="red" />
+					</Tabs.Tab>
+				</Tabs.Menu>
+			</Tabs.Header>
+			<Tabs.Content id="description" px={3} height={200}>
+				This is the content of description tab.
+			</Tabs.Content>
+			<Tabs.Content id="settings" px={3} height={200}>
+				This is the content of settings tab with errors inside.
+			</Tabs.Content>
+		</Tabs>
+	</Story>
+</Canvas>
+
+## Tabs with icon
+
+You can use Icon and Status to show errors in a tab, inside a form, for example. Useful in mobile views.
+
+<Canvas>
+	<Story name="with icon" title="with icon" parameters={getFixedStoryParams()}>
+		<Content aspectSize="s">Tip*: See this story in mobile view.</Content>
+		<Tabs defaultTab="description" mt={5} width={{ xs: '90vw', md: 500 }}>
+			<Tabs.Header>
+				<Tabs.Menu>
+					<Tabs.Tab id="description">
+						<Icon icon="info" styling="outlined" />
+					</Tabs.Tab>
+					<Tabs.Tab id="settings" isError>
+						<Icon fill="red.500" icon="info" styling="outlined" />
+						<Status ml={1} variant="red" />
+					</Tabs.Tab>
+				</Tabs.Menu>
+			</Tabs.Header>
+			<Tabs.Content id="description" px={3} height={200}>
+				This is the content of description tab.
+			</Tabs.Content>
+			<Tabs.Content id="settings" px={3} height={200}>
+				This is the content of settings tab with errors inside.
 			</Tabs.Content>
 		</Tabs>
 	</Story>
