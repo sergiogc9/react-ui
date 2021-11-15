@@ -128,6 +128,7 @@ const TextField: React.FC<TextFieldBaseProps> = React.forwardRef<HTMLInputElemen
 				</StyledTextFieldBase>
 				<Animation.BaseAnimation
 					alignItems="flex-start"
+					animateAtMount={false}
 					animation={bottomInputContentAnimation}
 					duration="0.3s"
 					isVisible={!!(helperText || maxLength)}

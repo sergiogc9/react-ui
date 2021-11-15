@@ -102,6 +102,7 @@ const TextArea: React.FC<TextAreaProps> = React.forwardRef(
 				/>
 				<Animation.BaseAnimation
 					alignItems="flex-start"
+					animateAtMount={false}
 					animation={bottomInputContentAnimation}
 					duration="0.3s"
 					isVisible={!!(helperText || maxLength)}
