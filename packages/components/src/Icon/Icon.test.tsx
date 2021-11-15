@@ -1,6 +1,6 @@
 import React from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
-import theme from '@sergiogc9/react-ui-theme';
+import theme from '@cornerjob/kui-theme';
 
 import { withTheme } from 'components/private/utils/tests';
 import Icon from 'components/Icon';
@@ -42,7 +42,7 @@ describe('Icon component', () => {
 	it('should render correct size', () => {
 		renderIcon({ aspectSize: 'l' });
 		const icon = screen.getByTestId(iconTestId);
-		expect(icon).toHaveStyle('width: 36px');
+		expect(icon).toHaveStyle('width: 32px');
 	});
 
 	it('should render custom viewBox', () => {
