@@ -9,8 +9,10 @@ StyledSwitchBoxWrapper.defaultProps = {
 	borderRadius: { xs: '0px', md: 1 },
 	flexDirection: 'row',
 	justifyContent: 'flex-start',
+	minWidth: { xs: '100vw', md: 'unset' },
+	ml: { xs: -3, md: 0 },
 	padding: 3,
-	width: '100%'
+	width: { xs: '100vw', md: '100%' }
 };
 
 export default StyledSwitchBoxWrapper;

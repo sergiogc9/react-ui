@@ -24,7 +24,7 @@ const UserFeedback: React.FC<UserFeedbackProps> = ({
 				</Content>
 			)}
 			{buttonText && (
-				<Button marginTop={5} onClick={onButtonClick}>
+				<Button marginTop={5} onClick={onButtonClick} width={{ xs: '100%', md: 'auto' }}>
 					{buttonText}
 				</Button>
 			)}
