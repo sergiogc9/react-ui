@@ -66,9 +66,9 @@ const radii: Theme['radii'] = ['4px', '8px', '16px', '24px'];
 const shadows: Theme['shadows'] = [
 	'0px 0px 0px 1px rgba(11, 21, 25, 0.16)',
 	'0px 0px 6px rgba(11, 21, 25, 0.16)',
-	'0px 0px 32px rgba(11, 21, 25, 0.16)',
-	'0px -2px 4px 1px rgba(11, 21, 25, 0.16)',
-	'0px 2px 4px 1px rgba(11, 21, 25, 0.16)'
+	'0px 0px 16px 2px rgba(11, 21, 25, 0.06)',
+	'0px -4px 16px 2px rgba(11, 21, 25, 0.06)',
+	'0px 4px 16px 2px rgba(11, 21, 25, 0.06)'
 ];
 shadows.center1 = shadows[0];
 shadows.center2 = shadows[1];
