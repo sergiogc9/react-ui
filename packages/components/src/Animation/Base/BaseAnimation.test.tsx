@@ -134,4 +134,93 @@ describe('BaseAnimation Animation component', () => {
 
 		expect(screen.queryByTestId(BaseAnimationTestId)).toBeNull();
 	});
+
+	it('should hide component with animation exit config', () => {
+		const AnimatedTitle = withBaseAnimation(Title, Animation.FadeInAnimation);
+		const { rerender } = render(withTheme(<AnimatedTitle data-testid={BaseAnimationTestId}>{text}</AnimatedTitle>));
+
+		fireEvent.animationEnd(screen.getByTestId(BaseAnimationTestId));
+
+		expect(screen.getByTestId(BaseAnimationTestId)).toBeInTheDocument();
+
+		rerender(
+			withTheme(
+				<AnimatedTitle
+					animationExit={Animation.FadeOutAnimation}
+					data-testid={BaseAnimationTestId}
+					delayExit="1s"
+					directionExit="initial"
+					durationExit="2s"
+					iterationCountExit={2}
+					fillModeExit="backwards"
+					isVisible={false}
+					timingFunctionExit="linear"
+				>
+					{text}
+				</AnimatedTitle>
+			)
+		);
+
+		expect(screen.getByTestId(BaseAnimationTestId)).toHaveStyle(`
+      animation-name: ${Animation.FadeOutAnimation.getName()};
+      animation-delay: 1s;
+      animation-direction: initial;
+      animation-duration: 2s;
+      animation-iteration-count: 2;
+      animation-fill-mode: backwards;
+      animation-timing-function: linear;
+    `);
+
+		fireEvent.animationEnd(screen.getByTestId(BaseAnimationTestId));
+
+		expect(screen.queryByTestId(BaseAnimationTestId)).toBeNull();
+	});
+
+	it('should not perform animation at mount', () => {
+		const AnimatedTitle = withBaseAnimation(Title, Animation.FadeInAnimation);
+		render(
+			withTheme(
+				<AnimatedTitle data-testid={BaseAnimationTestId} animateAtMount={false}>
+					{text}
+				</AnimatedTitle>
+			)
+		);
+
+		expect(screen.getByTestId(BaseAnimationTestId)).not.toHaveStyle(`
+      animation-name: ${Animation.FadeInAnimation.getName()};
+    `);
+	});
+
+	it('should hide and mount component again', () => {
+		const AnimatedTitle = withBaseAnimation(Title, Animation.FadeInAnimation);
+		const { rerender } = render(withTheme(<AnimatedTitle data-testid={BaseAnimationTestId}>{text}</AnimatedTitle>));
+
+		fireEvent.animationEnd(screen.getByTestId(BaseAnimationTestId));
+
+		expect(screen.getByTestId(BaseAnimationTestId)).toBeInTheDocument();
+
+		rerender(
+			withTheme(
+				<AnimatedTitle data-testid={BaseAnimationTestId} isVisible={false}>
+					{text}
+				</AnimatedTitle>
+			)
+		);
+
+		fireEvent.animationEnd(screen.getByTestId(BaseAnimationTestId));
+
+		expect(screen.queryByTestId(BaseAnimationTestId)).toBeNull();
+
+		rerender(
+			withTheme(
+				<AnimatedTitle data-testid={BaseAnimationTestId} isVisible>
+					{text}
+				</AnimatedTitle>
+			)
+		);
+
+		fireEvent.animationEnd(screen.getByTestId(BaseAnimationTestId));
+
+		expect(screen.getByTestId(BaseAnimationTestId)).toBeInTheDocument();
+	});
 });

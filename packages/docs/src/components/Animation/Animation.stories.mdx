@@ -1,16 +1,21 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
-import AnimationDecorator from 'storybook/decorators/Animation';
+import AnimationDecorator, { AnimationListDecorator } from 'storybook/decorators/Animation';
 import Animation from 'components/Animation';
 import { AnimatedButton, ButtonAnimate, CustomAnimatedButton, CustomAnimation } from './Animation';
 
-<Meta title="Components/Animation" component={Animation.Animate} decorators={[AnimationDecorator]} />
+<Meta title="Components/Animation" component={Animation.Animate} />
 
-<Story name="playground" args={{}} parameters={getPlaygroundStoryParams()}>
+<Story
+	name="playground"
+	args={{ animateAtMount: true, isVisible: true }}
+	decorators={[AnimationDecorator]}
+	parameters={getPlaygroundStoryParams()}
+>
 	{args => <Animation.FadeIn {...args}>Awesome title</Animation.FadeIn>}
 </Story>
 
-<Story name="playground multiple" args={{}} parameters={getPlaygroundStoryParams()}>
+<Story name="playground multiple" args={{}} decorators={[AnimationDecorator]} parameters={getPlaygroundStoryParams()}>
 	{args => (
 		<Animation.Animate
 			{...args}
@@ -31,8 +36,38 @@ Animation is set of components and utils to help using animations in our styled-
 - You can join different animations to be used one after each other, using the `Animate` component.
 - You can start and stop animations using the `isEnabled` prop.
 - You can show or hide the component using the `isVisible` prop. This is useful when you want to use the reverse animation before unmounting the component.
+- Use different animation config for show and hide animations. Each animation prop has its own exit prop (e.g. `animationExit` or `durationExit`).
+- You can avoid performing the animation at mount using the `animateAtMount` prop.
 
 ℹ️ This components goal is to provide a easy way to use `animations` with `keyframes`. Sometimes it's easier to simply use `transitions` to achieve the same result.
+
+## Start and stop the animation
+
+Both BaseAnimation and Animate component comes with a `isEnabled` prop that tells the component to perform or not the animation. The expected behavior is:
+
+- If false, no animation is performed.
+- If true, the animation is started at mount.
+- When changing to a falsy value, the animation is stopped and reset to the beggining.
+- When changing to a truthy value, the animation is started again from the beggining.
+
+ℹ️ This component stories have a "Restart animation" button that simply sets a false value and then it sets a true value after some milliseconds.
+
+## Mounting and unmounting the component
+
+Sometimes you want to performe a reverse animation when you want to remove the component (e.g. perform a FadeOut component if is shown with a FadeIn).
+
+Using the `isVisible` prop you can tell to both BaseAnimation and Animate components when the component should be rendered or not.
+
+To specify the remove animation, use the animation config props with the `Exit` suffix. If not using these props, the component will perform the animation or animations in the reverse direction. Once the exit animation finishes, the component is unmount.
+
+The `isVisible` prop behavior is the following:
+
+- If false, no component is rendered.
+- If true, the component is rendered and the animation is started if `isEnabled` is not false.
+- When changing to a falsy value, the component performs the exit animation(s) or the animation(s) in the reverse direction. Once they finish, the component is unmounted from the DOM.
+- When changing to a truthy value, the component is rendered and the animation is started if `isEnabled` is not false.
+
+ℹ️ You can test this behavior using the playground stories.
 
 ## BaseAnimation
 
@@ -71,6 +106,7 @@ You can try all available pre-defined animations selecting the story in the left
 
 <Story
 	name="fade-out"
+	decorators={[AnimationDecorator]}
 	parameters={{
 		...getFixedStoryParams(),
 		docs: { disable: true }
@@ -81,6 +117,7 @@ You can try all available pre-defined animations selecting the story in the left
 
 <Story
 	name="slide-down"
+	decorators={[AnimationDecorator]}
 	parameters={{
 		...getFixedStoryParams(),
 		docs: { disable: true }
@@ -91,6 +128,7 @@ You can try all available pre-defined animations selecting the story in the left
 
 <Story
 	name="slide-up"
+	decorators={[AnimationDecorator]}
 	parameters={{
 		...getFixedStoryParams(),
 		docs: { disable: true }
@@ -109,13 +147,14 @@ An example with the Button component and the FadeIn animation:
 
 <Canvas>
 	<Story
-		name="with custom cumponent"
+		name="with custom component"
+		decorators={[AnimationDecorator]}
 		parameters={{
 			...getFixedStoryParams(),
 			docs: {
 				source: {
 					code: `
-import { Animation, Button } from '@sergiogc9/react-ui';
+import { Animation, Button } from '@cornerjob/kui';
 const AnimatedButton = Animation.withBaseAnimation(
   Button,
   Animation.FadeInAnimation
@@ -142,13 +181,14 @@ An example with a custom animation and the Button Component:
 <Canvas>
 	<Story
 		name="with custom animation"
+		decorators={[AnimationDecorator]}
 		parameters={{
 			...getFixedStoryParams(),
 			docs: {
 				source: {
 					code: `
 import { keyframes } from 'styled-components';
-import { Animation, Button } from '@sergiogc9/react-ui';
+import { Animation, Button } from '@cornerjob/kui';
 const CustomAnimation = keyframes\`
   from {
     transform: scale(.5) translateX(0);
@@ -186,13 +226,14 @@ For example, following the examples above, we can use the FadeIn and FadeOut pre
 <Canvas>
 	<Story
 		name="with multiple animations"
+		decorators={[AnimationDecorator]}
 		parameters={{
 			...getFixedStoryParams(),
 			docs: {
 				source: {
 					code: `
 import { keyframes } from 'styled-components';
-import { Animation, Button } from '@sergiogc9/react-ui';
+import { Animation, Button } from '@cornerjob/kui';
 const CustomAnimation = keyframes\`
   from {
     transform: scale(.5) translateX(0);
@@ -242,13 +283,14 @@ An example using the Button component:
 <Canvas>
 	<Story
 		name="existing component with multiple animations"
+		decorators={[AnimationDecorator]}
 		parameters={{
 			...getFixedStoryParams(),
 			docs: {
 				source: {
 					code: `
 import { keyframes } from 'styled-components';
-import { Animation, Button } from '@sergiogc9/react-ui';
+import { Animation, Button } from '@cornerjob/kui';
 const CustomAnimation = keyframes\`
   from {
     transform: scale(.5) translateX(0);
@@ -290,29 +332,59 @@ const ButtonAnimate = Animation.withAnimate(Button);
 	</Story>
 </Canvas>
 
-## Start and stop the animation
+## Animation List
 
-Both BaseAnimation and Animate component comes with a `isEnabled` prop that tells the component to perform or not the animation. The expected behavior is:
+Sometimes you want to animate elements inside a dynamic list (e.g. a table, accordeons, etc.). For these use cases, you can use the `Animation.List` component. The main features are:
 
-- If false, no animation is performed.
-- If true, the animation is started at mount.
-- When changing to a falsy value, the animation is stopped and reset to the beggining.
-- When changing to a truthy value, the animation is started again from the beggining.
+- Animates its direct childs managing the `isVibile` prop for each child.
+- Detects new elements in the list and animates them if needed.
+- Detects removed elements keeping them into the DOM until the animation ends.
+- Animate children provided at mount or not using the `animateAtMount` prop.
 
-ℹ️ This component stories have a "Restart animation" button that simply sets a false value and then it sets a true value after some milliseconds.
+In order to make this component to work fine, there are some rules to follow:
 
-## Mounting and unmounting the component
+- The children must be an array of `Animate` or `BaseAnimation` components. Custom components created with `withAnimate` or `withBaseAnimation` are also valid.
+- As React guidelines says, each children must have an unique `key` prop. If not, strange behaviors can occur because the component will use index based keys.
+- Don't specify the `isVisible` prop manually to children components. This is handled by the List component.
 
-Sometimes you want to performe a reverse animation when you want to remove the component (e.g. perform a FadeOut component if is shown with a FadeIn).
-
-Using the `isVisible` prop you can tell to both BaseAnimation and Animate components when the component should be rendered or not. If using this prop, the component will perform the animation or animations in the reverse direction and, when they all finish, unmount the component.
-
-- If false, no component is rendered.
-- If true, the component is rendered and the animation is started if `isEnabled` is not false.
-- When changing to a falsy value, the component performs the animation(s) in the reverse direction. Once they finish, the component is unmounted from the DOM.
-- When changing to a truthy value, the component is rendered and the animation is started if `isEnabled` is not false.
-
-ℹ️ You can test this behavior using the playground stories.
+<Canvas>
+	<Story
+		name="animation list"
+		decorators={[AnimationListDecorator]}
+		parameters={{
+			...getFixedStoryParams(),
+			docs: {
+				source: {
+					code: `
+import { keyframes } from 'styled-components';
+import { Animation, Button } from '@cornerjob/kui';
+const appearAnimation = keyframes\`
+  from {
+	  max-height:0;
+	  opacity: 0;
+  }
+  to {
+	  max-height: 50px;
+	  opacity: 1;
+  }
+\`;
+<Animation.List>
+  {items.map((item) => (
+        <Animation.BaseAnimation
+          animation={appearAnimation}
+          key={item.key}
+        >
+          <Content color="primary.500">{item.name}</Content>
+        </Animation.BaseAnimation>
+      ))}
+</Animation.List>`
+				}
+			}
+		}}
+	>
+		{args => <Animation.List {...args} />}
+	</Story>
+</Canvas>
 
 # BaseAnimation API
 
@@ -321,3 +393,7 @@ Using the `isVisible` prop you can tell to both BaseAnimation and Animate compon
 # Animate API
 
 <ArgsTable of={Animation.Animate} />
+
+# Animate.List API
+
+<ArgsTable of={Animation.List} />

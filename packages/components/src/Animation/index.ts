@@ -1,3 +1,5 @@
+import Button from 'components/Button';
+import Grid from 'components/Grid';
 import Animate, { withAnimate } from './Animate';
 import {
 	FadeIn,
@@ -10,13 +12,22 @@ import {
 	SlideUpAnimation
 } from './animations';
 import BaseAnimation, { BaseAnimationProps, withBaseAnimation } from './Base';
+import AnimationList, { AnimationListProps } from './List';
 
-export { BaseAnimationProps };
+export { AnimationListProps, BaseAnimationProps };
 export default {
+	// Animation components
 	Animate,
 	BaseAnimation,
+	List: AnimationList,
 	withAnimate,
 	withBaseAnimation,
+	// Library animated components
+	Button: withBaseAnimation(Button),
+	Grid: withBaseAnimation(Grid),
+	GridBox: withBaseAnimation(Grid.Box),
+	GridRow: withBaseAnimation(Grid.Row),
+	// Animations
 	FadeIn,
 	FadeInAnimation,
 	FadeOut,
