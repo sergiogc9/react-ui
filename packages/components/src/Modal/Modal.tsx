@@ -22,7 +22,8 @@ const Modal: React.FC<ModalProps> = ({
 }) => {
 	const [uncontrolledIsModalVisible, setIsModalVisible] = React.useState(true);
 
-	const wrapperRef = usePortal('modals');
+	const portalWrapperRef = usePortal('modals');
+	const modalWrapperRef = React.useRef();
 
 	const onModalClosed = React.useCallback(() => {
 		setIsModalVisible(false);
@@ -37,7 +38,7 @@ const Modal: React.FC<ModalProps> = ({
 		if (closeOnEsc) onModalClosed();
 	}, [closeOnEsc, onModalClosed]);
 
-	useClickOutside(wrapperRef, onClickOutside);
+	useClickOutside(modalWrapperRef, onClickOutside);
 	useKeyPressed('Escape', onEscKeyPressed);
 
 	const contextData = React.useMemo<ModalContextData>(
@@ -60,6 +61,7 @@ const Modal: React.FC<ModalProps> = ({
 					duration="0.3s"
 					isMobileFullScreen={isMobileFullScreen}
 					isVisible={isModalVisible}
+					ref={modalWrapperRef}
 					// eslint-disable-next-line jsx-a11y/aria-role
 					role="modal"
 					{...rest}
@@ -70,7 +72,7 @@ const Modal: React.FC<ModalProps> = ({
 		</ModalContext.Provider>
 	);
 
-	return withPortal ? ReactDOM.createPortal(content, wrapperRef.current) : content;
+	return withPortal ? ReactDOM.createPortal(content, portalWrapperRef.current) : content;
 };
 
 export default React.memo(Modal);

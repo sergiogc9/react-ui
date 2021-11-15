@@ -42,23 +42,18 @@ StyledModal.defaultProps = {
 	height: 'auto',
 	justifyContent: 'space-between',
 	overflow: 'auto',
+	pointerEvents: 'auto',
 	maxWidth: '100%'
 };
 
-const StyledModalWrapper: React.FC<ModalProps> = styled(Box)<ModalProps>`
-	${props =>
-		props.isVisible &&
-		css`
-			display: flex;
-		`}
-`;
+const StyledModalWrapper: React.FC<ModalProps> = styled(Box)<ModalProps>``;
 
 StyledModalWrapper.defaultProps = {
 	alignItems: 'center',
-	display: 'none',
 	height: '100%',
 	justifyContent: 'center',
 	left: '0',
+	pointerEvents: 'none',
 	position: 'fixed',
 	top: '0',
 	width: '100%',

@@ -11,7 +11,8 @@ ModalHeader.defaultProps = {
 	flexShrink: 0,
 	minHeight: '72px',
 	order: 0,
-	p: 4
+	p: 4,
+	pr: 8
 };
 
 export default ModalHeader;
