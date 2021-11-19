@@ -81,6 +81,8 @@ SwitchToggle.defaultProps = {
 };
 
 const StyledSwitch: React.FC<SwitchProps> = styled(Box)<SwitchProps>`
+	user-select: none;
+
 	@media (hover: hover) {
 		&:hover ${SwitchToggle}::after {
 			opacity: 0.08;
