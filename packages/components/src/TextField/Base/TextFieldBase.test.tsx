@@ -141,7 +141,7 @@ describe('TextFieldBase component', () => {
 		renderTextFieldBase({ value: '123456789123456789', maxLength: 20 });
 		const textFieldBase = screen.getByTestId(textFieldBaseCounterTestId);
 
-		expect(textFieldBase).toHaveStyle(`color: ${theme.colors.yellow['500']};`);
+		expect(textFieldBase).toHaveStyle(`color: ${theme.colors.yellow['700']};`);
 	});
 
 	it('should have error state in input counter', () => {

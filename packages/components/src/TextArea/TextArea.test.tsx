@@ -115,7 +115,7 @@ describe('TextArea component', () => {
 	it('should have warning state in textarea counter', () => {
 		renderTextArea({ value: '123456789123456789', maxLength: 20 });
 		const textArea = screen.getByTestId(textAreaCounterTestId);
-		expect(textArea).toHaveStyle(`color: ${theme.colors.yellow['500']};`);
+		expect(textArea).toHaveStyle(`color: ${theme.colors.yellow['700']};`);
 	});
 
 	it('should have error state in textarea counter', () => {

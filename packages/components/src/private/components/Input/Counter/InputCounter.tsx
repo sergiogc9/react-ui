@@ -11,7 +11,7 @@ const InputCounter: React.FC<InputCounterProps> = ({ isDisabled = false, maxLeng
 		if (percent === 100) {
 			setCurrentColor('red.500');
 		} else if (percent >= 90) {
-			setCurrentColor('yellow.500');
+			setCurrentColor('yellow.700');
 		} else {
 			setCurrentColor('neutral.500');
 		}
