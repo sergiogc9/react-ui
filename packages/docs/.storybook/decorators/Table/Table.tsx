@@ -26,12 +26,12 @@ const TableDecorator: DecoratorFn = (story, context) => {
 		() => [
 			{
 				accessor: 'id',
-				Cell: props => <Table.Cell.Default {...props} aspectSize="xs" color="neutral.600" />,
+				Cell: props => <Table.Cell.Text {...props} aspectSize="xs" color="neutral.600" />,
 				Header: 'ID'
 			},
 			{
 				accessor: 'name',
-				Cell: props => <Table.Cell.Default {...props} fontWeight="bold" />,
+				Cell: props => <Table.Cell.Text {...props} fontWeight="bold" />,
 				Header: 'Name'
 			},
 			{

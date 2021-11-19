@@ -89,13 +89,17 @@ You can add the `isError` prop to a tab, to hightlight errors.
 		<Tabs defaultTab="tab_1" mt={3}>
 			<Tabs.Header>
 				<Tabs.Menu>
-					<Tabs.Tab isError id="tab_1">
-						Tab 1
+					<Tabs.Tab id="tab_1">Tab 1</Tabs.Tab>
+					<Tabs.Tab isError id="tab_2">
+						Tab 2
 					</Tabs.Tab>
 				</Tabs.Menu>
 			</Tabs.Header>
 			<Tabs.Content id="tab_1" px={3} height={200}>
 				This is the content of Tab 1
+			</Tabs.Content>
+			<Tabs.Content id="tab_2" px={3} height={200}>
+				This is the content of Tab 2
 			</Tabs.Content>
 		</Tabs>
 	</Story>
@@ -110,13 +114,17 @@ Also, you can disable id adding the `isDisabled` prop.
 		<Tabs defaultTab="tab_1" mt={3}>
 			<Tabs.Header>
 				<Tabs.Menu>
-					<Tabs.Tab isDisabled id="tab_1">
-						Tab 1
+					<Tabs.Tab id="tab_1">Tab 1</Tabs.Tab>
+					<Tabs.Tab isDisabled id="tab_2">
+						Tab 2
 					</Tabs.Tab>
 				</Tabs.Menu>
 			</Tabs.Header>
 			<Tabs.Content id="tab_1" px={3} height={200}>
 				This is the content of Tab 1
+			</Tabs.Content>
+			<Tabs.Content id="tab_2" px={3} height={200}>
+				This is the content of Tab 2
 			</Tabs.Content>
 		</Tabs>
 	</Story>
