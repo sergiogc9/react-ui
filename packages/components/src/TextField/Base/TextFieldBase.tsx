@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useRef } from 'react';
+import React, { useCallback, useState, useRef, HTMLAttributes } from 'react';
 import { useMergeRefs } from '@sergiogc9/react-hooks';
 
 import dispatchOnChange from 'components/private/components/Input/utils';
@@ -31,6 +31,7 @@ const TextField: React.FC<TextFieldBaseProps> = React.forwardRef<HTMLInputElemen
 			onBlur,
 			onChange,
 			onClick,
+			onFocus,
 			onRemoveButtonClick,
 			placeholder,
 			rightContent,
@@ -41,6 +42,7 @@ const TextField: React.FC<TextFieldBaseProps> = React.forwardRef<HTMLInputElemen
 		ref
 	) => {
 		const [currentValue, setCurrentValue] = useState(defaultValue?.toString().substr(0, maxLength) || '');
+		const [isInputFocused, setIsInputFocused] = React.useState(false);
 		const innerInputRef = useRef<HTMLInputElement>(null);
 		const mergeRefs = useMergeRefs(innerInputRef, ref);
 
@@ -50,6 +52,22 @@ const TextField: React.FC<TextFieldBaseProps> = React.forwardRef<HTMLInputElemen
 				if (onChange) onChange(event);
 			},
 			[onChange]
+		);
+
+		const onInputBlur = React.useCallback<NonNullable<HTMLAttributes<HTMLInputElement>['onBlur']>>(
+			ev => {
+				setIsInputFocused(false);
+				if (onBlur) onBlur(ev);
+			},
+			[onBlur]
+		);
+
+		const onInputFocus = React.useCallback<NonNullable<HTMLAttributes<HTMLInputElement>['onFocus']>>(
+			ev => {
+				setIsInputFocused(true);
+				if (onFocus) onFocus(ev);
+			},
+			[onFocus]
 		);
 
 		const finalValue = React.useMemo(() => {
@@ -75,6 +93,7 @@ const TextField: React.FC<TextFieldBaseProps> = React.forwardRef<HTMLInputElemen
 							htmlFor={id}
 							isDisabled={isDisabled}
 							isError={isError}
+							isInputFocused={isInputFocused}
 							isSuccess={isSuccess}
 							labelPosition={labelPosition}
 							leftContent={leftContent}
@@ -109,14 +128,16 @@ const TextField: React.FC<TextFieldBaseProps> = React.forwardRef<HTMLInputElemen
 						id={id}
 						isDisabled={isDisabled}
 						isError={isError}
+						isInputFocused={isInputFocused}
 						isSuccess={isSuccess}
 						label={label}
 						labelPosition={labelPosition}
 						maxLength={maxLength}
 						name={name}
-						onBlur={onBlur}
+						onBlur={onInputBlur}
 						onChange={onTextFieldChange}
 						onClick={onClick}
+						onFocus={onInputFocus}
 						placeholder={placeholder}
 						pl={leftContent ? 7 : 3}
 						pr={rightInputPadding}

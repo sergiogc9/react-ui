@@ -15,6 +15,7 @@ const placeHolderText = faker.random.words();
 const inputText = faker.random.word();
 
 const mockOnBlur = jest.fn();
+const mockOnFocus = jest.fn();
 const mockOnChange = jest.fn();
 const mockOnRemoveBtnClicked = jest.fn();
 const renderTextFieldBase = (props?: Partial<TextFieldBaseProps>) =>
@@ -24,6 +25,7 @@ const renderTextFieldBase = (props?: Partial<TextFieldBaseProps>) =>
 				data-testid={textFieldBaseTestId}
 				onBlur={mockOnBlur}
 				onChange={mockOnChange}
+				onFocus={mockOnFocus}
 				onRemoveButtonClick={mockOnRemoveBtnClicked}
 				placeholder={placeHolderText}
 				{...props}
@@ -88,6 +90,16 @@ describe('TextFieldBase component', () => {
 		userEvent.type(input, inputText);
 
 		expect(mockOnChange).toHaveBeenCalledTimes(0);
+	});
+
+	it('should call on focus once', () => {
+		renderTextFieldBase();
+		const input = screen.getByPlaceholderText(placeHolderText);
+
+		userEvent.type(input, inputText);
+		fireEvent.blur(input);
+
+		expect(mockOnFocus).toHaveBeenCalledTimes(1);
 	});
 
 	it('should call on blur once', () => {
@@ -192,7 +204,7 @@ describe('TextFieldBase component', () => {
 		expect(screen.queryByTestId(removeButtonTestId)).not.toBeVisible();
 	});
 
-	it('should call on remove button handler', () => {
+	it('should not show the remove button when the input has no value', () => {
 		const removeButtonHandler = jest.fn();
 		renderTextFieldBase({
 			hasRemoveButton: true,

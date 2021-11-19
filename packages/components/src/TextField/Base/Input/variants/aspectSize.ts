@@ -5,7 +5,11 @@ import { TextFieldInputProps } from '../types';
 
 export default (props: StyledProps<TextFieldInputProps>) => {
 	const generateCSS = (aspectSize: TextFieldInputProps['aspectSize']) => {
-		if (!props.label || props.labelPosition === 'outside' || (!props.value!.toString().trim() && !props.placeholder))
+		if (
+			!props.label ||
+			props.labelPosition === 'outside' ||
+			(!props.value!.toString().trim() && !props.placeholder && !props.isInputFocused)
+		)
 			return {};
 
 		const themeOffset = props.theme.components.textField.aspectSize[aspectSize!].label.offset;

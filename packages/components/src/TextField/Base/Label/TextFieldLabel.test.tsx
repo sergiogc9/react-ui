@@ -12,7 +12,14 @@ const text = 'Awesome Label';
 const renderTextFieldLabel = (props?: Partial<TextFieldLabelProps>) =>
 	render(
 		withTheme(
-			<TextFieldLabel aspectSize="m" data-testid={textFieldLabelTestId} labelPosition="inside" value="" {...props}>
+			<TextFieldLabel
+				aspectSize="m"
+				data-testid={textFieldLabelTestId}
+				isInputFocused={false}
+				labelPosition="inside"
+				value=""
+				{...props}
+			>
 				{text}
 			</TextFieldLabel>
 		)

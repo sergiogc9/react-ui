@@ -2,4 +2,8 @@ import { StyledInputProps } from 'components/private/components/Input';
 
 import { TextFieldBaseProps } from '../types';
 
-export type TextFieldInputProps = StyledInputProps & Pick<TextFieldBaseProps, 'label' | 'labelPosition'>;
+type Props = {
+	readonly isInputFocused: boolean;
+};
+
+export type TextFieldInputProps = Props & StyledInputProps & Pick<TextFieldBaseProps, 'label' | 'labelPosition'>;

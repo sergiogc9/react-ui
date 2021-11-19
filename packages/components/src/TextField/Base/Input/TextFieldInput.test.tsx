@@ -14,6 +14,7 @@ const renderTextFieldInput = (props?: Partial<TextFieldInputProps>) =>
 			<TextFieldInput
 				aspectSize="m"
 				data-testid={textFieldInputTestId}
+				isInputFocused={false}
 				labelPosition="inside"
 				onChange={jest.fn()}
 				value=""
