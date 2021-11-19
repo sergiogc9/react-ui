@@ -3,13 +3,30 @@ import { useTheme } from 'styled-components';
 import debounce from 'lodash/debounce';
 import find from 'lodash/find';
 import isEmpty from 'lodash/isEmpty';
+import pick from 'lodash/pick';
 import { useAddScript, useIsMounted, useUpdateEffect } from '@sergiogc9/react-hooks';
 
 import Select, { SelectProps } from 'components/Select';
 
-import { GoogleMapsAutocompleteProps, GoogleMapsPlace, MapsSearchPlace, PredictionOptions } from './types';
+import {
+	GoogleMapsAddressComponent,
+	googleMapsAdressKeys,
+	GoogleMapsAutocompleteProps,
+	GoogleMapsPlace,
+	GoogleMapsPlaceComponents,
+	MapsSearchPlace,
+	PredictionOptions
+} from './types';
 
 let autocompleteService: any;
+
+const mapAddressComponents = (addressComponents: GoogleMapsAddressComponent[]) =>
+	pick(
+		addressComponents.reduce((actual: Partial<GoogleMapsPlaceComponents>, component: GoogleMapsAddressComponent) => {
+			return { ...actual, [component.types[0]]: component.long_name };
+		}, {}),
+		...googleMapsAdressKeys
+	);
 
 const getPlacePredictions = async (request: PredictionOptions) => {
 	const { predictions } = await autocompleteService.getPlacePredictions(request);
@@ -24,6 +41,7 @@ const getPlaceData = async (result: MapsSearchPlace): Promise<GoogleMapsPlace> =
 		latitude: results[0].geometry.location.lat(),
 		longitude: results[0].geometry.location.lng(),
 		name: result.description,
+		placeComponents: mapAddressComponents(results[0].address_components),
 		placeId: result.place_id
 	};
 };

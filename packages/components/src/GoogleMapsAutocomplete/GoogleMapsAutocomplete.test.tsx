@@ -15,11 +15,14 @@ const place: GoogleMapsPlace = {
 	longitude: 10,
 	latitude: 20,
 	name: 'Awesome place',
+	placeComponents: {},
 	placeId: 'fake-id'
 };
+
 const mockOnGetPlacePredictions = jest.fn();
 const mockOnGeoCode = jest.fn();
 const mockOnPlaceChange = jest.fn();
+
 const renderComponent = (props: Partial<GoogleMapsAutocompleteProps> = {}) => {
 	return render(
 		withTheme(
@@ -159,6 +162,57 @@ describe('GoogleMapsAutocomplete component', () => {
 				latitude: 10,
 				longitude: 20,
 				name: 'Girona, Montilivi',
+				placeComponents: {
+					administrative_area_level_1: 'Awesome CCAA',
+					administrative_area_level_2: 'Province Awesome',
+					country: 'Awesome Country',
+					locality: 'Awesome place'
+				},
+				placeId: '123456'
+			})
+		);
+	});
+
+	it('should call onPlaceChange with fetched data without some placeComponents', async () => {
+		mockOnGeoCode.mockResolvedValue({
+			results: [
+				{
+					address_components: [
+						{
+							long_name: 'Awesome place',
+							short_name: 'AWS',
+							types: ['locality', 'political']
+						},
+						{
+							long_name: 'Awesome Country',
+							short_name: 'AW',
+							types: ['country', 'political']
+						}
+					],
+					geometry: { location: { lat: () => 10, lng: () => 20 } }
+				}
+			]
+		});
+		renderComponent();
+
+		const input = screen.getByTestId('select-field').querySelector('input')!;
+		userEvent.clear(input);
+		userEvent.type(input, 'Girona');
+
+		jest.runAllTimers();
+
+		await waitFor(() => expect(screen.getByText(', Montilivi')).toBeInTheDocument());
+		userEvent.click(screen.getByText(', Montilivi'));
+
+		await waitFor(() =>
+			expect(mockOnPlaceChange).toHaveBeenCalledWith({
+				latitude: 10,
+				longitude: 20,
+				name: 'Girona, Montilivi',
+				placeComponents: {
+					country: 'Awesome Country',
+					locality: 'Awesome place'
+				},
 				placeId: '123456'
 			})
 		);

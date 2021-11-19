@@ -13,7 +13,8 @@ export { default as Divider, DividerProps } from './Divider';
 export {
 	default as GoogleMapsAutocomplete,
 	GoogleMapsAutocompleteProps,
-	GoogleMapsPlace
+	GoogleMapsPlace,
+	GoogleMapsPlaceComponents
 } from './GoogleMapsAutocomplete';
 export { default as Grid, GridProps, GridBoxProps, GridRowProps } from './Grid';
 export { default as Icon, IconProps } from './Icon';

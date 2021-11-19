@@ -53,5 +53,24 @@ export type GoogleMapsPlace = {
 	latitude: number;
 	longitude: number;
 	name: string;
+	placeComponents: Partial<GoogleMapsPlaceComponents>;
 	placeId: string;
+};
+
+export const googleMapsAdressKeys = [
+	'country',
+	'administrative_area_level_1',
+	'administrative_area_level_2',
+	'locality',
+	'postal_code'
+] as const;
+
+export type GoogleMapsKeys = typeof googleMapsAdressKeys[number];
+
+export type GoogleMapsPlaceComponents = Record<GoogleMapsKeys, string>;
+
+export type GoogleMapsAddressComponent = {
+	long_name: string;
+	short_name: string;
+	types: string[];
 };
