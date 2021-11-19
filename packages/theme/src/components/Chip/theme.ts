@@ -33,18 +33,18 @@ const chipTheme: Chip = {
 	},
 	colors: {
 		blue: {
-			color: 'primary.800',
+			color: 'blue.900',
 			borderColor: {
-				default: 'primary.100',
-				hover: 'primary.50'
+				default: 'blue.100',
+				hover: 'blue.50'
 			},
 			background: {
-				default: 'primary.100',
-				hover: 'primary.50'
+				default: 'blue.100',
+				hover: 'blue.50'
 			},
 			actionableBg: {
 				default: 'transparent',
-				hover: 'primary.50'
+				hover: 'blue.50'
 			}
 		},
 		green: {
@@ -78,7 +78,7 @@ const chipTheme: Chip = {
 			}
 		},
 		red: {
-			color: 'red.700',
+			color: 'red.900',
 			borderColor: {
 				default: 'red.100',
 				hover: 'red.50'
@@ -108,7 +108,7 @@ const chipTheme: Chip = {
 			}
 		},
 		yellow: {
-			color: 'neutral.800',
+			color: 'yellow.900',
 			borderColor: {
 				default: 'yellow.100',
 				hover: 'yellow.50'

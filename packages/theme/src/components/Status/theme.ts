@@ -11,7 +11,7 @@ const statusTheme: Status = {
 			color: 'neutral.0'
 		},
 		grey: {
-			bg: 'neutral.100',
+			bg: 'neutral.500',
 			color: 'neutral.900'
 		},
 		red: {

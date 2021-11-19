@@ -51,7 +51,7 @@ const TooltipContent: React.FC<TooltipContentProps> = ({
 			trigger={trigger}
 			touch={touch}
 			zIndex={zIndex}
-			render={(attrs, isPopoverVisible, ref) => (
+			render={(attrs, isPopoverVisible, _, ref) => (
 				<StyledTooltip
 					duration={duration}
 					isVisible={isPopoverVisible}

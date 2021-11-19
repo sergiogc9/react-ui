@@ -37,12 +37,12 @@ describe('Chip Icon component', () => {
 		});
 
 		expect(screen.getByTestId(chipGroupTestId)).toHaveStyle(
-			`height: 24px; border: 1px solid; border-color: ${theme.colors.primary['100']};`
+			`height: 24px; border: 1px solid; border-color: ${theme.colors.blue['100']};`
 		);
 
-		expect(screen.getByTestId(leftIconTestId)).toHaveStyle(`fill: ${theme.colors.primary['800']}`);
+		expect(screen.getByTestId(leftIconTestId)).toHaveStyle(`fill: ${theme.colors.blue['900']}`);
 
-		expect(screen.getByTestId(rightIconTestId)).toHaveStyle(`fill: ${theme.colors.primary['800']}`);
+		expect(screen.getByTestId(rightIconTestId)).toHaveStyle(`fill: ${theme.colors.blue['900']}`);
 	});
 
 	it('should render the group correctly with white variant', () => {

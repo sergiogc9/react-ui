@@ -35,9 +35,9 @@ describe('Chip Icon component', () => {
 	it('should render the icons correctly', () => {
 		renderChipGroup();
 		expect(screen.getByTestId(leftIconTestId)).toBeInTheDocument();
-		expect(screen.getByTestId(leftIconTestId)).toHaveStyle(`fill: ${theme.colors.primary['800']}`);
+		expect(screen.getByTestId(leftIconTestId)).toHaveStyle(`fill: ${theme.colors.blue['900']}`);
 		expect(screen.getByTestId(rightIconTestId)).toBeInTheDocument();
-		expect(screen.getByTestId(rightIconTestId)).toHaveStyle(`fill: ${theme.colors.primary['800']}`);
+		expect(screen.getByTestId(rightIconTestId)).toHaveStyle(`fill: ${theme.colors.blue['900']}`);
 	});
 
 	it('should call the handler if an onClick is present on the icon component', () => {

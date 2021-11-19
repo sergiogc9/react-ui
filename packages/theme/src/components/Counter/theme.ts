@@ -12,15 +12,15 @@ const counterTheme: Counter = {
 		},
 		grey: {
 			bg: 'neutral.100',
-			color: 'neutral.800'
+			color: 'neutral.700'
 		},
 		red: {
 			bg: 'red.100',
-			color: 'red.700'
+			color: 'red.900'
 		},
 		yellow: {
 			bg: 'yellow.100',
-			color: 'neutral.800'
+			color: 'yellow.900'
 		}
 	},
 	sizes: {

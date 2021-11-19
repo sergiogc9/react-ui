@@ -78,7 +78,7 @@ const buttonTheme: Button = {
 			text: 'neutral.800',
 			background: {
 				default: 'yellow.500',
-				hover: 'yellow.200',
+				hover: 'yellow.300',
 				active: 'yellow.900'
 			}
 		}
