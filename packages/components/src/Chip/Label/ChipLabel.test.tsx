@@ -9,7 +9,7 @@ const labelText = 'Label content';
 const renderChipGroup = () =>
 	render(
 		withTheme(
-			<Chip href="https://gironafc.cat" variant="white" aspectSize="s">
+			<Chip href="https://fake.com" variant="white" aspectSize="s">
 				<Chip.Label>{labelText}</Chip.Label>
 			</Chip>
 		)

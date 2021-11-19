@@ -98,9 +98,6 @@ const generateFinalSortTypes = <Data extends Record<string, unknown>>(
 	...sortTypes
 });
 
-/**
- * How-to use docs: https://dev.azure.com/EurofirmsSolution/CJP/_wiki/wikis/CJP.wiki/263/Table
- */
 const Table = <Data extends Record<string, unknown>>(props: TableProps<Data>) => {
 	const {
 		children,

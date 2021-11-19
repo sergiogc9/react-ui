@@ -1,10 +1,11 @@
 type ChipColorVariants = 'blue' | 'green' | 'grey' | 'red' | 'white' | 'yellow';
 
-type ChipHoverTypes = Record<'default' | 'hover', string>;
+type ChipHoverTypes = Record<'default' | 'hover' | 'overlay', string>;
 type ChipColorAttrs = Record<'color', string>;
-type ChipBorderColor = Record<'borderColor' | 'background' | 'actionableBg', ChipHoverTypes>;
+type ChipBorderColor = Record<'borderColor' | 'background', ChipHoverTypes>;
+type ChipActionableBg = Record<'actionableBg', Omit<ChipHoverTypes, 'overlay'>>;
 
-type ChipColorsParams = ChipColorAttrs & ChipBorderColor;
+type ChipColorsParams = ChipColorAttrs & ChipBorderColor & ChipActionableBg;
 type ChipColors = Record<ChipColorVariants, ChipColorsParams>;
 
 type ChipSizeVariants = 's' | 'm';

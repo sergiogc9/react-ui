@@ -1,6 +1,6 @@
 import { Theme } from './types';
 
-export const cornerjobColors: Theme['colors'] = {
+const colors: Theme['colors'] = {
 	primary: {
 		50: '#ECF8FC',
 		100: '#BDE8F6',
@@ -79,3 +79,5 @@ export const cornerjobColors: Theme['colors'] = {
 		linkedin: '#0073B1'
 	}
 };
+
+export default colors;

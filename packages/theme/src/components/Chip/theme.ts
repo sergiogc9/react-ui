@@ -6,23 +6,19 @@ const chipTheme: Chip = {
 			s: {
 				height: '24px',
 				borderRadius: '24px',
-				px: 2,
-				py: 0,
-				fontSize: 0
+				px: 1
 			},
 			m: {
 				height: '32px',
 				borderRadius: '32px',
-				px: 2,
-				py: 1,
-				fontSize: 0
+				px: 2
 			}
 		},
 		iconWrapper: {
 			s: {
-				height: '16px',
-				width: '16px',
-				borderRadius: '16px'
+				height: '18px',
+				width: '18px',
+				borderRadius: '18px'
 			},
 			m: {
 				height: '24px',
@@ -36,11 +32,13 @@ const chipTheme: Chip = {
 			color: 'blue.900',
 			borderColor: {
 				default: 'blue.100',
-				hover: 'blue.50'
+				hover: 'blue.50',
+				overlay: 'blue.900'
 			},
 			background: {
 				default: 'blue.100',
-				hover: 'blue.50'
+				hover: 'blue.50',
+				overlay: 'blue.900'
 			},
 			actionableBg: {
 				default: 'transparent',
@@ -51,11 +49,13 @@ const chipTheme: Chip = {
 			color: 'green.900',
 			borderColor: {
 				default: 'green.100',
-				hover: 'green.50'
+				hover: 'green.50',
+				overlay: 'green.900'
 			},
 			background: {
 				default: 'green.100',
-				hover: 'green.50'
+				hover: 'green.50',
+				overlay: 'green.900'
 			},
 			actionableBg: {
 				default: 'transparent',
@@ -66,11 +66,13 @@ const chipTheme: Chip = {
 			color: 'neutral.800',
 			borderColor: {
 				default: 'neutral.50',
-				hover: 'neutral.100'
+				hover: 'neutral.100',
+				overlay: 'neutral.800'
 			},
 			background: {
 				default: 'neutral.50',
-				hover: 'neutral.100'
+				hover: 'neutral.100',
+				overlay: 'neutral.800'
 			},
 			actionableBg: {
 				default: 'transparent',
@@ -81,11 +83,13 @@ const chipTheme: Chip = {
 			color: 'red.900',
 			borderColor: {
 				default: 'red.100',
-				hover: 'red.50'
+				hover: 'red.50',
+				overlay: 'red.900'
 			},
 			background: {
 				default: 'red.100',
-				hover: 'red.50'
+				hover: 'red.50',
+				overlay: 'red.900'
 			},
 			actionableBg: {
 				default: 'transparent',
@@ -96,11 +100,13 @@ const chipTheme: Chip = {
 			color: 'neutral.800',
 			borderColor: {
 				default: 'neutral.300',
-				hover: 'neutral.300'
+				hover: 'neutral.300',
+				overlay: 'neutral.800'
 			},
 			background: {
 				default: 'neutral.0',
-				hover: 'neutral.50'
+				hover: 'neutral.50',
+				overlay: 'neutral.800'
 			},
 			actionableBg: {
 				default: 'transparent',
@@ -111,11 +117,13 @@ const chipTheme: Chip = {
 			color: 'yellow.900',
 			borderColor: {
 				default: 'yellow.100',
-				hover: 'yellow.50'
+				hover: 'yellow.50',
+				overlay: 'yellow.900'
 			},
 			background: {
 				default: 'yellow.100',
-				hover: 'yellow.50'
+				hover: 'yellow.50',
+				overlay: 'yellow.900'
 			},
 			actionableBg: {
 				default: 'transparent',

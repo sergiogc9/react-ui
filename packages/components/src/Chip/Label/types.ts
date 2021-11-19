@@ -1,17 +1,17 @@
 import React from 'react';
 
 import { ContentProps } from 'components/Content';
-import { ChipGroupProps } from '../types';
+import { ChipProps } from '../types';
 
 type Props = {
 	/**
 	 * Choose one size
 	 */
-	readonly aspectSize?: ChipGroupProps['aspectSize'];
+	readonly aspectSize?: ChipProps['aspectSize'];
 	/**
 	 * Choose the color variant
 	 */
-	readonly variant?: ChipGroupProps['variant'];
+	readonly variant?: ChipProps['variant'];
 };
 
 export type ChipLabelProps = Props & ContentProps<React.HTMLAttributes<HTMLSpanElement>>;

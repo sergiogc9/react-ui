@@ -1,23 +1,58 @@
 import React from 'react';
 
-import { StyledChip } from './styled';
-import { ChipGroupProps } from './types';
+import ChipOverlay from './Overlay';
 import ChipContext from './Context';
+import { StyledChip } from './styled';
+import { ChipProps } from './types';
 
-const Group: React.FC<ChipGroupProps> = ({ as, aspectSize = 's', children, href, variant = 'white', ...props }) => {
+const Chip: React.FC<ChipProps> = ({
+	as,
+	aspectSize = 's',
+	children,
+	href,
+	isOverlayAlwaysVisible = false,
+	onOverlayClick,
+	overlayContent,
+	variant = 'white',
+	...props
+}) => {
+	const childrenWithLastClass = React.useMemo(() => {
+		const childrenArray = React.Children.toArray(children);
+		return childrenArray
+			.filter(child => React.isValidElement(child))
+			.map((child, index, filteredChildren) =>
+				index === filteredChildren.length - 1
+					? React.cloneElement(child as React.ReactElement<any>, {
+							className: 'last-child'
+					  })
+					: child
+			);
+	}, [children]);
+
 	return (
-		<ChipContext.Provider value={{ aspectSize, variant }}>
+		<ChipContext.Provider
+			value={{
+				aspectSize,
+				variant
+			}}
+		>
 			<StyledChip
-				as={href ? as || 'a' : 'span'}
+				as={href ? as || 'a' : 'div'}
 				aspectSize={aspectSize}
 				variant={variant}
+				isOverlayAlwaysVisible={isOverlayAlwaysVisible}
 				{...(href ? { href } : {})}
 				{...props}
 			>
-				{children}
+				{childrenWithLastClass}
+				{overlayContent && (
+					<ChipOverlay data-testid="chip-overlay" isAlwaysVisible={isOverlayAlwaysVisible} onClick={onOverlayClick}>
+						{overlayContent}
+					</ChipOverlay>
+				)}
 			</StyledChip>
 		</ChipContext.Provider>
 	);
 };
 
-export default React.memo(Group);
+export default React.memo(Chip);

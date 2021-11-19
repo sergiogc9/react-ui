@@ -6,8 +6,10 @@ import { ActionWrapperProps } from '../types';
 export default (props: StyledProps<ActionWrapperProps>) => {
 	const generateCSS = (variantProp: ActionWrapperProps['variant']) => ({
 		bg: props.theme.components.chip.colors[variantProp!].actionableBg.default!,
-		'&:hover': {
-			bg: props.theme.components.chip.colors[variantProp!].actionableBg.hover!
+		' @media (hover: hover)': {
+			'&:hover': {
+				bg: props.theme.components.chip.colors[variantProp!].actionableBg.hover!
+			}
 		}
 	});
 

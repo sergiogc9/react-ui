@@ -2,18 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Icon from 'components/Icon';
-import variant from './variants/variant';
-import location from './variants/location';
+
 import { ChipIconProps } from './types';
+import variant from './variants/variant';
 
 const StyledIcon: React.FC<ChipIconProps> = styled(Icon)`
 	${variant}
-	${location}
 `;
 
 StyledIcon.defaultProps = {
-	position: 'relative',
-	aspectSize: 's'
+	aspectSize: 's',
+	position: 'relative'
 };
 
 export default StyledIcon;

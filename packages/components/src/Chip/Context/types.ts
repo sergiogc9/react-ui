@@ -1,6 +1,6 @@
-import { ChipGroupProps } from '../types';
+import { ChipProps } from '../types';
 
 export type ChipContextData = {
-	aspectSize: ChipGroupProps['aspectSize'];
-	variant: ChipGroupProps['variant'];
+	aspectSize: ChipProps['aspectSize'];
+	variant: ChipProps['variant'];
 };

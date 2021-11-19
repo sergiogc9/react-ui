@@ -5,7 +5,7 @@ import { DecoratorFn } from '@storybook/react';
 export const ChipWrapper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	> span,
+	> div,
 	a {
 		margin: 16px;
 	}

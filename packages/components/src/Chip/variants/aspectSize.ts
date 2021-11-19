@@ -1,10 +1,10 @@
 import { StyledProps } from 'styled-components';
 import { variant } from 'styled-system';
 
-import { ChipGroupProps } from '../types';
+import { ChipProps } from '../types';
 
-export default (props: StyledProps<ChipGroupProps>) => {
-	const generateCSS = (aspectSize: ChipGroupProps['aspectSize']) => ({
+export default (props: StyledProps<ChipProps>) => {
+	const generateCSS = (aspectSize: ChipProps['aspectSize']) => ({
 		...props.theme.components.chip.sizes.chip[aspectSize!]
 	});
 

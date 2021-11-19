@@ -2,22 +2,28 @@ import { variant } from 'styled-system';
 import { DefaultTheme, StyledProps } from 'styled-components';
 import { getColorFromTheme } from '@sergiogc9/react-ui-theme';
 
-import { ChipGroupProps } from 'components/Chip/types';
+import { ChipProps } from 'components/Chip/types';
 
-const hoverHandler = (props: Partial<ChipGroupProps>, theme: DefaultTheme, variantProp: ChipGroupProps['variant']) => {
+const hoverHandler = (props: Partial<ChipProps>, theme: DefaultTheme, variantProp: ChipProps['variant']) => {
 	const hoverState = props.href ? 'hover' : 'default';
 
 	if (props.bg) return { bg: props.bg, borderColor: props.borderColor || props.bg };
 	return {
 		bg: getColorFromTheme(theme, theme.components.chip.colors[variantProp!].background[hoverState]!),
-		borderColor: getColorFromTheme(theme, theme.components.chip.colors[variantProp!].borderColor[hoverState]!)
+		boxShadow: `0 0 0 1px ${getColorFromTheme(
+			theme,
+			theme.components.chip.colors[variantProp!].borderColor[hoverState]!
+		)} inset`
 	};
 };
 
-export default (props: StyledProps<ChipGroupProps>) => {
-	const generateCSS = (variantProp: ChipGroupProps['variant']) => ({
+export default (props: StyledProps<ChipProps>) => {
+	const generateCSS = (variantProp: ChipProps['variant']) => ({
 		bg: props.bg ?? props.theme.components.chip.colors[variantProp!].background.default,
-		borderColor: props.theme.components.chip.colors[variantProp!].borderColor.default,
+		boxShadow: `0 0 0 1px ${getColorFromTheme(
+			props.theme,
+			props.theme.components.chip.colors[variantProp!].borderColor.default
+		)} inset`,
 		color: props.theme.components.chip.colors[variantProp!].color,
 		'&:hover': hoverHandler(props, props.theme, variantProp!)
 	});

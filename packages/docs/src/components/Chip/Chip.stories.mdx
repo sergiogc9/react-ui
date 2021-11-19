@@ -14,13 +14,15 @@ Chips are small elements to display tags, links or useful information.
 <Story
 	name="playground"
 	args={{
-		variant: 'blue',
 		aspectSize: 's',
 		children: 'Click me',
 		iconLeft: 'location',
 		iconRight: 'close',
+		isRightIconClickable: true,
+		overlayContent: 'Edit me',
 		showLeftIcon: true,
-		showRightIcon: true
+		showRightIcon: true,
+		variant: 'blue'
 	}}
 	argTypes={{
 		aspectSize: {
@@ -36,17 +38,41 @@ Chips are small elements to display tags, links or useful information.
 			}
 		}
 	}}
-	parameters={getPlaygroundStoryParams()}
+	parameters={getPlaygroundStoryParams({ exclude: ['onOverlayClick'] })}
 >
-	{({ children, variant, aspectSize, iconLeft, iconRight, showLeftIcon, showRightIcon }) => (
-		<Chip variant={variant} aspectSize={aspectSize}>
-			{showLeftIcon && <Chip.Icon styling="filled" icon={iconLeft} location="left" />}
-			<Chip.Label>{children}</Chip.Label>
-			{showRightIcon && (
-				<Chip.Icon styling="outlined" icon={iconRight} location="right" onClick={() => console.log('TEST')} />
-			)}
-		</Chip>
-	)}
+	{({
+		aspectSize,
+		children,
+		iconLeft,
+		iconRight,
+		isOverlayAlwaysVisible,
+		isRightIconClickable,
+		overlayContent,
+		showLeftIcon,
+		showRightIcon,
+		variant
+	}) => {
+		const [isVisible, setIsVisible] = React.useState(isOverlayAlwaysVisible);
+		return (
+			<Chip
+				aspectSize={aspectSize}
+				isOverlayAlwaysVisible={isVisible}
+				onClick={() => setIsVisible(!isVisible)}
+				overlayContent={overlayContent}
+				variant={variant}
+			>
+				{showLeftIcon && <Chip.Icon icon={iconLeft} styling="filled" />}
+				<Chip.Label>{children}</Chip.Label>
+				{showRightIcon && (
+					<Chip.Icon
+						icon={iconRight}
+						onClick={isRightIconClickable ? () => console.log('TEST') : undefined}
+						styling="outlined"
+					/>
+				)}
+			</Chip>
+		);
+	}}
 </Story>
 
 ## Chip Label
@@ -54,41 +80,41 @@ Chips are small elements to display tags, links or useful information.
 It can be used as a simple label and two `aspectSize` are actually available, `s`and `m`.
 
 <Canvas>
-	<Story parameters={getFixedStoryParams()} name="label with link" decorators={[ChipDecorator]}>
-		<Chip variant="white" aspectSize="s">
+	<Story parameters={getFixedStoryParams()} name="chip as label" decorators={[ChipDecorator]}>
+		<Chip aspectSize="s" variant="white">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
-		<Chip variant="blue" aspectSize="s">
+		<Chip aspectSize="s" variant="blue">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
-		<Chip variant="grey" aspectSize="s">
+		<Chip aspectSize="s" variant="grey">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
-		<Chip variant="yellow" aspectSize="s">
+		<Chip aspectSize="s" variant="yellow">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
-		<Chip variant="red" aspectSize="s">
+		<Chip aspectSize="s" variant="red">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
-		<Chip variant="green" aspectSize="s">
+		<Chip aspectSize="s" variant="green">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
-		<Chip variant="white" aspectSize="m">
+		<Chip aspectSize="m" variant="white">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
-		<Chip variant="blue" aspectSize="m">
+		<Chip aspectSize="m" variant="blue">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
-		<Chip variant="grey" aspectSize="m">
+		<Chip aspectSize="m" variant="grey">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
-		<Chip variant="yellow" aspectSize="m">
+		<Chip aspectSize="m" variant="yellow">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
-		<Chip variant="red" aspectSize="m">
+		<Chip aspectSize="m" variant="red">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
-		<Chip variant="green" aspectSize="m">
+		<Chip aspectSize="m" variant="green">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
 	</Story>
@@ -100,40 +126,40 @@ But it can be also a link, just add the `href` prop to the parent.
 
 <Canvas>
 	<Story parameters={getFixedStoryParams()} name="chip as link" decorators={[ChipDecorator]}>
-		<Chip href="#" variant="white" aspectSize="s">
+		<Chip aspectSize="s" href="#" variant="white">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
-		<Chip href="#" variant="blue" aspectSize="s">
+		<Chip aspectSize="s" href="#" variant="blue">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
-		<Chip href="#" variant="grey" aspectSize="s">
+		<Chip aspectSize="s" href="#" variant="grey">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
-		<Chip href="#" variant="yellow" aspectSize="s">
+		<Chip aspectSize="s" href="#" variant="yellow">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
-		<Chip href="#" variant="red" aspectSize="s">
+		<Chip aspectSize="s" href="#" variant="red">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
-		<Chip href="#" variant="green" aspectSize="s">
+		<Chip aspectSize="s" href="#" variant="green">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
-		<Chip href="#" variant="white" aspectSize="m">
+		<Chip aspectSize="m" href="#" variant="white">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
-		<Chip href="#" variant="blue" aspectSize="m">
+		<Chip aspectSize="m" href="#" variant="blue">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
-		<Chip href="#" variant="grey" aspectSize="m">
+		<Chip aspectSize="m" href="#" variant="grey">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
-		<Chip href="#" variant="yellow" aspectSize="m">
+		<Chip aspectSize="m" href="#" variant="yellow">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
-		<Chip href="#" variant="red" aspectSize="m">
+		<Chip aspectSize="m" href="#" variant="red">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
-		<Chip href="#" variant="green" aspectSize="m">
+		<Chip aspectSize="m" href="#" variant="green">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
 	</Story>
@@ -141,18 +167,58 @@ But it can be also a link, just add the `href` prop to the parent.
 
 ## Chip Label with Icon
 
-Chip has the possibility to integrate icons, they are all passed via children. Remember to choose their position using the `location` prop.
+Chip has the possibility to integrate icons, they are all passed via children.`
 
 <Canvas>
 	<Story parameters={getFixedStoryParams()} name="chip + icon" decorators={[ChipDecorator]}>
-		{['s', 'm'].map(size =>
-			['white', 'blue', 'grey', 'yellow', 'red', 'green'].map(variant => (
-				<Chip variant={variant} aspectSize={size}>
-					<Chip.Icon styling="filled" icon="bookmark" location="left" />
-					<Chip.Label>Bookmarked</Chip.Label>
-				</Chip>
-			))
-		)}
+		<Chip aspectSize="s" variant="white">
+			<Chip.Icon styling="filled" icon="bookmark" />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="s" variant="blue">
+			<Chip.Icon styling="filled" icon="bookmark" />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="s" variant="grey">
+			<Chip.Icon styling="filled" icon="bookmark" />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="s" variant="yellow">
+			<Chip.Icon styling="filled" icon="bookmark" />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="s" variant="red">
+			<Chip.Icon styling="filled" icon="bookmark" />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="s" variant="green">
+			<Chip.Icon styling="filled" icon="bookmark" />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="m" variant="white">
+			<Chip.Icon styling="filled" icon="bookmark" />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="m" variant="blue">
+			<Chip.Icon styling="filled" icon="bookmark" />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="m" variant="grey">
+			<Chip.Icon styling="filled" icon="bookmark" />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="m" variant="yellow">
+			<Chip.Icon styling="filled" icon="bookmark" />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="m" variant="red">
+			<Chip.Icon styling="filled" icon="bookmark" />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="m" variant="green">
+			<Chip.Icon styling="filled" icon="bookmark" />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
 	</Story>
 </Canvas>
 
@@ -162,53 +228,53 @@ An icon can have an handler. Adding an `onClick`function to the component will l
 
 <Canvas>
 	<Story parameters={getFixedStoryParams()} name="chip + handler" decorators={[ChipDecorator]}>
-		<Chip variant="white" aspectSize="s">
+		<Chip aspectSize="s" variant="white">
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="blue" aspectSize="s">
+		<Chip aspectSize="s" variant="blue">
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="grey" aspectSize="s">
+		<Chip aspectSize="s" variant="grey">
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="yellow" aspectSize="s">
+		<Chip aspectSize="s" variant="yellow">
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="red" aspectSize="s">
+		<Chip aspectSize="s" variant="red">
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="green" aspectSize="s">
+		<Chip aspectSize="s" variant="green">
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="white" aspectSize="m">
+		<Chip aspectSize="m" variant="white">
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="blue" aspectSize="m">
+		<Chip aspectSize="m" variant="blue">
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="grey" aspectSize="m">
+		<Chip aspectSize="m" variant="grey">
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="yellow" aspectSize="m">
+		<Chip aspectSize="m" variant="yellow">
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="red" aspectSize="m">
+		<Chip aspectSize="m" variant="red">
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="green" aspectSize="m">
+		<Chip aspectSize="m" variant="green">
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
 	</Story>
 </Canvas>
@@ -219,65 +285,65 @@ It is possible to compose the chip using all of its pieces.
 
 <Canvas>
 	<Story parameters={getFixedStoryParams()} name="chip + handler + icon" decorators={[ChipDecorator]}>
-		<Chip variant="white" aspectSize="s">
-			<Chip.Icon styling="filled" icon="bookmark" location="left" />
+		<Chip aspectSize="s" variant="white">
+			<Chip.Icon icon="bookmark" styling="filled" />
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="blue" aspectSize="s">
-			<Chip.Icon styling="filled" icon="bookmark" location="left" />
+		<Chip aspectSize="s" variant="blue">
+			<Chip.Icon icon="bookmark" styling="filled" />
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="grey" aspectSize="s">
-			<Chip.Icon styling="filled" icon="bookmark" location="left" />
+		<Chip aspectSize="s" variant="grey">
+			<Chip.Icon icon="bookmark" styling="filled" />
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="warning" aspectSize="s">
-			<Chip.Icon styling="filled" icon="bookmark" location="left" />
+		<Chip aspectSize="s" variant="yellow">
+			<Chip.Icon icon="bookmark" styling="filled" />
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="red" aspectSize="s">
-			<Chip.Icon styling="filled" icon="bookmark" location="left" />
+		<Chip aspectSize="s" variant="red">
+			<Chip.Icon icon="bookmark" styling="filled" />
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="green" aspectSize="s">
-			<Chip.Icon styling="filled" icon="bookmark" location="left" />
+		<Chip aspectSize="s" variant="green">
+			<Chip.Icon icon="bookmark" styling="filled" />
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="white" aspectSize="m">
-			<Chip.Icon styling="filled" icon="bookmark" location="left" />
+		<Chip aspectSize="m" variant="white">
+			<Chip.Icon icon="bookmark" styling="filled" />
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="blue" aspectSize="m">
-			<Chip.Icon styling="filled" icon="bookmark" location="left" />
+		<Chip aspectSize="m" variant="blue">
+			<Chip.Icon icon="bookmark" styling="filled" />
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="grey" aspectSize="m">
-			<Chip.Icon styling="filled" icon="bookmark" location="left" />
+		<Chip aspectSize="m" variant="grey">
+			<Chip.Icon icon="bookmark" styling="filled" />
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="warning" aspectSize="m">
-			<Chip.Icon styling="filled" icon="bookmark" location="left" />
+		<Chip aspectSize="m" variant="yellow">
+			<Chip.Icon icon="bookmark" styling="filled" />
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="red" aspectSize="m">
-			<Chip.Icon styling="filled" icon="bookmark" location="left" />
+		<Chip aspectSize="m" variant="red">
+			<Chip.Icon icon="bookmark" styling="filled" />
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip variant="green" aspectSize="m">
-			<Chip.Icon styling="filled" icon="bookmark" location="left" />
+		<Chip aspectSize="m" variant="green">
+			<Chip.Icon icon="bookmark" styling="filled" />
 			<Chip.Label>Bookmarked</Chip.Label>
-			<Chip.Icon styling="outlined" icon="close" location="right" onClick={() => console.log('TEST')} />
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
 	</Story>
 </Canvas>
@@ -289,23 +355,263 @@ The Chip has been built to be composable, be creative!
 <Canvas>
 	<Story parameters={getFixedStoryParams()} name="custom chips" decorators={[ChipDecorator]}>
 		<Chip
-			variant="blue"
-			aspectSize="s"
+			aspectSize="m"
 			background="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 16%, rgba(0,212,255,1) 50%)"
+			variant="blue"
 		>
-			<Chip.Icon fill="yellow.200" styling="filled" icon="star" location="left" />
-			<Chip.Icon fill="yellow.300" styling="filled" icon="star" location="left" />
-			<Chip.Icon fill="yellow.400" styling="filled" icon="star" location="left" />
-			<Chip.Icon fill="yellow.500" styling="filled" icon="star" location="left" />
-			<Chip.Icon fill="yellow.600" styling="filled" icon="star" location="left" />
+			<Chip.Icon fill="yellow.200" icon="star" styling="outlined" />
+			<Chip.Icon fill="yellow.300" icon="star" styling="outlined" />
+			<Chip.Icon fill="yellow.400" icon="star" styling="outlined" />
+			<Chip.Icon fill="yellow.500" icon="star" styling="outlined" />
+			<Chip.Icon fill="yellow.600" icon="star" styling="outlined" />
 			<Chip.Label>Buy on sight</Chip.Label>
-			<Chip.Icon
-				styling="filled"
-				icon="alert-error"
-				location="right"
-				onClick={() => console.log('TEST')}
-				fill="red.600"
-			/>
+			<Chip.Icon icon="alert-error" fill="red.600" onClick={() => console.log('TEST')} styling="filled" />
+		</Chip>
+	</Story>
+</Canvas>
+
+## Chip With an Overlay on Hover
+
+A chip can have an Overlay when hovered. Adding some element or text to the component's prop `overlayContent` will show an animated overlay when the chip is hovered.
+
+<Canvas>
+	<Story parameters={getFixedStoryParams()} name="chip + overlay on hover" decorators={[ChipDecorator]}>
+		<Chip
+			aspectSize="s"
+			variant="white"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="s"
+			variant="blue"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="s"
+			variant="grey"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="s"
+			variant="yellow"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="s"
+			variant="red"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="s"
+			variant="green"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="m"
+			variant="white"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="m"
+			variant="blue"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="m"
+			variant="grey"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="m"
+			variant="yellow"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="m"
+			variant="red"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="m"
+			variant="green"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+	</Story>
+</Canvas>
+
+## Chip With an Overlay Fixed
+
+A chip can have an Overlay fixed. It can be fixed by setting the `isOverlayAlwaysVisible` to `true`.
+
+<Canvas>
+	<Story parameters={getFixedStoryParams()} name="chip + overlay fixed" decorators={[ChipDecorator]}>
+		<Chip
+			aspectSize="s"
+			variant="white"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+			isOverlayAlwaysVisible
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="s"
+			variant="blue"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+			isOverlayAlwaysVisible
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="s"
+			variant="grey"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+			isOverlayAlwaysVisible
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="s"
+			variant="yellow"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+			isOverlayAlwaysVisible
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="s"
+			variant="red"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+			isOverlayAlwaysVisible
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="s"
+			variant="green"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+			isOverlayAlwaysVisible
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="m"
+			variant="white"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+			isOverlayAlwaysVisible
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="m"
+			variant="blue"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+			isOverlayAlwaysVisible
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="m"
+			variant="grey"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+			isOverlayAlwaysVisible
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="m"
+			variant="yellow"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+			isOverlayAlwaysVisible
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="m"
+			variant="red"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+			isOverlayAlwaysVisible
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
+		</Chip>
+		<Chip
+			aspectSize="m"
+			variant="green"
+			onOverlayClick={() => console.log('OVERLAY CLICKED')}
+			overlayContent="Edit bookmark"
+			isOverlayAlwaysVisible
+		>
+			<Chip.Label>Bookmarked</Chip.Label>
+			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
 	</Story>
 </Canvas>

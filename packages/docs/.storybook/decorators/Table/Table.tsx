@@ -81,7 +81,9 @@ const TableDecorator: DecoratorFn = (story, context) => {
 				Header: 'Progress',
 				Cell: props => (
 					<Table.Cell.Default {...props} color="primary.500" fontWeight="bold">
-						<Chip variant={getVariantFromProgress(props.value)}>{props.value}%</Chip>
+						<Chip variant={getVariantFromProgress(props.value)}>
+							<Chip.Label>{props.value}%</Chip.Label>
+						</Chip>
 					</Table.Cell.Default>
 				)
 			},
