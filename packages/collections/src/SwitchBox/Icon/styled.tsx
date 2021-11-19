@@ -7,6 +7,7 @@ import { SwitchBoxIconProps } from './types';
 const StyledSwitchBoxIconWrapper = styled(Box)``;
 
 StyledSwitchBoxIconWrapper.defaultProps = {
+	alignSelf: 'flex-start',
 	bg: 'neutral.100',
 	borderRadius: 1,
 	padding: 2,
