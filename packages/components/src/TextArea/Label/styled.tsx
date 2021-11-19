@@ -27,6 +27,13 @@ const TextAreaLabel: React.FC<TextAreaLabelProps> = styled(InputLabel)<TextAreaL
 			transform: `translate(1px, -20px)`
 		});
 	}}
+
+	${({ placeholder, theme, value }) =>
+		!value &&
+		!placeholder &&
+		css({
+			color: theme.components.input.color.default
+		})}
 `;
 
 TextAreaLabel.defaultProps = {
