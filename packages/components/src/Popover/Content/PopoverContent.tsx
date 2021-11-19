@@ -5,10 +5,12 @@ import { StyledPopover } from './styled';
 import { PopoverContentProps } from './types';
 
 const PopoverContent: React.FC<PopoverContentProps> = ({
+	children,
 	distance,
 	duration = 250,
 	enterDelay,
 	exitDelay,
+	isBlur = false,
 	isInteractive,
 	isVisible,
 	onMouseDown,
@@ -53,15 +55,18 @@ const PopoverContent: React.FC<PopoverContentProps> = ({
 			trigger={trigger}
 			touch={touch}
 			zIndex={zIndex}
-			render={(attrs, isPopoverVisible) => (
+			render={(attrs, isPopoverVisible, isHidden) => (
 				<StyledPopover
 					duration={duration}
+					isBlur={isBlur}
 					isVisible={isPopoverVisible}
 					{...rest}
 					{...attrs}
 					onMouseDown={onCustomMouseDown}
 					onTouchStart={onCustomTouchStart}
-				/>
+				>
+					{!isHidden && children}
+				</StyledPopover>
 			)}
 		/>
 	);

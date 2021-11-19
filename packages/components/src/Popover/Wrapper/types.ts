@@ -44,6 +44,7 @@ type Props = {
 			'data-escaped'?: string | undefined;
 		},
 		isVisible: boolean,
+		isHidden: boolean,
 		ref: React.RefObject<HTMLElement>
 	) => React.ReactNode;
 	/**
