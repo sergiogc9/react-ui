@@ -11,8 +11,8 @@ The divider will help you organize better your content. Really useful when you h
 
 <Story name="playground" parameters={getPlaygroundStoryParams()}>
 	{args => (
-		<Box width="800px">
-			<Divider />
+		<Box alignItems="center" height="50px" justifyContent="center" width="800px">
+			<Divider {...args} />
 		</Box>
 	)}
 </Story>
@@ -25,6 +25,18 @@ By default, it will adapt automatically to the width of your container. You can 
 	<Story name="default" parameters={getFixedStoryParams()}>
 		<Box width="800px">
 			<Divider />
+		</Box>
+	</Story>
+</Canvas>
+
+## Vertical behavior
+
+You can convert the divider into a vertical divider using the `isVertical` prop. You can use a padding to trim width from X or Y axis.
+
+<Canvas>
+	<Story name="vertical" parameters={getFixedStoryParams()}>
+		<Box height={50} width={20}>
+			<Divider isVertical />
 		</Box>
 	</Story>
 </Canvas>

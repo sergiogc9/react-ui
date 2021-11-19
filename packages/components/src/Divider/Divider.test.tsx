@@ -15,19 +15,52 @@ describe('Divider component', () => {
 
 	it('should render Divider by default', () => {
 		renderDivider();
+
 		const divider = screen.getByTestId(testID);
+
 		expect(divider).toHaveStyle(`background-color: ${getColorFromTheme(theme, 'neutral.100')}`);
+	});
+
+	it('should render Divider vertically', () => {
+		renderDivider({ isVertical: true });
+
+		const divider = screen.getByTestId(testID);
+
+		expect(divider).toHaveStyle(`
+      height: 100%;
+      width: 1px;
+    `);
 	});
 
 	it('should render Divider with custom color', () => {
 		renderDivider({ backgroundColor: 'red.500' });
+
 		const divider = screen.getByTestId(testID);
+
 		expect(divider).toHaveStyle(`background-color: ${theme.colors.red['500']};`);
 	});
 
-	it('should render Divider with custom height', () => {
-		renderDivider({ height: '2px' });
+	it('should render Divider with custom horizontal values', () => {
+		renderDivider({ height: '2px', maxWidth: 200, width: 200 });
+
 		const divider = screen.getByTestId(testID);
-		expect(divider).toHaveStyle('height: 2px;');
+
+		expect(divider).toHaveStyle(`
+      height: 2px;
+      width: 200px;
+      max-width: 200px;
+    `);
+	});
+
+	it('should render Divider with custom vertical values', () => {
+		renderDivider({ isVertical: true, height: 200, maxHeight: 200, width: 2 });
+
+		const divider = screen.getByTestId(testID);
+
+		expect(divider).toHaveStyle(`
+      height: 200px;
+      max-height: 200px;
+      width: 2px;
+    `);
 	});
 });
