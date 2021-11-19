@@ -22,10 +22,13 @@ type CustomBoxProps = {
 	id?: string;
 	backgroundClip?: string;
 	boxSizing?: string;
+	columnGap?: GridProps['gridColumnGap'];
 	cursor?: string;
 	fontFamily?: string;
+	gap?: GridProps['gridGap'];
 	outline?: string;
 	pointerEvents?: string;
+	rowGap?: GridProps['gridRowGap'];
 	textDecoration?: string;
 	transform?: string | Record<string, string> | string[];
 	transition?: string | Record<string, string> | string[];

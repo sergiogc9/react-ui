@@ -14,12 +14,15 @@ import {
 } from 'styled-system';
 
 const customBoxProps = system({
+	columnGap: { property: 'columnGap', scale: 'space' },
 	cursor: { property: 'cursor' },
 	backgroundClip: { property: 'backgroundClip' },
 	boxSizing: { property: 'boxSizing' },
 	fontFamily: { property: 'fontFamily', scale: 'fonts' },
+	gap: { property: 'gap', scale: 'space' },
 	outline: { property: 'outline' },
 	pointerEvents: { property: 'pointerEvents' },
+	rowGap: { property: 'rowGap', scale: 'space' },
 	textDecoration: { property: 'textDecoration' },
 	transform: { property: 'transform' },
 	transition: { property: 'transition' },
