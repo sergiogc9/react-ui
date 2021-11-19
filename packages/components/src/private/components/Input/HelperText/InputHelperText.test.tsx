@@ -46,7 +46,7 @@ describe('InputHelperText component', () => {
 		const inputHelperText = screen.getByTestId(inputHelperTextTestId);
 
 		expect(inputHelperText).toHaveStyle(`
-        color: ${theme.colors.neutral['400']};
+        color: ${theme.colors.neutral['300']};
     `);
 	});
 });

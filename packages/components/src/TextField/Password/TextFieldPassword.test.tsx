@@ -28,10 +28,25 @@ describe('TextField component', () => {
 		expect(input).toHaveAttribute('type', 'text');
 	});
 
+	it('should not render input as text after clicking icon if disabled', () => {
+		renderTextField({ isDisabled: true });
+		const input = screen.getByTestId(textFieldPasswordTestId)!.querySelector('input')!;
+		const icon = screen.getByTestId('text-field__password_icon')!;
+		fireEvent.click(icon);
+
+		expect(input).toHaveAttribute('type', 'password');
+	});
+
 	it('should render input as password even another type is passed in input props', () => {
 		renderTextField({ type: 'text' });
 		const input = screen.getByTestId(textFieldPasswordTestId)!.querySelector('input')!;
 
 		expect(input).toHaveAttribute('type', 'password');
+	});
+
+	it('should render field as disabled', () => {
+		renderTextField({ isDisabled: true });
+
+		expect(screen.getByTestId('text-field__password_icon')).toHaveStyle('cursor: default;');
 	});
 });

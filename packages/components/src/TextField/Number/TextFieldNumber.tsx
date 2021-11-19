@@ -10,7 +10,7 @@ import StyledTextFieldNumber from './styled';
 import { TextFieldNumberProps } from './types';
 
 const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInputElement, TextFieldNumberProps>(
-	({ defaultValue, inputProps, inputMode = 'decimal', min = 0, max, onChange, value, ...rest }, ref) => {
+	({ defaultValue, inputProps, inputMode = 'decimal', isDisabled, min = 0, max, onChange, value, ...rest }, ref) => {
 		const [numberValue, setNumberValue] = React.useState(defaultValue ? +defaultValue : '');
 
 		const innerRef = React.useRef<HTMLInputElement>(null);
@@ -21,8 +21,9 @@ const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInp
 				<Box flexDirection="column" justifyContent="center" pointerEvents="auto">
 					<IconButton
 						aspectSize="s"
+						cursor={isDisabled ? 'default' : 'pointer'}
 						data-testid="text-field__number_up_arrow"
-						isDisabled={max !== undefined && (value ?? numberValue) >= max}
+						isDisabled={isDisabled || (max !== undefined && (value ?? numberValue) >= max)}
 						onClick={() => {
 							const num = value ?? numberValue;
 							dispatchOnChange(innerRef, (+num + 1).toString());
@@ -34,7 +35,7 @@ const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInp
 					<IconButton
 						aspectSize="s"
 						data-testid="text-field__number_down_arrow"
-						isDisabled={min !== undefined && (value ?? numberValue) <= min}
+						isDisabled={isDisabled || (min !== undefined && (value ?? numberValue) <= min)}
 						onClick={() => {
 							const num = value ?? numberValue;
 							dispatchOnChange(innerRef, (+num - 1).toString());
@@ -46,7 +47,7 @@ const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInp
 					</IconButton>
 				</Box>
 			);
-		}, [max, min, numberValue, value]);
+		}, [isDisabled, max, min, numberValue, value]);
 
 		const onTextFieldChange = React.useCallback<NonNullable<TextFieldNumberProps['onChange']>>(
 			ev => {
@@ -79,6 +80,7 @@ const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInp
 			<StyledTextFieldNumber
 				{...rest}
 				inputProps={{ min, inputMode, ...inputProps }}
+				isDisabled={isDisabled}
 				onChange={onTextFieldChange}
 				onKeyDown={onKeyPressed}
 				ref={mergeRefs}

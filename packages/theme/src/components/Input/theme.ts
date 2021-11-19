@@ -9,7 +9,7 @@ const inputTheme: Input = {
 	color: {
 		default: 'neutral.600',
 		borderDefault: 'neutral.300',
-		disabled: 'neutral.400',
+		disabled: 'neutral.300',
 		error: 'red.500',
 		hover: 'neutral.900',
 		information: 'blue.500',

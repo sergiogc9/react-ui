@@ -204,7 +204,7 @@ describe('TextFieldBase component', () => {
 		expect(screen.queryByTestId(removeButtonTestId)).not.toBeVisible();
 	});
 
-	it('should not show the remove button when the input has no value', () => {
+	it('should show the remove button when the input has no value', () => {
 		const removeButtonHandler = jest.fn();
 		renderTextFieldBase({
 			hasRemoveButton: true,

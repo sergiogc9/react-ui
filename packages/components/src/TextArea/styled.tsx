@@ -7,6 +7,13 @@ import { StyledTextArea as BaseStyledTextArea } from 'components/private/compone
 import { TextAreaProps, StyledTextAreaProps } from './types';
 
 const StyledTextArea: React.FC<StyledTextAreaProps> = styled(BaseStyledTextArea)<StyledTextAreaProps>`
+	${props =>
+		props.isDisabled &&
+		css({
+			color: 'neutral.300',
+			opacity: 0.4
+		})}
+
 	${props => {
 		if (props.labelPosition === 'outside') {
 			return css({

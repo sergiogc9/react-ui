@@ -7,7 +7,7 @@ import TextFieldBase from '../Base';
 import { TextFieldDateProps } from './types';
 
 const TextFieldDate: React.FC<TextFieldDateProps> = React.forwardRef(
-	({ date, defaultDate, datePickerProps, inputProps, onClick, onDateChange, ...rest }, ref) => {
+	({ date, defaultDate, datePickerProps, inputProps, isDisabled, onClick, onDateChange, ...rest }, ref) => {
 		const { locale = 'en-US' } = datePickerProps || {};
 
 		const [inputDate, setInputDate] = React.useState(defaultDate);
@@ -62,7 +62,12 @@ const TextFieldDate: React.FC<TextFieldDateProps> = React.forwardRef(
 				<TextFieldBase
 					{...rest}
 					data-testid="TextFieldDate"
-					inputProps={{ ...inputProps, cursor: 'pointer', readOnly: true }}
+					inputProps={{
+						...inputProps,
+						cursor: isDisabled ? 'default' : 'pointer',
+						readOnly: true
+					}}
+					isDisabled={isDisabled}
 					onClick={onInputClicked}
 					onRemoveButtonClick={onRemoveBtnClicked}
 					ref={mergeRefs}

@@ -50,7 +50,7 @@ describe('InputLabel component', () => {
 		const inputLabel = screen.getByTestId(inputLabelTestId);
 
 		expect(inputLabel).toHaveStyle(`
-        color: ${theme.colors.neutral['400']};
+        color: ${theme.colors.neutral['300']};
     `);
 	});
 });

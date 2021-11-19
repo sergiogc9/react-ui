@@ -157,4 +157,12 @@ describe('TextFieldDate component', () => {
 
 		expect(mockOnChange).not.toHaveBeenCalled();
 	});
+
+	it('should render field as disabled', () => {
+		renderTextFieldDate({ isDisabled: true });
+
+		const input = screen.getByTestId('TextFieldDate').querySelector('input')!;
+
+		expect(input).toHaveStyle('cursor: default;');
+	});
 });

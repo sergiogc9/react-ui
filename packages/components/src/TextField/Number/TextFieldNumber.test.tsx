@@ -184,4 +184,11 @@ describe('TextFieldNumber component', () => {
 		expect(screen.getByDisplayValue('10')).toBeInTheDocument();
 		expect(mockOnChange).not.toHaveBeenCalled();
 	});
+
+	it('should render field as disabled', () => {
+		renderTextFieldNumber({ defaultValue: 10, isDisabled: true });
+
+		expect(screen.getByTestId('text-field__number_up_arrow')).toBeDisabled();
+		expect(screen.getByTestId('text-field__number_down_arrow')).toBeDisabled();
+	});
 });

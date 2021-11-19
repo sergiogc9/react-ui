@@ -9,10 +9,12 @@ const TextFieldPassword: React.FC<TextFieldBaseProps> = React.forwardRef<HTMLInp
 
 		const icon = (
 			<Icon
-				cursor="pointer"
+				cursor={props.isDisabled ? 'default' : 'pointer'}
 				data-testid="text-field__password_icon"
 				icon={isTextVisible ? 'eye-off' : 'eye'}
-				onClick={() => setIsTextVisible(visible => !visible)}
+				onClick={() => {
+					if (!props.isDisabled) setIsTextVisible(visible => !visible);
+				}}
 				pointerEvents="auto"
 				styling="filled"
 			/>
