@@ -1,4 +1,5 @@
 import { ArrayWithProps } from './global.types';
+import { ActionMenu } from './collections/ActionMenu';
 import { Alert } from './components/Alert';
 import { Avatar } from './components/Avatar';
 import { Button } from './components/Button';
@@ -73,6 +74,10 @@ type Locale = 'en' | 'es' | 'fr' | 'it' | 'es-MX';
 
 type Keys = Record<'googleMapsAPI', string>;
 
+interface Collections {
+	actionMenu: ActionMenu;
+}
+
 interface Components {
 	alert: Alert;
 	avatar: Avatar;
@@ -97,6 +102,7 @@ interface Components {
 }
 export interface Theme {
 	readonly breakpoints: BreakPoints;
+	readonly collections: Collections;
 	readonly colors: ThemeColors;
 	readonly components: Components;
 	readonly fonts: Fonts;

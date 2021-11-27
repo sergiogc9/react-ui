@@ -1,6 +1,7 @@
 /* eslint-disable prefer-destructuring */
 
 import colors from './colors';
+import actionMenuTheme from './collections/ActionMenu';
 import alertTheme from './components/Alert';
 import avatarTheme from './components/Avatar';
 import buttonTheme from './components/Button';
@@ -92,6 +93,7 @@ const keys: Theme['keys'] = {
 
 const theme: Theme = {
 	breakpoints,
+	collections: { actionMenu: actionMenuTheme },
 	colors,
 	fonts,
 	fontSizes,
