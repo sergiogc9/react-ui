@@ -469,8 +469,8 @@ describe('Select', () => {
 		const input = screen.getByTestId(selectTestId).querySelector('input')!;
 
 		expect(input).toHaveStyle(`
-      border-color: ${theme.colors.neutral[400]};
-    `);
+			border-color: ${theme.colors.neutral[300]};
+		`);
 		expect(input).toBeDisabled();
 	});
 

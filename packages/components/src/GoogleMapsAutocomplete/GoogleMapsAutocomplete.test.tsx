@@ -145,34 +145,6 @@ describe('GoogleMapsAutocomplete component', () => {
 		);
 	}, 20000);
 
-	it('should call onPlaceChange with fetched data', async () => {
-		renderComponent();
-
-		const input = screen.getByTestId('select-field').querySelector('input')!;
-		userEvent.clear(input);
-		userEvent.type(input, 'Girona');
-
-		jest.runAllTimers();
-
-		await waitFor(() => expect(screen.getByText(', Montilivi')).toBeInTheDocument());
-		userEvent.click(screen.getByText(', Montilivi'));
-
-		await waitFor(() =>
-			expect(mockOnPlaceChange).toHaveBeenCalledWith({
-				latitude: 10,
-				longitude: 20,
-				name: 'Girona, Montilivi',
-				placeComponents: {
-					administrative_area_level_1: 'Awesome CCAA',
-					administrative_area_level_2: 'Province Awesome',
-					country: 'Awesome Country',
-					locality: 'Awesome place'
-				},
-				placeId: '123456'
-			})
-		);
-	});
-
 	it('should call onPlaceChange with fetched data without some placeComponents', async () => {
 		mockOnGeoCode.mockResolvedValue({
 			results: [

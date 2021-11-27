@@ -1,40 +1,23 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 
 import ActionMenuDecorator from 'storybook/decorators/ActionMenu';
-import {
-  getFixedStoryParams,
-  getPlaygroundStoryParams
-} from 'storybook/parameters';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import ActionMenu from 'collections/ActionMenu';
 import Button from 'components/Button';
 
-<Meta
-  title="Collections/ActionMenu"
-  component={ActionMenu}
-  decorators={[ActionMenuDecorator]}
-/>
+<Meta title="Collections/ActionMenu" component={ActionMenu} decorators={[ActionMenuDecorator]} />
 
-<Story
-  name="playground"
-  args={{ minWidth: 200, placement: 'bottom' }}
-  parameters={getPlaygroundStoryParams()}
->
-  {(args) => (
-    <ActionMenu {...args}>
-      <ActionMenu.Item onClick={() => console.log('Edit')}>
-        Edit
-      </ActionMenu.Item>
-      <ActionMenu.Item onClick={() => console.log('Clone')}>
-        Clone
-      </ActionMenu.Item>
-      <ActionMenu.Item onClick={() => console.log('Archive')}>
-        Archive
-      </ActionMenu.Item>
-      <ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
-        Delete
-      </ActionMenu.Item>
-    </ActionMenu>
-  )}
+<Story name="playground" args={{ minWidth: 200, placement: 'bottom' }} parameters={getPlaygroundStoryParams()}>
+	{args => (
+		<ActionMenu {...args}>
+			<ActionMenu.Item onClick={() => console.log('Edit')}>Edit</ActionMenu.Item>
+			<ActionMenu.Item onClick={() => console.log('Clone')}>Clone</ActionMenu.Item>
+			<ActionMenu.Item onClick={() => console.log('Archive')}>Archive</ActionMenu.Item>
+			<ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
+				Delete
+			</ActionMenu.Item>
+		</ActionMenu>
+	)}
 </Story>
 
 # ActionMenu
@@ -51,30 +34,24 @@ Most important features:
 Look for `Popover` docs for further info. Use the `reference` prop with a ref linked to the component that acts as the trigger.
 
 ```tsx
-const App = (props) => {
-  const triggerRef = React.useRef();
+const App = props => {
+	const triggerRef = React.useRef();
 
-  return (
-    <>
-      <Box cursor="pointer" ref={triggerRef}>
-        I am the trigger 😄
-      </Box>
-      <ActionMenu reference={triggerRef}>
-        <ActionMenu.Item onClick={() => console.log('Edit')}>
-          Edit
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Clone')}>
-          Clone
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Archive')}>
-          Archive
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
-          Delete
-        </ActionMenu.Item>
-      </ActionMenu>
-    </>
-  );
+	return (
+		<>
+			<Box cursor="pointer" ref={triggerRef}>
+				I am the trigger 😄
+			</Box>
+			<ActionMenu reference={triggerRef}>
+				<ActionMenu.Item onClick={() => console.log('Edit')}>Edit</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Clone')}>Clone</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Archive')}>Archive</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
+					Delete
+				</ActionMenu.Item>
+			</ActionMenu>
+		</>
+	);
 };
 ```
 
@@ -83,84 +60,66 @@ const App = (props) => {
 Use the `placement` prop to place the component. Example with some placements:
 
 <Canvas>
-  <Story
-    name="left-start"
-    args={{
-      minWidth: 200,
-      placement: 'left-start',
-      title: 'left-start'
-    }}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <ActionMenu {...args}>
-        <ActionMenu.Item onClick={() => console.log('Edit')}>
-          Edit
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Clone')}>
-          Clone
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Archive')}>
-          Archive
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
-          Delete
-        </ActionMenu.Item>
-      </ActionMenu>
-    )}
-  </Story>
-  <Story
-    name="bottom"
-    args={{
-      minWidth: 200,
-      placement: 'bottom',
-      title: 'bottom'
-    }}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <ActionMenu {...args}>
-        <ActionMenu.Item onClick={() => console.log('Edit')}>
-          Edit
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Clone')}>
-          Clone
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Archive')}>
-          Archive
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
-          Delete
-        </ActionMenu.Item>
-      </ActionMenu>
-    )}
-  </Story>
-  <Story
-    name="right"
-    args={{
-      minWidth: 200,
-      placement: 'right',
-      title: 'right'
-    }}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <ActionMenu {...args}>
-        <ActionMenu.Item onClick={() => console.log('Edit')}>
-          Edit
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Clone')}>
-          Clone
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Archive')}>
-          Archive
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
-          Delete
-        </ActionMenu.Item>
-      </ActionMenu>
-    )}
-  </Story>
+	<Story
+		name="left-start"
+		args={{
+			minWidth: 200,
+			placement: 'left-start',
+			title: 'left-start'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<ActionMenu {...args}>
+				<ActionMenu.Item onClick={() => console.log('Edit')}>Edit</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Clone')}>Clone</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Archive')}>Archive</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
+					Delete
+				</ActionMenu.Item>
+			</ActionMenu>
+		)}
+	</Story>
+	<Story
+		name="bottom"
+		args={{
+			minWidth: 200,
+			placement: 'bottom',
+			title: 'bottom'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<ActionMenu {...args}>
+				<ActionMenu.Item onClick={() => console.log('Edit')}>Edit</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Clone')}>Clone</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Archive')}>Archive</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
+					Delete
+				</ActionMenu.Item>
+			</ActionMenu>
+		)}
+	</Story>
+	<Story
+		name="right"
+		args={{
+			minWidth: 200,
+			placement: 'right',
+			title: 'right'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<ActionMenu {...args}>
+				<ActionMenu.Item onClick={() => console.log('Edit')}>Edit</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Clone')}>Clone</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Archive')}>Archive</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
+					Delete
+				</ActionMenu.Item>
+			</ActionMenu>
+		)}
+	</Story>
 </Canvas>
 
 ## Event trigger
@@ -168,60 +127,48 @@ Use the `placement` prop to place the component. Example with some placements:
 The dropdown is shown when hovering the trigger by default. This can be changes using the `trigger` prop:
 
 <Canvas>
-  <Story
-    name="show when hover"
-    args={{
-      minWidth: 200,
-      placement: 'bottom',
-      title: 'show when hover',
-      trigger: 'mouseenter'
-    }}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <ActionMenu {...args}>
-        <ActionMenu.Item onClick={() => console.log('Edit')}>
-          Edit
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Clone')}>
-          Clone
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Archive')}>
-          Archive
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
-          Delete
-        </ActionMenu.Item>
-      </ActionMenu>
-    )}
-  </Story>
-  <Story
-    name="show when click"
-    args={{
-      minWidth: 200,
-      placement: 'bottom',
-      title: 'show when click',
-      trigger: 'click'
-    }}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <ActionMenu {...args}>
-        <ActionMenu.Item onClick={() => console.log('Edit')}>
-          Edit
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Clone')}>
-          Clone
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Archive')}>
-          Archive
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
-          Delete
-        </ActionMenu.Item>
-      </ActionMenu>
-    )}
-  </Story>
+	<Story
+		name="show when hover"
+		args={{
+			minWidth: 200,
+			placement: 'bottom',
+			title: 'show when hover',
+			trigger: 'mouseenter'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<ActionMenu {...args}>
+				<ActionMenu.Item onClick={() => console.log('Edit')}>Edit</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Clone')}>Clone</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Archive')}>Archive</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
+					Delete
+				</ActionMenu.Item>
+			</ActionMenu>
+		)}
+	</Story>
+	<Story
+		name="show when click"
+		args={{
+			minWidth: 200,
+			placement: 'bottom',
+			title: 'show when click',
+			trigger: 'click'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<ActionMenu {...args}>
+				<ActionMenu.Item onClick={() => console.log('Edit')}>Edit</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Clone')}>Clone</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Archive')}>Archive</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
+					Delete
+				</ActionMenu.Item>
+			</ActionMenu>
+		)}
+	</Story>
 </Canvas>
 
 ## ActionMenuItem Variants
@@ -229,27 +176,25 @@ The dropdown is shown when hovering the trigger by default. This can be changes 
 The `ActionMenu.Item` can be different given a `variant` prop.
 
 <Canvas>
-  <Story
-    name="items"
-    args={{
-      minWidth: 200,
-      placement: 'bottom',
-      title: 'items',
-      trigger: 'click'
-    }}
-    parameters={getFixedStoryParams()}
-  >
-    {(args) => (
-      <ActionMenu {...args}>
-        <ActionMenu.Item onClick={() => console.log('Default')}>
-          Default
-        </ActionMenu.Item>
-        <ActionMenu.Item onClick={() => console.log('Danger')} variant="danger">
-          Danger
-        </ActionMenu.Item>
-      </ActionMenu>
-    )}
-  </Story>
+	<Story
+		name="items"
+		args={{
+			minWidth: 200,
+			placement: 'bottom',
+			title: 'items',
+			trigger: 'click'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<ActionMenu {...args}>
+				<ActionMenu.Item onClick={() => console.log('Default')}>Default</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Danger')} variant="danger">
+					Danger
+				</ActionMenu.Item>
+			</ActionMenu>
+		)}
+	</Story>
 </Canvas>
 
 ## ActionMenu API

@@ -120,7 +120,7 @@ describe('Toasts', () => {
 
 		await waitFor(() => {
 			jest.runAllTimers();
-			fireEvent.animationEnd(screen.queryByText('Added toast')!);
+			fireEvent.animationEnd(screen.getAllByTestId('toast')[1]);
 		});
 
 		expect(screen.queryByText('Added toast')).toBeNull();
@@ -183,7 +183,7 @@ describe('Toasts', () => {
 
 		await waitFor(() => {
 			jest.runAllTimers();
-			fireEvent.animationEnd(screen.queryByText(toastText)!);
+			fireEvent.animationEnd(screen.getByTestId('toast'));
 		});
 
 		expect(mockOnClose).toHaveBeenCalled();
