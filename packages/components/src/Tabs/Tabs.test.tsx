@@ -13,6 +13,7 @@ const TabTitle = 'Awesome tab';
 const TabContent = 'Awesome content';
 const nonDefaultTabContent = 'Awesome content of my life';
 
+const mockOnTabChange = jest.fn();
 const renderTabs = (props?: Partial<TabsProps>) =>
 	render(
 		withTheme(
@@ -30,15 +31,31 @@ const renderTabs = (props?: Partial<TabsProps>) =>
 describe('Tabs component', () => {
 	afterEach(cleanup);
 
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
+
 	it('should render tabs content', () => {
 		renderTabs();
+
 		expect(screen.getByText(TabContent)).toBeInTheDocument();
 	});
 
 	it('should render content if clicking his tab', async () => {
 		renderTabs();
+
 		const trigger = screen.getByText(nonDefaultTab);
 		userEvent.click(trigger);
+
 		await waitFor(() => expect(screen.getByText(nonDefaultTabContent)).toBeVisible());
+	});
+
+	it('should call on tab change handler when changing the tab', async () => {
+		renderTabs({ onTabChange: mockOnTabChange });
+
+		const trigger = screen.getByText(nonDefaultTab);
+		userEvent.click(trigger);
+
+		await waitFor(() => expect(mockOnTabChange).toHaveBeenCalledWith(nonDefaultTab));
 	});
 });

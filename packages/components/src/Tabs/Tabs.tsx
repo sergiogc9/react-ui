@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 
 import TabsContext from 'components/Tabs/Context';
+
 import StyledTabs from './styled';
 import { TabsProps } from './types';
 
-const Tabs: React.FC<TabsProps> = ({ children, defaultTab, ...props }) => {
+const Tabs: React.FC<TabsProps> = ({ children, defaultTab, onTabChange, ...props }) => {
 	const [activeID, setActive] = useState(defaultTab);
-
 	const contextValues = React.useMemo(
 		() => ({
 			activeID,
-			onTabClicked: (id: string) => setActive(id)
+			onTabClicked: (id: string) => {
+				setActive(id);
+				if (onTabChange) onTabChange(id);
+			}
 		}),
-		[activeID]
+		[activeID, onTabChange]
 	);
 
 	return (
