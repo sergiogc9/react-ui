@@ -24,8 +24,8 @@ const defaultColumns: Column<TestData>[] = [
 
 const defaultData: TestData[] = [
 	{ id: 1, name: 'Sergio' },
-	{ id: 2, name: 'Carla' },
-	{ id: 3, name: 'Pablo' }
+	{ id: 2, name: 'Ruben' },
+	{ id: 3, name: 'Valentin' }
 ];
 
 const defaultTableOptions: TableProps<TestData>['tableOptions'] = {};

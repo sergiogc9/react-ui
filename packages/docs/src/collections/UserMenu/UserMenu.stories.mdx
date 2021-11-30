@@ -1,0 +1,420 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+
+import UserMenuDecorator from 'storybook/decorators/UserMenu';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
+import UserMenu from 'collections/UserMenu';
+import Button from 'components/Button';
+
+<Meta title="Collections/UserMenu" component={UserMenu} decorators={[UserMenuDecorator]} />
+
+<Story
+	name="playground"
+	args={{
+		isInteractive: true,
+		isMobileFullScreenEnabled: true,
+		minWidth: 200,
+		placement: 'bottom',
+		isMobileFooter: false
+	}}
+	parameters={getPlaygroundStoryParams(['isMobileFooter'])}
+>
+	{args => (
+		<UserMenu {...args}>
+			<UserMenu.Title>Hello, Sergio Gómez</UserMenu.Title>
+			<UserMenu.Item onClick={() => alert('User settings!')}>
+				<UserMenu.Item.Icon icon="user-circle" styling="outlined" />
+				<UserMenu.Item.Text>User settings</UserMenu.Item.Text>
+			</UserMenu.Item>
+			<UserMenu.Item onClick={() => alert('Company settings!')}>
+				<UserMenu.Item.Icon icon="business" styling="outlined" />
+				<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+			</UserMenu.Item>
+			<UserMenu.Footer>
+				{args.isMobileFullScreenEnabled && args.isMobileFooter ? (
+					<Button aspectSize="l" variant="secondary" width="100%">
+						Logout
+					</Button>
+				) : (
+					<UserMenu.Item onClick={() => alert('Logout')}>
+						<UserMenu.Item.Icon icon="logout" styling="outlined" />
+						<UserMenu.Item.Text>Logout</UserMenu.Item.Text>
+					</UserMenu.Item>
+				)}
+			</UserMenu.Footer>
+		</UserMenu>
+	)}
+</Story>
+
+# UserMenu
+
+The User Menu is a `PopoverContent` wrapper in order to show a drop down when hovering or clicking an element.
+
+Most important features:
+
+- It is a `Popover.Content` component, hence it inherits all its props.
+- Includes the `UserMenu.Title`, `UserMenu.Icon` and `UserMenu.Footer` namespaced components ready to use.
+
+## Usage
+
+- Look for `Popover` docs for further info. Use the `reference` prop with a ref linked to the component that acts as the trigger.
+- By default the user menu doesn't close by itself when a UserMenu.Item is clicked, use the `onClose` handler and the `isVisible` prop to reach the wanted behavior.
+
+```tsx
+const App = props => {
+	const triggerRef = React.useRef();
+
+	return (
+		<>
+			<Box cursor="pointer" ref={triggerRef}>
+				I am the trigger 😄
+			</Box>
+			<UserMenu reference={triggerRef}>
+				<UserMenu.Title>Sergio Gómez</UserMenu.Title>
+				<UserMenu.Item onClick={() => alert('User settings!')}>
+					<UserMenu.Item.Icon icon="user-circle" styling="outlined" />
+					<UserMenu.Item.Text>User settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Company settings!')}>
+					<UserMenu.Item.Icon icon="business" styling="outlined" />
+					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Footer>
+					<UserMenu.Item onClick={() => alert('Logout')}>
+						<UserMenu.Item.Icon icon="logout" styling="outlined" />
+						<UserMenu.Item.Text>Logout</UserMenu.Item.Text>
+					</UserMenu.Item>
+				</UserMenu.Footer>
+			</UserMenu>
+		</>
+	);
+};
+```
+
+## Positioning
+
+Use the `placement` prop to place the component. Example with some placements:
+
+<Canvas>
+	<Story
+		name="left-start"
+		args={{
+			isInteractive: true,
+			isMobileFullScreenEnabled: false,
+			minWidth: 200,
+			placement: 'left-start',
+			title: 'left-start'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<UserMenu {...args}>
+				<UserMenu.Title>Sergio Gómez</UserMenu.Title>
+				<UserMenu.Item onClick={() => alert('User settings!')}>
+					<UserMenu.Item.Icon icon="user-circle" styling="outlined" />
+					<UserMenu.Item.Text>User settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Company settings!')}>
+					<UserMenu.Item.Icon icon="business" styling="outlined" />
+					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Footer>
+					<UserMenu.Item onClick={() => alert('Logout')}>
+						<UserMenu.Item.Icon icon="logout" styling="outlined" />
+						<UserMenu.Item.Text>Logout</UserMenu.Item.Text>
+					</UserMenu.Item>
+				</UserMenu.Footer>
+			</UserMenu>
+		)}
+	</Story>
+	<Story
+		name="bottom"
+		args={{
+			isInteractive: true,
+			isMobileFullScreenEnabled: false,
+			minWidth: 200,
+			placement: 'bottom',
+			title: 'bottom'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<UserMenu {...args}>
+				<UserMenu.Title>Sergio Gómez</UserMenu.Title>
+				<UserMenu.Item onClick={() => alert('User settings!')}>
+					<UserMenu.Item.Icon icon="user-circle" styling="outlined" />
+					<UserMenu.Item.Text>User settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Company settings!')}>
+					<UserMenu.Item.Icon icon="business" styling="outlined" />
+					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Footer>
+					<UserMenu.Item onClick={() => alert('Logout')}>
+						<UserMenu.Item.Icon icon="logout" styling="outlined" />
+						<UserMenu.Item.Text>Logout</UserMenu.Item.Text>
+					</UserMenu.Item>
+				</UserMenu.Footer>
+			</UserMenu>
+		)}
+	</Story>
+	<Story
+		name="right"
+		args={{
+			isInteractive: true,
+			isMobileFullScreenEnabled: false,
+			minWidth: 200,
+			placement: 'right',
+			title: 'right'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<UserMenu {...args}>
+				<UserMenu.Title>Sergio Gómez</UserMenu.Title>
+				<UserMenu.Item onClick={() => alert('User settings!')}>
+					<UserMenu.Item.Icon icon="user-circle" styling="outlined" />
+					<UserMenu.Item.Text>User settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Company settings!')}>
+					<UserMenu.Item.Icon icon="business" styling="outlined" />
+					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Footer>
+					<UserMenu.Item onClick={() => alert('Logout')}>
+						<UserMenu.Item.Icon icon="logout" styling="outlined" />
+						<UserMenu.Item.Text>Logout</UserMenu.Item.Text>
+					</UserMenu.Item>
+				</UserMenu.Footer>
+			</UserMenu>
+		)}
+	</Story>
+</Canvas>
+
+## User interaction
+
+By default, the user menu is shown when hovering the trigger element and is hidden when unhoverint it. This behavior can be changes using the `isInteractive` prop which keeps the dropdown visible if the user hovers it.
+
+<Canvas>
+	<Story
+		name="non interactive"
+		args={{
+			isInteractive: false,
+			isMobileFullScreenEnabled: false,
+			minWidth: 200,
+			placement: 'bottom',
+			title: 'non interactive'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<UserMenu {...args}>
+				<UserMenu.Title>Sergio Gómez</UserMenu.Title>
+				<UserMenu.Item onClick={() => alert('User settings!')}>
+					<UserMenu.Item.Icon icon="user-circle" styling="outlined" />
+					<UserMenu.Item.Text>User settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Company settings!')}>
+					<UserMenu.Item.Icon icon="business" styling="outlined" />
+					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Footer>
+					<UserMenu.Item onClick={() => alert('Logout')}>
+						<UserMenu.Item.Icon icon="logout" styling="outlined" />
+						<UserMenu.Item.Text>Logout</UserMenu.Item.Text>
+					</UserMenu.Item>
+				</UserMenu.Footer>
+			</UserMenu>
+		)}
+	</Story>
+	<Story
+		name="interactive"
+		args={{
+			isInteractive: true,
+			isMobileFullScreenEnabled: false,
+			minWidth: 200,
+			placement: 'bottom',
+			title: 'interactive'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<UserMenu {...args}>
+				<UserMenu.Title>Sergio Gómez</UserMenu.Title>
+				<UserMenu.Item onClick={() => alert('User settings!')}>
+					<UserMenu.Item.Icon icon="user-circle" styling="outlined" />
+					<UserMenu.Item.Text>User settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Company settings!')}>
+					<UserMenu.Item.Icon icon="business" styling="outlined" />
+					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Footer>
+					<UserMenu.Item onClick={() => alert('Logout')}>
+						<UserMenu.Item.Icon icon="logout" styling="outlined" />
+						<UserMenu.Item.Text>Logout</UserMenu.Item.Text>
+					</UserMenu.Item>
+				</UserMenu.Footer>
+			</UserMenu>
+		)}
+	</Story>
+</Canvas>
+
+## Event trigger
+
+The dropdown is shown when hovering the trigger by default. This can be changes using the `trigger` prop:
+
+<Canvas>
+	<Story
+		name="show when hover"
+		args={{
+			isInteractive: true,
+			isMobileFullScreenEnabled: false,
+			minWidth: 200,
+			placement: 'bottom',
+			title: 'show when hover',
+			trigger: 'mouseenter'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<UserMenu {...args}>
+				<UserMenu.Title>Sergio Gómez</UserMenu.Title>
+				<UserMenu.Item onClick={() => alert('User settings!')}>
+					<UserMenu.Item.Icon icon="user-circle" styling="outlined" />
+					<UserMenu.Item.Text>User settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Company settings!')}>
+					<UserMenu.Item.Icon icon="business" styling="outlined" />
+					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Footer>
+					<UserMenu.Item onClick={() => alert('Logout')}>
+						<UserMenu.Item.Icon icon="logout" styling="outlined" />
+						<UserMenu.Item.Text>Logout</UserMenu.Item.Text>
+					</UserMenu.Item>
+				</UserMenu.Footer>
+			</UserMenu>
+		)}
+	</Story>
+	<Story
+		name="show when click"
+		args={{
+			isInteractive: true,
+			isMobileFullScreenEnabled: false,
+			minWidth: 200,
+			placement: 'bottom',
+			title: 'show when click',
+			trigger: 'click'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<UserMenu {...args}>
+				<UserMenu.Title>Sergio Gómez</UserMenu.Title>
+				<UserMenu.Item onClick={() => alert('User settings!')}>
+					<UserMenu.Item.Icon icon="user-circle" styling="outlined" />
+					<UserMenu.Item.Text>User settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Company settings!')}>
+					<UserMenu.Item.Icon icon="business" styling="outlined" />
+					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Footer>
+					<UserMenu.Item onClick={() => alert('Logout')}>
+						<UserMenu.Item.Icon icon="logout" styling="outlined" />
+						<UserMenu.Item.Text>Logout</UserMenu.Item.Text>
+					</UserMenu.Item>
+				</UserMenu.Footer>
+			</UserMenu>
+		)}
+	</Story>
+</Canvas>
+
+## Fullscreen mode on mobile
+
+By default the UserMenu changes when using it on mobile devices.
+
+Instead of showing a popover next to the trigger element it pops an overlay that fills all the viewport and can be closed by a close icon. This behavior can be disabled by setting `isMobileFullScreenEnabled` to `false`.
+
+**<font size="3">Warning: </font>** In order to work properly this component can either be uncontrolled by using passing the trigger element throught the prop `reference` **(take into account that it doesn't work with a `<Popover.Trigger>`)** or be controlled by using the props `isVisible` and `onClose`.
+
+To see the difference you should watch this Story with a _mobile device_.
+
+<Canvas>
+	<Story
+		name="popover menu on mobile"
+		args={{
+			isInteractive: true,
+			isMobileFullScreenEnabled: false,
+			minWidth: 200,
+			placement: 'bottom',
+			title: 'popover menu on mobile'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<UserMenu {...args}>
+				<UserMenu.Title>Sergio Gómez</UserMenu.Title>
+				<UserMenu.Item onClick={() => alert('User settings!')}>
+					<UserMenu.Item.Icon icon="user-circle" styling="outlined" />
+					<UserMenu.Item.Text>User settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Company settings!')}>
+					<UserMenu.Item.Icon icon="business" styling="outlined" />
+					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Footer>
+					<UserMenu.Item onClick={() => alert('Logout')}>
+						<UserMenu.Item.Icon icon="logout" styling="outlined" />
+						<UserMenu.Item.Text>Logout</UserMenu.Item.Text>
+					</UserMenu.Item>
+				</UserMenu.Footer>
+			</UserMenu>
+		)}
+	</Story>
+	<Story
+		name="fullscreen menu on mobile"
+		args={{
+			isInteractive: true,
+			minWidth: 200,
+			placement: 'bottom',
+			title: 'fullscreen menu on mobile'
+		}}
+		parameters={getFixedStoryParams()}
+	>
+		{args => (
+			<UserMenu {...args}>
+				<UserMenu.Title>Sergio Gómez</UserMenu.Title>
+				<UserMenu.Item onClick={() => alert('User settings!')}>
+					<UserMenu.Item.Icon icon="user-circle" styling="outlined" />
+					<UserMenu.Item.Text>User settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Company settings!')}>
+					<UserMenu.Item.Icon icon="business" styling="outlined" />
+					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Footer>
+					<Button aspectSize="l" variant="secondary" width="100%">
+						Logout
+					</Button>
+				</UserMenu.Footer>
+			</UserMenu>
+		)}
+	</Story>
+</Canvas>
+
+## UserMenu API
+
+<ArgsTable of={UserMenu} />
+
+## UserMenu.Footer API
+
+<ArgsTable of={UserMenu.Footer} />
+
+## UserMenu.Item API
+
+<ArgsTable of={UserMenu.Item} />
+
+## UserMenu.Title API
+
+<ArgsTable of={UserMenu.Title} />

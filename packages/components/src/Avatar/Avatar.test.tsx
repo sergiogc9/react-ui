@@ -7,8 +7,8 @@ import Avatar from 'components/Avatar';
 import { AvatarProps } from './types';
 
 const avatarTestId = 'Avatar';
-const avatarTestChildren = 'Dani Ramírez';
-const avatarTestChildrenOneInitial = 'Dani';
+const avatarTestChildren = 'Sergio Gómez';
+const avatarTestChildrenOneInitial = 'Sergio';
 
 const renderAvatar = (props?: Partial<AvatarProps>) =>
 	render(withTheme(<Avatar data-testid={avatarTestId} {...props} />));
@@ -27,13 +27,13 @@ describe('Avatar component', () => {
 	it('should render avatar with two initials', () => {
 		renderAvatar({ children: avatarTestChildren });
 
-		expect(screen.getByText('DR')).toBeInTheDocument();
+		expect(screen.getByText('SG')).toBeInTheDocument();
 	});
 
 	it('should render avatar with one initial', () => {
 		renderAvatar({ children: avatarTestChildrenOneInitial });
 
-		expect(screen.getByText('D')).toBeInTheDocument();
+		expect(screen.getByText('S')).toBeInTheDocument();
 	});
 
 	it('should render avatar with svg icon', () => {
@@ -58,7 +58,7 @@ describe('Avatar component', () => {
 		const avatar = screen.getByTestId(avatarTestId);
 		fireEvent.error(avatar.querySelector(`img`)!);
 
-		expect(screen.getByText('DR')).toBeInTheDocument();
+		expect(screen.getByText('SG')).toBeInTheDocument();
 	});
 
 	it('should show the icon if the url image fails to load', () => {
