@@ -1,16 +1,6 @@
 import { Button } from './types';
 
 const buttonTheme: Button = {
-	borderRadius: {
-		danger: 0,
-		default: 0,
-		floating: 3,
-		link: 0,
-		primary: 0,
-		secondary: 0,
-		subtle: 0,
-		warning: 0
-	},
 	colors: {
 		danger: {
 			focusShadow: 'red.300',
@@ -26,14 +16,6 @@ const buttonTheme: Button = {
 				default: 'primary.700',
 				hover: 'primary.500',
 				active: 'primary.800'
-			}
-		},
-		floating: {
-			focusShadow: 'primary.200',
-			background: {
-				default: 'primary.500',
-				hover: 'primary.400',
-				active: 'primary.600'
 			}
 		},
 		link: {

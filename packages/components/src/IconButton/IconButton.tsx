@@ -5,10 +5,7 @@ import StyledIconButton from './styled';
 import { IconButtonProps } from './types';
 
 const IconButton: React.FC<IconButtonProps> = React.forwardRef(
-	(
-		{ aspectSize = 'm', children, isDisabled = false, onClick, variant = 'default', type = 'button', ...props },
-		ref
-	) => {
+	({ aspectSize = 'm', children, isDisabled = false, onClick, type = 'button', ...props }, ref) => {
 		const onBtnClicked = React.useCallback<NonNullable<IconButtonProps['onClick']>>(
 			ev => {
 				if (onClick) onClick(ev);
@@ -25,7 +22,6 @@ const IconButton: React.FC<IconButtonProps> = React.forwardRef(
 				isDisabled={isDisabled}
 				onClick={onBtnClicked}
 				ref={ref}
-				variant={variant}
 				type={type}
 			>
 				{children}

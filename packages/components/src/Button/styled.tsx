@@ -24,6 +24,7 @@ const StyledButton: React.FC<StyledButtonProps> = styled(Box)<StyledButtonProps>
 StyledButton.defaultProps = {
 	alignItems: 'center',
 	border: '1px solid transparent',
+	borderRadius: 0,
 	boxSizing: 'border-box',
 	cursor: 'pointer',
 	fontWeight: 'bold',

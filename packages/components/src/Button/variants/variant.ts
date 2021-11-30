@@ -23,7 +23,6 @@ export default (props: StyledProps<ButtonProps>) => {
 			props.borderColor ??
 			(getButtonColorWithOpacity(props, props.theme.components.button.colors[variantProp!].border || '') ||
 				'transparent'),
-		borderRadius: props.borderRadius ?? props.theme.components.button.borderRadius[variantProp!],
 		fontWeight: 'bold',
 
 		'&:focus-visible': {
@@ -58,7 +57,6 @@ export default (props: StyledProps<ButtonProps>) => {
 		variants: {
 			danger: generateCSS('danger'),
 			default: generateCSS('default'),
-			floating: generateCSS('floating'),
 			link: {
 				...generateCSS('link'),
 				fontWeight: 'semibold'

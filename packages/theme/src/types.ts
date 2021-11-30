@@ -7,6 +7,7 @@ import { Chip } from './components/Chip';
 import { Content } from './components/Content';
 import { Counter } from './components/Counter/types';
 import { DatePicker } from './components/DatePicker';
+import { FloatingButton } from './components/FloatingButton';
 import { Icon } from './components/Icon';
 import { IconButton } from './components/IconButton';
 import { Input } from './components/Input';
@@ -86,6 +87,7 @@ interface Components {
 	content: Content;
 	counter: Counter;
 	datePicker: DatePicker;
+	floatingButton: FloatingButton;
 	icon: Icon;
 	iconButton: IconButton;
 	input: Input;

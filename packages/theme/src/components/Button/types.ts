@@ -1,7 +1,6 @@
 type ButtonAspectSizes = 's' | 'm' | 'l';
-type ButtonVariants = 'danger' | 'default' | 'floating' | 'link' | 'primary' | 'secondary' | 'subtle' | 'warning';
+type ButtonVariants = 'danger' | 'default' | 'link' | 'primary' | 'secondary' | 'subtle' | 'warning';
 type ButtonBackgrounds = Record<'default' | 'hover' | 'active', string>;
-type ButtonBorderRadius = Record<ButtonVariants, number | number[]>;
 type ButtonColor = Record<'focusShadow', string> &
 	Partial<Record<'border' | 'text', string>> &
 	Record<'background', ButtonBackgrounds>;
@@ -14,7 +13,6 @@ type ButtonPadding = Record<'default' | 'leftIcon' | 'rightIcon', string | strin
 type ButtonPaddings = Record<ButtonAspectSizes, ButtonPadding>;
 
 export interface Button {
-	readonly borderRadius: ButtonBorderRadius;
 	readonly colors: ButtonColors;
 	readonly heights: ButtonHeights;
 	readonly iconMargins: ButtonIconMargins;

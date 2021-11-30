@@ -15,14 +15,10 @@ type Props = {
 	 * If true, a loader spinner is shown
 	 */
 	readonly isLoading?: boolean;
-	/**
-	 * The variant type of the button
-	 */
-	readonly variant?: 'danger' | 'default' | 'link' | 'primary' | 'secondary' | 'subtle' | 'warning';
+};
+type StyledProps = {
+	readonly hasText: boolean;
 };
 
-export type ButtonProps = Props & BoxProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
-
-export type StyledButtonProps = ButtonProps & {
-	hasIcon: 'left' | 'right' | false;
-};
+export type FloatingButtonProps = Props & BoxProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+export type StyledFloatingButtonProps = StyledProps & FloatingButtonProps;

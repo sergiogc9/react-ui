@@ -1,11 +1,32 @@
 import styled, { css } from 'styled-components';
+import systemCSS from '@styled-system/css';
 
 import Box from 'components/Box';
 import aspectSize from './variants/aspectSize';
-import variant from './variants/variant';
 import { IconButtonProps } from './types';
 
 const StyledIconButton: React.FC<IconButtonProps> = styled(Box)<IconButtonProps>`
+	${props =>
+		systemCSS({
+			bg: (props.bg as any) ?? props.theme.components.iconButton.colors.background.default,
+			borderColor: (props.borderColor as any) ?? 'transparent',
+			color: (props.color as any) ?? props.theme.components.iconButton.colors.icon,
+
+			'&:focus-visible': {
+				borderColor: props.theme.components.iconButton.colors.borderActive || 'transparent'
+			},
+
+			'@media (hover: hover)': (!props.isDisabled as any) && {
+				'&:hover': {
+					bg: (props.bg as any) ?? props.theme.components.iconButton.colors.background.hover
+				}
+			},
+
+			'&:active': (!props.isDisabled as any) && {
+				bg: (props.bg as any) ?? props.theme.components.iconButton.colors.background.active
+			}
+		})}
+
 	${props =>
 		props.isDisabled &&
 		css`
@@ -14,7 +35,6 @@ const StyledIconButton: React.FC<IconButtonProps> = styled(Box)<IconButtonProps>
 		`}
 
 	${aspectSize};
-	${variant};
 `;
 
 StyledIconButton.defaultProps = {

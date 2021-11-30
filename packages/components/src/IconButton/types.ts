@@ -11,10 +11,6 @@ type Props = {
 	 * If true, the button is disabled
 	 */
 	readonly isDisabled?: boolean;
-	/**
-	 * The variant type of the button
-	 */
-	readonly variant?: 'default' | 'floating';
 };
 
 export type IconButtonProps = Props & BoxProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;

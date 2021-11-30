@@ -14,8 +14,7 @@ The IconButton component can be used to show a button with only an icon. If you 
 	args={{
 		aspectSize: 'm',
 		icon: 'delete',
-		iconStyling: 'filled',
-		variant: 'default'
+		iconStyling: 'filled'
 	}}
 	argTypes={{
 		iconStyling: {
@@ -29,7 +28,7 @@ The IconButton component can be used to show a button with only an icon. If you 
 >
 	{args => (
 		<IconButton {...args}>
-			<Icon aspectSize={args.aspectSize} icon={args.icon} styling={args.iconStyling} />
+			<Icon aspectSize={args.aspectSize === 'xl' ? 'l' : args.aspectSize} icon={args.icon} styling={args.iconStyling} />
 		</IconButton>
 	)}
 </Story>
@@ -56,38 +55,9 @@ Based on that value it changes some attributes as its size.
 			<Icon aspectSize="l" icon="delete" styling="filled" />
 		</IconButton>
 	</Story>
-</Canvas>
-
-## Variant prop
-
-The prop `variant` switches between the different versions of the icon button:
-
-#### Default
-
-<Canvas>
-	<Story name="default" parameters={getFixedStoryParams()}>
-		<IconButton variant="default" title="default">
-			<Icon icon="delete" styling="filled" />
-		</IconButton>
-	</Story>
-	<Story name="default disabled" parameters={getFixedStoryParams()}>
-		<IconButton variant="default" isDisabled title="default disabled">
-			<Icon icon="delete" styling="filled" />
-		</IconButton>
-	</Story>
-</Canvas>
-
-#### Floating
-
-<Canvas>
-	<Story name="floating" parameters={getFixedStoryParams()}>
-		<IconButton variant="floating" title="floating">
-			<Icon icon="delete" styling="filled" />
-		</IconButton>
-	</Story>
-	<Story name="floating disabled" parameters={getFixedStoryParams()}>
-		<IconButton variant="floating" isDisabled title="floating disabled">
-			<Icon icon="delete" styling="filled" />
+	<Story name="xl" parameters={getFixedStoryParams()}>
+		<IconButton aspectSize="xl" title="xl">
+			<Icon aspectSize="l" icon="delete" styling="filled" />
 		</IconButton>
 	</Story>
 </Canvas>

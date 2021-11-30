@@ -39,12 +39,6 @@ describe('Button component', () => {
 		expect(iconButton).toHaveStyle(`height: ${theme.components.iconButton.sizes.s}px;`);
 	});
 
-	it('should render render correct variant', () => {
-		renderButton({ variant: 'floating' });
-		const iconButton = screen.getByTestId(iconButtonTestId);
-		expect(iconButton).toHaveStyle(`background: ${theme.components.iconButton.colors.floating.background.default};`);
-	});
-
 	it('should render custom css props', () => {
 		renderButton({
 			bg: 'lightblue',

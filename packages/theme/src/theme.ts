@@ -9,6 +9,7 @@ import chipTheme from './components/Chip';
 import contentTheme from './components/Content';
 import counterTheme from './components/Counter';
 import datePickerTheme from './components/DatePicker';
+import floatingButtonTheme from './components/FloatingButton';
 import iconButtonTheme from './components/IconButton';
 import iconTheme from './components/Icon';
 import inputTheme from './components/Input';
@@ -113,6 +114,7 @@ const theme: Theme = {
 		content: contentTheme,
 		counter: counterTheme,
 		datePicker: datePickerTheme,
+		floatingButton: floatingButtonTheme,
 		icon: iconTheme,
 		iconButton: iconButtonTheme,
 		input: inputTheme,

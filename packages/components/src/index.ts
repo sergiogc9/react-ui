@@ -11,6 +11,12 @@ export { default as Counter, CounterProps } from './Counter';
 export { default as DatePicker, DatePickerProps, DatePickerPopoverProps } from './DatePicker';
 export { default as Divider, DividerProps } from './Divider';
 export {
+	default as FloatingButton,
+	FloatingButtonProps,
+	FloatingButtonIconProps,
+	FloatingButtonTextProps
+} from './FloatingButton';
+export {
 	default as GoogleMapsAutocomplete,
 	GoogleMapsAutocompleteProps,
 	GoogleMapsPlace,
