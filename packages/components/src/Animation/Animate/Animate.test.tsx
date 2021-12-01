@@ -2,7 +2,7 @@ import React from 'react';
 import { keyframes } from 'styled-components';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 
-import { withTheme } from 'components/private/utils/tests';
+import { useAnimationsInTests, withTheme } from 'components/private/utils/tests';
 import Animate from './Animate';
 import { AnimateProps } from './types';
 
@@ -41,6 +41,10 @@ const renderAnimate = (props?: Partial<AnimateProps>) => render(getComponent(pro
 
 describe('Animate Animation component', () => {
 	afterEach(cleanup);
+
+	beforeAll(() => {
+		useAnimationsInTests();
+	});
 
 	beforeEach(() => {
 		jest.resetAllMocks();

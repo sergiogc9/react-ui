@@ -1,13 +1,11 @@
 import React from 'react';
-import { cleanup, render, screen, waitFor } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { getPopoverContentMock, mockGoogleMapsAPI, withTheme } from 'components/private/utils/tests';
+import { mockGoogleMapsAPI, withTheme } from 'components/private/utils/tests';
 
 import GoogleMapsAutocomplete from './GoogleMapsAutocomplete';
 import { GoogleMapsAutocompleteProps, GoogleMapsPlace } from './types';
-
-jest.mock('components/Popover', () => getPopoverContentMock());
 
 const googleMapsAutocompleteTestId = 'GoogleMapsAutocomplete';
 
@@ -174,7 +172,7 @@ describe('GoogleMapsAutocomplete component', () => {
 		jest.runAllTimers();
 
 		await waitFor(() => expect(screen.getByText(', Montilivi')).toBeInTheDocument());
-		userEvent.click(screen.getByText(', Montilivi'));
+		fireEvent.click(screen.getByText(', Montilivi'));
 
 		await waitFor(() =>
 			expect(mockOnPlaceChange).toHaveBeenCalledWith({
@@ -303,8 +301,8 @@ describe('GoogleMapsAutocomplete component', () => {
 
 		jest.runAllTimers();
 
-		await waitFor(() => expect(screen.getByText(', Montilivi')).toBeInTheDocument(), { timeout: 20000 });
-		userEvent.click(screen.getByText(', Montilivi'));
+		await waitFor(() => expect(screen.getByText(', Montilivi')).toBeInTheDocument());
+		fireEvent.click(screen.getByText(', Montilivi'));
 
 		await waitFor(() => expect(mockOnApiError).toHaveBeenCalled());
 	});

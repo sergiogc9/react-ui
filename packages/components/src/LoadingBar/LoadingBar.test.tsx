@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import { withTheme } from 'components/private/utils/tests';
+import { useAnimationsInTests, withTheme } from 'components/private/utils/tests';
 
 import { LoadingBarProps } from './types';
 import LoadingBar from '.';
@@ -16,6 +16,10 @@ const renderComponent = (props: Partial<LoadingBarProps> = {}) => render(withThe
 jest.useFakeTimers('modern');
 
 describe('LoadingBar', () => {
+	beforeAll(() => {
+		useAnimationsInTests();
+	});
+
 	beforeEach(() => {
 		jest.resetAllMocks();
 	});

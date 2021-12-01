@@ -1,7 +1,7 @@
 import React from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
 
-import { withTheme } from 'components/private/utils/tests';
+import { useAnimationsInTests, withTheme } from 'components/private/utils/tests';
 import { BaseAnimationProps } from 'components/Animation';
 import FadeOut, { FadeOutAnimation } from './FadeOut';
 
@@ -19,6 +19,10 @@ const renderFadeOut = (props?: Partial<BaseAnimationProps>) =>
 
 describe('FadeOut Animation component', () => {
 	afterEach(cleanup);
+
+	beforeAll(() => {
+		useAnimationsInTests();
+	});
 
 	it('should render the content', () => {
 		renderFadeOut();

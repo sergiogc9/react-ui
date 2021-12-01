@@ -2,8 +2,9 @@ import React from 'react';
 import { cleanup, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { withTheme } from 'components/private/utils/tests';
+import { useAnimationsInTests, withTheme } from 'components/private/utils/tests';
 import Popover from 'components/Popover';
+
 import { PopoverProps } from './types';
 
 const popoverTestId = 'Popover';
@@ -22,6 +23,10 @@ const renderPopover = (props?: Partial<PopoverProps>, trigger?: string) =>
 
 describe('Popover component', () => {
 	afterEach(cleanup);
+
+	beforeAll(() => {
+		useAnimationsInTests();
+	});
 
 	it('should render trigger element', () => {
 		renderPopover();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { cleanup, render, screen, waitFor } from '@testing-library/react';
 
-import { withTheme } from 'components/private/utils/tests';
+import { useAnimationsInTests, withTheme } from 'components/private/utils/tests';
 import PopoverContext from '../Context';
 import { PopoverContextData } from '../Context/types';
 import Popover from '..';
@@ -29,6 +29,10 @@ const renderPopoverWrapper = (
 
 describe('PopoverWrapper component', () => {
 	afterEach(cleanup);
+
+	beforeAll(() => {
+		useAnimationsInTests();
+	});
 
 	it('should not render content by default', () => {
 		renderPopoverWrapper();

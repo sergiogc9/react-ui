@@ -39,7 +39,6 @@ const PopoverWrapper: React.FC<PopoverWrapperProps> = ({
 	zIndex = theme.zIndices.popover
 }) => {
 	const [isTippyVisible, setIsTippyVisible] = React.useState(!!isVisible);
-	const [isTippyHidden, setIsTippyHidden] = React.useState(!isTippyVisible);
 
 	const { popoverRef } = React.useContext(PopoverContext);
 
@@ -64,12 +63,11 @@ const PopoverWrapper: React.FC<PopoverWrapperProps> = ({
 				}, duration);
 			}}
 			onMount={() => {
-				setIsTippyHidden(false);
 				setIsTippyVisible(true);
 			}}
 			placement={placement}
 			render={attrs => {
-				return render(attrs, isTippyVisible, isTippyHidden, popoverContentRef);
+				return render(attrs, isTippyVisible, popoverContentRef);
 			}}
 			reference={reference || popoverRef}
 			trigger={isVisible === undefined ? trigger : undefined}
@@ -77,10 +75,6 @@ const PopoverWrapper: React.FC<PopoverWrapperProps> = ({
 			visible={isVisible}
 			zIndex={zIndex}
 			{...tippyProps}
-			onHidden={instance => {
-				setIsTippyHidden(true);
-				if (tippyProps?.onHidden) tippyProps.onHidden(instance);
-			}}
 		/>
 	);
 };

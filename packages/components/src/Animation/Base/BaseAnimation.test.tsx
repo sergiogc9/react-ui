@@ -1,7 +1,7 @@
 import React from 'react';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 
-import { withTheme } from 'components/private/utils/tests';
+import { useAnimationsInTests, withTheme } from 'components/private/utils/tests';
 import Title from 'components/Title';
 import BaseAnimation from './BaseAnimation';
 import Animation from '..';
@@ -39,6 +39,10 @@ const renderWithBaseAnimation = (props?: Partial<BaseAnimationProps>) => {
 
 describe('BaseAnimation Animation component', () => {
 	afterEach(cleanup);
+
+	beforeAll(() => {
+		useAnimationsInTests();
+	});
 
 	beforeEach(() => {
 		jest.resetAllMocks();

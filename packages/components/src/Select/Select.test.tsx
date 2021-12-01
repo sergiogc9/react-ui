@@ -3,14 +3,12 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import userEvent from '@testing-library/user-event';
 import theme from '@sergiogc9/react-ui-theme';
 
-import { getPopoverContentMock, withTheme } from 'components/private/utils/tests';
+import { withTheme } from 'components/private/utils/tests';
 import Box from 'components/Box';
 import Content from 'components/Content';
 
 import Select from '.';
 import { SelectProps } from './types';
-
-jest.mock('components/Popover', () => getPopoverContentMock());
 
 const labelText = 'Select an option';
 const selectTestId = 'select';
@@ -304,7 +302,7 @@ describe('Select', () => {
 
 		userEvent.click(screen.getByTestId('select-listbox-save-btn'));
 
-		expect(screen.queryByText(optionOne)).not.toBeVisible();
+		expect(screen.queryByText(optionOne)).toBeNull();
 	});
 
 	it('should not show counter if no option is selected', () => {
@@ -469,8 +467,8 @@ describe('Select', () => {
 		const input = screen.getByTestId(selectTestId).querySelector('input')!;
 
 		expect(input).toHaveStyle(`
-			border-color: ${theme.colors.neutral[300]};
-		`);
+      border-color: ${theme.colors.neutral[300]};
+    `);
 		expect(input).toBeDisabled();
 	});
 
@@ -500,7 +498,7 @@ describe('Select', () => {
 
 		userEvent.click(document.body);
 
-		expect(screen.queryByText(optionOne)).not.toBeVisible();
+		expect(screen.queryByText(optionOne)).toBeNull();
 	});
 
 	it('should update input value if option text changes', () => {
@@ -596,7 +594,7 @@ describe('Select', () => {
 	it('should show default no results content if not options', () => {
 		render(withTheme(<Select data-testid={selectTestId} />));
 
-		userEvent.click(screen.getByTestId(selectTestId));
+		userEvent.click(screen.getByTestId(selectTestId).querySelector('input')!);
 
 		expect(screen.getByText('No results')).toBeInTheDocument();
 	});
@@ -604,7 +602,7 @@ describe('Select', () => {
 	it('should show custom no results content if not options', () => {
 		render(withTheme(<Select data-testid={selectTestId} emptyResultsContent={<div>Custom content!</div>} />));
 
-		userEvent.click(screen.getByTestId(selectTestId));
+		userEvent.click(screen.getByTestId(selectTestId).querySelector('input')!);
 
 		expect(screen.queryByText('No results')).toBeNull();
 		expect(screen.getByText('Custom content!')).toBeInTheDocument();

@@ -14,3 +14,7 @@ const ThemeWrapper: FunctionComponent = ({ children }) => (
 );
 
 export const withTheme = (Component: JSX.Element) => <ThemeWrapper>{Component}</ThemeWrapper>;
+
+export const useAnimationsInTests = () => {
+	(window as any).useAnimationsInTests = true;
+};

@@ -2,7 +2,8 @@ import React from 'react';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { withTheme } from 'components/private/utils/tests';
+import { useAnimationsInTests, withTheme } from 'components/private/utils/tests';
+
 import PopoverContext from '../Context';
 import { PopoverContextData } from '../Context/types';
 import Popover from '..';
@@ -39,6 +40,10 @@ const renderPopoverContent = (
 
 describe('PopoverContent component', () => {
 	afterEach(cleanup);
+
+	beforeAll(() => {
+		useAnimationsInTests();
+	});
 
 	beforeEach(() => {
 		jest.resetAllMocks();

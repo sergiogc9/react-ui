@@ -7,25 +7,39 @@ type OnKeyPressHelpers = {
 	clearOptions: () => void;
 	isAutocomplete: boolean;
 	isOpen: boolean;
-	listBoxElement: HTMLUListElement;
+	listBoxRef: React.RefObject<HTMLUListElement>;
 	onAlphanumericKeyPressed: (ev: React.KeyboardEvent) => void;
 	setIsOpen: (isOpen: boolean) => void;
 	textFieldInput: HTMLInputElement;
+};
+
+const delayKeyboardActionFn = (fn: (ref: React.RefObject<HTMLUListElement>) => void) => {
+	const newFn = (ref: React.RefObject<HTMLUListElement>) => {
+		if (ref.current) return fn(ref);
+
+		setTimeout(() => {
+			newFn(ref);
+		}, 50);
+
+		return undefined;
+	};
+
+	return newFn;
 };
 
 const focusSelectInput = (textFieldInput: HTMLInputElement) => {
 	if (textFieldInput) setTimeout(() => textFieldInput.focus(), 0);
 };
 
-const focusFirstOption = (listBoxElement: HTMLUListElement) => {
-	const firstOption = listBoxElement.querySelector('li');
+const focusFirstOption = delayKeyboardActionFn((listBoxRef: React.RefObject<HTMLUListElement>) => {
+	const firstOption = listBoxRef.current?.querySelector('li');
 	if (firstOption) setTimeout(() => firstOption.focus(), 0);
-};
+});
 
-const focusLastOption = (listBoxElement: HTMLUListElement) => {
-	const lastOption = listBoxElement.querySelector<HTMLLIElement>('li:last-child');
+const focusLastOption = delayKeyboardActionFn((listBoxRef: React.RefObject<HTMLUListElement>) => {
+	const lastOption = listBoxRef.current?.querySelector<HTMLLIElement>('li:last-child');
 	if (lastOption) setTimeout(() => lastOption.focus(), 0);
-};
+});
 
 const handleListBoxPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressHelpers) => {
 	const { onAlphanumericKeyPressed, setIsOpen, textFieldInput } = helpers;
@@ -41,7 +55,7 @@ const handleListBoxPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressHel
 };
 
 const handleOptionPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressHelpers) => {
-	const { listBoxElement } = helpers;
+	const { listBoxRef } = helpers;
 
 	if (Keyboard.isKey('ArrowUp', ev.key)) {
 		ev.preventDefault();
@@ -50,7 +64,7 @@ const handleOptionPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressHelp
 		const previousOption = currentOption.previousSibling;
 
 		if (previousOption) (previousOption as HTMLLIElement).focus();
-		else focusLastOption(listBoxElement);
+		else focusLastOption(listBoxRef);
 	} else if (Keyboard.isKey('ArrowDown', ev.key)) {
 		ev.preventDefault();
 
@@ -58,7 +72,7 @@ const handleOptionPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressHelp
 		const nextOption = currentOption.nextSibling;
 
 		if (nextOption) (nextOption as HTMLLIElement).focus();
-		else focusFirstOption(listBoxElement);
+		else focusFirstOption(listBoxRef);
 	} else if (Keyboard.isKey('Enter', ev.key) || Keyboard.isKey('Space', ev.key)) {
 		ev.preventDefault();
 
@@ -68,7 +82,7 @@ const handleOptionPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressHelp
 };
 
 const handleTextFieldPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressHelpers) => {
-	const { clearOptions, isAutocomplete, isOpen, listBoxElement, onAlphanumericKeyPressed, setIsOpen } = helpers;
+	const { clearOptions, isAutocomplete, isOpen, listBoxRef, onAlphanumericKeyPressed, setIsOpen } = helpers;
 
 	if (Keyboard.isKey('Enter', ev.key)) {
 		ev.preventDefault();
@@ -79,7 +93,7 @@ const handleTextFieldPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressH
 		}
 
 		setIsOpen(true);
-		focusFirstOption(listBoxElement);
+		focusFirstOption(listBoxRef);
 	} else if (Keyboard.isKey('Escape', ev.key)) {
 		ev.preventDefault();
 
@@ -94,12 +108,12 @@ const handleTextFieldPressedKey = (ev: React.KeyboardEvent, helpers: OnKeyPressH
 		ev.preventDefault();
 
 		setIsOpen(true);
-		focusFirstOption(listBoxElement);
+		focusFirstOption(listBoxRef);
 	} else if (Keyboard.isKey('ArrowUp', ev.key)) {
 		ev.preventDefault();
 
 		setIsOpen(true);
-		focusLastOption(listBoxElement);
+		focusLastOption(listBoxRef);
 	} else if (Keyboard.isLetterOrNumber(ev.key)) {
 		onAlphanumericKeyPressed(ev);
 	}

@@ -111,6 +111,12 @@ const withBaseAnimation = <P extends {} = {}>(Component: React.ComponentType<P>,
 				);
 			}, [animateAtMount, animation, animationExit, isEnabled, isMounted, isVisible]);
 
+			// This is a kind of mock needed to improve tests performance and avoid tests to last many seconds when using animations
+			if (typeof jest !== 'undefined' && !(window as any).useAnimationsInTests) {
+				if (isVisible || shouldAlwaysRender) return <Component {...rest} ref={ref} />;
+				return null;
+			}
+
 			if (!isComponentRendered && !shouldAlwaysRender) return null;
 
 			return (

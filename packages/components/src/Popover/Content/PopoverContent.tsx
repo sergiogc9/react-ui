@@ -2,6 +2,7 @@ import React from 'react';
 
 import PopoverWrapper from '../Wrapper';
 import { StyledPopover } from './styled';
+import { TestFakeStyledPopoverContent } from './tests';
 import { PopoverContentProps } from './types';
 
 const PopoverContent: React.FC<PopoverContentProps> = ({
@@ -40,6 +41,24 @@ const PopoverContent: React.FC<PopoverContentProps> = ({
 		[onTouchStart]
 	);
 
+	// This is a kind of mock needed to improve tests performance and avoid tests to last many seconds when using animations
+	if (typeof jest !== 'undefined' && !(window as any).useAnimationsInTests) {
+		return (
+			<TestFakeStyledPopoverContent
+				duration={duration}
+				isBlur={isBlur}
+				isVisible={isVisible}
+				tippyProps={tippyProps}
+				{...rest}
+				onMouseDown={onCustomMouseDown}
+				onTouchStart={onCustomTouchStart}
+				transition="unset"
+			>
+				{children}
+			</TestFakeStyledPopoverContent>
+		);
+	}
+
 	return (
 		<PopoverWrapper
 			distance={distance}
@@ -55,7 +74,7 @@ const PopoverContent: React.FC<PopoverContentProps> = ({
 			trigger={trigger}
 			touch={touch}
 			zIndex={zIndex}
-			render={(attrs, isPopoverVisible, isHidden) => (
+			render={(attrs, isPopoverVisible) => (
 				<StyledPopover
 					duration={duration}
 					isBlur={isBlur}
@@ -65,7 +84,7 @@ const PopoverContent: React.FC<PopoverContentProps> = ({
 					onMouseDown={onCustomMouseDown}
 					onTouchStart={onCustomTouchStart}
 				>
-					{!isHidden && children}
+					{children}
 				</StyledPopover>
 			)}
 		/>

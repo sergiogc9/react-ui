@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import theme from '@sergiogc9/react-ui-theme';
 
 import Button from 'components/Button/Button';
-import { withTheme } from 'components/private/utils/tests';
+import { useAnimationsInTests, withTheme } from 'components/private/utils/tests';
 
 import Toasts, { useToasts } from '.';
 import { ToastsProps } from './types';
@@ -40,6 +40,10 @@ jest.useFakeTimers();
 
 describe('Toasts', () => {
 	afterEach(cleanup);
+
+	beforeAll(() => {
+		useAnimationsInTests();
+	});
 
 	it('should render the toast wrapper and toast', () => {
 		renderToasts();

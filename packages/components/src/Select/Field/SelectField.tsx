@@ -69,7 +69,6 @@ const SelectField: React.FC<SelectFieldProps> = React.forwardRef<HTMLInputElemen
 							fill="neutral.400"
 							icon={isOpen ? 'arrow-up' : 'arrow-down'}
 							onClick={onArrowClicked}
-							pointerEvents="auto"
 							styling="outlined"
 						/>
 					)}

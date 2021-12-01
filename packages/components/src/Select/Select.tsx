@@ -112,7 +112,7 @@ const Select: React.FC<SelectProps> = ({
 				clearOptions: onClearOptions,
 				isAutocomplete,
 				isOpen,
-				listBoxElement: listBoxRef.current!,
+				listBoxRef,
 				onAlphanumericKeyPressed,
 				setIsOpen,
 				textFieldInput: inputRef.current!

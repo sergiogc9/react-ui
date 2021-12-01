@@ -1,2 +1,2 @@
-export { withTheme } from './component';
+export * from './component';
 export * from './mocks';

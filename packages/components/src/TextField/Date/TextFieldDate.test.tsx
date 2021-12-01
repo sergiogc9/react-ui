@@ -2,12 +2,10 @@ import React from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { getPopoverContentMock, withTheme } from 'components/private/utils/tests';
+import { withTheme } from 'components/private/utils/tests';
 
 import TextFieldDate from '.';
 import { TextFieldDateProps } from './types';
-
-jest.mock('components/Popover', () => getPopoverContentMock());
 
 const mockOnChange = jest.fn();
 const renderTextFieldDate = (props?: Partial<TextFieldDateProps>) =>
@@ -90,7 +88,7 @@ describe('TextFieldDate component', () => {
 	it('should not render popover by default', () => {
 		renderTextFieldDate();
 
-		expect(screen.queryByText('Mon')).not.toBeVisible();
+		expect(screen.queryByText('Mon')).toBeNull();
 	});
 
 	it('should render popover after clicking input', () => {
@@ -109,7 +107,7 @@ describe('TextFieldDate component', () => {
 		expect(screen.getByText('Mon')).toBeVisible();
 
 		userEvent.click(document.body);
-		expect(screen.queryByText('Mon')).not.toBeVisible();
+		expect(screen.queryByText('Mon')).toBeNull();
 	});
 
 	it('should change input value after selecting new date', () => {

@@ -107,8 +107,6 @@ describe('Modal component', () => {
 
 		userEvent.click(closeBtn);
 
-		fireEvent.animationEnd(screen.getByTestId(modalTestId));
-
 		expect(screen.queryByText(contentText)).toBeNull();
 	});
 
