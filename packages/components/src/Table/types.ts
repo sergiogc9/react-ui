@@ -55,10 +55,10 @@ type Props<D extends Record<string, unknown>> = {
 
 	/**
 	 * Event to handle sort change. Useful when controlling from outside the order.
-	 * @param id: The column id. If not provided, the sorting has been reset.
+	 * @param id: The column id.
 	 * @param desc: Boolean if sorting is desc or not
 	 */
-	readonly onSortChange?: (id?: string, desc?: boolean) => void;
+	readonly onSortChange?: (id: string, desc: boolean) => void;
 
 	/**
 	 * Event to handle some table settings changes. This handler should be used to update (refetch) the data when the user changes some settings, when controlling the table from outside.

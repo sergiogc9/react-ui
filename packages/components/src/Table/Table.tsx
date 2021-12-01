@@ -77,14 +77,16 @@ const generateFinalInitialState = <Data extends Record<string, unknown>>(
 	globalFilter: TableProps<Data>['globalFilter'],
 	hiddenColumns: TableProps<Data>['hiddenColumns'],
 	pageIndex: TableProps<Data>['pageIndex'],
-	pageSize: TableProps<Data>['pageSize']
+	pageSize: TableProps<Data>['pageSize'],
+	defaultSortBy: SortingRule<Data>[]
 ): Partial<TableState<Data>> => ({
 	...tableOptions?.initialState,
 	filters: tableOptions?.initialState?.filters ?? filters ?? [],
 	globalFilter: tableOptions?.initialState?.globalFilter ?? globalFilter,
 	hiddenColumns: tableOptions?.initialState?.hiddenColumns ?? hiddenColumns ?? [],
 	pageIndex: tableOptions?.initialState?.pageIndex ?? pageIndex ?? 0,
-	pageSize: tableOptions?.initialState?.pageSize ?? pageSize ?? 10
+	pageSize: tableOptions?.initialState?.pageSize ?? pageSize ?? 10,
+	sortBy: tableOptions?.initialState?.sortBy ?? defaultSortBy
 });
 
 const generateFinalSortTypes = <Data extends Record<string, unknown>>(
@@ -119,9 +121,23 @@ const Table = <Data extends Record<string, unknown>>(props: TableProps<Data>) =>
 
 	const finalColumns = React.useMemo(() => generateFinalColumnsData(columns, data), [columns, data]);
 
+	const defaultSortBy = React.useMemo<SortingRule<Data>[]>(
+		() =>
+			finalColumns.length > 0
+				? [
+						{
+							id: finalColumns[0].id ?? finalColumns[0].accessor!.toString(),
+							desc: false
+						}
+				  ]
+				: [],
+		[finalColumns]
+	);
+
 	const finalInitialState = React.useMemo(
-		() => generateFinalInitialState(tableOptions, filters, globalFilter, hiddenColumns, pageIndex, pageSize),
-		[filters, globalFilter, hiddenColumns, pageIndex, pageSize, tableOptions]
+		() =>
+			generateFinalInitialState(tableOptions, filters, globalFilter, hiddenColumns, pageIndex, pageSize, defaultSortBy),
+		[defaultSortBy, filters, globalFilter, hiddenColumns, pageIndex, pageSize, tableOptions]
 	);
 
 	const finalSortTypes = React.useMemo(() => generateFinalSortTypes(tableOptions.sortTypes), [tableOptions.sortTypes]);
@@ -131,6 +147,7 @@ const Table = <Data extends Record<string, unknown>>(props: TableProps<Data>) =>
 			columns: finalColumns,
 			data,
 			disableMultiSort: true,
+			disableSortRemove: true,
 			pageCount,
 			...tableOptions,
 			initialState: finalInitialState,
@@ -147,8 +164,7 @@ const Table = <Data extends Record<string, unknown>>(props: TableProps<Data>) =>
 
 	useUpdateEffect(() => {
 		if (onSortChange) {
-			if (state.sortBy.length) onSortChange(state.sortBy[0].id, state.sortBy[0].desc);
-			else onSortChange();
+			onSortChange(state.sortBy[0].id, !!state.sortBy[0].desc);
 		}
 	}, [state.sortBy]);
 

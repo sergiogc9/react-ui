@@ -321,7 +321,7 @@ describe('Table', () => {
 		userEvent.click(screen.getByText(defaultColumns[1].Header as string));
 
 		expect(mockOnSortChange).toHaveBeenCalledTimes(1);
-		expect(mockOnSortChange).toHaveBeenCalledWith();
+		expect(mockOnSortChange).toHaveBeenCalledWith('name', false);
 	});
 
 	it('should not call onSort change if not provided', () => {
