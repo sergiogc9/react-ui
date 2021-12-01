@@ -13,7 +13,7 @@ const UserMenuFooter: React.FC<UserMenuFooterProps> = ({ children, ...rest }) =>
 	const isFullscreenMenuShown = isMobile && isMobileFullScreenEnabled;
 	return (
 		<Box flexDirection="column" mt="auto">
-			<Divider data-testid="userMenuDividerFullScreen" mt={2} />
+			<Divider data-testid="userMenuDividerFullScreen" my={2} />
 			<StyledUserMenuFooter p={isFullscreenMenuShown ? 3 : undefined} {...rest}>
 				{children}
 			</StyledUserMenuFooter>

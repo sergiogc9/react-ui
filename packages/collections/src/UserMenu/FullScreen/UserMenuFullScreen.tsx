@@ -39,7 +39,7 @@ const UserMenuFullScreen: React.FC<UserMenuFullScreenProps> = ({
 		<Animation.FadeIn
 			bg="neutral.0"
 			duration="0.25s"
-			height="100vh"
+			height="100%"
 			isVisible={isVisible ?? isMenuVisible}
 			left={0}
 			overflowY="auto"
