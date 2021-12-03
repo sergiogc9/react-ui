@@ -1,7 +1,15 @@
-import styled from 'styled-components';
-import { Box, BoxProps } from '@sergiogc9/react-ui';
+import styled, { css } from 'styled-components';
+import { Box } from '@sergiogc9/react-ui';
 
-const StyledSwitchBoxWrapper = styled(Box)<BoxProps>``;
+import { SwitchBoxWrapperProps } from './types';
+
+const StyledSwitchBoxWrapper = styled(Box)<SwitchBoxWrapperProps>`
+	${props =>
+		props.isDisabled &&
+		css`
+			opacity: 0.4;
+		`}
+`;
 
 StyledSwitchBoxWrapper.defaultProps = {
 	alignItems: 'center',
@@ -12,6 +20,7 @@ StyledSwitchBoxWrapper.defaultProps = {
 	minWidth: { xs: '100vw', md: 'unset' },
 	ml: { xs: -3, md: 0 },
 	padding: 3,
+	transition: 'opacity cubic-bezier(0.4, 0, 0.2, 1) 200ms',
 	width: { xs: '100vw', md: '100%' }
 };
 

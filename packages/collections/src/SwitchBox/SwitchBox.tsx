@@ -14,7 +14,7 @@ const SwitchBox: React.FC<SwitchBoxProps> = ({
 	...rest
 }) => {
 	return (
-		<StyledSwitchBoxWrapper {...rest}>
+		<StyledSwitchBoxWrapper isDisabled={isDisabled} {...rest}>
 			{children}
 			<Switch
 				aspectSize={aspectSize}
