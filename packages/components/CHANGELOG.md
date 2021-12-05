@@ -2,6 +2,39 @@
 
 All notable changes to this package will be documented in this file.
 
+## [v0.2.0] - December, 2021
+
+#### Added
+
+- Added onTabsChange in Tabs component
+- Added UserMenu collection
+- Added ActionMenu collection
+- Added Dialog collection
+- Added option to show custom content when select has not results
+- Added AnimationList component
+- Added docs about Tabs with icon and counters
+- Add vertical variant to Divider
+- Added gap to Box component
+- Added FloatingButton component and removed floating variants in other buttons
+
+#### Updated
+
+- Updated shadows
+- Improved Tabs design
+- Updated new icons
+- Update theme colors
+- Disable option to unsort table
+
+#### Fixed
+
+- Updated Modal improving some issues
+- Fixed fields in disabled state
+- Fixed wrong margin in buttons in Safari
+- Removed animation in textarea and textfield when mounting a component
+- Fixed TextArea showing label in red in error state
+- Change Textfield label animation to be enabled when focusing the textfield
+- Small bugs and fixes
+
 ## [v0.1.0] - August, 2021
 
 #### Added
