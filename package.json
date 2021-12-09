@@ -17,6 +17,7 @@
 		"test:local:file": "jest --watch",
 		"prepare": "lerna run prepare",
 		"bootstrap": "lerna bootstrap",
+		"build-storybook": "yarn workspace @sergiogc9/react-ui-docs build-storybook",
 		"lint": "eslint . --ignore-path .gitignore",
 		"lint:fix": "yarn run lint -- --fix",
 		"prettier": "prettier --write . --ignore-path .gitignore",
