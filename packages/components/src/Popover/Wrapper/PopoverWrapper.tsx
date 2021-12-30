@@ -79,4 +79,6 @@ const PopoverWrapper: React.FC<PopoverWrapperProps> = ({
 	);
 };
 
-export default React.memo(PopoverWrapper);
+const MemoizedPopoverWrapper: React.FC<PopoverWrapperProps> = React.memo(PopoverWrapper);
+
+export default MemoizedPopoverWrapper;

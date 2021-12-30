@@ -12,4 +12,4 @@ const PopoverGroup: React.FC<PopoverProps> = ({ children }) => {
 	return <PopoverContext.Provider value={contextData}>{children}</PopoverContext.Provider>;
 };
 
-export default React.memo(PopoverGroup);
+export default React.memo(PopoverGroup) as React.FC<PopoverProps>;

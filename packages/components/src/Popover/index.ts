@@ -10,8 +10,14 @@ import Popover from './Popover';
 import { PopoverProps } from './types';
 
 export { PopoverProps, PopoverContentProps, PopoverTriggerProps, PopoverWrapperProps };
-export default createNameSpacedComponent(Popover, {
+const FinalPopover: React.FC<PopoverProps> & {
+	Content: React.FC<PopoverContentProps>;
+	Trigger: React.FC<PopoverTriggerProps>;
+	Wrapper: React.FC<PopoverWrapperProps>;
+} = createNameSpacedComponent(Popover, {
 	Content: PopoverContent,
 	Trigger: PopoverTrigger,
 	Wrapper: PopoverWrapper
 });
+
+export default FinalPopover;

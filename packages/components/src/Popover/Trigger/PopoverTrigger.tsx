@@ -14,4 +14,4 @@ const PopoverTrigger: React.FC<PopoverTriggerProps> = ({ children, ...props }) =
 	);
 };
 
-export default React.memo(PopoverTrigger);
+export default React.memo(PopoverTrigger) as React.FC<PopoverTriggerProps>;

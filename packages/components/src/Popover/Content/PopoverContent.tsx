@@ -91,4 +91,6 @@ const PopoverContent: React.FC<PopoverContentProps> = ({
 	);
 };
 
-export default React.memo(PopoverContent);
+const MemoizedPopoverContent: React.FC<PopoverContentProps> = React.memo(PopoverContent);
+
+export default MemoizedPopoverContent;
