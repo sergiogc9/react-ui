@@ -5,7 +5,7 @@ import { RippleProps } from './types';
 
 const useDebouncedRippleCleanUp = (count: number, duration: number, cleanUpFunction: () => void) => {
 	useEffect(() => {
-		let rippleTimeout: number;
+		let rippleTimeout: NodeJS.Timeout;
 		if (count > 0) {
 			rippleTimeout = setTimeout(cleanUpFunction, duration * 4);
 		}

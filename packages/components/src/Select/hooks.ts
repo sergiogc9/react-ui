@@ -6,7 +6,7 @@ const useFocusOptionWhilePressingKey = (
 	setIsOpen: (isOpen: boolean) => void
 ) => {
 	const keyPressString = React.useRef('');
-	const keyPressStringTimeout = React.useRef<number>();
+	const keyPressStringTimeout = React.useRef<NodeJS.Timeout>();
 
 	const onAlphanumericKeyPressed = React.useCallback(
 		(ev: React.KeyboardEvent) => {

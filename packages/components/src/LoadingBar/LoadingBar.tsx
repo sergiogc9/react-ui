@@ -9,11 +9,11 @@ const LoadingBar: React.FC<LoadingBarProps> = ({ isVisible, ...rest }) => {
 	const [percentage, setPercentage] = React.useState(0);
 	const [isOneSecondExceeded, setIsOneSecondExceeded] = React.useState(false);
 
-	const oneSecondTimeoutRef = React.useRef<number>();
-	const timeoutRef = React.useRef<number>();
+	const oneSecondTimeoutRef = React.useRef<NodeJS.Timeout>();
+	const timeoutRef = React.useRef<NodeJS.Timeout>();
 
 	const changePercentage = React.useCallback((newPercentage: number, nextDelayMS: number) => {
-		clearTimeout(timeoutRef.current);
+		clearTimeout(timeoutRef.current!);
 		setPercentage(newPercentage);
 		timeoutRef.current = setTimeout(() => {
 			if (newPercentage === 0) changePercentage(55, 200);
@@ -31,7 +31,7 @@ const LoadingBar: React.FC<LoadingBarProps> = ({ isVisible, ...rest }) => {
 	}, [changePercentage]);
 
 	const finishBarAnimation = React.useCallback(() => {
-		clearTimeout(timeoutRef.current);
+		clearTimeout(timeoutRef.current!);
 		setPercentage(100);
 		timeoutRef.current = setTimeout(() => setIsBarEnabled(false), 200);
 	}, []);
@@ -48,8 +48,8 @@ const LoadingBar: React.FC<LoadingBarProps> = ({ isVisible, ...rest }) => {
 	React.useEffect(() => {
 		return () => {
 			// eslint-disable-next-line react-hooks/exhaustive-deps
-			clearTimeout(timeoutRef.current);
-			clearTimeout(oneSecondTimeoutRef.current);
+			clearTimeout(timeoutRef.current!);
+			clearTimeout(oneSecondTimeoutRef.current!);
 		};
 	}, []);
 
