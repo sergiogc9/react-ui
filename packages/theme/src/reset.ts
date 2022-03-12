@@ -61,7 +61,7 @@ const reset = css`
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 
-		${systemCSS({ color: 'common.text' })}
+		${systemCSS({ bg: 'common.background', color: 'common.text' })}
 	}
 
 	/* Remove list styles on ul, ol elements with a class attribute */

@@ -90,6 +90,7 @@ const lightColors: ThemePalette = {
 const darkColors: ThemePalette = merge<ThemePalette, RecursivePartial<ThemePalette>>(cloneDeep(lightColors), {
 	// Set specific dark theme colors
 	common: {
+		background: '#333',
 		text: '#fff'
 	}
 });
