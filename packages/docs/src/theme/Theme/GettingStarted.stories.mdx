@@ -1,0 +1,75 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+<Meta title="Theme/Getting Started" />
+
+# Getting started
+
+First, install the library dependencies:
+
+```
+yarn add -S @sergiogc9/react-ui @sergiogc9/react-ui-theme
+```
+
+Add the provider to your app, customizing the `theme` if wanted and using `reset` config provided by the theme:
+
+```tsx
+import { createGlobalStyle } from 'styled-components';
+import theme, { ReactUIProvider } from '@sergiogc9/react-ui-theme';
+
+const GlobalStyle = createGlobalStyle`
+	${reset}
+	// add other custom global styles here
+`;
+
+const App = () => {
+   const finalTheme = merge(theme, {...}); // Customize theme if wanted
+
+   return (
+      <ReactUIProvider theme={finalTheme}>
+	  	<GlobalStyle />
+        {...}
+      </ReactUIProvider>
+   )
+}
+```
+
+Use the components:
+
+```tsx
+import { Box, Button, Content, Grid, Title } from '@sergiogc9/react-ui';
+
+const Page = () => {
+	return (
+		<Box flexDirection="column">
+			<Box as="header">
+				<Title aspectSize="xl">This page is awesome</Title>
+			</Box>
+			<Grid>
+				<Grid.Box columns={4}>
+					<Content>The UI Library rocks!</Content>
+				</Grid.Box>
+				<Grid.Box columns={8}>
+					<Content>You should learn about styled-components and styled-system before :)</Content>
+				</Grid.Box>
+				<Grid.Row>
+					<Button aspectSize="l" variant="primary">
+						Click me!
+					</Button>
+				</Grid.Row>
+			</Grid>
+		</Box>
+	);
+};
+```
+
+If you are using Typescript, you should need to declare a `d.ts` file with the following content to make `styled-components` handle the correct theme typing:
+
+```ts
+import 'styled-components';
+
+import { Theme } from '@sergiogc9/react-ui-theme';
+
+declare module 'styled-components' {
+	interface DefaultTheme extends Theme {}
+}
+```
