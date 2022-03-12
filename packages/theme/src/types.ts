@@ -14,6 +14,7 @@ import { IconButton } from './themes/components/IconButton';
 import { Input } from './themes/components/Input';
 import { InputCheck } from './themes/components/InputCheck';
 import { Link } from './themes/components/Link';
+import { LoadingBar } from './themes/components/LoadingBar';
 import { Modal } from './themes/components/Modal';
 import { Select } from './themes/components/Select';
 import { Status } from './themes/components/Status/types';
@@ -102,6 +103,7 @@ interface Components {
 	input: Input;
 	inputCheck: InputCheck;
 	link: Link;
+	loadingBar: LoadingBar;
 	modal: Modal;
 	select: Select;
 	status: Status;
