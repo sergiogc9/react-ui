@@ -54,7 +54,7 @@ export interface ThemePalette {
 	readonly common: Record<'background' | 'text', string>;
 }
 
-export type ThemeColorMode = 'default' | 'dark';
+export type ThemeColorMode = 'light' | 'dark';
 
 type BreakPoints = ArrayWithProps<string, Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl', string>>>;
 

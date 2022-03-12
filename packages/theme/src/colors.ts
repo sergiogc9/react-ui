@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 import { RecursivePartial } from './global.types';
 import { Theme, ThemePalette } from './types';
 
-const defaultColors: ThemePalette = {
+const lightColors: ThemePalette = {
 	primary: {
 		50: '#ECF8FC',
 		100: '#BDE8F6',
@@ -87,7 +87,7 @@ const defaultColors: ThemePalette = {
 	}
 };
 
-const darkColors: ThemePalette = merge<ThemePalette, RecursivePartial<ThemePalette>>(cloneDeep(defaultColors), {
+const darkColors: ThemePalette = merge<ThemePalette, RecursivePartial<ThemePalette>>(cloneDeep(lightColors), {
 	// Set specific dark theme colors
 	common: {
 		text: '#fff'
@@ -95,10 +95,10 @@ const darkColors: ThemePalette = merge<ThemePalette, RecursivePartial<ThemePalet
 });
 
 const colors: Theme['colors'] = {
-	...defaultColors,
+	...lightColors,
 	modes: {
 		dark: darkColors,
-		default: defaultColors
+		light: lightColors
 	}
 };
 

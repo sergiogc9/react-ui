@@ -15,7 +15,7 @@ const ThemeDecorator: DecoratorFn = story => {
 	const dark = useDarkMode();
 
 	return (
-		<ReactUIProvider theme={{ ...theme, mode: dark ? 'dark' : 'default' }}>
+		<ReactUIProvider theme={{ ...theme, mode: dark ? 'dark' : 'light' }}>
 			<GlobalStyle />
 			{story()}
 		</ReactUIProvider>
