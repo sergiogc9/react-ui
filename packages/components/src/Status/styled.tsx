@@ -9,7 +9,7 @@ const Status: React.FC<StatusProps> = styled(Box)`
 `;
 
 Status.defaultProps = {
-	borderColor: 'neutral.0',
+	borderColor: 'common.background',
 	borderWidth: '2px',
 	borderStyle: 'solid',
 	borderRadius: '50%',
