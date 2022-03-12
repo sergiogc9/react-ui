@@ -34,7 +34,7 @@ Chips are small elements to display tags, links or useful information.
 		variant: {
 			control: {
 				type: 'radio',
-				options: ['white', 'blue', 'grey', 'yellow', 'red', 'green']
+				options: ['transparent', 'blue', 'grey', 'yellow', 'red', 'green']
 			}
 		}
 	}}
@@ -81,7 +81,7 @@ It can be used as a simple label and two `aspectSize` are actually available, `s
 
 <Canvas>
 	<Story parameters={getFixedStoryParams()} name="chip as label" decorators={[ChipDecorator]}>
-		<Chip aspectSize="s" variant="white">
+		<Chip aspectSize="s" variant="transparent">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
 		<Chip aspectSize="s" variant="blue">
@@ -99,7 +99,7 @@ It can be used as a simple label and two `aspectSize` are actually available, `s
 		<Chip aspectSize="s" variant="green">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
-		<Chip aspectSize="m" variant="white">
+		<Chip aspectSize="m" variant="transparent">
 			<Chip.Label>Chip as label</Chip.Label>
 		</Chip>
 		<Chip aspectSize="m" variant="blue">
@@ -126,7 +126,7 @@ But it can be also a link, just add the `href` prop to the parent.
 
 <Canvas>
 	<Story parameters={getFixedStoryParams()} name="chip as link" decorators={[ChipDecorator]}>
-		<Chip aspectSize="s" href="#" variant="white">
+		<Chip aspectSize="s" href="#" variant="transparent">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
 		<Chip aspectSize="s" href="#" variant="blue">
@@ -144,7 +144,7 @@ But it can be also a link, just add the `href` prop to the parent.
 		<Chip aspectSize="s" href="#" variant="green">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
-		<Chip aspectSize="m" href="#" variant="white">
+		<Chip aspectSize="m" href="#" variant="transparent">
 			<Chip.Label>Chip as link</Chip.Label>
 		</Chip>
 		<Chip aspectSize="m" href="#" variant="blue">
@@ -171,7 +171,7 @@ Chip has the possibility to integrate icons, they are all passed via children.`
 
 <Canvas>
 	<Story parameters={getFixedStoryParams()} name="chip + icon" decorators={[ChipDecorator]}>
-		<Chip aspectSize="s" variant="white">
+		<Chip aspectSize="s" variant="transparent">
 			<Chip.Icon styling="filled" icon="bookmark" />
 			<Chip.Label>Bookmarked</Chip.Label>
 		</Chip>
@@ -195,7 +195,7 @@ Chip has the possibility to integrate icons, they are all passed via children.`
 			<Chip.Icon styling="filled" icon="bookmark" />
 			<Chip.Label>Bookmarked</Chip.Label>
 		</Chip>
-		<Chip aspectSize="m" variant="white">
+		<Chip aspectSize="m" variant="transparent">
 			<Chip.Icon styling="filled" icon="bookmark" />
 			<Chip.Label>Bookmarked</Chip.Label>
 		</Chip>
@@ -228,7 +228,7 @@ An icon can have an handler. Adding an `onClick`function to the component will l
 
 <Canvas>
 	<Story parameters={getFixedStoryParams()} name="chip + handler" decorators={[ChipDecorator]}>
-		<Chip aspectSize="s" variant="white">
+		<Chip aspectSize="s" variant="transparent">
 			<Chip.Label>Bookmarked</Chip.Label>
 			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
@@ -252,7 +252,7 @@ An icon can have an handler. Adding an `onClick`function to the component will l
 			<Chip.Label>Bookmarked</Chip.Label>
 			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip aspectSize="m" variant="white">
+		<Chip aspectSize="m" variant="transparent">
 			<Chip.Label>Bookmarked</Chip.Label>
 			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
@@ -285,7 +285,7 @@ It is possible to compose the chip using all of its pieces.
 
 <Canvas>
 	<Story parameters={getFixedStoryParams()} name="chip + handler + icon" decorators={[ChipDecorator]}>
-		<Chip aspectSize="s" variant="white">
+		<Chip aspectSize="s" variant="transparent">
 			<Chip.Icon icon="bookmark" styling="filled" />
 			<Chip.Label>Bookmarked</Chip.Label>
 			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
@@ -315,7 +315,7 @@ It is possible to compose the chip using all of its pieces.
 			<Chip.Label>Bookmarked</Chip.Label>
 			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
 		</Chip>
-		<Chip aspectSize="m" variant="white">
+		<Chip aspectSize="m" variant="transparent">
 			<Chip.Icon icon="bookmark" styling="filled" />
 			<Chip.Label>Bookmarked</Chip.Label>
 			<Chip.Icon icon="close" onClick={() => console.log('TEST')} styling="outlined" />
@@ -378,7 +378,7 @@ A chip can have an Overlay when hovered. Adding some element or text to the comp
 	<Story parameters={getFixedStoryParams()} name="chip + overlay on hover" decorators={[ChipDecorator]}>
 		<Chip
 			aspectSize="s"
-			variant="white"
+			variant="transparent"
 			onOverlayClick={() => console.log('OVERLAY CLICKED')}
 			overlayContent="Edit bookmark"
 		>
@@ -432,7 +432,7 @@ A chip can have an Overlay when hovered. Adding some element or text to the comp
 		</Chip>
 		<Chip
 			aspectSize="m"
-			variant="white"
+			variant="transparent"
 			onOverlayClick={() => console.log('OVERLAY CLICKED')}
 			overlayContent="Edit bookmark"
 		>
@@ -495,7 +495,7 @@ A chip can have an Overlay fixed. It can be fixed by setting the `isOverlayAlway
 	<Story parameters={getFixedStoryParams()} name="chip + overlay fixed" decorators={[ChipDecorator]}>
 		<Chip
 			aspectSize="s"
-			variant="white"
+			variant="transparent"
 			onOverlayClick={() => console.log('OVERLAY CLICKED')}
 			overlayContent="Edit bookmark"
 			isOverlayAlwaysVisible
@@ -555,7 +555,7 @@ A chip can have an Overlay fixed. It can be fixed by setting the `isOverlayAlway
 		</Chip>
 		<Chip
 			aspectSize="m"
-			variant="white"
+			variant="transparent"
 			onOverlayClick={() => console.log('OVERLAY CLICKED')}
 			overlayContent="Edit bookmark"
 			isOverlayAlwaysVisible

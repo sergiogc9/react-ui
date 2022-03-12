@@ -13,7 +13,7 @@ const Chip: React.FC<ChipProps> = ({
 	isOverlayAlwaysVisible = false,
 	onOverlayClick,
 	overlayContent,
-	variant = 'white',
+	variant = 'transparent',
 	...props
 }) => {
 	const childrenWithLastClass = React.useMemo(() => {

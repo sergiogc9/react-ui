@@ -22,7 +22,7 @@ type Props = {
 	/**
 	 * Choose the color variant
 	 */
-	readonly variant?: 'blue' | 'green' | 'grey' | 'red' | 'yellow' | 'white';
+	readonly variant?: 'blue' | 'green' | 'grey' | 'red' | 'yellow' | 'transparent';
 };
 
 export type ChipProps = Props & BoxProps<LinkHTMLAttributes<HTMLLinkElement>>;

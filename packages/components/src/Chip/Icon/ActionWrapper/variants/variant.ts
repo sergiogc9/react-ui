@@ -16,7 +16,7 @@ export default (props: StyledProps<ActionWrapperProps>) => {
 	return variant({
 		prop: 'variant',
 		variants: {
-			white: generateCSS('white'),
+			transparent: generateCSS('transparent'),
 			blue: generateCSS('blue'),
 			grey: generateCSS('grey'),
 			green: generateCSS('green'),
