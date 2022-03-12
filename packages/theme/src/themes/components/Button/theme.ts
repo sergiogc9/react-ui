@@ -59,6 +59,14 @@ const lightColors: ButtonColors = {
 			active: 'neutral.100'
 		}
 	},
+	success: {
+		focusShadow: 'green.300',
+		background: {
+			default: 'green.600',
+			hover: 'green.400',
+			active: 'green.700'
+		}
+	},
 	warning: {
 		focusShadow: 'yellow.200',
 		text: 'neutral.800',
@@ -92,6 +100,15 @@ const darkColors: ButtonColors = merge<ButtonColors, RecursivePartial<ButtonColo
 			default: 'transparent',
 			hover: 'neutral.700',
 			active: 'neutral.600'
+		}
+	},
+	success: {
+		focusShadow: 'green.500',
+		text: 'neutral.100',
+		background: {
+			default: 'green.700',
+			hover: 'green.500',
+			active: 'green.800'
 		}
 	}
 });

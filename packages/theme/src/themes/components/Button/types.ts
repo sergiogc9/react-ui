@@ -1,7 +1,7 @@
 import { ThemeColors } from 'theme/types';
 
 type ButtonAspectSizes = 's' | 'm' | 'l';
-type ButtonVariants = 'danger' | 'default' | 'link' | 'primary' | 'secondary' | 'subtle' | 'warning';
+type ButtonVariants = 'danger' | 'default' | 'link' | 'primary' | 'secondary' | 'subtle' | 'success' | 'warning';
 type ButtonBackgrounds = Record<'default' | 'hover' | 'active', string>;
 type ButtonColor = Record<'focusShadow', string> &
 	Partial<Record<'border' | 'text', string>> &

@@ -237,6 +237,36 @@ The prop `variant` switches between the different versions of the button:
 	</Story>
 </Canvas>
 
+#### Success
+
+<Canvas>
+	<Story name="success" parameters={getFixedStoryParams()}>
+		<Button variant="success">Click me</Button>
+	</Story>
+	<Story name="success loading" parameters={getFixedStoryParams()}>
+		<Button variant="success" isLoading>
+			Click me
+		</Button>
+	</Story>
+	<Story name="success disabled" parameters={getFixedStoryParams()}>
+		<Button variant="success" isDisabled>
+			Click me
+		</Button>
+	</Story>
+	<Story name="success left icon" parameters={getFixedStoryParams()}>
+		<Button variant="success">
+			<Button.Icon styling="outlined" icon="help" />
+			<Button.Text>Click me</Button.Text>
+		</Button>
+	</Story>
+	<Story name="success right icon" parameters={getFixedStoryParams()}>
+		<Button variant="success">
+			<Button.Text>Click me</Button.Text>
+			<Button.Icon styling="outlined" icon="help" />
+		</Button>
+	</Story>
+</Canvas>
+
 #### Danger
 
 <Canvas>
