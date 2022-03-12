@@ -15,9 +15,9 @@ export default (props: StyledProps<CounterProps>) => {
 		const backgroundColor = getBackgroundColor();
 		let automaticColor = '';
 		try {
-			automaticColor = readableColor(backgroundColor, '#000', '#fff');
+			automaticColor = readableColor(backgroundColor, 'neutral.900', 'neutral.0');
 		} catch {
-			automaticColor = '#000';
+			automaticColor = 'neutral.900';
 		}
 		return automaticColor;
 	};

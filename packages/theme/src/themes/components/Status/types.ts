@@ -1,7 +1,9 @@
+import { ThemeColors } from 'theme/types';
+
 type StatusVariants = 'blue' | 'green' | 'grey' | 'red' | 'yellow';
 
-type StatusColors = Record<StatusVariants, Record<'color' | 'bg', string>>;
+type StatusColors = Record<StatusVariants, Record<'bg' | 'color', string>>;
 
 export interface Status {
-	readonly colors: StatusColors;
+	readonly colors: ThemeColors<StatusColors>;
 }
