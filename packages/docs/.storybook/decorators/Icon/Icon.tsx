@@ -11,7 +11,6 @@ export const IconContainer = styled.div`
 	min-width: 64px;
 	margin: 0 10px;
 	max-width: 64px;
-	background: white;
 	min-height: 64px;
 `;
 
