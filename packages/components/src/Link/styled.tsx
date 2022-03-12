@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import systemCSS from '@styled-system/css';
 
 import Content from 'components/Content';
 import composers from 'components/private/utils/composers';
@@ -14,7 +15,7 @@ const StyledLink: React.FC<LinkProps> = styled(Content)<LinkProps>`
 		outline: none;
 	}
 	&::after {
-		background-color: ${props => props.theme.colors.blue['700']};
+		${props => systemCSS({ bg: props.theme.components.link.colors.color })}
 		bottom: 1px;
 		content: '';
 		height: 1px;
@@ -23,6 +24,8 @@ const StyledLink: React.FC<LinkProps> = styled(Content)<LinkProps>`
 		transition: all 0.2s ease;
 		width: 100%;
 	}
+
+	${props => systemCSS({ color: props.theme.components.link.colors.color })}
 
 	${props =>
 		props.behavior === 'opposite' &&
@@ -38,7 +41,6 @@ const StyledLink: React.FC<LinkProps> = styled(Content)<LinkProps>`
 
 StyledLink.defaultProps = {
 	behavior: 'default',
-	color: 'blue.700',
 	cursor: 'pointer',
 	p: 0,
 	width: 'fit-content'

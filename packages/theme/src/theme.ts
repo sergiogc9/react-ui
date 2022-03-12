@@ -15,6 +15,7 @@ import iconButtonTheme from './themes/components/IconButton';
 import iconTheme from './themes/components/Icon';
 import inputTheme from './themes/components/Input';
 import inputCheckTheme from './themes/components/InputCheck';
+import linkTheme from './themes/components/Link';
 import modalTheme from './themes/components/Modal';
 import selectTheme from './themes/components/Select';
 import statusTheme from './themes/components/Status';
@@ -122,6 +123,7 @@ const theme: Theme = {
 		iconButton: iconButtonTheme,
 		input: inputTheme,
 		inputCheck: inputCheckTheme,
+		link: linkTheme,
 		modal: modalTheme,
 		select: selectTheme,
 		status: statusTheme,
