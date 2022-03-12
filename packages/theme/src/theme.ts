@@ -9,6 +9,7 @@ import chipTheme from './themes/components/Chip';
 import contentTheme from './themes/components/Content';
 import counterTheme from './themes/components/Counter';
 import datePickerTheme from './themes/components/DatePicker';
+import dividerTheme from './themes/components/Divider';
 import floatingButtonTheme from './themes/components/FloatingButton';
 import iconButtonTheme from './themes/components/IconButton';
 import iconTheme from './themes/components/Icon';
@@ -115,6 +116,7 @@ const theme: Theme = {
 		content: contentTheme,
 		counter: counterTheme,
 		datePicker: datePickerTheme,
+		divider: dividerTheme,
 		floatingButton: floatingButtonTheme,
 		icon: iconTheme,
 		iconButton: iconButtonTheme,

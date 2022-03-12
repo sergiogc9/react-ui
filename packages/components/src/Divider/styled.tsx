@@ -17,10 +17,16 @@ export const Divider: React.FC<DividerProps> = styled(Box)<DividerProps>`
 					maxWidth: props.maxWidth ?? '100%',
 					width: props.width ?? '100%'
 			  })}
+
+	${props =>
+		!props.bg &&
+		!props.backgroundColor &&
+		css({
+			bg: props.theme.components.divider.colors.background
+		})}
 `;
 
 Divider.defaultProps = {
 	backgroundClip: 'content-box',
-	backgroundColor: 'neutral.100',
 	flexShrink: 0
 };

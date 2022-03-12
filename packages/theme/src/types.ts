@@ -7,6 +7,7 @@ import { Chip } from './themes/components/Chip';
 import { Content } from './themes/components/Content';
 import { Counter } from './themes/components/Counter/types';
 import { DatePicker } from './themes/components/DatePicker';
+import { Divider } from './themes/components/Divider';
 import { FloatingButton } from './themes/components/FloatingButton';
 import { Icon } from './themes/components/Icon';
 import { IconButton } from './themes/components/IconButton';
@@ -93,6 +94,7 @@ interface Components {
 	content: Content;
 	counter: Counter;
 	datePicker: DatePicker;
+	divider: Divider;
 	floatingButton: FloatingButton;
 	icon: Icon;
 	iconButton: IconButton;
