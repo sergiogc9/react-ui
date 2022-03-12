@@ -15,7 +15,7 @@ const __parseThemeColorsWithMode = <T extends Record<'colors', ThemeColors<any>>
 	mode: ThemeColorMode
 ) => {
 	const newTheme = { ...themeSlice };
-	const defaultThemePalette = newTheme.colors.modes.default;
+	const defaultThemePalette = newTheme.colors.modes.light;
 	const selectedThemePalette = newTheme.colors.modes[mode] ?? {};
 
 	(newTheme.colors as DefaultTheme['colors']) = {
@@ -35,7 +35,7 @@ const ReactUIProvider = ({ children, theme }: ReactUIProviderProps) => {
 
 	const finalTheme = React.useMemo(() => {
 		// Parse color palette
-		if (!theme.colors?.modes?.default) throw new Error('No colors for default mode found in Theme.');
+		if (!theme.colors?.modes?.light) throw new Error('No colors for light mode found in Theme.');
 
 		const tempTheme = __parseThemeColorsWithMode(theme, themeMode);
 
@@ -43,8 +43,8 @@ const ReactUIProvider = ({ children, theme }: ReactUIProviderProps) => {
 		Object.keys(tempTheme.components).forEach(key => {
 			const componentTheme = get(tempTheme.components, key);
 			if (componentTheme.colors?.modes) {
-				if (!componentTheme.colors?.modes?.default)
-					throw new Error(`No colors for default mode found in component ${key}.`);
+				if (!componentTheme.colors?.modes?.light)
+					throw new Error(`No colors for light mode found in component ${key}.`);
 
 				(tempTheme.components as any)[key] = __parseThemeColorsWithMode(componentTheme, themeMode);
 			}
@@ -54,8 +54,8 @@ const ReactUIProvider = ({ children, theme }: ReactUIProviderProps) => {
 		Object.keys(tempTheme.collections).forEach(key => {
 			const componentTheme = get(tempTheme.collections, key);
 			if (componentTheme.colors?.modes) {
-				if (!componentTheme.colors?.modes?.default)
-					throw new Error(`No colors for default mode found in collection ${key}.`);
+				if (!componentTheme.colors?.modes?.light)
+					throw new Error(`No colors for light mode found in collection ${key}.`);
 
 				(tempTheme.collections as any)[key] = __parseThemeColorsWithMode(componentTheme, themeMode);
 			}
