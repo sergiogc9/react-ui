@@ -1,29 +1,13 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import styled from 'styled-components';
-import { Box } from '@sergiogc9/react-ui';
-import theme from '@sergiogc9/react-ui-theme';
+import { Meta } from 'storybook/utils/components';
 
-import BlurDecorator from 'storybook/decorators/Blur';
-import ThemeDecorator from 'storybook/decorators/Theme';
-import Theme from './Theme';
-
-<Meta
-	title="Theme/Theme"
-	decorators={[ThemeDecorator]}
-	argTypes={{
-		primaryColor: {
-			control: 'color',
-			defaultValue: theme.colors.primary['500']
-		},
-		secondaryColor: {
-			control: 'color',
-			defaultValue: theme.colors.secondary
-		}
-	}}
-/>
+<Meta title="Theme/Theme" />
 
 # Theme
 
-Change colors and variables to see how these changes are reflected in UI kit components below:
+This library comes with two built-in theme with two color modes: `light` and `dark`.
 
-🚧 In progress... See the components docs instead!
+> TIP: Use the sun or moon icon in toolbar to toggle them everywhere in the storybook.
+
+## Customizing the theme
+
+The theme can be imported from `@sergiogc9/react-ui-theme`. You can use it without modifying it, modify some tokens to customize it and / or extend it using extra tokens.

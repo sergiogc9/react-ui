@@ -16,7 +16,7 @@ addParameters({
 	layout: 'centered',
 	options: {
 		storySort: {
-			order: ['Theme', 'Collections', 'Components']
+			order: ['Home', 'Theme', 'Collections', 'Components']
 		}
 	}
 });

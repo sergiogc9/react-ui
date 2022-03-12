@@ -22,26 +22,32 @@ Install the package from npm or github packages:
 yarn add -S @sergiogc9/react-ui-theme
 ```
 
-Then import the provided theme and use it together with the styled-components provider at a higher app level:
+Add the provider to your app, customizing the `theme` if wanted and using `reset` config provided by the theme:
 
 ```tsx
-import { ThemeProvider } from 'styled-components';
-import theme from '@sergiogc9/react-ui-theme';
+import { createGlobalStyle } from 'styled-components';
+import theme, { ReactUIProvider } from '@sergiogc9/react-ui-theme';
+
+const GlobalStyle = createGlobalStyle`
+	${reset}
+	// add other custom global styles here
+`;
 
 const App = () => {
    const finalTheme = merge(theme, {...}); // Customize theme if wanted
 
    return (
-      <ThemeProvider theme={finalTheme}>
-         {...}
-      </Theme>
+      <ReactUIProvider theme={finalTheme}>
+	  	<GlobalStyle />
+        {...}
+      </ReactUIProvider>
    )
 }
 ```
 
 #### Documentation
 
-This package basically exports the theme and its types. The theme is exported by default as seen in the example above.
+This package basically exports the theme, its types and some helper functions. The theme is exported by default as seen in the example above.
 
 The exported items are:
 
@@ -49,3 +55,4 @@ The exported items are:
 - `Theme`: The Theme typescript typing.
 - `reset`: A set of common CSS rules to be used globally in the app if wanted. It should be used together with `createGlobalStyle` provided by styled-components.
 - `getColorFromTheme` and `getColorFromThemeWithOpacity`: Returns the color value defined in the theme. Using directly the color values using styled-system approach is preferred.
+- `useChangeThemeMode`: Custom hook to easily change the theme mode.

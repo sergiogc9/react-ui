@@ -19,17 +19,23 @@ Packages:
 
 - [`@sergiogc9/react-ui`](/packages/components):
 
-  A set of components ready to be used together with `styled-components`. There is no a public demo available yet but you can test it starting the project locally.
+  A set of components ready to be used together with `styled-components`.
 
   ![](https://badgen.net/npm/v/@sergiogc9/react-ui?icon=npm&label)
   ![](https://badgen.net//bundlephobia/minzip/@sergiogc9/react-ui)
 
 - [`@sergiogc9/react-ui-collections`](/packages/collections):
 
-  A set of components built with many components from the `@sergiogc9/react-ui` package. There is no a public demo available yet but you can test it starting the project locally.
+  A set of components built with many components from the `@sergiogc9/react-ui` package.
 
   ![](https://badgen.net/npm/v/@sergiogc9/react-ui-collections?icon=npm&label)
   ![](https://badgen.net//bundlephobia/minzip/@sergiogc9/react-ui-collections)
+
+## Demo
+
+See the Storybook running live in:
+
+[http://react-ui.sergiogcosgaya.rocks](http://react-ui.sergiogcosgaya.rocks)
 
 ## Usage
 
@@ -41,19 +47,25 @@ Install both packages from npm or github packages:
 yarn add -S @sergiogc9/react-ui @sergiogc9/react-ui-theme
 ```
 
-Then import the provided theme and use it together with the styled-components provider at a higher app level:
+Add the provider to your app, customizing the `theme` if wanted and using `reset` config provided by the theme:
 
 ```tsx
-import { ThemeProvider } from 'styled-components';
-import theme from '@sergiogc9/react-ui-theme';
+import { createGlobalStyle } from 'styled-components';
+import theme, { ReactUIProvider } from '@sergiogc9/react-ui-theme';
+
+const GlobalStyle = createGlobalStyle`
+	${reset}
+	// add other custom global styles here
+`;
 
 const App = () => {
    const finalTheme = merge(theme, {...}); // Customize theme if wanted
 
    return (
-      <ThemeProvider theme={finalTheme}>
-         {...}
-      </Theme>
+      <ReactUIProvider theme={finalTheme}>
+	  	<GlobalStyle />
+        {...}
+      </ReactUIProvider>
    )
 }
 ```
