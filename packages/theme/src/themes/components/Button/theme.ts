@@ -1,68 +1,107 @@
-import { Button } from './types';
+import cloneDeep from 'lodash/cloneDeep';
+import merge from 'lodash/merge';
+
+import { RecursivePartial } from 'theme/global.types';
+
+import { Button, ButtonColors } from './types';
+
+const lightColors: ButtonColors = {
+	danger: {
+		focusShadow: 'red.300',
+		background: {
+			default: 'red.500',
+			hover: 'red.300',
+			active: 'red.700'
+		}
+	},
+	default: {
+		focusShadow: 'primary.200',
+		background: {
+			default: 'primary.700',
+			hover: 'primary.500',
+			active: 'primary.800'
+		}
+	},
+	link: {
+		focusShadow: 'primary.200',
+		text: 'blue.700',
+		background: {
+			default: 'transparent',
+			hover: 'transparent',
+			active: 'transparent'
+		}
+	},
+	primary: {
+		focusShadow: 'primary.200',
+		background: {
+			default: 'primary.500',
+			hover: 'primary.400',
+			active: 'primary.600'
+		}
+	},
+	secondary: {
+		border: 'neutral.300',
+		focusShadow: 'primary.200',
+		text: 'neutral.800',
+		background: {
+			default: 'neutral.0',
+			hover: 'neutral.100',
+			active: 'neutral.200'
+		}
+	},
+	subtle: {
+		border: 'transparent',
+		focusShadow: 'primary.200',
+		text: 'neutral.600',
+		background: {
+			default: 'transparent',
+			hover: 'neutral.50',
+			active: 'neutral.100'
+		}
+	},
+	warning: {
+		focusShadow: 'yellow.200',
+		text: 'neutral.800',
+		background: {
+			default: 'yellow.500',
+			hover: 'yellow.300',
+			active: 'yellow.900'
+		}
+	}
+};
+
+const darkColors: ButtonColors = merge<ButtonColors, RecursivePartial<ButtonColors>>(cloneDeep(lightColors), {
+	link: {
+		text: 'blue.400'
+	},
+	secondary: {
+		border: 'neutral.700',
+		focusShadow: 'neutral.500',
+		text: 'neutral.100',
+		background: {
+			default: 'neutral.800',
+			hover: 'neutral.700',
+			active: 'neutral.600'
+		}
+	},
+	subtle: {
+		border: 'transparent',
+		focusShadow: 'neutral.500',
+		text: 'neutral.400',
+		background: {
+			default: 'transparent',
+			hover: 'neutral.700',
+			active: 'neutral.600'
+		}
+	}
+});
 
 const buttonTheme: Button = {
 	colors: {
-		danger: {
-			focusShadow: 'red.300',
-			background: {
-				default: 'red.500',
-				hover: 'red.300',
-				active: 'red.700'
-			}
-		},
-		default: {
-			focusShadow: 'primary.200',
-			background: {
-				default: 'primary.700',
-				hover: 'primary.500',
-				active: 'primary.800'
-			}
-		},
-		link: {
-			focusShadow: 'primary.200',
-			text: 'blue.700',
-			background: {
-				default: 'transparent',
-				hover: 'transparent',
-				active: 'transparent'
-			}
-		},
-		primary: {
-			focusShadow: 'primary.200',
-			background: {
-				default: 'primary.500',
-				hover: 'primary.400',
-				active: 'primary.600'
-			}
-		},
-		secondary: {
-			border: 'neutral.300',
-			focusShadow: 'primary.200',
-			text: 'neutral.800',
-			background: {
-				default: 'neutral.0',
-				hover: 'neutral.100',
-				active: 'neutral.200'
-			}
-		},
-		subtle: {
-			border: 'transparent',
-			focusShadow: 'primary.200',
-			text: 'neutral.600',
-			background: {
-				default: 'transparent',
-				hover: 'neutral.50',
-				active: 'neutral.100'
-			}
-		},
-		warning: {
-			focusShadow: 'yellow.200',
-			text: 'neutral.800',
-			background: {
-				default: 'yellow.500',
-				hover: 'yellow.300',
-				active: 'yellow.900'
-			}
+		...lightColors,
+		modes: {
+			light: lightColors,
+			dark: darkColors
 		}
 	},
 	fontSizes: {
