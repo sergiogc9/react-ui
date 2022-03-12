@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import systemCSS from '@styled-system/css';
 
 /**
  * This is the default css base configuration recommended for use along applications.
@@ -59,6 +60,8 @@ const reset = css`
 		font-family: ${props => props.theme.fonts.main};
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+
+		${systemCSS({ color: 'common.text' })}
 	}
 
 	/* Remove list styles on ul, ol elements with a class attribute */
