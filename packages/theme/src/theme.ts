@@ -102,6 +102,7 @@ const theme: Theme = {
 	keys,
 	lineHeights,
 	locale: 'en',
+	mode: 'default',
 	radii,
 	space,
 	shadows,

@@ -39,7 +39,10 @@ interface ColorPalette {
 type BrandColors = {
 	readonly linkedin: string;
 };
-interface ThemeColors {
+
+export type ThemeColors<T extends Record<string, any>> = T & { modes: Record<ThemeColorMode, T> };
+
+export interface ThemePalette {
 	readonly primary: ColorPalette;
 	readonly secondary: string;
 	readonly neutral: ColorPalette;
@@ -48,7 +51,10 @@ interface ThemeColors {
 	readonly blue: ColorPalette;
 	readonly green: ColorPalette;
 	readonly brand: BrandColors;
+	readonly common: Record<'background' | 'text', string>;
 }
+
+export type ThemeColorMode = 'default' | 'dark';
 
 type BreakPoints = ArrayWithProps<string, Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl', string>>>;
 
@@ -105,7 +111,7 @@ interface Components {
 export interface Theme {
 	readonly breakpoints: BreakPoints;
 	readonly collections: Collections;
-	readonly colors: ThemeColors;
+	readonly colors: ThemeColors<ThemePalette>;
 	readonly components: Components;
 	readonly fonts: Fonts;
 	readonly fontSizes: FontSizes;
@@ -113,6 +119,7 @@ export interface Theme {
 	readonly keys: Keys;
 	readonly lineHeights: LineHeights;
 	readonly locale: Locale;
+	readonly mode: ThemeColorMode;
 	readonly radii: BorderRadius;
 	readonly shadows: Shadows;
 	readonly space: Space;

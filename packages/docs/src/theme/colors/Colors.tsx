@@ -1,8 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { DefaultTheme, useTheme } from 'styled-components';
 
 import { Box, Content, Title } from '@sergiogc9/react-ui';
-import theme from '@sergiogc9/react-ui-theme';
 
 const ColorWrapper = styled(Box)`
 	& {
@@ -14,12 +13,12 @@ const ColorWrapper = styled(Box)`
 
 const ColorBox = styled(Box)`
 	& {
-		width: 90px;
+		background: ${props => props.color};
+		border: thin solid ${props => props.theme.colors.neutral[props.theme.mode === 'dark' ? '800' : '200']};
+		border-radius: 8px;
 		height: 90px;
 		margin-top: 10px;
-		border-radius: 8px;
-		border: thin solid ${props => props.theme.colors.neutral['200']};
-		background: ${props => props.color};
+		width: 90px;
 	}
 `;
 
@@ -40,7 +39,8 @@ const getColorBox = (name: string, color: string) => (
 	</ColorWrapper>
 );
 
-const getColorContent = (colorKey: string) => {
+const getColorContent = (theme: DefaultTheme, colorKey: string) => {
+	if (colorKey === 'modes') return null;
 	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 	// @ts-ignore
 	const colors = theme.colors[colorKey];
@@ -64,7 +64,9 @@ const getColorContent = (colorKey: string) => {
 };
 
 const Colors = () => {
-	return <Box flexDirection="column">{Object.keys(theme.colors).map(getColorContent)}</Box>;
+	const theme = useTheme();
+
+	return <Box flexDirection="column">{Object.keys(theme.colors).map(color => getColorContent(theme, color))}</Box>;
 };
 
 export default Colors;

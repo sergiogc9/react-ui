@@ -9,7 +9,7 @@ export const Content: React.FC<ContentProps> = styled.span.withConfig<ContentPro
 	shouldForwardProp: shouldStyledComponentForwardProp
 })`
 	${composers.text}
-	${props => aspectSize(props)}
+	${aspectSize}
 `;
 
 Content.defaultProps = {

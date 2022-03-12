@@ -1,7 +1,8 @@
 import React from 'react';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import { DecoratorFn } from '@storybook/react';
-import theme, { reset } from '@sergiogc9/react-ui-theme';
+import { useDarkMode } from 'storybook-dark-mode';
+import theme, { reset, ReactUIProvider } from '@sergiogc9/react-ui-theme';
 
 const GlobalStyle = createGlobalStyle`
 	${reset}
@@ -11,11 +12,13 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const ThemeDecorator: DecoratorFn = story => {
+	const dark = useDarkMode();
+
 	return (
-		<ThemeProvider theme={theme}>
+		<ReactUIProvider theme={{ ...theme, mode: dark ? 'dark' : 'default' }}>
 			<GlobalStyle />
 			{story()}
-		</ThemeProvider>
+		</ReactUIProvider>
 	);
 };
 

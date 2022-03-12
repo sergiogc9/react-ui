@@ -1,6 +1,9 @@
-import { Theme } from './types';
+import cloneDeep from 'lodash/cloneDeep';
+import merge from 'lodash/merge';
+import { RecursivePartial } from './global.types';
+import { Theme, ThemePalette } from './types';
 
-const colors: Theme['colors'] = {
+const defaultColors: ThemePalette = {
 	primary: {
 		50: '#ECF8FC',
 		100: '#BDE8F6',
@@ -77,6 +80,25 @@ const colors: Theme['colors'] = {
 	},
 	brand: {
 		linkedin: '#0073B1'
+	},
+	common: {
+		background: '#fff',
+		text: '#0B1519'
+	}
+};
+
+const darkColors: ThemePalette = merge<ThemePalette, RecursivePartial<ThemePalette>>(cloneDeep(defaultColors), {
+	// Set specific dark theme colors
+	common: {
+		text: '#fff'
+	}
+});
+
+const colors: Theme['colors'] = {
+	...defaultColors,
+	modes: {
+		dark: darkColors,
+		default: defaultColors
 	}
 };
 
