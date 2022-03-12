@@ -1,4 +1,6 @@
-type ChipColorVariants = 'blue' | 'green' | 'grey' | 'red' | 'white' | 'yellow';
+import { ThemeColors } from 'theme/types';
+
+type ChipColorVariants = 'blue' | 'green' | 'grey' | 'red' | 'transparent' | 'yellow';
 
 type ChipHoverTypes = Record<'default' | 'hover' | 'overlay', string>;
 type ChipColorAttrs = Record<'color', string>;
@@ -6,7 +8,7 @@ type ChipBorderColor = Record<'borderColor' | 'background', ChipHoverTypes>;
 type ChipActionableBg = Record<'actionableBg', Omit<ChipHoverTypes, 'overlay'>>;
 
 type ChipColorsParams = ChipColorAttrs & ChipBorderColor & ChipActionableBg;
-type ChipColors = Record<ChipColorVariants, ChipColorsParams>;
+export type ChipColors = Record<ChipColorVariants, ChipColorsParams>;
 
 type ChipSizeVariants = 's' | 'm';
 
@@ -16,5 +18,5 @@ type ChipSizes = Record<ChipSizeTypes, Record<ChipSizeVariants, ChipSizeParams>>
 
 export interface Chip {
 	readonly sizes: ChipSizes;
-	readonly colors: ChipColors;
+	readonly colors: ThemeColors<ChipColors>;
 }

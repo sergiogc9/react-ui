@@ -21,7 +21,7 @@ export default (props: StyledProps<ChipOverlayProps>) => {
 			green: generateCSS('green'),
 			grey: generateCSS('grey'),
 			red: generateCSS('red'),
-			white: generateCSS('white'),
+			transparent: generateCSS('transparent'),
 			yellow: generateCSS('yellow')
 		}
 	});

@@ -15,7 +15,7 @@ export default (props: StyledProps<ChipIconProps>) => {
 			grey: generateCSS('grey'),
 			green: generateCSS('green'),
 			red: generateCSS('red'),
-			white: generateCSS('white'),
+			transparent: generateCSS('transparent'),
 			yellow: generateCSS('yellow')
 		}
 	});

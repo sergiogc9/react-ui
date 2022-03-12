@@ -51,7 +51,7 @@ describe('Chip Icon component', () => {
 
 	it('should render the chip correctly with white variant', () => {
 		renderChip({
-			variant: 'white',
+			variant: 'transparent',
 			aspectSize: 'm'
 		});
 
@@ -66,7 +66,7 @@ describe('Chip Icon component', () => {
 
 	it('should render a custom bg if prop bg is added to Chip', () => {
 		renderChip({
-			variant: 'white',
+			variant: 'transparent',
 			aspectSize: 'm',
 			bg: theme.colors.neutral['200']
 		});
@@ -76,7 +76,7 @@ describe('Chip Icon component', () => {
 
 	it('is a link when it has href on it', () => {
 		renderChip({
-			variant: 'white',
+			variant: 'transparent',
 			aspectSize: 'm',
 			href: link
 		});
