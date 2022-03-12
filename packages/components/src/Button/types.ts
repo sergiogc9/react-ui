@@ -18,7 +18,7 @@ type Props = {
 	/**
 	 * The variant type of the button
 	 */
-	readonly variant?: 'danger' | 'default' | 'link' | 'primary' | 'secondary' | 'subtle' | 'warning';
+	readonly variant?: 'danger' | 'default' | 'link' | 'primary' | 'secondary' | 'subtle' | 'success' | 'warning';
 };
 
 export type ButtonProps = Props & BoxProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;

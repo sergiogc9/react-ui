@@ -67,6 +67,7 @@ export default (props: StyledProps<ButtonProps>) => {
 				...generateCSS('subtle'),
 				fontWeight: 'semibold'
 			},
+			success: generateCSS('success'),
 			warning: generateCSS('warning')
 		}
 	});
