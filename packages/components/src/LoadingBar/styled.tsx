@@ -42,10 +42,14 @@ const getTransitionCssValues = (percentage: number): SystemStyleObject => {
 	};
 };
 
-const StyledLoadingBar: React.FC<StyledLoadingBarProps> = styled(Box)<StyledLoadingBarProps>``;
+const StyledLoadingBar: React.FC<StyledLoadingBarProps> = styled(Box)<StyledLoadingBarProps>`
+	${({ theme }) =>
+		css({
+			bg: theme.components.loadingBar.colors.background
+		})}
+`;
 
 StyledLoadingBar.defaultProps = {
-	bg: 'neutral.100',
 	height: 4,
 	position: 'fixed',
 	width: '100%',
@@ -53,8 +57,9 @@ StyledLoadingBar.defaultProps = {
 };
 
 const StyledLoadingBarProgress: React.FC<StyledLoadingBarProgressProps> = styled(Box)<StyledLoadingBarProgressProps>`
-	${({ percentage }) =>
+	${({ percentage, theme }) =>
 		css({
+			bg: theme.components.loadingBar.colors.active,
 			transitionProperty: 'width',
 			width: `${percentage}%`,
 			...getTransitionCssValues(percentage)
@@ -62,7 +67,6 @@ const StyledLoadingBarProgress: React.FC<StyledLoadingBarProgressProps> = styled
 `;
 
 StyledLoadingBarProgress.defaultProps = {
-	bg: 'primary.500',
 	height: '100%'
 };
 
