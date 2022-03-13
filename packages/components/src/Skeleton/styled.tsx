@@ -4,12 +4,14 @@ import { getColorFromTheme } from '@sergiogc9/react-ui-theme';
 import Box from 'components/Box';
 import { SkeletonProps } from './types';
 
-const skeletonGradient =
-	'linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0))';
+const __getSkeletonGradient = (backgroundColor: string) => {
+	return `linear-gradient(90deg, ${backgroundColor}00 0, ${backgroundColor}33 20%, ${backgroundColor}80 60%, ${backgroundColor}00)`;
+};
 
 const StyledSkeleton: React.FC<SkeletonProps> = styled(Box)<SkeletonProps>`
 	${props => {
-		const themeColor = getColorFromTheme(props.theme, props.color!);
+		const backgroundColor = getColorFromTheme(props.theme, props.theme.colors.common.background);
+		const themeColor = getColorFromTheme(props.theme, props.color ?? props.theme.components.skeleton.colors.color);
 
 		return css`
 			& {
@@ -22,7 +24,7 @@ const StyledSkeleton: React.FC<SkeletonProps> = styled(Box)<SkeletonProps>`
 					bottom: 0;
 					left: 0;
 					transform: translateX(-100%);
-					background-image: ${skeletonGradient};
+					background-image: ${__getSkeletonGradient(backgroundColor)};
 					${props.animate &&
 					css`
 						animation: shimmer ${props.duration}s infinite;
