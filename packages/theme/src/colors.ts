@@ -21,14 +21,14 @@ const lightColors: ThemePalette = {
 		0: '#FFFFFF',
 		50: '#F5F5F6',
 		100: '#E7E8E8',
-		200: '#CED0D1',
-		300: '#B6B9BA',
-		400: '#9DA1A3',
-		500: '#858A8C',
-		600: '#6D7375',
-		700: '#555C5E',
-		800: '#3C4447',
-		900: '#0B1519'
+		200: '#D6D6D6',
+		300: '#BBBBBB',
+		400: '#A0A0A0',
+		500: '#858585',
+		600: '#696969',
+		700: '#4E4E4E',
+		800: '#333333',
+		900: '#1A1A1A'
 	},
 	red: {
 		50: '#FFF6F6',
@@ -40,7 +40,7 @@ const lightColors: ThemePalette = {
 		600: '#D93E3E',
 		700: '#B23333',
 		800: '#8C2828',
-		900: '#651D1D'
+		900: '#1A1A1A'
 	},
 	yellow: {
 		50: '#FFFBEB',
@@ -83,7 +83,7 @@ const lightColors: ThemePalette = {
 	},
 	common: {
 		background: '#fff',
-		text: '#0B1519'
+		text: '#1A1A1A'
 	}
 };
 
