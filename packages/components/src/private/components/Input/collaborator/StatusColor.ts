@@ -8,15 +8,15 @@ export default class StatusColor {
 	}
 
 	get color() {
-		return this.theme.components.input.color;
+		return this.theme.components.input.colors;
 	}
 
-	public getStatusColorWithFallback(fallback: keyof DefaultTheme['components']['input']['color']) {
+	public getStatusColorWithFallback(fallback: keyof DefaultTheme['components']['input']['colors']) {
 		const { isError, isDisabled, isSuccess } = this.props;
 
 		if (isDisabled) return this.color.disabled;
 		if (isError) return this.color.error;
 		if (isSuccess) return this.color.success;
-		return this.color[fallback];
+		return this.color[fallback] as string;
 	}
 }

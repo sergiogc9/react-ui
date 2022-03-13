@@ -40,7 +40,7 @@ StyledTextFieldBaseWrapper.defaultProps = {
 const StyledTextFieldIconContent = styled(Box)`
 	${({ theme }) =>
 		systemCSS({
-			color: theme.components.input.color.hover
+			color: theme.components.input.colors.hover
 		})}
 `;
 

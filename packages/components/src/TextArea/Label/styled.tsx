@@ -32,7 +32,7 @@ const TextAreaLabel: React.FC<TextAreaLabelProps> = styled(InputLabel)<TextAreaL
 		!value &&
 		!placeholder &&
 		css({
-			color: isDisabled ? theme.components.input.color.disabled : theme.components.input.color.default
+			color: isDisabled ? theme.components.input.colors.disabled : theme.components.input.colors.default
 		})}
 `;
 
