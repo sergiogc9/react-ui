@@ -18,6 +18,7 @@ import inputCheckTheme from './themes/components/InputCheck';
 import linkTheme from './themes/components/Link';
 import loadingBarTheme from './themes/components/LoadingBar';
 import modalTheme from './themes/components/Modal';
+import popoverTheme from './themes/components/Popover';
 import selectTheme from './themes/components/Select';
 import statusTheme from './themes/components/Status';
 import stepperTheme from './themes/components/Stepper';
@@ -127,6 +128,7 @@ const theme: Theme = {
 		link: linkTheme,
 		loadingBar: loadingBarTheme,
 		modal: modalTheme,
+		popover: popoverTheme,
 		select: selectTheme,
 		status: statusTheme,
 		stepper: stepperTheme,

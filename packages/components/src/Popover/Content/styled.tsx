@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import systemCSS from '@styled-system/css';
 
 import Box from 'components/Box';
 import { PopoverContentProps } from './types';
@@ -6,6 +7,12 @@ import { PopoverContentProps } from './types';
 export const StyledPopover: React.FC<PopoverContentProps> = styled(Box)<PopoverContentProps>`
 	opacity: ${props => (props.isVisible ? 1 : 0)};
 	transition-duration: ${props => props.duration}ms;
+
+	${props =>
+		systemCSS({
+			bg: props.theme.components.popover.colors.background,
+			borderColor: props.theme.components.popover.colors.border
+		})}
 
 	${props =>
 		props.isBlur &&
@@ -18,9 +25,10 @@ export const StyledPopover: React.FC<PopoverContentProps> = styled(Box)<PopoverC
 `;
 
 StyledPopover.defaultProps = {
-	bg: 'neutral.0',
 	borderRadius: 1,
 	boxShadow: 'center2',
+	borderStyle: 'solid',
+	borderWidth: 'thin',
 	height: '150px',
 	paddingX: 3,
 	paddingY: 2,

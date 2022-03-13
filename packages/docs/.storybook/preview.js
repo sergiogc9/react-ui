@@ -9,8 +9,7 @@ addDecorator(ThemeDecorator);
 addParameters({
 	docs: {
 		container: DocsContainer,
-		page: DocsPage,
-		theme: themes.dark
+		page: DocsPage
 	},
 	controls: { expanded: true },
 	layout: 'centered',
