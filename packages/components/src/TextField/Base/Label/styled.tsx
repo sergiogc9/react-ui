@@ -13,7 +13,7 @@ const TextFieldLabel: React.FC<TextFieldLabelProps> = styled(InputLabel)<TextFie
 		!value &&
 		!placeholder &&
 		css({
-			color: theme.components.input.color.default
+			color: theme.components.input.colors.default
 		})}
 `;
 

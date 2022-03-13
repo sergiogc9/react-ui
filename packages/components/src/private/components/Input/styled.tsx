@@ -22,6 +22,7 @@ const commonStyles = css`
 					statusColor.getStatusColorWithFallback('information')
 				)}`
 			},
+			bg: theme.components.input.colors.background,
 			borderColor: statusColor.getStatusColorWithFallback('borderDefault'),
 			borderRadius: 0,
 			borderStyle: 'solid',
@@ -46,7 +47,7 @@ export const StyledInput: React.FC<StyledInputProps> = styled(InputBox)<StyledIn
 `;
 
 StyledInput.defaultProps = {
-	color: 'neutral.900',
+	color: 'common.text',
 	fontSize: 2,
 	pb: 0,
 	pr: 3,

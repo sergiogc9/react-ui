@@ -91,7 +91,7 @@ const darkColors: ThemePalette = merge<ThemePalette, RecursivePartial<ThemePalet
 	// Set specific dark theme colors
 	common: {
 		background: '#333333',
-		text: '#ffffff'
+		text: '#F5F5F6'
 	}
 });
 
