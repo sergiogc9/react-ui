@@ -20,6 +20,7 @@ import loadingBarTheme from './themes/components/LoadingBar';
 import modalTheme from './themes/components/Modal';
 import popoverTheme from './themes/components/Popover';
 import selectTheme from './themes/components/Select';
+import skeletonTheme from './themes/components/Skeleton';
 import statusTheme from './themes/components/Status';
 import stepperTheme from './themes/components/Stepper';
 import switchTheme from './themes/components/Switch';
@@ -130,6 +131,7 @@ const theme: Theme = {
 		modal: modalTheme,
 		popover: popoverTheme,
 		select: selectTheme,
+		skeleton: skeletonTheme,
 		status: statusTheme,
 		stepper: stepperTheme,
 		switch: switchTheme,

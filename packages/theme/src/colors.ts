@@ -82,7 +82,7 @@ const lightColors: ThemePalette = {
 		linkedin: '#0073B1'
 	},
 	common: {
-		background: '#fff',
+		background: '#ffffff',
 		text: '#1A1A1A'
 	}
 };
@@ -90,8 +90,8 @@ const lightColors: ThemePalette = {
 const darkColors: ThemePalette = merge<ThemePalette, RecursivePartial<ThemePalette>>(cloneDeep(lightColors), {
 	// Set specific dark theme colors
 	common: {
-		background: '#333',
-		text: '#fff'
+		background: '#333333',
+		text: '#ffffff'
 	}
 });
 

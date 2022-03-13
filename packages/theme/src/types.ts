@@ -18,6 +18,7 @@ import { LoadingBar } from './themes/components/LoadingBar';
 import { Modal } from './themes/components/Modal';
 import { Popover } from './themes/components/Popover';
 import { Select } from './themes/components/Select';
+import { Skeleton } from './themes/components/Skeleton';
 import { Status } from './themes/components/Status/types';
 import { Stepper } from './themes/components/Stepper';
 import { Switch } from './themes/components/Switch';
@@ -108,6 +109,7 @@ interface Components {
 	modal: Modal;
 	popover: Popover;
 	select: Select;
+	skeleton: Skeleton;
 	status: Status;
 	stepper: Stepper;
 	switch: Switch;
