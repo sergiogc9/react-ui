@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import theme from '@sergiogc9/react-ui-theme';
+import systemCSS from '@styled-system/css';
 
 import Box from 'components/Box';
 import aspectSize from './variants/aspectSize';
@@ -7,19 +7,23 @@ import { SwitchProps } from './types';
 
 const SwitchBackground = styled(Box)<SwitchProps>`
 	${props =>
-		!props.isChecked &&
-		css`
-			background-color: ${props.theme.colors.neutral['900']};
-		`}
+		systemCSS({
+			bg: props.theme.components.switch.colors.background.default
+		})}
+
+	${props =>
+		props.isChecked &&
+		systemCSS({
+			bg: props.theme.components.switch.colors.background.checked
+		})}}
 	${props =>
 		props.isDisabled &&
-		css`
-			background-color: ${props.theme.colors.neutral['300']};
-		`};
+		systemCSS({
+			bg: props.theme.components.switch.colors.background.disabled
+		})}};
 `;
 
 SwitchBackground.defaultProps = {
-	bg: theme.components.switch.color,
 	borderRadius: 1,
 	height: '100%',
 	opacity: '0.5',
@@ -28,6 +32,11 @@ SwitchBackground.defaultProps = {
 };
 
 const SwitchToggle = styled(Box)<SwitchProps>`
+	${props =>
+		systemCSS({
+			bg: props.theme.components.switch.colors.toggle.color
+		})}
+
 	${props =>
 		!props.isDisabled &&
 		css`
@@ -70,7 +79,6 @@ SwitchToggle.defaultProps = {
 	as: 'span',
 	alignItems: 'center',
 	display: 'flex',
-	bg: theme.components.switch.color,
 	borderRadius: '50%',
 	boxShadow: 'center2',
 	justifyContent: 'center',
