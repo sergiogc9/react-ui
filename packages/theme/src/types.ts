@@ -16,6 +16,7 @@ import { InputCheck } from './themes/components/InputCheck';
 import { Link } from './themes/components/Link';
 import { LoadingBar } from './themes/components/LoadingBar';
 import { Modal } from './themes/components/Modal';
+import { Popover } from './themes/components/Popover';
 import { Select } from './themes/components/Select';
 import { Status } from './themes/components/Status/types';
 import { Stepper } from './themes/components/Stepper';
@@ -105,6 +106,7 @@ interface Components {
 	link: Link;
 	loadingBar: LoadingBar;
 	modal: Modal;
+	popover: Popover;
 	select: Select;
 	status: Status;
 	stepper: Stepper;
