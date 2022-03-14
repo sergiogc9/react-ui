@@ -23,7 +23,21 @@ const stepperTheme: Stepper = {
 		active: 'primary.500',
 		disabled: 'neutral.500',
 		disabledLine: 'neutral.200',
-		text: 'neutral.900'
+		text: 'neutral.900',
+		modes: {
+			light: {
+				active: 'primary.500',
+				disabled: 'neutral.500',
+				disabledLine: 'neutral.200',
+				text: 'neutral.900'
+			},
+			dark: {
+				active: 'primary.500',
+				disabled: 'neutral.500',
+				disabledLine: 'neutral.700',
+				text: 'neutral.100'
+			}
+		}
 	}
 };
 
