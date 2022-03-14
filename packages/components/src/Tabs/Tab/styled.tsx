@@ -7,6 +7,7 @@ import Box from 'components/Box';
 import { StyledTabsTabProps } from './types';
 
 const StyledTabsTab = styled(Box)<StyledTabsTabProps>`
+	${props => systemCSS({ color: props.theme.components.tab.colors.default })}
 	cursor: pointer;
 	text-transform: uppercase;
 
@@ -22,12 +23,12 @@ const StyledTabsTab = styled(Box)<StyledTabsTabProps>`
 
 	&:hover {
 		> span {
-			color: ${props => props.theme.colors.neutral['900']};
+			${props => systemCSS({ color: props.theme.components.tab.colors.active })}
 		}
 	}
 
 	&::after {
-		background-color: ${props => getColorFromTheme(props.theme, props.theme.components.tab.color)};
+		background-color: ${props => getColorFromTheme(props.theme, props.theme.components.tab.colors.bar)};
 		border-radius: 4px;
 		bottom: 0px;
 		content: '';
@@ -45,7 +46,7 @@ const StyledTabsTab = styled(Box)<StyledTabsTabProps>`
 		props.activeID === props.id &&
 		css`
 			 {
-				color: ${props.theme.colors.neutral['900']};
+				${systemCSS({ color: props.theme.components.tab.colors.active })}
 				cursor: default;
 				&::after {
 					visibility: visible;
@@ -101,7 +102,6 @@ const StyledTabsTab = styled(Box)<StyledTabsTabProps>`
 
 StyledTabsTab.defaultProps = {
 	alignItems: 'flex-start',
-	color: 'neutral.600',
 	flexGrow: { xs: 1, md: 0 },
 	fontSize: 0,
 	height: { xs: 36, md: 40 },

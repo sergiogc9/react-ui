@@ -1,3 +1,7 @@
+import { ThemeColors } from 'theme/types';
+
+type TabColors = Record<'active' | 'bar' | 'default' | 'divider', string>;
+
 export interface Tab {
-	readonly color: string;
+	readonly colors: ThemeColors<TabColors>;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import css from '@styled-system/css';
 
 import Box from 'components/Box';
 import { TabsHeaderProps } from './types';
@@ -12,7 +13,7 @@ const StyledTabsHeader: React.FC<TabsHeaderProps> = styled(Box)`
 		position: absolute;
 		left: 0px;
 		bottom: 0px;
-		background-color: ${props => props.theme.colors.neutral['100']};
+		${props => css({ bg: props.theme.components.tab.colors.divider })}
 	}
 `;
 
