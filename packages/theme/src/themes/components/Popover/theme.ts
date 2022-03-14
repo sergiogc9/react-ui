@@ -10,8 +10,8 @@ const popoverTheme: Popover = {
 				border: 'neutral.0'
 			},
 			dark: {
-				background: 'neutral.700',
-				border: 'neutral.600'
+				background: 'neutral.800',
+				border: 'neutral.700'
 			}
 		}
 	}

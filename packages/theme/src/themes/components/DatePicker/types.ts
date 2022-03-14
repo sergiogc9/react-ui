@@ -1,3 +1,5 @@
+import { ThemeColors } from 'theme/types';
+
 type DatePickerColors = Record<'disabled' | 'hover' | 'selected' | 'text' | 'today' | 'todayBackground', string>;
 
 type DatePickerDay = {
@@ -11,7 +13,7 @@ type DatePickerMonth = {
 };
 
 export interface DatePicker {
-	readonly colors: DatePickerColors;
+	readonly colors: ThemeColors<DatePickerColors>;
 	readonly fontSize: string | number;
 	readonly day: DatePickerDay;
 	readonly month: DatePickerMonth;
