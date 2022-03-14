@@ -35,7 +35,7 @@ const StyledModal: React.FC<ModalProps> = styled(Box)<ModalProps>`
 `;
 
 StyledModal.defaultProps = {
-	bg: 'neutral.0',
+	bg: 'common.background',
 	borderRadius: 1,
 	boxShadow: { xs: 'none', md: 'center3' },
 	flexDirection: 'column',
