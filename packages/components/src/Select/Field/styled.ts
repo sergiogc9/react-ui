@@ -13,7 +13,7 @@ const StyledSelectField: React.FC<StyledSelectFieldProps> = styled(TextField)<St
 		Object.keys(props.selectedOptions).length > 1 &&
 		css`
       label, input::placeholder {
-        ${systemCSS({ color: 'neutral.900' })}}
+        ${systemCSS({ color: props.theme.components.select.colors.option.neutral.active })}}
       }
     `}
 `;

@@ -35,8 +35,6 @@ const StyledSelectPopoverEmptyBox: React.FC<SelectPopoverProps> = styled(Box)<Se
 
 StyledSelectPopoverEmptyBox.defaultProps = {
 	alignItems: 'center',
-	bg: 'neutral.50',
-	color: 'neutral.900',
 	fontSize: 2,
 	justifyContent: 'center',
 	height: 64
