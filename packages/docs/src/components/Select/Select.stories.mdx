@@ -181,7 +181,7 @@ You can add some content at left of the input using the TextField prop `leftCont
 		parameters={getFixedStoryParams()}
 	>
 		{args => (
-			<Select leftContent={<Icon icon="star" styling="filled" />} minHeight={215} {...args}>
+			<Select leftContent={<Icon icon="star" styling="outlined" />} minHeight={215} {...args}>
 				<Select.Option id="option-1">Favourite option 1</Select.Option>
 				<Select.Option id="option-2">Favourite option 2</Select.Option>
 				<Select.Option id="option-3">Favourite option 3</Select.Option>
@@ -354,7 +354,7 @@ Example with custom content:
 				{...args}
 				emptyResultsContent={
 					<Box p={4}>
-						<Content color="blue.500">That's weird... no results have been found!</Content>
+						<Content color="primary.400">That's weird... no results have been found!</Content>
 					</Box>
 				}
 				minHeight={215}

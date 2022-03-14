@@ -6,8 +6,8 @@ import { StyledSelectOptionProps } from '../types';
 export default (props: StyledProps<StyledSelectOptionProps>) => {
 	const generateCSS = (variantProp: StyledSelectOptionProps['variant']) => ({
 		color: props.isSelected
-			? props.theme.components.select.option.color[variantProp!].active
-			: props.theme.components.select.option.color[variantProp!].default,
+			? props.theme.components.select.colors.option[variantProp!].active
+			: props.theme.components.select.colors.option[variantProp!].default,
 		fontWeight: props.isSelected ? 'bold' : 'semibold',
 		transitionDuration: '0.15s',
 		transitionProperty: 'background-color, color',
@@ -15,14 +15,14 @@ export default (props: StyledProps<StyledSelectOptionProps>) => {
 
 		'&:hover, &:focus': {
 			color: props.isSelected
-				? props.theme.components.select.option.color[variantProp!].active
-				: props.theme.components.select.option.color[variantProp!].hover,
-			backgroundColor: props.theme.components.select.option.color[variantProp!].bgHover
+				? props.theme.components.select.colors.option[variantProp!].active
+				: props.theme.components.select.colors.option[variantProp!].hover,
+			backgroundColor: props.theme.components.select.colors.option[variantProp!].bgHover
 		},
 
 		'&:active': {
-			color: props.theme.components.select.option.color[variantProp!].active,
-			backgroundColor: props.theme.components.select.option.color[variantProp!].bgActive
+			color: props.theme.components.select.colors.option[variantProp!].active,
+			backgroundColor: props.theme.components.select.colors.option[variantProp!].bgActive
 		}
 	});
 
