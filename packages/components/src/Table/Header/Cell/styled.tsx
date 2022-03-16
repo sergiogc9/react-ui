@@ -7,13 +7,14 @@ import { StyledTableHeaderCellProps, StyledTableHeaderCellContentProps } from '.
 
 const StyledTableHeaderCell: React.FC<StyledTableHeaderCellProps> = styled(Box)<StyledTableHeaderCellProps>`
 	flex-shrink: 1 !important;
+	${props => css({ color: props.color ?? props.theme.components.table.colors.header.text })}
 
 	${props =>
 		props.canSort &&
 		css({
 			cursor: 'pointer',
 			'&:hover': {
-				bg: 'primary.50'
+				bg: props.theme.components.table.colors.header.bgHover
 			}
 		})}
 
@@ -41,7 +42,6 @@ const StyledTableHeaderCell: React.FC<StyledTableHeaderCellProps> = styled(Box)<
 
 StyledTableHeaderCell.defaultProps = {
 	alignItems: 'center',
-	color: 'primary.800',
 	fontSize: 1,
 	fontWeight: 'semibold',
 	overflow: 'hidden',
