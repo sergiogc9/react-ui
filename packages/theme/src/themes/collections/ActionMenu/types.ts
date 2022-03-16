@@ -1,3 +1,5 @@
+import { ThemeColors } from 'theme/types';
+
 type ActionMenuItemVariants = 'default' | 'danger';
 
 type ActionMenuItemStates = 'default' | 'hover';
@@ -11,5 +13,5 @@ type ActionMenuItemStateAttr = Record<ActionMenuItemStates, ActionMenuItemParams
 type ActionMenuItemColors = Record<ActionMenuItemVariants, ActionMenuItemStateAttr>;
 
 export interface ActionMenu {
-	readonly colors: ActionMenuItemColors;
+	readonly colors: ThemeColors<ActionMenuItemColors>;
 }
