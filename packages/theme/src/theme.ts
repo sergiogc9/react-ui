@@ -25,6 +25,7 @@ import statusTheme from './themes/components/Status';
 import stepperTheme from './themes/components/Stepper';
 import switchTheme from './themes/components/Switch';
 import tabTheme from './themes/components/Tab';
+import tableTheme from './themes/components/Table';
 import textFieldTheme from './themes/components/TextField';
 import titleTheme from './themes/components/Title';
 import tooltipTheme from './themes/components/Tooltip';
@@ -136,6 +137,7 @@ const theme: Theme = {
 		stepper: stepperTheme,
 		switch: switchTheme,
 		tab: tabTheme,
+		table: tableTheme,
 		textField: textFieldTheme,
 		title: titleTheme,
 		tooltip: tooltipTheme

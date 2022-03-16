@@ -6,15 +6,22 @@ import Box from 'components/Box';
 import { TableBodyRowProps } from './types';
 
 const StyledTableBodyRow: React.FC<TableBodyRowProps> = styled(Box)<TableBodyRowProps>`
-	&:hover {
-		${css({
-			bg: 'neutral.50'
+	${props =>
+		css({
+			bg: props.theme.components.table.colors.content.bg
 		})}
 
-		+ div:not([role="row"]) {
-			${css({
-				bg: 'neutral.50'
+	&:hover {
+		${props =>
+			css({
+				bg: props.theme.components.table.colors.content.bgHover
 			})}
+
+		+ div:not([role="row"]) {
+			${props =>
+				css({
+					bg: props.theme.components.table.colors.content.bgHover
+				})}
 		}
 	}
 

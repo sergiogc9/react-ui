@@ -23,6 +23,7 @@ import { Status } from './themes/components/Status/types';
 import { Stepper } from './themes/components/Stepper';
 import { Switch } from './themes/components/Switch';
 import { Tab } from './themes/components/Tab';
+import { Table } from './themes/components/Table';
 import { TextField } from './themes/components/TextField';
 import { Title } from './themes/components/Title';
 import { Tooltip } from './themes/components/Tooltip';
@@ -114,6 +115,7 @@ interface Components {
 	stepper: Stepper;
 	switch: Switch;
 	tab: Tab;
+	table: Table;
 	textField: TextField;
 	title: Title;
 	tooltip: Tooltip;
