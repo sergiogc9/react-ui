@@ -30,6 +30,7 @@ import tableTheme from './themes/components/Table';
 import textFieldTheme from './themes/components/TextField';
 import titleTheme from './themes/components/Title';
 import tooltipTheme from './themes/components/Tooltip';
+import userMenuTheme from './themes/collections/UserMenu';
 import { Theme } from './types';
 
 const breakpoints: Theme['breakpoints'] = ['0px', '420px', '768px', '1280px', '1920px'];
@@ -101,7 +102,11 @@ const keys: Theme['keys'] = {
 
 const theme: Theme = {
 	breakpoints,
-	collections: { actionMenu: actionMenuTheme, dropdownMenu: dropdownMenuTheme },
+	collections: {
+		actionMenu: actionMenuTheme,
+		dropdownMenu: dropdownMenuTheme,
+		userMenu: userMenuTheme
+	},
 	colors,
 	fonts,
 	fontSizes,
