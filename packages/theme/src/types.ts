@@ -8,6 +8,7 @@ import { Content } from './themes/components/Content';
 import { Counter } from './themes/components/Counter/types';
 import { DatePicker } from './themes/components/DatePicker';
 import { Divider } from './themes/components/Divider';
+import { DropdownMenu } from './themes/collections/DropdownMenu';
 import { FloatingButton } from './themes/components/FloatingButton';
 import { Icon } from './themes/components/Icon';
 import { IconButton } from './themes/components/IconButton';
@@ -89,6 +90,7 @@ type Keys = Record<'googleMapsAPI', string>;
 
 interface Collections {
 	actionMenu: ActionMenu;
+	dropdownMenu: DropdownMenu;
 }
 
 interface Components {

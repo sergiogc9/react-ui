@@ -10,6 +10,7 @@ import contentTheme from './themes/components/Content';
 import counterTheme from './themes/components/Counter';
 import datePickerTheme from './themes/components/DatePicker';
 import dividerTheme from './themes/components/Divider';
+import dropdownMenuTheme from './themes/collections/DropdownMenu';
 import floatingButtonTheme from './themes/components/FloatingButton';
 import iconButtonTheme from './themes/components/IconButton';
 import iconTheme from './themes/components/Icon';
@@ -100,7 +101,7 @@ const keys: Theme['keys'] = {
 
 const theme: Theme = {
 	breakpoints,
-	collections: { actionMenu: actionMenuTheme },
+	collections: { actionMenu: actionMenuTheme, dropdownMenu: dropdownMenuTheme },
 	colors,
 	fonts,
 	fontSizes,

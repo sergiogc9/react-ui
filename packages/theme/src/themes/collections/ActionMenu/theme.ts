@@ -1,6 +1,6 @@
 import { ActionMenu } from './types';
 
-const ActionMenuTheme: ActionMenu = {
+const actionMenuTheme: ActionMenu = {
 	colors: {
 		danger: {
 			default: {
@@ -71,4 +71,4 @@ const ActionMenuTheme: ActionMenu = {
 	}
 };
 
-export default ActionMenuTheme;
+export default actionMenuTheme;
