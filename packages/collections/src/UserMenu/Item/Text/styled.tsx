@@ -1,14 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import css from '@styled-system/css';
 import { Content } from '@sergiogc9/react-ui';
 
 import { UserMenuItemTextProps } from './types';
 
-const UserMenuItemText: React.FC<UserMenuItemTextProps> = styled(Content)<UserMenuItemTextProps>``;
+const UserMenuItemText: React.FC<UserMenuItemTextProps> = styled(Content)<UserMenuItemTextProps>`
+	${props => css({ color: props.theme.collections.userMenu.colors.optionText })}
+`;
 
 UserMenuItemText.defaultProps = {
-	aspectSize: 'm',
-	color: 'neutral.700'
+	aspectSize: 'm'
 };
 
 export default UserMenuItemText;

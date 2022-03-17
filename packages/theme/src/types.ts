@@ -28,6 +28,7 @@ import { Table } from './themes/components/Table';
 import { TextField } from './themes/components/TextField';
 import { Title } from './themes/components/Title';
 import { Tooltip } from './themes/components/Tooltip';
+import { UserMenu } from './themes/collections/UserMenu';
 
 interface ColorPalette {
 	readonly 0?: string;
@@ -91,6 +92,7 @@ type Keys = Record<'googleMapsAPI', string>;
 interface Collections {
 	actionMenu: ActionMenu;
 	dropdownMenu: DropdownMenu;
+	userMenu: UserMenu;
 }
 
 interface Components {

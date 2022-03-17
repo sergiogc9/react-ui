@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import css from '@styled-system/css';
 import { Box } from '@sergiogc9/react-ui';
 
 import { UserMenuItemProps } from './types';
 
 const UserMenuItem: React.FC<UserMenuItemProps> = styled(Box)<UserMenuItemProps>`
 	&:hover {
-		background-color: ${props => props.theme.colors.neutral['50']};
+		${props => css({ bg: props.theme.collections.userMenu.colors.bgHover })}
 	}
 `;
 
