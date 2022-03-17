@@ -2,6 +2,7 @@ import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 import SwitchBoxDecorator from 'storybook/decorators/SwitchBox';
 
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
+import Chip from 'components/Chip';
 import SwitchBox from 'collections/SwitchBox';
 
 <Meta
@@ -20,10 +21,10 @@ import SwitchBox from 'collections/SwitchBox';
 			<SwitchBox.Content display="block">
 				Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
 				<SwitchBox.Chip ml={1} variant="green">
-					lorem
+					<Chip.Label>lorem</Chip.Label>
 				</SwitchBox.Chip>
 				<SwitchBox.Chip ml={1} variant="blue">
-					ipsum
+					<Chip.Label>ipsum</Chip.Label>
 				</SwitchBox.Chip>
 			</SwitchBox.Content>
 		</SwitchBox>
@@ -49,10 +50,10 @@ Example of use (playground):
 	<SwitchBox.Content display="block">
 		Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
 		<SwitchBox.Chip ml={1} variant="green">
-			lorem
+			<Chip.Label>lorem</Chip.Label>
 		</SwitchBox.Chip>
 		<SwitchBox.Chip ml={1} variant="blue">
-			ipsum
+			<Chip.Label>ipsum</Chip.Label>
 		</SwitchBox.Chip>
 	</SwitchBox.Content>
 </SwitchBox>

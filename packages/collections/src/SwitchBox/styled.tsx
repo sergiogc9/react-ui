@@ -1,19 +1,21 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import css from '@styled-system/css';
 import { Box } from '@sergiogc9/react-ui';
 
 import { SwitchBoxWrapperProps } from './types';
 
 const StyledSwitchBoxWrapper = styled(Box)<SwitchBoxWrapperProps>`
 	${props =>
-		props.isDisabled &&
-		css`
-			opacity: 0.4;
-		`}
+		css({
+			bg: props.theme.collections.switchBox.colors.bg,
+			color: props.theme.collections.switchBox.colors.text
+		})}
+
+	${props => props.isDisabled && css({ opacity: 0.4 })}
 `;
 
 StyledSwitchBoxWrapper.defaultProps = {
 	alignItems: 'center',
-	bg: 'neutral.50',
 	borderRadius: { xs: '0px', md: 1 },
 	flexDirection: 'row',
 	justifyContent: 'flex-start',

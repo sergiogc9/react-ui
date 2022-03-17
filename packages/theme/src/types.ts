@@ -23,6 +23,7 @@ import { Skeleton } from './themes/components/Skeleton';
 import { Status } from './themes/components/Status/types';
 import { Stepper } from './themes/components/Stepper';
 import { Switch } from './themes/components/Switch';
+import { SwitchBox } from './themes/collections/SwitchBox';
 import { Tab } from './themes/components/Tab';
 import { Table } from './themes/components/Table';
 import { TextField } from './themes/components/TextField';
@@ -92,6 +93,7 @@ type Keys = Record<'googleMapsAPI', string>;
 interface Collections {
 	actionMenu: ActionMenu;
 	dropdownMenu: DropdownMenu;
+	switchBox: SwitchBox;
 	userMenu: UserMenu;
 }
 
