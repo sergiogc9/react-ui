@@ -2,8 +2,8 @@ import { Popover } from './types';
 
 const popoverTheme: Popover = {
 	colors: {
-		background: 'neutral.0',
-		border: 'neutral.0',
+		background: '',
+		border: '',
 		modes: {
 			light: {
 				background: 'neutral.0',

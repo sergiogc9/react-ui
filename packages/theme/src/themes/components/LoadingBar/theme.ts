@@ -2,8 +2,8 @@ import { LoadingBar } from './types';
 
 const loadingBarTheme: LoadingBar = {
 	colors: {
-		active: 'primary.500',
-		background: 'neutral.100',
+		active: '',
+		background: '',
 		modes: {
 			light: {
 				active: 'primary.500',
