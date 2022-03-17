@@ -2,7 +2,7 @@ import { Skeleton } from './types';
 
 const skeletonTheme: Skeleton = {
 	colors: {
-		color: 'neutral.100',
+		color: '',
 		modes: {
 			light: {
 				color: 'neutral.100'

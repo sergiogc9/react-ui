@@ -2,12 +2,12 @@ import { DatePicker } from './types';
 
 const datePickerTheme: DatePicker = {
 	colors: {
-		disabled: 'neutral.200',
-		hover: 'primary.100',
-		selected: 'primary.700',
-		text: 'neutral.900',
-		today: 'primary.800',
-		todayBackground: 'primary.100',
+		disabled: '',
+		hover: '',
+		selected: '',
+		text: '',
+		today: '',
+		todayBackground: '',
 		modes: {
 			light: {
 				disabled: 'neutral.200',

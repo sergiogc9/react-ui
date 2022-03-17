@@ -7,14 +7,14 @@ const inputTheme: Input = {
 		s: { height: 40 }
 	},
 	colors: {
-		default: 'neutral.600',
-		background: 'neutral.0',
-		borderDefault: 'neutral.300',
-		disabled: 'neutral.300',
-		error: 'red.500',
-		hover: 'neutral.900',
-		information: 'blue.500',
-		success: 'green.500',
+		default: '',
+		background: '',
+		borderDefault: '',
+		disabled: '',
+		error: '',
+		hover: '',
+		information: '',
+		success: '',
 		modes: {
 			light: {
 				default: 'neutral.600',

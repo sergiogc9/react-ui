@@ -20,10 +20,10 @@ const stepperTheme: Stepper = {
 		}
 	},
 	colors: {
-		active: 'primary.500',
-		disabled: 'neutral.500',
-		disabledLine: 'neutral.200',
-		text: 'neutral.900',
+		active: '',
+		disabled: '',
+		disabledLine: '',
+		text: '',
 		modes: {
 			light: {
 				active: 'primary.500',

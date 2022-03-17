@@ -2,10 +2,10 @@ import { Tab } from './types';
 
 const tabTheme: Tab = {
 	colors: {
-		active: 'neutral.900',
-		bar: 'primary.500',
-		default: 'neutral.600',
-		divider: 'neutral.100',
+		active: '',
+		bar: '',
+		default: '',
+		divider: '',
 		modes: {
 			light: {
 				active: 'neutral.900',

@@ -7,12 +7,12 @@ const switchTheme: Switch = {
 	},
 	colors: {
 		background: {
-			checked: 'primary.500',
-			default: 'neutral.900',
-			disabled: 'neutral.300'
+			checked: '',
+			default: '',
+			disabled: ''
 		},
 		toggle: {
-			color: 'primary.500'
+			color: ''
 		},
 		modes: {
 			light: {
