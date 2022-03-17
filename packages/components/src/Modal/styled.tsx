@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import systemCSS from '@styled-system/css';
 import theme from '@sergiogc9/react-ui-theme';
 
 import Animation from 'components/Animation';
@@ -8,6 +9,12 @@ import { ModalProps } from './types';
 
 const StyledModal: React.FC<ModalProps> = styled(Box)<ModalProps>`
 	${aspectSize}
+
+	${props =>
+		systemCSS({
+			bg: props.theme.components.modal.colors.bg,
+			borderColor: props.theme.components.modal.colors.border
+		})}
 
 	${props =>
 		!props.width &&
@@ -35,7 +42,8 @@ const StyledModal: React.FC<ModalProps> = styled(Box)<ModalProps>`
 `;
 
 StyledModal.defaultProps = {
-	bg: 'common.background',
+	borderStyle: 'solid',
+	borderWidth: '1px',
 	borderRadius: 1,
 	boxShadow: { xs: 'none', md: 'center3' },
 	flexDirection: 'column',

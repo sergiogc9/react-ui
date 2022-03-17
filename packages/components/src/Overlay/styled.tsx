@@ -19,7 +19,7 @@ StyledOverlay.defaultProps = {
 	zIndex: theme.zIndices.overlay
 };
 
-const OverlayFadeInAnimation = keyframes`
+const OverlayFadeInLightAnimation = keyframes`
   from {
     opacity: 0;
   }
@@ -29,6 +29,17 @@ const OverlayFadeInAnimation = keyframes`
   }
 `;
 
-const AnimatedOverlay = Animation.withBaseAnimation(StyledOverlay, OverlayFadeInAnimation);
+const OverlayFadeInDarkAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
 
-export default AnimatedOverlay;
+  to {
+    opacity: 0.9;
+  }
+`;
+
+const StyledAnimatedLightOverlay = Animation.withBaseAnimation(StyledOverlay, OverlayFadeInLightAnimation);
+const StyledAnimatedDarkOverlay = Animation.withBaseAnimation(StyledOverlay, OverlayFadeInDarkAnimation);
+
+export { StyledAnimatedDarkOverlay, StyledAnimatedLightOverlay };
