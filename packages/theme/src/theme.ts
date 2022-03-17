@@ -25,6 +25,7 @@ import skeletonTheme from './themes/components/Skeleton';
 import statusTheme from './themes/components/Status';
 import stepperTheme from './themes/components/Stepper';
 import switchTheme from './themes/components/Switch';
+import switchBoxTheme from './themes/collections/SwitchBox';
 import tabTheme from './themes/components/Tab';
 import tableTheme from './themes/components/Table';
 import textFieldTheme from './themes/components/TextField';
@@ -105,6 +106,7 @@ const theme: Theme = {
 	collections: {
 		actionMenu: actionMenuTheme,
 		dropdownMenu: dropdownMenuTheme,
+		switchBox: switchBoxTheme,
 		userMenu: userMenuTheme
 	},
 	colors,
