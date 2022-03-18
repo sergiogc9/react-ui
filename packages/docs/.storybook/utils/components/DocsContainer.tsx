@@ -14,7 +14,7 @@ export const DocsContainer: React.FC<DocsContainerProps> = ({ children, context 
 				parameters: {
 					...context.parameters,
 					docs: {
-						// This is where the magic happens.
+						...context.parameters.docs,
 						theme: dark ? themes.dark : themes.light
 					}
 				}
