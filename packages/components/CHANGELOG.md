@@ -2,6 +2,12 @@
 
 All notable changes to this package will be documented in this file.
 
+## [v0.3.0] - March, 2022
+
+#### Added
+
+- Added dark mode.
+
 ## [v0.2.0] - December, 2021
 
 #### Added
