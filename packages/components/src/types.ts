@@ -33,7 +33,7 @@ export type StyledComponentProps<
 	/**
 	 *  The reference element type. If passed the component props will have a ref prop with Ref type.
 	 */
-	Ref extends any = undefined
+	Ref = undefined
 > = React.PropsWithChildren<
 	ComposedProps &
 		CommonStyledComponentProps &

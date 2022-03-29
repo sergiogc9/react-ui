@@ -37,8 +37,8 @@
 	"devDependencies": {
 		"@babel/core": "7.13.14",
 		"@rollup/plugin-alias": "3.1.1",
-		"@rollup/plugin-typescript": "8.1.0",
-		"@sergiogc9/eslint-config": "1.0.7",
+		"@rollup/plugin-typescript": "8.3.1",
+		"@sergiogc9/eslint-config": "1.0.8",
 		"@testing-library/jest-dom": "5.11.5",
 		"@testing-library/react": "11.1.0",
 		"@testing-library/user-event": "12.1.10",
@@ -48,7 +48,7 @@
 		"@types/react": "17.0.0",
 		"@types/react-dom": "17.0.0",
 		"@types/styled-components": "5.1.4",
-		"@typescript-eslint/eslint-plugin": "4.28.2",
+		"@typescript-eslint/eslint-plugin": "5.15.0",
 		"babel-loader": "8.2.2",
 		"eslint": "7.30.0",
 		"eslint-plugin-eslint-comments": "3.2.0",
@@ -67,11 +67,11 @@
 		"jest-styled-components": "7.0.3",
 		"lerna": "3.22.1",
 		"prettier": "2.3.2",
-		"rollup": "2.35.1",
-		"rollup-plugin-dts": "2.0.1",
+		"rollup": "2.70.1",
+		"rollup-plugin-dts": "4.2.0",
 		"rollup-plugin-terser": "7.0.2",
-		"tslib": "2.0.3",
+		"tslib": "2.3.1",
 		"ts-jest": "26.4.4",
-		"typescript": "4.0.3"
+		"typescript": "4.5.4"
 	}
 }

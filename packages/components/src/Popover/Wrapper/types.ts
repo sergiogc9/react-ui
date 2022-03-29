@@ -1,5 +1,23 @@
 import React from 'react';
-import { TippyProps } from '@tippyjs/react/headless';
+import type { TippyProps } from '@tippyjs/react/headless';
+
+// This type fixes an error when building using TippyProps["placement"]
+type Placement =
+	| 'auto'
+	| 'auto-end'
+	| 'auto-start'
+	| 'bottom'
+	| 'bottom-end'
+	| 'bottom-start'
+	| 'left'
+	| 'left-start'
+	| 'left-end'
+	| 'right'
+	| 'right-end'
+	| 'right-start'
+	| 'top'
+	| 'top-start'
+	| 'top-end';
 
 type Props = {
 	/**
@@ -29,7 +47,7 @@ type Props = {
 	/**
 	 * The tooltip position placement
 	 */
-	readonly placement?: TippyProps['placement'];
+	readonly placement?: Placement;
 	/**
 	 * The reference to use as anchor for the popover. Only use this if not using the Provider with the trigger.
 	 */
@@ -39,8 +57,11 @@ type Props = {
 	 */
 	readonly render: (
 		attrs: {
-			'data-placement': TippyProps['placement'];
+			// eslint-disable-next-line @typescript-eslint/naming-convention
+			'data-placement': Placement;
+			// eslint-disable-next-line @typescript-eslint/naming-convention
 			'data-reference-hidden'?: string | undefined;
+			// eslint-disable-next-line @typescript-eslint/naming-convention
 			'data-escaped'?: string | undefined;
 		},
 		isVisible: boolean,
