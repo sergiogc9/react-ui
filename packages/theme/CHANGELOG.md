@@ -2,6 +2,16 @@
 
 All notable changes to this package will be documented in this file.
 
+## [v0.3.1] - March, 2022
+
+#### Added
+
+- Added getColorByMode color util in theme package.
+
+#### Updated
+
+- Improved scrollbar design in dark mode.
+
 ## [v0.3.0] - March, 2022
 
 #### Added
