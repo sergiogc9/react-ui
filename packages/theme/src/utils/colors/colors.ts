@@ -49,3 +49,10 @@ export const getColorFromThemeWithOpacity = (
 	if (!opacityHex) throw new Error('The opactity value is not valid');
 	return `${getColorFromTheme(theme, themePath)}${opacityHex}`;
 };
+
+/**
+ * Returns the color depending the theme mode enabled
+ */
+export const getColorByMode = (theme: DefaultTheme, colors: Record<DefaultTheme['mode'], string>) => {
+	return colors[theme.mode];
+};

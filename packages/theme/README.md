@@ -55,4 +55,5 @@ The exported items are:
 - `Theme`: The Theme typescript typing.
 - `reset`: A set of common CSS rules to be used globally in the app if wanted. It should be used together with `createGlobalStyle` provided by styled-components.
 - `getColorFromTheme` and `getColorFromThemeWithOpacity`: Returns the color value defined in the theme. Using directly the color values using styled-system approach is preferred.
+- `getColorByMode`: Returns the specified color depending the current mode enabled.
 - `useChangeThemeMode`: Custom hook to easily change the theme mode.
