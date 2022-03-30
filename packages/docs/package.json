@@ -1,6 +1,6 @@
 {
 	"name": "@sergiogc9/react-ui-docs",
-	"version": "0.3.1",
+	"version": "0.3.2",
 	"description": "React UI Kit Storybook",
 	"repository": "git://github.com/sergiogc9/react-ui.git",
 	"private": true,
@@ -26,8 +26,8 @@
 		"styled-components": "5.2.1"
 	},
 	"dependencies": {
-		"@sergiogc9/react-ui": "^0.3.1",
-		"@sergiogc9/react-ui-theme": "^0.3.1",
+		"@sergiogc9/react-ui": "^0.3.2",
+		"@sergiogc9/react-ui-theme": "^0.3.2",
 		"faker": "5.5.3",
 		"lodash": "4.17.20"
 	},
