@@ -2,6 +2,12 @@
 
 All notable changes to this package will be documented in this file.
 
+## [v0.3.2] - March, 2022
+
+#### Fixed
+
+- Fixed wrong scrollbar design in dark mode.
+
 ## [v0.3.1] - March, 2022
 
 #### Added
