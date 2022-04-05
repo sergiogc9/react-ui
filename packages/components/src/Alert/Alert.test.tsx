@@ -35,7 +35,7 @@ describe('Alert', () => {
 		renderAlert({ status: 'success' });
 
 		expect(screen.getByTestId('alert')).toHaveStyle(`
-      background-color: ${theme.colors.green[100]};
+      background-color: ${theme.colors.green[500]};
     `);
 	});
 
