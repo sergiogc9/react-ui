@@ -8,10 +8,10 @@ const alertTheme: Alert = {
 		warning: { bg: '', icon: '', text: '' },
 		modes: {
 			light: {
-				error: { bg: 'red.100', icon: 'red.700', text: 'red.800' },
-				info: { bg: 'blue.50', icon: 'blue.800', text: 'blue.800' },
-				success: { bg: 'green.100', icon: 'green.900', text: 'green.900' },
-				warning: { bg: 'yellow.50', icon: 'yellow.900', text: 'neutral.900' }
+				error: { bg: 'red.500', icon: 'neutral.0', text: 'neutral.0' },
+				info: { bg: 'blue.500', icon: 'neutral.0', text: 'neutral.0' },
+				success: { bg: 'green.500', icon: 'neutral.0', text: 'neutral.0' },
+				warning: { bg: 'yellow.500', icon: 'neutral.0', text: 'neutral.0' }
 			},
 			dark: {
 				error: { bg: 'red.600', icon: 'red.100', text: 'red.100' },
