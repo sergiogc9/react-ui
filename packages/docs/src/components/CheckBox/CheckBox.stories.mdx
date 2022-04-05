@@ -48,6 +48,25 @@ You can disable it adding the `isDisabled` prop.
 	</Story>
 </Canvas>
 
+## With label and description
+
+<Canvas>
+	<Story name="with description" title="with description" parameters={getFixedStoryParams()}>
+		<CheckBox
+			isDefaultSelected={true}
+			label="Don't show this message again"
+			description="Remember that description prop should be always used together with label"
+		/>
+	</Story>
+	<Story name="with description disabled" title="with description disabled" parameters={getFixedStoryParams()}>
+		<CheckBox
+			isDisabled={true}
+			label="Don't show this message again"
+			description="Remember that description prop should be always used together with label"
+		/>
+	</Story>
+</Canvas>
+
 ## Sizes
 
 The size only modifies the label but not the input.

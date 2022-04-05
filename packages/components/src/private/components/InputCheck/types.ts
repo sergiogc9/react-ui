@@ -6,6 +6,10 @@ type Props = {
 	 */
 	readonly aspectSize?: 'm' | 'l';
 	/**
+	 * A description text to be shown below the label. Should only be used together with label.
+	 */
+	readonly description?: string;
+	/**
 	 * If true, the inputCheck is disabled
 	 */
 	readonly isDisabled?: boolean;

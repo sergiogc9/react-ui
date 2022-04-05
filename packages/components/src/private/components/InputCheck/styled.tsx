@@ -155,7 +155,7 @@ StyledInputCheck.defaultProps = {
 const StyledInputCheckWrapper: React.FC<InputCheckProps> = styled(Box)<InputCheckProps>``;
 
 StyledInputCheckWrapper.defaultProps = {
-	height: '40px'
+	minHeight: '40px'
 };
 
 export { StyledInputCheckWrapper };
