@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import variant from './variants/variant';
 import aspectSize from './variants/aspectSize';
 import { ActionWrapperProps } from './types';
 
-const ActionWrapper: React.FC<ActionWrapperProps> = styled(Box)<ActionWrapperProps>`
+const ActionWrapper: React.FC<ActionWrapperProps> = styled(Flex)<ActionWrapperProps>`
 	${variant}
 	${aspectSize}
 `;

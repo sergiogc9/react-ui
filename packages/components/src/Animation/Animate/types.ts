@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 import { AnimationProps } from '../Base/types';
 
 type Props = {
@@ -76,4 +76,4 @@ type Props = {
 	readonly timingFunctionExit?: NonNullable<AnimationProps['timingFunctionExit']>[];
 };
 
-export type AnimateProps = Props & BoxProps;
+export type AnimateProps = Props & FlexProps;

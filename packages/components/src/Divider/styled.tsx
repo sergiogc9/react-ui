@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { DividerProps } from './types';
 
-export const Divider: React.FC<DividerProps> = styled(Box)<DividerProps>`
+export const Divider: React.FC<DividerProps> = styled(Flex)<DividerProps>`
 	${props =>
 		props.isVertical
 			? css({

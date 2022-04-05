@@ -1,7 +1,7 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 import { StepperProps } from 'components/Stepper';
 
-export type StepperStepProps = BoxProps & {
+export type StepperStepProps = FlexProps & {
 	/**
 	 *  Boolean to enable clicking the step or not
 	 */

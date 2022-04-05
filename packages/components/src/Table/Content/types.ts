@@ -1,3 +1,3 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
-export type TableContentProps = BoxProps;
+export type TableContentProps = FlexProps;

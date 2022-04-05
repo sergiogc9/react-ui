@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -15,4 +15,4 @@ type Props = {
 	readonly duration?: number;
 };
 
-export type SkeletonProps = Props & Omit<BoxProps, 'color'>;
+export type SkeletonProps = Props & Omit<FlexProps, 'color'>;

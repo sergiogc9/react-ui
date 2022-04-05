@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 import { SelectProps } from 'components/Select/types';
 
 type Props = {
@@ -10,6 +10,6 @@ type Props = {
 	readonly id: string;
 };
 
-export type SelectOptionProps = Props & BoxProps<React.HTMLAttributes<HTMLLIElement>>;
+export type SelectOptionProps = Props & FlexProps<React.HTMLAttributes<HTMLLIElement>>;
 export type StyledSelectOptionProps = SelectOptionProps &
 	Pick<SelectProps, 'aspectSize' | 'variant'> & { isSelected: boolean };

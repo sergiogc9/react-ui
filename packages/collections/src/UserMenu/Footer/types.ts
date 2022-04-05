@@ -1,3 +1,3 @@
-import { BoxProps } from '@sergiogc9/react-ui';
+import { FlexProps } from '@sergiogc9/react-ui';
 
-export type UserMenuFooterProps = BoxProps;
+export type UserMenuFooterProps = FlexProps;

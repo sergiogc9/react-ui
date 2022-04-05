@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import Box from 'components/Box';
+
+import Flex from 'components/Flex';
 
 import { TabsContentProps } from './types';
 
-const StyledTabsContent: React.FC<TabsContentProps> = styled(Box)<TabsContentProps>``;
+const StyledTabsContent: React.FC<TabsContentProps> = styled(Flex)<TabsContentProps>``;
 
 StyledTabsContent.defaultProps = {
 	flexGrow: 1,

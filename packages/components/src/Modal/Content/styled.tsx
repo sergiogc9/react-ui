@@ -7,6 +7,7 @@ import { ModalContentProps } from './types';
 const ModalContent: React.FC<ModalContentProps> = styled(ScrollBox)<ModalContentProps>``;
 
 ModalContent.defaultProps = {
+	display: 'flex',
 	flexDirection: 'column',
 	flexGrow: 1,
 	flexShrink: 2,

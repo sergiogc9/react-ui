@@ -4,7 +4,8 @@ import { useMergeRefs } from '@sergiogc9/react-hooks';
 import dispatchOnChange from 'components/private/components/Input/utils';
 import { bottomInputContentAnimation, InputCounter, InputHelperText } from 'components/private/components/Input';
 import Animation from 'components/Animation';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
+
 import TextFieldLabel from './Label';
 import TextFieldInput from './Input';
 import RemoveButton from './RemoveButton';
@@ -86,7 +87,7 @@ const TextField: React.FC<TextFieldBaseProps> = React.forwardRef<HTMLInputElemen
 		return (
 			<StyledTextFieldBaseWrapper isDisabled={isDisabled} {...rest}>
 				<StyledTextFieldBase labelPosition={labelPosition}>
-					<Box position="absolute" height="100%" width="100%">
+					<Flex position="absolute" height="100%" width="100%">
 						<StyledTextFieldIconContent ml={3}>{leftContent}</StyledTextFieldIconContent>
 						<TextFieldLabel
 							aspectSize={aspectSize}
@@ -121,7 +122,7 @@ const TextField: React.FC<TextFieldBaseProps> = React.forwardRef<HTMLInputElemen
 						<StyledTextFieldIconContent mr={3} pointerEvents="none">
 							{rightContent}
 						</StyledTextFieldIconContent>
-					</Box>
+					</Flex>
 					<TextFieldInput
 						aspectSize={aspectSize}
 						disabled={isDisabled}

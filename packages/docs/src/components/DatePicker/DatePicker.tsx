@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Box, Button, DatePicker, DatePickerPopoverProps } from '@sergiogc9/react-ui';
+import { Button, DatePicker, DatePickerPopoverProps, Flex } from '@sergiogc9/react-ui';
 
-const HolidaysModifierWrapper = styled(Box)`
+const HolidaysModifierWrapper = styled(Flex)`
 	.DayPicker-Day--holidays:not(.DayPicker-Day--selected) {
 		color: green;
 		font-weight: bold;
@@ -24,14 +24,14 @@ const DatePickerWithPopoverStory = (props: Partial<DatePickerPopoverProps>) => {
 				Select a date
 			</Button>
 			<DatePicker.Popover datePickerProps={props} isVisible={isVisible} reference={btnRef}>
-				<Box justifyContent="flex-end" padding={3}>
+				<Flex justifyContent="flex-end" padding={3}>
 					<Button aspectSize="s" onClick={() => setIsVisible(false)} variant="subtle">
 						Cancel
 					</Button>
 					<Button aspectSize="s" ml={3} onClick={() => setIsVisible(false)} variant="default">
 						Done
 					</Button>
-				</Box>
+				</Flex>
 			</DatePicker.Popover>
 		</>
 	);

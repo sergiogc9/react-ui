@@ -1,5 +1,5 @@
 import React from 'react';
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 export type InputProps = {
 	/**
@@ -26,7 +26,7 @@ export type InputProps = {
 export type StyledInputProps<
 	Attrs extends React.HTMLAttributes<any> = React.InputHTMLAttributes<HTMLInputElement>,
 	Ref = HTMLInputElement
-> = InputProps & BoxProps<Attrs, Ref>;
+> = InputProps & FlexProps<Attrs, Ref>;
 
 export type StyledTextAreaProps = InputProps &
-	BoxProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
+	FlexProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;

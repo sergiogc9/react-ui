@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { changeMonth, changeYear, DateRange, updateDateRange } from 'components/private/utils/date';
 import DatePickerDay, { DatePickerDayProps } from './Day';
 import DatePickerMonth, { DatePickerMonthProps } from './Month';
@@ -63,7 +63,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
 	if (view === 'day')
 		return (
-			<Box {...rest}>
+			<Flex {...rest}>
 				{[...Array(numberOfMonths).keys()].map(index => (
 					<DatePickerDay
 						date={date ?? selectedDate}
@@ -79,11 +79,11 @@ const DatePicker: React.FC<DatePickerProps> = ({
 						onDayClick={onDayClicked}
 					/>
 				))}
-			</Box>
+			</Flex>
 		);
 
 	return (
-		<Box {...rest}>
+		<Flex {...rest}>
 			{[...Array(numberOfMonths).keys()].map(index => (
 				<DatePickerMonth
 					date={date ?? selectedDate}
@@ -97,7 +97,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 					onMonthClick={onMonthClicked}
 				/>
 			))}
-		</Box>
+		</Flex>
 	);
 };
 

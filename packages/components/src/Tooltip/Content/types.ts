@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 import { PopoverWrapperProps } from 'components/Popover';
 
@@ -17,4 +17,4 @@ export type Props = {
 	readonly variant?: 'light' | 'dark';
 };
 
-export type TooltipContentProps = Props & Omit<PopoverWrapperProps, 'render'> & BoxProps;
+export type TooltipContentProps = Props & Omit<PopoverWrapperProps, 'render'> & FlexProps;

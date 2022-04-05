@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { StyledInputProps } from 'components/private/components/Input';
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 export type Props = {
 	/**
@@ -96,6 +96,6 @@ export type Props = {
 >;
 
 export type TextFieldBaseProps = Props &
-	Omit<BoxProps, keyof Props> & {
+	Omit<FlexProps, keyof Props> & {
 		readonly inputProps?: Omit<StyledInputProps, keyof Props>;
 	};

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Box, { BoxProps } from 'components/Box';
+import Flex, { FlexProps } from 'components/Flex';
 import withBaseAnimation from './withBaseAnimation';
 import { BaseAnimationProps } from './types';
 
-const BaseAnimation: React.FC<BaseAnimationProps> = withBaseAnimation<BoxProps>(Box);
+const BaseAnimation: React.FC<BaseAnimationProps> = withBaseAnimation<FlexProps>(Flex);
 
 export default BaseAnimation;

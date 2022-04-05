@@ -1,7 +1,7 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import RippleDecorator from 'storybook/decorators/Ripple';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import Ripple from 'components/Ripple';
 
 <Meta title="Components/Ripple" component={Ripple} decorators={[RippleDecorator]} />
@@ -19,7 +19,7 @@ Test it:
 	})}
 >
 	{args => (
-		<Box
+		<Flex
 			bg="currentColor"
 			border="thin solid lightgray"
 			borderRadius="50%"
@@ -29,7 +29,7 @@ Test it:
 			width="300px"
 		>
 			<Ripple {...args} />
-		</Box>
+		</Flex>
 	)}
 </Story>
 

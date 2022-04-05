@@ -1,7 +1,7 @@
 import { Keyframes } from 'styled-components';
 import CSS from 'csstype';
 
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 export type AnimationProps = {
 	/**
@@ -95,4 +95,4 @@ export type AnimationProps = {
 	readonly timingFunctionExit?: CSS.Properties['animationTimingFunction'];
 };
 
-export type BaseAnimationProps<P = Record<string, unknown>> = AnimationProps & BoxProps & P;
+export type BaseAnimationProps<P = Record<string, unknown>> = AnimationProps & FlexProps & P;

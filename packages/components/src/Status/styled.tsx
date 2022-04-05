@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import variant from './variants/variant';
 import { StatusProps } from './types';
 
-const Status: React.FC<StatusProps> = styled(Box)`
+const Status: React.FC<StatusProps> = styled(Flex)`
 	${variant}
 `;
 

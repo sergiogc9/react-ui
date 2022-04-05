@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -7,6 +7,6 @@ type Props = {
 	readonly location?: 'bottom' | 'left' | 'right' | 'top';
 };
 
-type TableContentGradientProps = BoxProps & Props;
+type TableContentGradientProps = FlexProps & Props;
 
 export default TableContentGradientProps;

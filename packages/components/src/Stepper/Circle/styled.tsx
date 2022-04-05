@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import theme, { getColorFromTheme } from '@sergiogc9/react-ui-theme';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import variant from './variants/variant';
 import { StyledStepperCircleProps } from './types';
 
@@ -33,7 +33,7 @@ const getCircleColors = (props: StyledStepperCircleProps) => {
 	`;
 };
 
-const StyledStepperCircle = styled(Box)<StyledStepperCircleProps>`
+const StyledStepperCircle = styled(Flex)<StyledStepperCircleProps>`
 	font-weight: bold;
 	${getCircleColors}
 	${variant}

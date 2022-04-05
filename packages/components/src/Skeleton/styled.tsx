@@ -1,14 +1,14 @@
 import styled, { css } from 'styled-components';
 import { getColorFromTheme } from '@sergiogc9/react-ui-theme';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { SkeletonProps } from './types';
 
 const __getSkeletonGradient = (backgroundColor: string) => {
 	return `linear-gradient(90deg, ${backgroundColor}00 0, ${backgroundColor}33 20%, ${backgroundColor}80 60%, ${backgroundColor}00)`;
 };
 
-const StyledSkeleton: React.FC<SkeletonProps> = styled(Box)<SkeletonProps>`
+const StyledSkeleton: React.FC<SkeletonProps> = styled(Flex)<SkeletonProps>`
 	${props => {
 		const backgroundColor = getColorFromTheme(props.theme, props.theme.colors.common.background);
 		const themeColor = getColorFromTheme(props.theme, props.color ?? props.theme.components.skeleton.colors.color);

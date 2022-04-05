@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -23,4 +23,4 @@ type Props = {
 	readonly onChange?: (defaultChecked: boolean) => void;
 };
 
-export type SwitchProps = Props & Omit<BoxProps, 'onChange'>;
+export type SwitchProps = Props & Omit<FlexProps, 'onChange'>;

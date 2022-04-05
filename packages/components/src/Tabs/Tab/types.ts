@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -21,5 +21,5 @@ type Props = {
 	readonly isError?: boolean;
 };
 
-export type TabsTabProps = Props & BoxProps;
+export type TabsTabProps = Props & FlexProps;
 export type StyledTabsTabProps = TabsTabProps & { activeID?: string };

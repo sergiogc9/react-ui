@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import variant from './variants/variant';
 import { TooltipContentProps } from './types';
 
@@ -28,7 +28,7 @@ const getArrowPosition = (props: TooltipContentProps) => {
 	}
 };
 
-const StyledTooltip: React.FC<TooltipContentProps> = styled(Box)<TooltipContentProps>`
+const StyledTooltip: React.FC<TooltipContentProps> = styled(Flex)<TooltipContentProps>`
 	opacity: ${props => (props.isVisible ? 1 : 0)};
 	transition-duration: ${props => props.duration}ms;
 	${props => variant(props)};
@@ -41,7 +41,7 @@ StyledTooltip.defaultProps = {
 	transition: 'opacity 0.25s ease-in'
 };
 
-const StyledArrow = styled(Box)<TooltipContentProps>`
+const StyledArrow = styled(Flex)<TooltipContentProps>`
 	width: ${props => props.arrowSize}px;
 	height: ${props => props.arrowSize}px;
 	${props => getArrowPosition(props)}

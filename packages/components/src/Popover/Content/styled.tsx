@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 import systemCSS from '@styled-system/css';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { PopoverContentProps } from './types';
 
-export const StyledPopover: React.FC<PopoverContentProps> = styled(Box)<PopoverContentProps>`
+export const StyledPopover: React.FC<PopoverContentProps> = styled(Flex)<PopoverContentProps>`
 	opacity: ${props => (props.isVisible ? 1 : 0)};
 	transition-duration: ${props => props.duration}ms;
 

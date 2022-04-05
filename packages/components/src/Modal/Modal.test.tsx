@@ -3,7 +3,7 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { withTheme } from 'components/private/utils/tests';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import Modal from 'components/Modal';
 import { ModalProps } from './types';
 
@@ -21,15 +21,15 @@ const renderModal = (props?: Partial<ModalProps>) =>
 	render(
 		withTheme(
 			<>
-				<Box id={modalsId} />
-				<Box id={overlaysId} />
-				<Box id={rootId}>
+				<Flex id={modalsId} />
+				<Flex id={overlaysId} />
+				<Flex id={rootId}>
 					<Modal data-testid={modalTestId} onClose={mockOnClose} {...props}>
 						<Modal.Header>{headerText}</Modal.Header>
 						<Modal.Content>{contentText}</Modal.Content>
 						<Modal.Footer>{footerText}</Modal.Footer>
 					</Modal>
-				</Box>
+				</Flex>
 			</>
 		)
 	);

@@ -1,6 +1,6 @@
 import { keyframes } from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { withBaseAnimation } from 'components/Animation/Base';
 
 const FadeOutAnimation = keyframes`
@@ -13,7 +13,7 @@ const FadeOutAnimation = keyframes`
   }
 `;
 
-const FadeOut = withBaseAnimation(Box, FadeOutAnimation);
+const FadeOut = withBaseAnimation(Flex, FadeOutAnimation);
 
 export { FadeOutAnimation };
 export default FadeOut;

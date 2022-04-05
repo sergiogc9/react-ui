@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Box, Icon } from '@sergiogc9/react-ui';
+import { Flex, Icon } from '@sergiogc9/react-ui';
 
 import { SwitchBoxIconProps } from './types';
 
-const StyledSwitchBoxIconWrapper = styled(Box)`
+const StyledSwitchBoxIconWrapper = styled(Flex)`
 	${props => css({ bg: props.theme.collections.switchBox.colors.icon.bg })}
 `;
 

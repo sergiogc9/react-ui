@@ -1,7 +1,7 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
-import Box from 'components/Box';
 import Button from 'components/Button';
+import Flex from 'components/Flex';
 import Popover from 'components/Popover';
 import PopoverContent from 'components/Popover/Content';
 import PopoverTrigger from 'components/Popover/Trigger';
@@ -129,7 +129,7 @@ You can use the popover without the provider and trigger, using the `reference` 
 					code: `
   const ref = React.useRef(null);
   return (
-      <Box ref={ref}>Hover me</Box>
+      <Flex ref={ref}>Hover me</Flex>
       <Popover.Content reference={ref}>
         I am not using the provider!
       </Popover.Content>
@@ -151,7 +151,7 @@ You can locate the popover in different places around the trigger component. See
 	<Story name="positioning" parameters={getFixedStoryParams()}>
 		{args =>
 			['top', 'left', 'right', 'bottom'].map(position => (
-				<Box key={`${position}-div`} py={5} flexWrap="wrap">
+				<Flex key={`${position}-div`} py={5} flexWrap="wrap">
 					{['', '-end', '-start'].map((alignment, index) => (
 						<Popover key={`${position}${alignment}`}>
 							<Popover.Trigger mx="100px" my="150px">
@@ -162,7 +162,7 @@ You can locate the popover in different places around the trigger component. See
 							</Popover.Content>
 						</Popover>
 					))}
-				</Box>
+				</Flex>
 			))
 		}
 	</Story>

@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -8,4 +8,4 @@ type Props = {
 };
 
 export type ToastsProps = Props;
-export type StyledToastsProps = Props & BoxProps;
+export type StyledToastsProps = Props & FlexProps;

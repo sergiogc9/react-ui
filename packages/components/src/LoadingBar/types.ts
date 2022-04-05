@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -7,6 +7,6 @@ type Props = {
 	readonly isVisible: boolean;
 };
 
-export type LoadingBarProps = Props & BoxProps;
-export type StyledLoadingBarProps = BoxProps;
-export type StyledLoadingBarProgressProps = BoxProps & { percentage: number };
+export type LoadingBarProps = Props & FlexProps;
+export type StyledLoadingBarProps = FlexProps;
+export type StyledLoadingBarProgressProps = FlexProps & { percentage: number };

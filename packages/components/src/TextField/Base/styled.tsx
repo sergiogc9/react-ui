@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 import systemCSS from '@styled-system/css';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { TextFieldBaseProps } from './types';
 
-const StyledTextFieldBase: React.FC<TextFieldBaseProps> = styled(Box)<TextFieldBaseProps>`
+const StyledTextFieldBase: React.FC<TextFieldBaseProps> = styled(Flex)<TextFieldBaseProps>`
 	&:hover #textFieldRemoveWrapper,
 	&:focus-within #textFieldRemoveWrapper {
 		display: flex;
@@ -25,7 +25,7 @@ StyledTextFieldBase.defaultProps = {
 	width: '100%'
 };
 
-const StyledTextFieldBaseWrapper: React.FC<TextFieldBaseProps> = styled(Box)<TextFieldBaseProps>`
+const StyledTextFieldBaseWrapper: React.FC<TextFieldBaseProps> = styled(Flex)<TextFieldBaseProps>`
 	${props => props.isDisabled && 'opacity: 0.4;'}
 `;
 
@@ -37,7 +37,7 @@ StyledTextFieldBaseWrapper.defaultProps = {
 	width: '100%'
 };
 
-const StyledTextFieldIconContent = styled(Box)`
+const StyledTextFieldIconContent = styled(Flex)`
 	${({ theme }) =>
 		systemCSS({
 			color: theme.components.input.colors.hover

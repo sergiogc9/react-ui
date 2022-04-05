@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import { TableBodyRowProps } from './types';
 
-const StyledTableBodyRow: React.FC<TableBodyRowProps> = styled(Box)<TableBodyRowProps>`
+const StyledTableBodyRow: React.FC<TableBodyRowProps> = styled(Flex)<TableBodyRowProps>`
 	${props =>
 		css({
 			bg: props.theme.components.table.colors.content.bg

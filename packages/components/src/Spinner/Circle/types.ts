@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -27,4 +27,4 @@ type Props = {
 	readonly circleSize?: number;
 };
 
-export type SpinnerCircleProps = Props & Omit<BoxProps, 'color'>;
+export type SpinnerCircleProps = Props & Omit<FlexProps, 'color'>;

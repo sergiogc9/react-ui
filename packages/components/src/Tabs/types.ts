@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 export type Props = {
 	/**
@@ -12,4 +12,4 @@ export type Props = {
 	readonly onTabChange?: (id: string) => void;
 };
 
-export type TabsProps = Props & BoxProps;
+export type TabsProps = Props & FlexProps;

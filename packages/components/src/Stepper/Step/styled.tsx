@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import variant from './variants/variant';
 import { StyledStepperStepProps } from './types';
 
-const StyledStep = styled(Box)<StyledStepperStepProps>`
+const StyledStep = styled(Flex)<StyledStepperStepProps>`
 	${variant}
 	&:first-child {
 		margin-top: 0;

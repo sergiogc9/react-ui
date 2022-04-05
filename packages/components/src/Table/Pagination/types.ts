@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -8,4 +8,4 @@ type Props = {
 	readonly onGoToPage?: (page: number) => void;
 };
 
-export type TablePaginationProps = Props & BoxProps;
+export type TablePaginationProps = Props & FlexProps;

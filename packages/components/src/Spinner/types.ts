@@ -1,3 +1,3 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
-export type SpinnerProps = BoxProps;
+export type SpinnerProps = FlexProps;

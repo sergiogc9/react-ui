@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { SpinnerProps } from './types';
 
-const StyledSpinner: React.FC<SpinnerProps> = React.memo(styled(Box)<SpinnerProps>``);
+const StyledSpinner: React.FC<SpinnerProps> = React.memo(styled(Flex)<SpinnerProps>``);
 
 export default StyledSpinner;

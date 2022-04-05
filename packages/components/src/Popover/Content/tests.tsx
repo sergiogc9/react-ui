@@ -1,7 +1,7 @@
 import React from 'react';
 import { useClickOutside, useMergeRefs } from '@sergiogc9/react-hooks';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import PopoverContext from '../Context';
 import { PopoverContentProps } from './types';
@@ -28,9 +28,9 @@ const TestFakeStyledPopoverContent: React.FC<PopoverContentProps> = React.forwar
 	});
 
 	return (
-		<Box display={isVisible ?? isPrivateVisible ? 'flex' : 'none'} {...rest} ref={mergeRefs} transition="unset">
+		<Flex display={isVisible ?? isPrivateVisible ? 'flex' : 'none'} {...rest} ref={mergeRefs} transition="unset">
 			{(isVisible ?? isPrivateVisible) && children}
-		</Box>
+		</Flex>
 	);
 });
 

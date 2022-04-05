@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -21,4 +21,4 @@ type Props = {
 	readonly variant?: 'blue' | 'green' | 'grey' | 'red' | 'yellow';
 };
 
-export type CounterProps = Props & Omit<BoxProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'bg'>;
+export type CounterProps = Props & Omit<FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'bg'>;

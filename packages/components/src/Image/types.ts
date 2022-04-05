@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -9,4 +9,4 @@ type Props = {
 	readonly src: string;
 };
 
-export type ImageProps = Props & Omit<BoxProps<React.ImgHTMLAttributes<HTMLImageElement>>, 'src'>;
+export type ImageProps = Props & Omit<FlexProps<React.ImgHTMLAttributes<HTMLImageElement>>, 'src'>;

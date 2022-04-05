@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Divider } from '@sergiogc9/react-ui';
+import { Divider, Flex } from '@sergiogc9/react-ui';
 
 import useScreenSize from 'collections/private/utils/hooks/useScreenSize';
 
@@ -12,12 +12,12 @@ const UserMenuFooter: React.FC<UserMenuFooterProps> = ({ children, ...rest }) =>
 	const { isMobile } = useScreenSize();
 	const isFullscreenMenuShown = isMobile && isMobileFullScreenEnabled;
 	return (
-		<Box flexDirection="column" mt="auto">
+		<Flex flexDirection="column" mt="auto">
 			<Divider data-testid="userMenuDividerFullScreen" my={2} />
 			<StyledUserMenuFooter p={isFullscreenMenuShown ? 3 : undefined} {...rest}>
 				{children}
 			</StyledUserMenuFooter>
-		</Box>
+		</Flex>
 	);
 };
 

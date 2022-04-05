@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -27,4 +27,4 @@ type Props = {
 	readonly label?: string;
 };
 
-export type InputCheckProps = Props & BoxProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+export type InputCheckProps = Props & FlexProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;

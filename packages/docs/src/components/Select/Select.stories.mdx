@@ -2,7 +2,7 @@ import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 
 import SelectDecorator from 'storybook/decorators/Select';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import Content from 'components/Content';
 import Icon from 'components/Icon';
 import Select from 'components/Select';
@@ -353,9 +353,9 @@ Example with custom content:
 			<Select
 				{...args}
 				emptyResultsContent={
-					<Box p={4}>
+					<Flex p={4}>
 						<Content color="primary.400">That's weird... no results have been found!</Content>
-					</Box>
+					</Flex>
 				}
 				minHeight={215}
 			></Select>

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import { SelectProps } from './types';
 
-const StyledSelect: React.FC<SelectProps> = styled(Box)<SelectProps>`
+const StyledSelect: React.FC<SelectProps> = styled(Flex)<SelectProps>`
 	& {
 		[data-tippy-root] {
 			width: 100%;

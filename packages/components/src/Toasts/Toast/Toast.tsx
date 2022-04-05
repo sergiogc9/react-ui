@@ -2,7 +2,7 @@ import React from 'react';
 import { useIsMounted } from '@sergiogc9/react-hooks';
 
 import Alert from 'components/Alert';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import IconButton from 'components/IconButton';
 import Icon from 'components/Icon';
 
@@ -60,7 +60,7 @@ const Toast: React.FC<ToastProps> = ({ children, toastOptions, visibleStatus, ..
 			<StyledToast status={status} {...rest}>
 				{hasIcon && <Alert.Icon />}
 				<Alert.Text mr="auto">{message}</Alert.Text>
-				{actionContent && <Box ml={2}>{actionContent}</Box>}
+				{actionContent && <Flex ml={2}>{actionContent}</Flex>}
 				{hasCloseBtn && (
 					<IconButton
 						aspectSize="s"

@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { DecoratorFn } from '@storybook/react';
 
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
-const BlurContainer = styled(Box)`
+const BlurContainer = styled(Flex)`
 	width: 100vw;
 	max-width: 100%;
 	height: 100vh;
@@ -30,9 +30,9 @@ const BlurContainer = styled(Box)`
 
 export const PageContainer: React.FC = props => (
 	<BlurContainer justifyContent="center" alignItems="center">
-		<Box width="90%" height="90%" padding="30px" display="block" border="thin solid lightgray">
+		<Flex width="90%" height="90%" padding="30px" display="block" border="thin solid lightgray">
 			{props.children}
-		</Box>
+		</Flex>
 	</BlurContainer>
 );
 

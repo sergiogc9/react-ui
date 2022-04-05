@@ -1,10 +1,11 @@
 import { getColorFromTheme, getColorFromThemeWithOpacity } from '@sergiogc9/react-ui-theme';
-import Box from 'components/Box';
 import styled, { css } from 'styled-components';
+
+import Flex from 'components/Flex';
 
 import { InputCheckProps } from './types';
 
-const StyledInputCheck: React.FC<InputCheckProps> = styled(Box)<InputCheckProps>`
+const StyledInputCheck: React.FC<InputCheckProps> = styled(Flex)<InputCheckProps>`
 	input {
 		cursor: inherit;
 		height: 100%;
@@ -152,7 +153,7 @@ StyledInputCheck.defaultProps = {
 	width: '40px'
 };
 
-const StyledInputCheckWrapper: React.FC<InputCheckProps> = styled(Box)<InputCheckProps>``;
+const StyledInputCheckWrapper: React.FC<InputCheckProps> = styled(Flex)<InputCheckProps>``;
 
 StyledInputCheckWrapper.defaultProps = {
 	minHeight: '40px'

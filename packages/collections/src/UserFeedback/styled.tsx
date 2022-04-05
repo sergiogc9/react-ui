@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import { StyledUserFeedbackProps } from './types';
 
-const StyledUserFeedback: React.FC<StyledUserFeedbackProps> = styled(Box)``;
+const StyledUserFeedback: React.FC<StyledUserFeedbackProps> = styled(Flex)``;
 
 StyledUserFeedback.defaultProps = {
 	alignItems: 'center',

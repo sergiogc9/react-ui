@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { TabsProps } from './types';
 
-const StyledTabs: React.FC<TabsProps> = styled(Box)``;
+const StyledTabs: React.FC<TabsProps> = styled(Flex)``;
 
 StyledTabs.defaultProps = {
 	flexDirection: 'column',

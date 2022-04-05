@@ -1,9 +1,9 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 import { GridBoxProps } from 'components/Grid';
 
 type SkeletonRectBoxProps = {
 	readonly type?: 'box';
-} & BoxProps;
+} & FlexProps;
 
 type SkeletonRectGridBoxProps = {
 	readonly type: 'grid';

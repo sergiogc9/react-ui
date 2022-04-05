@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { RemoveButtonProps } from './types';
 
-const StyledRemoveButtonWrapper: React.FC<RemoveButtonProps> = styled(Box)<RemoveButtonProps>`
+const StyledRemoveButtonWrapper: React.FC<RemoveButtonProps> = styled(Flex)<RemoveButtonProps>`
 	${props =>
 		!props.value &&
 		css`

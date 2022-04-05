@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from 'react';
 
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -20,5 +20,5 @@ type StyledProps = {
 	readonly hasText: boolean;
 };
 
-export type FloatingButtonProps = Props & BoxProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+export type FloatingButtonProps = Props & FlexProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 export type StyledFloatingButtonProps = StyledProps & FloatingButtonProps;

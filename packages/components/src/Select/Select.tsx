@@ -1,7 +1,7 @@
 import React from 'react';
 import { useUpdateEffect } from '@sergiogc9/react-hooks';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import SelectContext, { SelectContextData } from './Context';
 import SelectField, { SelectFieldProps } from './Field';
@@ -194,7 +194,7 @@ const Select: React.FC<SelectProps> = ({
 	return (
 		<SelectContext.Provider value={contextData}>
 			<StyledSelect onBlur={onSelectBlur} {...rest}>
-				<Box aria-haspopup="listbox" aria-expanded={isOpen} height="fit-content" ref={fieldBoxRef} width="100%">
+				<Flex aria-haspopup="listbox" aria-expanded={isOpen} height="fit-content" ref={fieldBoxRef} width="100%">
 					<SelectField
 						aspectSize={aspectSize}
 						hasRemoveButton={hasRemoveButton}
@@ -209,7 +209,7 @@ const Select: React.FC<SelectProps> = ({
 						placeholder={placeholder}
 						ref={inputRef}
 					/>
-				</Box>
+				</Flex>
 				<SelectPopover
 					distance={4}
 					isInteractive

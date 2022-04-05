@@ -3,7 +3,8 @@ import { useMergeRefs } from '@sergiogc9/react-hooks';
 
 import { bottomInputContentAnimation, InputCounter, InputHelperText } from 'components/private/components/Input';
 import Animation from 'components/Animation';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
+
 import TextAreaLabel from './Label';
 import StyledTextArea, { StyledTextAreaWrapper } from './styled';
 import { TextAreaProps } from './types';
@@ -63,7 +64,7 @@ const TextArea: React.FC<TextAreaProps> = React.forwardRef(
 
 		return (
 			<StyledTextAreaWrapper height={height} labelPosition={labelPosition} size={size} {...rest}>
-				<Box
+				<Flex
 					position="absolute"
 					height="100%"
 					pointerEvents="none"
@@ -80,7 +81,7 @@ const TextArea: React.FC<TextAreaProps> = React.forwardRef(
 					>
 						{label}
 					</TextAreaLabel>
-				</Box>
+				</Flex>
 				<StyledTextArea
 					disabled={isDisabled}
 					id={id}

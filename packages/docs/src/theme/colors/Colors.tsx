@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, { DefaultTheme, useTheme } from 'styled-components';
 
-import { Box, Content, Title } from '@sergiogc9/react-ui';
+import { Content, Flex, Title } from '@sergiogc9/react-ui';
 
-const ColorWrapper = styled(Box)`
+const ColorWrapper = styled(Flex)`
 	& {
 		flex-direction: column;
 		flex-wrap: wrap;
@@ -11,7 +11,7 @@ const ColorWrapper = styled(Box)`
 	}
 `;
 
-const ColorBox = styled(Box)`
+const ColorBox = styled(Flex)`
 	& {
 		background: ${props => props.color};
 		border: thin solid ${props => props.theme.colors.neutral[props.theme.mode === 'dark' ? '800' : '200']};
@@ -49,24 +49,26 @@ const getColorContent = (theme: DefaultTheme, colorKey: string) => {
 		content = getColorBox(colorKey, colors);
 	} else {
 		content = (
-			<Box flexWrap="wrap">{Object.keys(colors).map(color => getColorBox(`${colorKey}.${color}`, colors[color]))}</Box>
+			<Flex flexWrap="wrap">
+				{Object.keys(colors).map(color => getColorBox(`${colorKey}.${color}`, colors[color]))}
+			</Flex>
 		);
 	}
 
 	return (
-		<Box key={colorKey} flexDirection="column" mb="30px">
+		<Flex key={colorKey} flexDirection="column" mb="30px">
 			<Title aspectSize="xs" mb="10px" pl="10px">
 				{colorKey.toLocaleUpperCase()}
 			</Title>
 			{content}
-		</Box>
+		</Flex>
 	);
 };
 
 const Colors = () => {
 	const theme = useTheme();
 
-	return <Box flexDirection="column">{Object.keys(theme.colors).map(color => getColorContent(theme, color))}</Box>;
+	return <Flex flexDirection="column">{Object.keys(theme.colors).map(color => getColorContent(theme, color))}</Flex>;
 };
 
 export default Colors;

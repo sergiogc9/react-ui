@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import css, { SystemStyleObject } from '@styled-system/css';
 
 import Animation from 'components/Animation';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import { StyledLoadingBarProps, StyledLoadingBarProgressProps } from './types';
 
@@ -42,7 +42,7 @@ const getTransitionCssValues = (percentage: number): SystemStyleObject => {
 	};
 };
 
-const StyledLoadingBar: React.FC<StyledLoadingBarProps> = styled(Box)<StyledLoadingBarProps>`
+const StyledLoadingBar: React.FC<StyledLoadingBarProps> = styled(Flex)<StyledLoadingBarProps>`
 	${({ theme }) =>
 		css({
 			bg: theme.components.loadingBar.colors.background
@@ -56,7 +56,7 @@ StyledLoadingBar.defaultProps = {
 	zIndex: 100
 };
 
-const StyledLoadingBarProgress: React.FC<StyledLoadingBarProgressProps> = styled(Box)<StyledLoadingBarProgressProps>`
+const StyledLoadingBarProgress: React.FC<StyledLoadingBarProgressProps> = styled(Flex)<StyledLoadingBarProgressProps>`
 	${({ percentage, theme }) =>
 		css({
 			bg: theme.components.loadingBar.colors.active,

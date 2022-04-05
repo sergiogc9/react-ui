@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import { TableToolbarProps } from './types';
 
-const TableToolbar: React.FC<TableToolbarProps> = styled(Box)<TableToolbarProps>``;
+const TableToolbar: React.FC<TableToolbarProps> = styled(Flex)<TableToolbarProps>``;
 
 TableToolbar.defaultProps = {
 	alignItems: 'center',

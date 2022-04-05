@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import aspectSize from './variants/aspectSize';
 import variant from './variants/variant';
 import { AvatarProps } from './types';
 
-const StyledAvatar: React.FC<AvatarProps> = styled(Box)<AvatarProps>`
+const StyledAvatar: React.FC<AvatarProps> = styled(Flex)<AvatarProps>`
 	overflow: hidden;
 	position: relative;
 	flex-shrink: 0;

@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 import { DatePickerProps } from '../types';
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 	readonly onMonthClick?: (month: Date) => void;
 };
 
-export type DatePickerMonthProps = Props & BoxProps;
+export type DatePickerMonthProps = Props & FlexProps;
 export type StyledMonthBoxProps = DatePickerMonthProps & {
 	isDisabled: boolean;
 	isRangeEnd: boolean;

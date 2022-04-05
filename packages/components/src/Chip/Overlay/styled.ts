@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import { ChipOverlayProps } from './types';
 import aspectSize from './variants/aspectSize';
 import variant from './variants/variant';
 
-const StyledChipOverlay: React.FC<ChipOverlayProps> = styled(Box)`
+const StyledChipOverlay: React.FC<ChipOverlayProps> = styled(Flex)`
 	${variant}
 	${aspectSize}
 `;

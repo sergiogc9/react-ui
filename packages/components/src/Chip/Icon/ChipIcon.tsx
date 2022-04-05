@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { IconProps } from 'components/Icon';
 
 import ChipContext from '../Context';
@@ -10,7 +10,7 @@ import StyledIcon from './styled';
 const ChipIcon: React.FC<IconProps> = ({ className, onClick, ...props }) => {
 	const { aspectSize, variant } = React.useContext(ChipContext);
 	return (
-		<Box alignItems="center" className={`${className || ''}${onClick ? ' clickable' : ''}`} height="100%">
+		<Flex alignItems="center" className={`${className || ''}${onClick ? ' clickable' : ''}`} height="100%">
 			{onClick ? (
 				<ActionWrapper
 					aspectSize={aspectSize}
@@ -25,7 +25,7 @@ const ChipIcon: React.FC<IconProps> = ({ className, onClick, ...props }) => {
 			) : (
 				<StyledIcon variant={variant} {...props} />
 			)}
-		</Box>
+		</Flex>
 	);
 };
 

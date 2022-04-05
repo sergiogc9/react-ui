@@ -274,7 +274,7 @@ http://react-day-picker.js.org/docs/matching-days
 An example using a custom modifier to show holidays. You should set the styles using a wrapper outside the DatePicker:
 
 ```tsx
-const HolidaysModifierWrapper = styled(Box)`
+const HolidaysModifierWrapper = styled(Flex)`
 	.DayPicker-Day--holidays:not(.DayPicker-Day--selected) {
 		color: green;
 		font-weight: bold;
@@ -350,7 +350,7 @@ Pass all props to DatePicker using the `datePickerProps` prop.
         isVisible={isVisible}
         reference={btnRef}
       >
-        <Box justifyContent="flex-end" padding={3}>
+        <Flex justifyContent="flex-end" padding={3}>
           <Button
             aspectSize="s"
             variant="secondary"
@@ -366,7 +366,7 @@ Pass all props to DatePicker using the `datePickerProps` prop.
           >
             Done
           </Button>
-        </Box>
+        </Flex>
       </DatePicker.Popover>
     </>
   );

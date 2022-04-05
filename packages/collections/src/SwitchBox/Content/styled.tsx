@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import { SwitchBoxContentProps } from './types';
 
-const SwitchBoxContent: React.FC<SwitchBoxContentProps> = styled(Box)<SwitchBoxContentProps>``;
+const SwitchBoxContent: React.FC<SwitchBoxContentProps> = styled(Flex)<SwitchBoxContentProps>``;
 
 SwitchBoxContent.defaultProps = {
 	flexDirection: 'column',

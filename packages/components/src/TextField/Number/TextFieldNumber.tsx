@@ -3,9 +3,10 @@ import { useMergeRefs } from '@sergiogc9/react-hooks';
 import { Keyboard } from '@sergiogc9/react-utils';
 
 import dispatchOnChange from 'components/private/components/Input/utils';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import Icon from 'components/Icon';
 import IconButton from 'components/IconButton';
+
 import StyledTextFieldNumber from './styled';
 import { TextFieldNumberProps } from './types';
 
@@ -18,7 +19,7 @@ const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInp
 
 		const rightContent = React.useMemo(() => {
 			return (
-				<Box flexDirection="column" justifyContent="center" pointerEvents="auto">
+				<Flex flexDirection="column" justifyContent="center" pointerEvents="auto">
 					<IconButton
 						aspectSize="s"
 						cursor={isDisabled ? 'default' : 'pointer'}
@@ -45,7 +46,7 @@ const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInp
 					>
 						<Icon aspectSize="s" icon="arrow-down" styling="outlined" />
 					</IconButton>
-				</Box>
+				</Flex>
 			);
 		}, [isDisabled, max, min, numberValue, value]);
 

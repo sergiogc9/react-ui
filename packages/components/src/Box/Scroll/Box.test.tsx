@@ -8,7 +8,7 @@ import { BoxProps } from 'components/Box/types';
 
 const testID = 'box';
 
-const renderBox = (props?: BoxProps) => render(withTheme(<Box data-testid={testID} {...props} />));
+const renderBox = (props?: BoxProps) => render(withTheme(<Box data-testid={testID} isReallyABox {...props} />));
 
 describe('Box', () => {
 	afterEach(cleanup);
@@ -17,7 +17,7 @@ describe('Box', () => {
 		renderBox({ justifyContent: 'center' });
 		const box = screen.getByTestId(testID);
 
-		expect(box).toHaveStyle('display: flex;');
+		expect(box).toHaveStyle('display: block;');
 		expect(box).toHaveStyle('justify-content: center;');
 	});
 

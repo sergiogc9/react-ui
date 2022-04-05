@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { system } from 'styled-system';
 
-import Box from 'components/Box';
+import Box from 'components/Flex';
 import composers from 'components/private/utils/composers';
 import { GridBoxProps } from './types';
 

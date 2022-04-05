@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 export type Props = {
 	/**
@@ -13,4 +13,4 @@ export type Props = {
 	readonly id: string;
 };
 
-export type TabsContentProps = PropsWithChildren<Props & BoxProps>;
+export type TabsContentProps = PropsWithChildren<Props & FlexProps>;

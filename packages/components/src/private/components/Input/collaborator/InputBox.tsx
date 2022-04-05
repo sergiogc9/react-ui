@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import composers from 'components/private/utils/composers';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { InputBoxProps } from './types';
 
-const InputBox: React.FC<InputBoxProps> = styled(Box)<InputBoxProps>`
+const InputBox: React.FC<InputBoxProps> = styled(Flex)<InputBoxProps>`
 	${composers.text}
 `;
 

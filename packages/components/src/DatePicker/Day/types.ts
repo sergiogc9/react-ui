@@ -1,6 +1,6 @@
 import { DayPickerProps } from 'react-day-picker';
 
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 import { DatePickerProps } from '../types';
 
 type Props = {
@@ -17,4 +17,4 @@ type Props = {
 	readonly onDayClick?: DayPickerProps['onDayClick'];
 };
 
-export type DatePickerDayProps = Props & BoxProps;
+export type DatePickerDayProps = Props & FlexProps;

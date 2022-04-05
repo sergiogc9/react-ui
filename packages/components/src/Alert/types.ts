@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -7,4 +7,4 @@ type Props = {
 	readonly status?: 'error' | 'info' | 'success' | 'warning';
 };
 
-export type AlertProps = Props & BoxProps;
+export type AlertProps = Props & FlexProps;

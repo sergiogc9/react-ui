@@ -1,5 +1,5 @@
 import React from 'react';
-import { BoxProps, ButtonProps } from '@sergiogc9/react-ui';
+import { FlexProps, ButtonProps } from '@sergiogc9/react-ui';
 
 type Props = {
 	/**
@@ -28,5 +28,5 @@ type Props = {
 	readonly titleText: string;
 };
 
-export type UserFeedbackProps = Props & BoxProps;
-export type StyledUserFeedbackProps = BoxProps;
+export type UserFeedbackProps = Props & FlexProps;
+export type StyledUserFeedbackProps = FlexProps;

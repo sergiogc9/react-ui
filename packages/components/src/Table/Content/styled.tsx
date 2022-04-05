@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import { TableContentProps } from './types';
 
-const StyledTableContent: React.FC<TableContentProps> = styled(Box)<TableContentProps>`
+const StyledTableContent: React.FC<TableContentProps> = styled(Flex)<TableContentProps>`
 	display: block;
 `;
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useIsHorizontalScrolled } from '@sergiogc9/react-hooks';
 
-import Box from 'components/Box';
 import Divider from 'components/Divider';
+import Flex from 'components/Flex';
 
 import TableContext from '../Context';
 import TableBodyCell from '../Body/Cell';
@@ -26,9 +26,9 @@ const TableContent: React.FC<TableContentProps> = (props: TableContentProps) => 
 	const roundedPercentage = Math.round(percentage);
 
 	return (
-		<Box position="relative">
+		<Flex position="relative">
 			<StyledContentTable {...rest} {...getTableProps()} minWidth="0 !important" ref={scrollContentRef}>
-				<Box alignItems="center" flexDirection="column" minWidth={minWidth}>
+				<Flex alignItems="center" flexDirection="column" minWidth={minWidth}>
 					{headerGroups.map(headerGroup => (
 						// eslint-disable-next-line react/jsx-key
 						<TableHeaderGroup {...headerGroup.getHeaderGroupProps()}>
@@ -40,8 +40,8 @@ const TableContent: React.FC<TableContentProps> = (props: TableContentProps) => 
 							})}
 						</TableHeaderGroup>
 					))}
-				</Box>
-				<Box {...getTableBodyProps()} alignItems="center" flexDirection="column" minWidth={minWidth} mt={2}>
+				</Flex>
+				<Flex {...getTableBodyProps()} alignItems="center" flexDirection="column" minWidth={minWidth} mt={2}>
 					{page.map(row => {
 						prepareRow(row);
 						return (
@@ -64,7 +64,7 @@ const TableContent: React.FC<TableContentProps> = (props: TableContentProps) => 
 							</React.Fragment>
 						);
 					})}
-				</Box>
+				</Flex>
 			</StyledContentTable>
 			{hasScroll && (
 				<TableContentGradient
@@ -84,7 +84,7 @@ const TableContent: React.FC<TableContentProps> = (props: TableContentProps) => 
 					timingFunction={roundedPercentage !== 100 ? 'ease-in' : 'ease-out'}
 				/>
 			)}
-		</Box>
+		</Flex>
 	);
 };
 

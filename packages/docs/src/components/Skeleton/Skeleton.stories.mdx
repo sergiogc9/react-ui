@@ -2,7 +2,7 @@ import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 
 import SkeletonDecorator from 'storybook/decorators/Skeleton';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import Grid from 'components/Grid';
 import Skeleton from 'components/Skeleton';
 
@@ -132,14 +132,14 @@ Use simple Box components or flex containers as children. The `Skeleton.Circle` 
 <Canvas>
 	<Story name="with flex layout" parameters={getFixedStoryParams()}>
 		<Skeleton flexDirection="column">
-			<Box>
+			<Flex>
 				<Skeleton.Rect height={30} width="20%" />
 				<Skeleton.Rect height={30} flexGrow={1} ml="5%" />
-			</Box>
-			<Box my={3}>
+			</Flex>
+			<Flex my={3}>
 				<Skeleton.Rect height={30} width="20%" />
 				<Skeleton.Rect height={30} flexGrow={1} ml="5%" />
-			</Box>
+			</Flex>
 			<Skeleton.Rect bg="blue.100" height={30} />
 		</Skeleton>
 	</Story>

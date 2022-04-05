@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { StyledTextArea as BaseStyledTextArea } from 'components/private/components/Input';
 import { TextAreaProps, StyledTextAreaProps } from './types';
 
@@ -34,7 +34,7 @@ StyledTextArea.defaultProps = {
 	width: '100%'
 };
 
-const StyledTextAreaWrapper: React.FC<TextAreaProps> = styled(Box)<TextAreaProps>`
+const StyledTextAreaWrapper: React.FC<TextAreaProps> = styled(Flex)<TextAreaProps>`
 	${props => !props.paddingTop && props.labelPosition === 'outside' && css({ paddingTop: 4 })}
 `;
 

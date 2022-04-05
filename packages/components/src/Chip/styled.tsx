@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
 import systemCSS from '@styled-system/css';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import aspectSize from './variants/aspectSize';
 import variant from './variants/variant';
 import { ChipProps } from './types';
 
-export const StyledChip: React.FC<ChipProps> = styled(Box)`
+export const StyledChip: React.FC<ChipProps> = styled(Flex)`
 	${aspectSize}
 	${variant}
   text-decoration: none;

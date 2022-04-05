@@ -1,5 +1,5 @@
 import { BaseAnimationProps } from 'components/Animation';
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 export type Props = {
 	/**
@@ -12,4 +12,4 @@ export type Props = {
 	readonly isVisible?: BaseAnimationProps['isVisible'];
 };
 
-export type OverlayProps = Props & BoxProps;
+export type OverlayProps = Props & FlexProps;

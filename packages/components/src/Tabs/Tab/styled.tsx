@@ -3,10 +3,10 @@ import styled, { css } from 'styled-components';
 import systemCSS from '@styled-system/css';
 import { getColorFromTheme } from '@sergiogc9/react-ui-theme';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { StyledTabsTabProps } from './types';
 
-const StyledTabsTab = styled(Box)<StyledTabsTabProps>`
+const StyledTabsTab = styled(Flex)<StyledTabsTabProps>`
 	${props => systemCSS({ color: props.theme.components.tab.colors.default })}
 	cursor: pointer;
 	text-transform: uppercase;

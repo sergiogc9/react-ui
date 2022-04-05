@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
 
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
-export type TabsHeaderProps = PropsWithChildren<BoxProps>;
+export type TabsHeaderProps = PropsWithChildren<FlexProps>;

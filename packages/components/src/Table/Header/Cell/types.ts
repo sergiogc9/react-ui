@@ -1,10 +1,10 @@
 import { HeaderProps, ColumnInstance } from 'react-table';
 
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
-export type TableHeaderCellProps = BoxProps & HeaderProps<any>;
+export type TableHeaderCellProps = FlexProps & HeaderProps<any>;
 
-export type StyledTableHeaderCellProps = BoxProps & {
+export type StyledTableHeaderCellProps = FlexProps & {
 	readonly canSort: ColumnInstance['canSort'];
 };
-export type StyledTableHeaderCellContentProps = BoxProps;
+export type StyledTableHeaderCellContentProps = FlexProps;

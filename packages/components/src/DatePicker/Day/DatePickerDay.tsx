@@ -2,7 +2,7 @@ import React from 'react';
 import DayPicker, { Modifiers } from 'react-day-picker';
 
 import { changeMonth, getLocaleMonths, getLocaleWeekdays, startOfMonth } from 'components/private/utils/date';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import Icon from 'components/Icon';
 import IconButton from 'components/IconButton';
 import Title from 'components/Title';
@@ -75,7 +75,7 @@ const DatePickerDay: React.FC<DatePickerDayProps> = ({
 	const captionContent = React.useMemo(() => {
 		const monthText = localeTexts.months[visibleMonth.getMonth()];
 		return (
-			<Box alignItems="center" justifyContent="space-between" marginBottom={1}>
+			<Flex alignItems="center" justifyContent="space-between" marginBottom={1}>
 				<IconButton
 					aspectSize="s"
 					data-testid="datePickerDayPreviousMonthIcon"
@@ -100,7 +100,7 @@ const DatePickerDay: React.FC<DatePickerDayProps> = ({
 				>
 					<Icon icon="arrow-right" styling="outlined" />
 				</IconButton>
-			</Box>
+			</Flex>
 		);
 	}, [localeTexts.months, maxDate, minDate, visibleMonth]);
 

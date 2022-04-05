@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import status from './variants/status';
 import { AlertProps } from './types';
 
-const StyledAlert: React.FC<AlertProps> = styled(Box)<AlertProps>`
+const StyledAlert: React.FC<AlertProps> = styled(Flex)<AlertProps>`
 	${status}
 `;
 

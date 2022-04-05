@@ -2,7 +2,7 @@ import React from 'react';
 import { DecoratorFn } from '@storybook/react';
 import { keyframes } from 'styled-components';
 
-import { Animation, Box, Button, Content, TextField } from '@sergiogc9/react-ui';
+import { Animation, Button, Content, Flex, TextField } from '@sergiogc9/react-ui';
 
 const AnimationDecorator: DecoratorFn = (story, context) => {
 	const [isEnabled, setIsEnabled] = React.useState(true);
@@ -15,12 +15,12 @@ const AnimationDecorator: DecoratorFn = (story, context) => {
 	};
 
 	return (
-		<Box alignItems="center" justifyContent="space-between" minWidth="500px">
+		<Flex alignItems="center" justifyContent="space-between" minWidth="500px">
 			{story(context)}
 			<Button aspectSize="s" onClick={onRestartAnimation}>
 				Restart animation
 			</Button>
-		</Box>
+		</Flex>
 	);
 };
 
@@ -63,7 +63,7 @@ const AnimationListDecorator: DecoratorFn = (story, context) => {
 	context.args.children = children;
 
 	return (
-		<Box alignItems="center" flexDirection="column" justifyContent="space-between" minWidth="500px">
+		<Flex alignItems="center" flexDirection="column" justifyContent="space-between" minWidth="500px">
 			{story(context)}
 			<Button aspectSize="s" onClick={onAddItem} mt={3}>
 				Add item
@@ -82,7 +82,7 @@ const AnimationListDecorator: DecoratorFn = (story, context) => {
 			<Button aspectSize="s" onClick={onRemoveItem} mt={3}>
 				Remove item
 			</Button>
-		</Box>
+		</Flex>
 	);
 };
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import composers from 'components/private/utils/composers';
-import Box from 'components/Box';
+import Box from 'components/Flex';
 import { GridRowProps } from './types';
 
 const GridRow: React.FC<GridRowProps> = styled(Box)`

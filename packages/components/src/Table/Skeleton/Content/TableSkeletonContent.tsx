@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import Grid from 'components/Grid';
 import Skeleton from 'components/Skeleton';
 
@@ -10,8 +10,8 @@ const SKELETON_TABLE_ROWS = 10;
 
 const TableSkeletonContent: React.FC<TableSkeletonContentProps> = props => {
 	return (
-		<Box flexShrink={0} overflowX="auto" width="100%">
-			<Box flexDirection="column" flexShrink={0} width="100%" {...props}>
+		<Flex flexShrink={0} overflowX="auto" width="100%">
+			<Flex flexDirection="column" flexShrink={0} width="100%" {...props}>
 				<Grid>
 					<Grid.Box columns={3}>
 						<Skeleton.Rect bg="neutral.200" height={40} width="100%" />
@@ -37,8 +37,8 @@ const TableSkeletonContent: React.FC<TableSkeletonContentProps> = props => {
 						</Grid.Box>
 					</Grid>
 				))}
-			</Box>
-		</Box>
+			</Flex>
+		</Flex>
 	);
 };
 

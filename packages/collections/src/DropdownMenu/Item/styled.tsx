@@ -1,11 +1,11 @@
 import React from 'react';
 import css from '@styled-system/css';
 import styled from 'styled-components';
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import { DropdownMenuItemProps } from './types';
 
-const DropdownMenuItem: React.FC<DropdownMenuItemProps> = styled(Box)<DropdownMenuItemProps>`
+const DropdownMenuItem: React.FC<DropdownMenuItemProps> = styled(Flex)<DropdownMenuItemProps>`
 	&:hover {
 		${props => css({ bg: props.theme.collections.dropdownMenu.colors.bgHover })}
 	}

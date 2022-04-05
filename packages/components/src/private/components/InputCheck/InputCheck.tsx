@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import Content from 'components/Content';
 import Icon from 'components/Icon';
 
@@ -52,11 +52,11 @@ const InputCheck: React.FC<InputCheckProps> = ({
 				)}
 			</StyledInputCheckWrapper>
 			{description && (
-				<Box paddingRight={2} paddingLeft="44px" width="100%">
+				<Flex paddingRight={2} paddingLeft="44px" width="100%">
 					<Content aspectSize="xs" color="neutral.500">
 						{description}
 					</Content>
-				</Box>
+				</Flex>
 			)}
 		</>
 	);

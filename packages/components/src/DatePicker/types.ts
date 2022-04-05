@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 import { DateRange } from 'components/private/utils/date/types';
 import { DayPickerProps } from 'react-day-picker';
 
@@ -67,4 +67,4 @@ type Props = {
 	readonly view?: 'day' | 'month';
 };
 
-export type DatePickerProps = Props & BoxProps;
+export type DatePickerProps = Props & FlexProps;

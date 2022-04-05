@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
 import systemCSS from '@styled-system/css';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import aspectSize from './variants/aspectSize';
 import { SwitchProps } from './types';
 
-const SwitchBackground = styled(Box)<SwitchProps>`
+const SwitchBackground = styled(Flex)<SwitchProps>`
 	${props =>
 		systemCSS({
 			bg: props.theme.components.switch.colors.background.default
@@ -31,7 +31,7 @@ SwitchBackground.defaultProps = {
 	width: '100%'
 };
 
-const SwitchToggle = styled(Box)<SwitchProps>`
+const SwitchToggle = styled(Flex)<SwitchProps>`
 	${props =>
 		systemCSS({
 			bg: props.theme.components.switch.colors.toggle.color
@@ -88,7 +88,7 @@ SwitchToggle.defaultProps = {
 	transition: 'background-color cubic-bezier(0.4, 0, 0.2, 1) 150ms, transform ease-in 150ms'
 };
 
-const StyledSwitch: React.FC<SwitchProps> = styled(Box)<SwitchProps>`
+const StyledSwitch: React.FC<SwitchProps> = styled(Flex)<SwitchProps>`
 	user-select: none;
 
 	@media (hover: hover) {

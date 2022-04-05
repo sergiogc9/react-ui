@@ -1,13 +1,13 @@
 import React from 'react';
 import { DecoratorFn } from '@storybook/react';
 
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 const LoadingBarDecorator: DecoratorFn = story => {
 	return (
-		<Box height="100%" left={0} position="absolute" top={0} width="100%">
+		<Flex height="100%" left={0} position="absolute" top={0} width="100%">
 			{story()}
-		</Box>
+		</Flex>
 	);
 };
 

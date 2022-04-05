@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Animation, Box, Icon, IconButton } from '@sergiogc9/react-ui';
+import { Animation, Flex, Icon, IconButton } from '@sergiogc9/react-ui';
 
 import { UserMenuFullScreenProps } from './types';
 
@@ -48,7 +48,7 @@ const UserMenuFullScreen: React.FC<UserMenuFullScreenProps> = ({
 			width="100vw"
 			zIndex={999}
 		>
-			<Box flexDirection="column" height="100%" pt={4} width="100%">
+			<Flex flexDirection="column" height="100%" pt={4} width="100%">
 				<IconButton
 					aspectSize="l"
 					data-testid="userMenuMobileCloseBtn"
@@ -60,7 +60,7 @@ const UserMenuFullScreen: React.FC<UserMenuFullScreenProps> = ({
 					<Icon aspectSize="l" icon="close" styling="outlined" />
 				</IconButton>
 				{children}
-			</Box>
+			</Flex>
 		</Animation.FadeIn>,
 		targetElement
 	);

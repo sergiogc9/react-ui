@@ -1,5 +1,5 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
-export type DividerProps = BoxProps & {
+export type DividerProps = FlexProps & {
 	readonly isVertical?: boolean;
 };

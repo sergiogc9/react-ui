@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 import { ChipProps } from '../types';
 
 type Props = {
@@ -16,4 +16,4 @@ type Props = {
 	readonly variant?: ChipProps['variant'];
 };
 
-export type ChipOverlayProps = Props & BoxProps;
+export type ChipOverlayProps = Props & FlexProps;

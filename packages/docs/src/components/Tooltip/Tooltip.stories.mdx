@@ -1,10 +1,12 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
-import Box from 'components/Box';
+
+import Flex from 'components/Flex';
 import Icon from 'components/Icon';
 import Tooltip from 'components/Tooltip';
 import TooltipContent from 'components/Tooltip/Content';
 import TooltipTrigger from 'components/Tooltip/Trigger';
+
 import { TooltipWithoutProvider } from './Tooltip';
 
 <Meta title="Components/Tooltip" component={TooltipContent} />
@@ -158,7 +160,7 @@ You can use the tooltip without the provider and trigger, using the `reference` 
 					code: `
   const ref = React.useRef(null);
   return (
-      <Box ref={ref}>Hover me</Box>
+      <Flex ref={ref}>Hover me</Flex>
       <Tooltip.Content reference={ref}>
         I am not using the provider!
       </Tooltip.Content>
@@ -180,7 +182,7 @@ You can locate the tooltip in different places around the trigger component. See
 	<Story name="positioning" parameters={getFixedStoryParams()}>
 		{args =>
 			['top', 'left', 'right', 'bottom'].map(position => (
-				<Box key={`${position}-div`} py={5} flexWrap="wrap">
+				<Flex key={`${position}-div`} py={5} flexWrap="wrap">
 					{['', '-end', '-start'].map((alignment, index) => (
 						<Tooltip key={`${position}${alignment}`}>
 							<Tooltip.Trigger mx="140px" my="60px">
@@ -191,7 +193,7 @@ You can locate the tooltip in different places around the trigger component. See
 							</Tooltip.Content>
 						</Tooltip>
 					))}
-				</Box>
+				</Flex>
 			))
 		}
 	</Story>

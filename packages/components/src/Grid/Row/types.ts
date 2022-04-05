@@ -1,4 +1,4 @@
 import { ComposedGridProps } from 'components/private/utils/composers/types';
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
-export type GridRowProps = BoxProps & ComposedGridProps;
+export type GridRowProps = FlexProps & ComposedGridProps;

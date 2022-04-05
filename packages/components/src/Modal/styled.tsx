@@ -3,11 +3,11 @@ import systemCSS from '@styled-system/css';
 import theme from '@sergiogc9/react-ui-theme';
 
 import Animation from 'components/Animation';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import aspectSize from './variants/aspectSize';
 import { ModalProps } from './types';
 
-const StyledModal: React.FC<ModalProps> = styled(Box)<ModalProps>`
+const StyledModal: React.FC<ModalProps> = styled(Flex)<ModalProps>`
 	${aspectSize}
 
 	${props =>
@@ -54,7 +54,7 @@ StyledModal.defaultProps = {
 	maxWidth: '100%'
 };
 
-const StyledModalWrapper: React.FC<ModalProps> = styled(Box)<ModalProps>``;
+const StyledModalWrapper: React.FC<ModalProps> = styled(Flex)<ModalProps>``;
 
 StyledModalWrapper.defaultProps = {
 	alignItems: 'center',

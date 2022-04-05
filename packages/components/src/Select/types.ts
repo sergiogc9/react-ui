@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 import { TextFieldProps } from 'components/TextField';
 
 export type SelectedOption = Record<'label', string>;
@@ -77,4 +77,4 @@ export type SelectProps = Props &
 		| 'name'
 		| 'placeholder'
 	> &
-	Omit<BoxProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, keyof Props>;
+	Omit<FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, keyof Props>;

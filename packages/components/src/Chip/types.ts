@@ -1,6 +1,6 @@
 import { LinkHTMLAttributes } from 'react';
 
-import { BoxProps } from 'components/Box/types';
+import { FlexProps } from 'components/Flex/types';
 
 type Props = {
 	/**
@@ -25,4 +25,4 @@ type Props = {
 	readonly variant?: 'blue' | 'green' | 'grey' | 'red' | 'yellow' | 'transparent';
 };
 
-export type ChipProps = Props & BoxProps<LinkHTMLAttributes<HTMLLinkElement>>;
+export type ChipProps = Props & FlexProps<LinkHTMLAttributes<HTMLLinkElement>>;

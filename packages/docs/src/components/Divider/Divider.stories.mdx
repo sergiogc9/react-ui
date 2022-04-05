@@ -1,7 +1,8 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
-import Box from 'components/Box';
+
 import Divider from 'components/Divider';
+import Flex from 'components/Flex';
 
 <Meta title="Components/Divider" component={Divider} />
 
@@ -11,9 +12,9 @@ The divider will help you organize better your content. Really useful when you h
 
 <Story name="playground" parameters={getPlaygroundStoryParams()}>
 	{args => (
-		<Box alignItems="center" height="50px" justifyContent="center" width="800px">
+		<Flex alignItems="center" height="50px" justifyContent="center" width="800px">
 			<Divider {...args} />
-		</Box>
+		</Flex>
 	)}
 </Story>
 
@@ -23,9 +24,9 @@ By default, it will adapt automatically to the width of your container. You can 
 
 <Canvas>
 	<Story name="default" parameters={getFixedStoryParams()}>
-		<Box width="800px">
+		<Flex width="800px">
 			<Divider />
-		</Box>
+		</Flex>
 	</Story>
 </Canvas>
 
@@ -35,9 +36,9 @@ You can convert the divider into a vertical divider using the `isVertical` prop.
 
 <Canvas>
 	<Story name="vertical" parameters={getFixedStoryParams()}>
-		<Box height={50} width={20}>
+		<Flex height={50} width={20}>
 			<Divider isVertical />
-		</Box>
+		</Flex>
 	</Story>
 </Canvas>
 
@@ -47,14 +48,14 @@ You can customize it giving the color, height, etc.. that you need. So you can b
 
 <Canvas>
 	<Story name="custom color" parameters={getFixedStoryParams()}>
-		<Box width="800px">
+		<Flex width="800px">
 			<Divider backgroundColor="red.500" height="2px" />
-		</Box>
+		</Flex>
 	</Story>
 	<Story name="creative color" parameters={getFixedStoryParams()}>
-		<Box width="800px">
+		<Flex width="800px">
 			<Divider background="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 16%, rgba(0,212,255,1) 50%)" />
-		</Box>
+		</Flex>
 	</Story>
 </Canvas>
 

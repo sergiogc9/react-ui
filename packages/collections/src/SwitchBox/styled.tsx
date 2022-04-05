@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import { SwitchBoxWrapperProps } from './types';
 
-const StyledSwitchBoxWrapper = styled(Box)<SwitchBoxWrapperProps>`
+const StyledSwitchBoxWrapper = styled(Flex)<SwitchBoxWrapperProps>`
 	${props =>
 		css({
 			bg: props.theme.collections.switchBox.colors.bg,

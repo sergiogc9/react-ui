@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Box, Button, Overlay, OverlayProps, Svg, Title } from '@sergiogc9/react-ui';
+import { Button, Flex, Overlay, OverlayProps, Svg, Title } from '@sergiogc9/react-ui';
 
 const OverlayPlaygroundStory = (props: Partial<OverlayProps>) => {
 	return (
 		<>
-			<Box flexDirection="column">
+			<Flex flexDirection="column">
 				<Title aspectSize="s">Play with isVisible and blur props!</Title>
 				<Svg viewBox="-73.59 -109.225 637.78 655.35" width="300px" height="270px" fill="primary.300">
 					<g transform="translate(-175.7 -78)">
@@ -13,7 +13,7 @@ const OverlayPlaygroundStory = (props: Partial<OverlayProps>) => {
 						<circle r="45.7" cy="296.5" cx="420.9" />
 					</g>
 				</Svg>
-			</Box>
+			</Flex>
 			<Overlay {...props} />
 		</>
 	);

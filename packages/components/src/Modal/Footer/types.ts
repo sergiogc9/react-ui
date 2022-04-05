@@ -1,3 +1,3 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
-export type ModalFooterProps = BoxProps;
+export type ModalFooterProps = FlexProps;

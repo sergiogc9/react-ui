@@ -1,7 +1,7 @@
 import React from 'react';
 import { DecoratorFn } from '@storybook/react';
 
-import { Box, Button } from '@sergiogc9/react-ui';
+import { Button, Flex } from '@sergiogc9/react-ui';
 
 const DialogDecorator: DecoratorFn = (story, context) => {
 	const [isVisible, setIsVisible] = React.useState(false);
@@ -15,12 +15,12 @@ const DialogDecorator: DecoratorFn = (story, context) => {
 	context.args.onConfirm = onCloseDialog;
 
 	return (
-		<Box>
+		<Flex>
 			{story(context)}
 			<Button aspectSize="s" onClick={() => setIsVisible(true)}>
 				Toggle dialog
 			</Button>
-		</Box>
+		</Flex>
 	);
 };
 

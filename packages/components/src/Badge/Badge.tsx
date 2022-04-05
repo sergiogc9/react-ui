@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Box, { BoxProps } from 'components/Box';
+import Flex, { FlexProps } from 'components/Flex';
 
-const Badge: React.FC<BoxProps> = props => {
-	return <Box {...props} />;
+const Badge: React.FC<FlexProps> = props => {
+	return <Flex {...props} />;
 };
 
 export default React.memo(Badge);

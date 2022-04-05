@@ -36,14 +36,14 @@ const App = () => {
 Use the components:
 
 ```tsx
-import { Box, Button, Content, Grid, Title } from '@sergiogc9/react-ui';
+import { Button, Content, Flex, Grid, Title } from '@sergiogc9/react-ui';
 
 const Page = () => {
 	return (
-		<Box flexDirection="column">
-			<Box as="header">
+		<Flex flexDirection="column">
+			<Flex as="header">
 				<Title aspectSize="xl">This page is awesome</Title>
-			</Box>
+			</Flex>
 			<Grid>
 				<Grid.Box columns={4}>
 					<Content>The UI Library rocks!</Content>
@@ -57,7 +57,7 @@ const Page = () => {
 					</Button>
 				</Grid.Row>
 			</Grid>
-		</Box>
+		</Flex>
 	);
 };
 ```

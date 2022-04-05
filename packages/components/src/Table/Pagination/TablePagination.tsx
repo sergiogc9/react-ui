@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import Content from 'components/Content';
 import Icon from 'components/Icon';
 import IconButton from 'components/IconButton';
@@ -44,7 +44,7 @@ const TablePaginator: React.FC<TablePaginationProps> = (props: TablePaginationPr
 	}, [manualPagination, pageCount, pageIndex, pageSize, rows.length, rowsCount]);
 
 	return (
-		<Box alignItems="center" {...rest}>
+		<Flex alignItems="center" {...rest}>
 			<IconButton
 				data-testid="table-pagination-previous-page-btn"
 				isDisabled={!canPreviousPage}
@@ -58,7 +58,7 @@ const TablePaginator: React.FC<TablePaginationProps> = (props: TablePaginationPr
 			<IconButton data-testid="table-pagination-next-page-btn" isDisabled={!canNextPage} onClick={onNextPageBtnClicked}>
 				<Icon icon="arrow-right" styling="outlined" />
 			</IconButton>
-		</Box>
+		</Flex>
 	);
 };
 

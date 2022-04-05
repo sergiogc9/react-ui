@@ -1,6 +1,6 @@
 import React from 'react';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import { withTheme } from 'collections/private/utils/tests';
 
@@ -14,7 +14,7 @@ const Component = (props?: Partial<UserMenuFullScreenProps>) => {
 	const ref = React.useRef(null);
 	return (
 		<>
-			<Box data-testid={triggerTestId} ref={ref} />
+			<Flex data-testid={triggerTestId} ref={ref} />
 			<UserMenuFullScreen appendTo={{ current: document.body }} isVisible reference={ref} {...props}>
 				{text}
 			</UserMenuFullScreen>

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import aspectSize from './variants/aspectSize';
 import variant from './variants/variant';
 import { StyledSelectOptionProps } from './types';
 
-export const StyledSelectOption: React.FC<StyledSelectOptionProps> = styled(Box)<StyledSelectOptionProps>`
+export const StyledSelectOption: React.FC<StyledSelectOptionProps> = styled(Flex)<StyledSelectOptionProps>`
 	${aspectSize}
 	${variant}
 `;

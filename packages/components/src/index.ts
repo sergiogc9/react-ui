@@ -10,6 +10,7 @@ export { default as Content, ContentProps } from './Content';
 export { default as Counter, CounterProps } from './Counter';
 export { default as DatePicker, DatePickerProps, DatePickerPopoverProps } from './DatePicker';
 export { default as Divider, DividerProps } from './Divider';
+export { default as Flex, FlexProps } from './Flex';
 export {
 	default as FloatingButton,
 	FloatingButtonProps,

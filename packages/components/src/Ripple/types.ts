@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -11,7 +11,7 @@ type Props = {
 	readonly duration?: number;
 };
 
-export type RippleProps = Props & BoxProps;
+export type RippleProps = Props & FlexProps;
 
 export type RippleAnimationProps = {
 	readonly x: number;

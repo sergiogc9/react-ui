@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Divider } from '@sergiogc9/react-ui';
+import { Divider, Flex } from '@sergiogc9/react-ui';
 
 import Responsive from 'collections/private/components/Responsive/Responsive';
 
@@ -13,9 +13,9 @@ const UserMenuItem: React.FC<UserMenuItemProps> = ({ children, ...rest }) => {
 	return (
 		<>
 			<StyledUserMenuItem {...rest}>
-				<Box alignItems="center" py={isMobileFullScreenEnabled ? { xs: 2, md: 0 } : undefined} width="100%">
+				<Flex alignItems="center" py={isMobileFullScreenEnabled ? { xs: 2, md: 0 } : undefined} width="100%">
 					{children}
-				</Box>
+				</Flex>
 			</StyledUserMenuItem>
 
 			<Responsive visibility={isMobileFullScreenEnabled ? ['xs', 'sm'] : []}>

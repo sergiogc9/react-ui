@@ -3,7 +3,7 @@ import { act, cleanup, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { withTheme } from 'components/private/utils/tests';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import Ripple from 'components/Ripple';
 import { RippleProps } from './types';
 
@@ -11,9 +11,9 @@ const rippleTestId = 'ripple';
 const renderRipple = (props?: Partial<RippleProps>) =>
 	render(
 		withTheme(
-			<Box width="100px" height="100px" position="relative">
+			<Flex width="100px" height="100px" position="relative">
 				<Ripple data-testid={rippleTestId} {...props} />
-			</Box>
+			</Flex>
 		)
 	);
 

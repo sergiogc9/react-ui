@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import placement from './variants/placement';
 import { StyledToastsProps } from './types';
 
-const StyledToasts: React.FC<StyledToastsProps> = styled(Box)<StyledToastsProps>`
+const StyledToasts: React.FC<StyledToastsProps> = styled(Flex)<StyledToastsProps>`
 	${placement}
 `;
 

@@ -3,10 +3,10 @@ import styled, { keyframes } from 'styled-components';
 import theme from '@sergiogc9/react-ui-theme';
 
 import Animation from 'components/Animation';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { OverlayProps } from './types';
 
-const StyledOverlay: React.FC<OverlayProps> = styled(Box)<OverlayProps>``;
+const StyledOverlay: React.FC<OverlayProps> = styled(Flex)<OverlayProps>``;
 
 StyledOverlay.defaultProps = {
 	bg: 'neutral.900',

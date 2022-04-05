@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Box from 'components/Box';
 import Popover from 'components/Popover';
+import Flex from 'components/Flex';
 
 import { SelectPopoverProps } from './types';
 
@@ -22,7 +22,7 @@ StyledSelectPopover.defaultProps = {
 	paddingY: 0
 };
 
-const StyledSelectPopoverFooter: React.FC<SelectPopoverProps> = styled(Box)<SelectPopoverProps>``;
+const StyledSelectPopoverFooter: React.FC<SelectPopoverProps> = styled(Flex)<SelectPopoverProps>``;
 
 StyledSelectPopoverFooter.defaultProps = {
 	alignItems: 'center',
@@ -31,7 +31,7 @@ StyledSelectPopoverFooter.defaultProps = {
 	height: 64
 };
 
-const StyledSelectPopoverEmptyBox: React.FC<SelectPopoverProps> = styled(Box)<SelectPopoverProps>``;
+const StyledSelectPopoverEmptyBox: React.FC<SelectPopoverProps> = styled(Flex)<SelectPopoverProps>``;
 
 StyledSelectPopoverEmptyBox.defaultProps = {
 	alignItems: 'center',
@@ -40,7 +40,7 @@ StyledSelectPopoverEmptyBox.defaultProps = {
 	height: 64
 };
 
-const StyledPopoverListBox: React.FC<SelectPopoverProps> = styled(Box)<SelectPopoverProps>``;
+const StyledPopoverListBox: React.FC<SelectPopoverProps> = styled(Flex)<SelectPopoverProps>``;
 
 StyledPopoverListBox.defaultProps = {
 	as: 'ul',

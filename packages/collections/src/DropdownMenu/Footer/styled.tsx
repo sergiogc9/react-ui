@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import { DropdownMenuFooterProps } from './types';
 
-const DropdownMenuFooter: React.FC<DropdownMenuFooterProps> = styled(Box)<DropdownMenuFooterProps>``;
+const DropdownMenuFooter: React.FC<DropdownMenuFooterProps> = styled(Flex)<DropdownMenuFooterProps>``;
 
 DropdownMenuFooter.defaultProps = {
 	marginTop: 'auto',

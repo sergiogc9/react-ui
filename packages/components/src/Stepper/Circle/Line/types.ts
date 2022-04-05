@@ -1,6 +1,6 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 import { StepperStepContextData } from 'components/Stepper/Context/types';
 
-export type StyledStepperCircleLineProps = StepperStepContextData & BoxProps & { length: number };
+export type StyledStepperCircleLineProps = StepperStepContextData & FlexProps & { length: number };
 
-export type StepperCircleLineProps = BoxProps;
+export type StepperCircleLineProps = FlexProps;

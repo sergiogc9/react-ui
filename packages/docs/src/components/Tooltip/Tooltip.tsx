@@ -1,12 +1,12 @@
 import React from 'react';
-import { Box, Tooltip } from '@sergiogc9/react-ui';
+import { Flex, Tooltip } from '@sergiogc9/react-ui';
 
 export const TooltipWithoutProvider = (args: any) => {
 	const ref = React.useRef(null);
 
 	return (
-		<Box>
-			<Box
+		<Flex>
+			<Flex
 				ref={ref}
 				alignItems="center"
 				bg="primary.500"
@@ -16,10 +16,10 @@ export const TooltipWithoutProvider = (args: any) => {
 				height="50px"
 			>
 				Hover me
-			</Box>
+			</Flex>
 			<Tooltip.Content reference={ref} {...args}>
 				I am not using the provider!
 			</Tooltip.Content>
-		</Box>
+		</Flex>
 	);
 };

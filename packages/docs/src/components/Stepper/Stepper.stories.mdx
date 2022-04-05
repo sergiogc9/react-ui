@@ -1,8 +1,9 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import StepperDecorator from 'storybook/decorators/Stepper';
-import Box from 'components/Box';
+
 import Content from 'components/Content';
+import Flex from 'components/Flex';
 import Stepper from 'components/Stepper';
 
 <Meta title="Components/Stepper" component={Stepper} />
@@ -283,10 +284,10 @@ You can use the `Stepper.TextOptional` component to print an optional label:
 					<Stepper.Circle>
 						<Stepper.Icon icon="flash" styling="outlined" />
 					</Stepper.Circle>
-					<Box flexDirection="column">
+					<Flex flexDirection="column">
 						<Stepper.Text>Flash Questions</Stepper.Text>
 						<Stepper.TextOptional>Optional</Stepper.TextOptional>
-					</Box>
+					</Flex>
 				</Stepper.Step>
 			</Stepper>
 		)}
@@ -313,10 +314,10 @@ You can use the `Stepper.TextOptional` component to print an optional label:
 					<Stepper.Circle>
 						<Stepper.Icon icon="flash" styling="outlined" />
 					</Stepper.Circle>
-					<Box flexDirection="column">
+					<Flex flexDirection="column">
 						<Stepper.Text>Flash Questions</Stepper.Text>
 						<Stepper.TextOptional>Optional</Stepper.TextOptional>
-					</Box>
+					</Flex>
 				</Stepper.Step>
 			</Stepper>
 		)}
@@ -347,10 +348,10 @@ If you want to use a check icon for previous steps, use the `showCheckIcon` prop
 					<Stepper.Circle>
 						<Stepper.Icon icon="flash" styling="outlined" />
 					</Stepper.Circle>
-					<Box flexDirection="column">
+					<Flex flexDirection="column">
 						<Stepper.Text>Flash Questions</Stepper.Text>
 						<Stepper.TextOptional>Optional</Stepper.TextOptional>
-					</Box>
+					</Flex>
 				</Stepper.Step>
 			</Stepper>
 		)}
@@ -377,10 +378,10 @@ If you want to use a check icon for previous steps, use the `showCheckIcon` prop
 					<Stepper.Circle>
 						<Stepper.Icon icon="flash" styling="outlined" />
 					</Stepper.Circle>
-					<Box flexDirection="column">
+					<Flex flexDirection="column">
 						<Stepper.Text>Flash Questions</Stepper.Text>
 						<Stepper.TextOptional>Optional</Stepper.TextOptional>
-					</Box>
+					</Flex>
 				</Stepper.Step>
 			</Stepper>
 		)}

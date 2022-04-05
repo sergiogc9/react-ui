@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 import { StyledTextAreaProps as BaseStyledTextAreaProps } from 'components/private/components/Input';
 
 type Props = {
@@ -33,7 +33,7 @@ type Props = {
 >;
 
 export type TextAreaProps = Props &
-	Omit<BoxProps, keyof Props> & {
+	Omit<FlexProps, keyof Props> & {
 		readonly textareaProps?: Omit<BaseStyledTextAreaProps, keyof Props>;
 	};
 

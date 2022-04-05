@@ -1,6 +1,6 @@
 import { keyframes } from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { withBaseAnimation } from 'components/Animation/Base';
 
 const SlideUpAnimation = keyframes`
@@ -13,7 +13,7 @@ const SlideUpAnimation = keyframes`
   }
 `;
 
-const SlideUp = withBaseAnimation(Box, SlideUpAnimation);
+const SlideUp = withBaseAnimation(Flex, SlideUpAnimation);
 
 export { SlideUpAnimation };
 export default SlideUp;

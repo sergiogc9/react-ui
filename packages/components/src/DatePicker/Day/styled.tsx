@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import ssCss from '@styled-system/css';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { DatePickerDayProps } from './types';
 
 /**
@@ -74,7 +74,7 @@ const dayPickerLibraryStyles = css`
 	}
 `;
 
-const StyledDatePickerDay: React.FC<DatePickerDayProps> = styled(Box)<DatePickerDayProps>`
+const StyledDatePickerDay: React.FC<DatePickerDayProps> = styled(Flex)<DatePickerDayProps>`
 	${dayPickerLibraryStyles}
 
 	.DayPicker-wrapper {

@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -19,4 +19,4 @@ type Props = {
 	readonly variant?: 'compacted' | 'compacted-no-line' | 'horizontal' | 'vertical';
 };
 
-export type StepperProps = Props & BoxProps;
+export type StepperProps = Props & FlexProps;

@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import aspectSize from './variants/aspectSize';
 import variant from './variants/variant';
 import { StyledButtonProps } from './types';
 
-const StyledButton: React.FC<StyledButtonProps> = styled(Box)<StyledButtonProps>`
+const StyledButton: React.FC<StyledButtonProps> = styled(Flex)<StyledButtonProps>`
 	&:disabled {
 		cursor: not-allowed;
 		opacity: 0.4;

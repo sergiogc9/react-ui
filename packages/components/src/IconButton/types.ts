@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -13,4 +13,4 @@ type Props = {
 	readonly isDisabled?: boolean;
 };
 
-export type IconButtonProps = Props & BoxProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+export type IconButtonProps = Props & FlexProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;

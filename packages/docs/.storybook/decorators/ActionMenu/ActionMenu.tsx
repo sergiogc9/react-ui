@@ -1,7 +1,7 @@
 import React from 'react';
 import { DecoratorFn } from '@storybook/react';
 
-import { Box, IconButton, Icon } from '@sergiogc9/react-ui';
+import { Flex, IconButton, Icon } from '@sergiogc9/react-ui';
 
 const ActionMenuDecorator: DecoratorFn = (story, context) => {
 	const iconRef = React.useRef();
@@ -13,11 +13,11 @@ const ActionMenuDecorator: DecoratorFn = (story, context) => {
 
 	return (
 		<>
-			<Box ref={iconRef}>
+			<Flex ref={iconRef}>
 				<IconButton>
 					<Icon icon="kebab-vertical" styling="outlined" />
 				</IconButton>
-			</Box>
+			</Flex>
 			{story(newContext)}
 		</>
 	);

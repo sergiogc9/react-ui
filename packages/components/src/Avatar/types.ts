@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -23,4 +23,4 @@ type Props = {
 	readonly variant?: 'circle' | 'rounded';
 };
 
-export type AvatarProps = Props & BoxProps;
+export type AvatarProps = Props & FlexProps;

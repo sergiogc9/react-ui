@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import { StyledTableHeaderCellProps, StyledTableHeaderCellContentProps } from './types';
 
-const StyledTableHeaderCell: React.FC<StyledTableHeaderCellProps> = styled(Box)<StyledTableHeaderCellProps>`
+const StyledTableHeaderCell: React.FC<StyledTableHeaderCellProps> = styled(Flex)<StyledTableHeaderCellProps>`
 	flex-shrink: 1 !important;
 	${props => css({ color: props.color ?? props.theme.components.table.colors.header.text })}
 
@@ -49,7 +49,7 @@ StyledTableHeaderCell.defaultProps = {
 	transition: 'background-color ease-in 0.15s'
 };
 
-const StyledTableHeaderCellContent: React.FC<StyledTableHeaderCellContentProps> = styled(Box)`
+const StyledTableHeaderCellContent: React.FC<StyledTableHeaderCellContentProps> = styled(Flex)`
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;

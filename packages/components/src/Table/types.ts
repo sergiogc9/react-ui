@@ -19,7 +19,7 @@ import {
 	Row
 } from 'react-table';
 
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props<D extends Record<string, unknown>> = {
 	/**
@@ -94,8 +94,8 @@ type Props<D extends Record<string, unknown>> = {
 	readonly tableOptions?: Omit<TableOptions<D>, 'data' | 'columns'>;
 };
 
-export type TableProps<D extends Record<string, unknown>> = Props<D> & BoxProps;
-export type StyledTableWrapperProps = BoxProps;
+export type TableProps<D extends Record<string, unknown>> = Props<D> & FlexProps;
+export type StyledTableWrapperProps = FlexProps;
 
 export type TableColumn<D extends Record<string, unknown>> = Column<D> &
 	UseFiltersColumnOptions<D> &

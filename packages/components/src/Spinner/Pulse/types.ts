@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 
 type Props = {
 	/**
@@ -7,4 +7,4 @@ type Props = {
 	index: number;
 };
 
-export type SpinnerPulseProps = Props & BoxProps;
+export type SpinnerPulseProps = Props & FlexProps;

@@ -1,4 +1,4 @@
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 import { PopoverWrapperProps } from '../Wrapper';
 
 type Props = {
@@ -8,4 +8,4 @@ type Props = {
 	readonly isBlur?: boolean;
 };
 
-export type PopoverContentProps = Props & Omit<PopoverWrapperProps, 'render'> & BoxProps;
+export type PopoverContentProps = Props & Omit<PopoverWrapperProps, 'render'> & FlexProps;

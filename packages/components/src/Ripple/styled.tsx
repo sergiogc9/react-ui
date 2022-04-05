@@ -1,9 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import { RippleAnimationProps, RippleProps } from './types';
 
-const StyledRipple = styled(Box)<RippleProps>`
+const StyledRipple = styled(Flex)<RippleProps>`
 	position: absolute;
 	overflow: hidden;
 	top: 0;

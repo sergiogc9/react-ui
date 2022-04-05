@@ -10,7 +10,7 @@ import {
 	startOfMonth,
 	startOfYear
 } from 'components/private/utils/date';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import Icon from 'components/Icon';
 import IconButton from 'components/IconButton';
 import Title from 'components/Title';
@@ -65,7 +65,7 @@ const DatePickerMonth: React.FC<DatePickerMonthProps> = ({
 
 	const yearContent = React.useMemo(() => {
 		return (
-			<Box alignItems="center" justifyContent="space-between" marginBottom={1}>
+			<Flex alignItems="center" justifyContent="space-between" marginBottom={1}>
 				<IconButton
 					aspectSize="s"
 					data-testid="datePickerMonthPreviousYearIcon"
@@ -85,7 +85,7 @@ const DatePickerMonth: React.FC<DatePickerMonthProps> = ({
 				>
 					<Icon icon="arrow-right" styling="outlined" />
 				</IconButton>
-			</Box>
+			</Flex>
 		);
 	}, [maxDate, minDate, visibleYear]);
 
@@ -93,7 +93,7 @@ const DatePickerMonth: React.FC<DatePickerMonthProps> = ({
 		const monthsTexts = getLocaleMonths(locale, 'short');
 		const today = startOfMonth(new Date());
 		return (
-			<Box justifyContent="center" flexWrap="wrap">
+			<Flex justifyContent="center" flexWrap="wrap">
 				{monthsTexts.map((month, index) => {
 					const monthDate = new Date(visibleYear);
 					monthDate.setMonth(index);
@@ -123,7 +123,7 @@ const DatePickerMonth: React.FC<DatePickerMonthProps> = ({
 						</StyledMonthBox>
 					);
 				})}
-			</Box>
+			</Flex>
 		);
 	}, [date, dateRange, isRange, locale, maxDate, minDate, onMonthClick, visibleYear]);
 

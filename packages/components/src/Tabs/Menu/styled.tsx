@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import { TabsMenuProps } from './types';
 
-const StyledTabsMenu: React.FC<TabsMenuProps> = styled(Box)`
+const StyledTabsMenu: React.FC<TabsMenuProps> = styled(Flex)`
 	white-space: nowrap;
 	&::-webkit-scrollbar {
 		display: none;

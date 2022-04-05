@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import TableContext from '../Context';
 import { TableTotalResultsProps } from './types';
@@ -13,7 +13,7 @@ const TableToolbar: React.FC<TableTotalResultsProps> = (props: TableTotalResults
 		tableInstance: { rows }
 	} = React.useContext(TableContext);
 
-	return <Box {...rest}>{render({ totalResults: rowsCount ?? rows.length })}</Box>;
+	return <Flex {...rest}>{render({ totalResults: rowsCount ?? rows.length })}</Flex>;
 };
 
 export default React.memo(TableToolbar);

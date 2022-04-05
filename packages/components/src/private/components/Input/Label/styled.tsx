@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import css from '@styled-system/css';
 
 import composers from 'components/private/utils/composers';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
+
 import StatusColor from '../collaborator/StatusColor';
 import { InputLabelProps } from './types';
 
-const InputLabel: React.FC<InputLabelProps> = styled(Box).withConfig<InputLabelProps>({
+const InputLabel: React.FC<InputLabelProps> = styled(Flex).withConfig<InputLabelProps>({
 	shouldForwardProp: prop => prop !== 'placeholder'
 })`
 	${composers.text}

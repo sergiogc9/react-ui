@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 import systemCSS from '@styled-system/css';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
 import aspectSize from './variants/aspectSize';
 import { StyledFloatingButtonProps } from './types';
 
-const StyledFloatingButton: React.FC<StyledFloatingButtonProps> = styled(Box)<StyledFloatingButtonProps>`
+const StyledFloatingButton: React.FC<StyledFloatingButtonProps> = styled(Flex)<StyledFloatingButtonProps>`
 	${props =>
 		systemCSS({
 			bg: (props.bg as any) ?? props.theme.components.floatingButton.colors.background.default,

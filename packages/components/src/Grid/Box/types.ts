@@ -1,6 +1,6 @@
 import { ResponsiveValue } from 'styled-system';
 
-import { BoxProps } from 'components/Box';
+import { FlexProps } from 'components/Flex';
 import { ComposedGridProps } from 'components/private/utils/composers/types';
 
 type Props = {
@@ -22,4 +22,4 @@ type Props = {
 	readonly rows?: ResponsiveValue<number>;
 };
 
-export type GridBoxProps = Props & BoxProps & ComposedGridProps;
+export type GridBoxProps = Props & FlexProps & ComposedGridProps;

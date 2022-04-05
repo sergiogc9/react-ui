@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 import Divider from 'components/Divider';
 import DatePicker from 'components/DatePicker';
 import StyledDatePickerPopover from './styled';
@@ -9,9 +9,9 @@ import { DatePickerPopoverProps } from './types';
 const DatePickerPopover: React.FC<DatePickerPopoverProps> = ({ children, datePickerProps, ...rest }) => {
 	return (
 		<StyledDatePickerPopover {...rest}>
-			<Box>
+			<Flex>
 				<DatePicker {...datePickerProps} />
-			</Box>
+			</Flex>
 			<Divider marginTop={-2} />
 			{children}
 		</StyledDatePickerPopover>
