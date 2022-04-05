@@ -4,8 +4,7 @@ import { shouldStyledComponentForwardProp } from 'components/private/utils/compo
 import composers from 'components/private/utils/composers';
 import { BoxProps } from './types';
 
-// TODO! remove isReally prop once migration is done
-const Box: React.FC<BoxProps & { isReallyABox: boolean }> = styled.div.withConfig<BoxProps>({
+const Box: React.FC<BoxProps> = styled.div.withConfig<BoxProps>({
 	shouldForwardProp: shouldStyledComponentForwardProp
 })`
 	${composers.box}

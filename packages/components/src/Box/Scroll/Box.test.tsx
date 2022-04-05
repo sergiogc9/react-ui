@@ -8,7 +8,7 @@ import { BoxProps } from 'components/Box/types';
 
 const testID = 'box';
 
-const renderBox = (props?: BoxProps) => render(withTheme(<Box data-testid={testID} isReallyABox {...props} />));
+const renderBox = (props?: BoxProps) => render(withTheme(<Box data-testid={testID} {...props} />));
 
 describe('Box', () => {
 	afterEach(cleanup);

@@ -18,7 +18,6 @@ const ScrollBox: React.FC<ScrollBoxProps> = props => {
 			borderTopColor={hasScroll && percentage !== 0 ? 'neutral.100' : 'transparent'}
 			borderTopStyle="solid"
 			flexDirection="column"
-			isReallyABox
 			overflowY="auto"
 			ref={scrollContentRef}
 			transition="border ease-in 0.15s"

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import Flex from 'components/Flex';
+import Box from 'components/Box';
 import Content from 'components/Content';
+import Flex from 'components/Flex';
 import Icon from 'components/Icon';
 
 import InputCheckLabel from './Label';
@@ -37,7 +38,7 @@ const InputCheck: React.FC<InputCheckProps> = ({
 	const isFinalSelected = isSelected ?? selected;
 
 	return (
-		<>
+		<Box>
 			<StyledInputCheckWrapper {...rest} isDisabled={isDisabled}>
 				<StyledInputCheck isDisabled={isDisabled} isSelected={isFinalSelected} type={type}>
 					<input checked={isFinalSelected} name={name} onChange={onInputChanged} ref={inputRef} type={type} />
@@ -58,7 +59,7 @@ const InputCheck: React.FC<InputCheckProps> = ({
 					</Content>
 				</Flex>
 			)}
-		</>
+		</Box>
 	);
 };
 

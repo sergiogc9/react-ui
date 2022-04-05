@@ -16,7 +16,6 @@ const SkeletonRect: React.FC<SkeletonRectProps> = ({ borderRadius, height = 20, 
 			bg="currentColor"
 			data-testid="skeleton-rect"
 			height={height}
-			isReallyABox
 			{...rest}
 		/>
 	);
