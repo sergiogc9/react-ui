@@ -9,7 +9,7 @@ const TableCellDefault: React.FC<TableCellDefaultProps> = props => {
 	const { children, data, headers, value, ...rest } = props;
 
 	return children ? (
-		<Flex height="100%" width="100%" {...rest}>
+		<Flex height="100%" width="100%" {...(rest as any)}>
 			{children}
 		</Flex>
 	) : (

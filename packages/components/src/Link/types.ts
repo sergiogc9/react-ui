@@ -7,4 +7,4 @@ type Props = {
 	readonly behavior?: 'default' | 'opposite';
 };
 
-export type LinkProps = Props & TextProps;
+export type LinkProps = Props & TextProps<React.AnchorHTMLAttributes<HTMLAnchorElement>>;
