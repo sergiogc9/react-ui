@@ -1,6 +1,6 @@
 {
 	"name": "@sergiogc9/react-ui-theme",
-	"version": "0.3.3-alpha.1",
+	"version": "0.3.3",
 	"description": "React UI Kit Theme",
 	"repository": "git://github.com/sergiogc9/react-ui.git",
 	"license": "UNLICENSED",
