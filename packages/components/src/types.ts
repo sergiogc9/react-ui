@@ -41,7 +41,8 @@ export type StyledComponentProps<
 		 *  Discard from T props already added by styled-components and styled-system to avoid type conflicts.
 		 */
 		Omit<T, keyof ComposedProps> &
-		(Ref extends undefined ? Record<string, unknown> : { ref?: React.Ref<Ref> })
+		// eslint-disable-next-line @typescript-eslint/ban-types
+		(Ref extends undefined ? {} : { ref?: React.Ref<Ref> })
 >;
 
 export type RecursivePartial<T> = {
