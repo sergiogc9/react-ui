@@ -2,6 +2,18 @@
 
 All notable changes to this package will be documented in this file.
 
+## [v0.3.2] - April, 2022
+
+#### Added
+
+- Added description to CheckBox and RadioButton components.
+- Created Flex component and removed `display: flex;` from Box.
+
+### Updated
+
+- Updated Alert colors for light mode.
+- Changed Content component to Text.
+
 ## [v0.3.0] - March, 2022
 
 #### Added

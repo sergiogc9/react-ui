@@ -73,7 +73,7 @@ const App = () => {
 Finally use any component from the UI library. These components must be used wrapped with the styled-components provider as shown above:
 
 ```tsx
-import { Box, Button,  Flex, Grid,Text, Title } from '@sergiogc9/react-ui';
+import { Box, Button, Flex, Grid, Text, Title } from '@sergiogc9/react-ui';
 
 const Page = () => {
 	return (

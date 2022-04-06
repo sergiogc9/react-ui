@@ -53,12 +53,12 @@ const StyledTableHeaderCellContent: React.FC<StyledTableHeaderCellContentProps> 
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;
+	word-break: break-word;
 `;
 
 StyledTableHeaderCellContent.defaultProps = {
 	maxWidth: '100%',
-	overflow: 'hidden',
-	wordBreak: 'break-word'
+	overflow: 'hidden'
 };
 
 export { StyledTableHeaderCellContent };
