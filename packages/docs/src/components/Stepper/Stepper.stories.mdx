@@ -2,9 +2,9 @@ import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import StepperDecorator from 'storybook/decorators/Stepper';
 
-import Content from 'components/Content';
 import Flex from 'components/Flex';
 import Stepper from 'components/Stepper';
+import Text from 'components/Text';
 
 <Meta title="Components/Stepper" component={Stepper} />
 
@@ -211,13 +211,13 @@ You can put whatever inside the `Stepper.Circle`:
 			<Stepper {...args}>
 				<Stepper.Step>
 					<Stepper.Circle>
-						<Content aspectSize="s">😄</Content>
+						<Text aspectSize="s">😄</Text>
 					</Stepper.Circle>
 					<Stepper.Text>Job Description</Stepper.Text>
 				</Stepper.Step>
 				<Stepper.Step>
 					<Stepper.Circle>
-						<Content aspectSize="xs">SG</Content>
+						<Text aspectSize="xs">SG</Text>
 					</Stepper.Circle>
 					<Stepper.Text>Contract</Stepper.Text>
 				</Stepper.Step>

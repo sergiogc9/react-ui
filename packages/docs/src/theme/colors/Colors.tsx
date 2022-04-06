@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { DefaultTheme, useTheme } from 'styled-components';
 
-import { Content, Flex, Title } from '@sergiogc9/react-ui';
+import { Flex, Text, Title } from '@sergiogc9/react-ui';
 
 const ColorWrapper = styled(Flex)`
 	& {
@@ -25,16 +25,16 @@ const ColorBox = styled(Flex)`
 const getColorBox = (name: string, color: string) => (
 	<ColorWrapper key={color}>
 		<ColorBox color={color} />
-		<Content aspectSize="s" pl="2px">
+		<Text aspectSize="s" pl="2px">
 			{name}
-		</Content>
-		<Content aspectSize="xs" pl="2px">
+		</Text>
+		<Text aspectSize="xs" pl="2px">
 			{color}
-		</Content>
+		</Text>
 		{name === 'primary.500' && (
-			<Content aspectSize="xs" pl="2px" color="primary.500">
+			<Text aspectSize="xs" pl="2px" color="primary.500">
 				MAIN PRIMARY
-			</Content>
+			</Text>
 		)}
 	</ColorWrapper>
 );

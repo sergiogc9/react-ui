@@ -1,5 +1,5 @@
 import { CellProps } from 'react-table';
 
-import { ContentProps } from 'components/Content';
+import { TextProps } from 'components/Text';
 
-export type TableCellTextProps = CellProps<any> & ContentProps;
+export type TableCellTextProps = CellProps<any> & TextProps;

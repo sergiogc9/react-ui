@@ -1,7 +1,7 @@
-import { ContentProps, FlexProps } from '@sergiogc9/react-ui';
+import { FlexProps, TextProps } from '@sergiogc9/react-ui';
 
 type Props = {
-	aspectSize?: ContentProps['aspectSize'];
+	aspectSize?: TextProps['aspectSize'];
 	variant?: 'default' | 'danger';
 };
 

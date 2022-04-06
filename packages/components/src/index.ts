@@ -6,7 +6,6 @@ export { default as Badge, BadgeCounterProps, BadgeStatusProps } from './Badge';
 export { default as Button, ButtonProps, ButtonIconProps, ButtonTextProps } from './Button';
 export { default as CheckBox, CheckBoxProps } from './CheckBox';
 export { default as Chip, ChipProps, ChipIconProps, ChipLabelProps } from './Chip';
-export { default as Content, ContentProps } from './Content';
 export { default as Counter, CounterProps } from './Counter';
 export { default as DatePicker, DatePickerProps, DatePickerPopoverProps } from './DatePicker';
 export { default as Divider, DividerProps } from './Divider';
@@ -71,6 +70,7 @@ export {
 	TableTotalResultsProps
 } from './Table';
 export { default as Tabs, TabsProps } from './Tabs';
+export { default as Text, TextProps } from './Text';
 export { default as TextArea, TextAreaProps } from './TextArea';
 export {
 	default as TextField,

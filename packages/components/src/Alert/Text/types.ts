@@ -1,3 +1,3 @@
-import { ContentProps } from 'components/Content';
+import { TextProps } from 'components/Text';
 
-export type AlertTextProps = ContentProps;
+export type AlertTextProps = TextProps;

@@ -2,8 +2,8 @@ import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 
 import TableDecorator from 'storybook/decorators/Table';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
-import Content from 'components/Content';
 import Table from 'components/Table';
+import Text from 'components/Text';
 
 <Meta title="Components/Table" component={Table} decorators={[TableDecorator]} />
 
@@ -12,7 +12,7 @@ import Table from 'components/Table';
 		<Table {...args} width="90vw">
 			<Table.Toolbar>
 				<Table.TotalResults
-					render={({ totalResults }) => <Content aspectSize="xs">{`Total instagramers: ${totalResults}`}</Content>}
+					render={({ totalResults }) => <Text aspectSize="xs">{`Total instagramers: ${totalResults}`}</Text>}
 				/>
 				<Table.Pagination ml="auto" />
 			</Table.Toolbar>

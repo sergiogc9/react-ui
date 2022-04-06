@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { Content } from '@sergiogc9/react-ui';
+import { Text } from '@sergiogc9/react-ui';
 
 import { UserMenuItemTextProps } from './types';
 
-const UserMenuItemText: React.FC<UserMenuItemTextProps> = styled(Content)<UserMenuItemTextProps>`
+const UserMenuItemText: React.FC<UserMenuItemTextProps> = styled(Text)<UserMenuItemTextProps>`
 	${props => css({ color: props.theme.collections.userMenu.colors.optionText })}
 `;
 

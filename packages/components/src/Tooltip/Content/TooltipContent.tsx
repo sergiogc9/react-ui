@@ -1,7 +1,8 @@
 import React from 'react';
 
-import Content from 'components/Content';
+import Text from 'components/Text';
 import Popover from 'components/Popover';
+
 import { StyledArrow, StyledTooltip } from './styled';
 import { TooltipContentProps } from './types';
 
@@ -28,9 +29,9 @@ const TooltipContent: React.FC<TooltipContentProps> = ({
 	const tooltipContent = React.useMemo(() => {
 		if (typeof children === 'string')
 			return (
-				<Content fontSize={1} lineHeight={0}>
+				<Text fontSize={1} lineHeight={0}>
 					{children}
-				</Content>
+				</Text>
 			);
 
 		return children;

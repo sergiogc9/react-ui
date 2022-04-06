@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Content, Image, Title } from '@sergiogc9/react-ui';
+import { Button, Image, Text, Title } from '@sergiogc9/react-ui';
 
 import StyledUserFeedback from './styled';
 import { UserFeedbackProps } from './types';
@@ -19,9 +19,9 @@ const UserFeedback: React.FC<UserFeedbackProps> = ({
 				{titleText}
 			</Title>
 			{text && (
-				<Content marginTop={2} textAlign="center">
+				<Text marginTop={2} textAlign="center">
 					{text}
-				</Content>
+				</Text>
 			)}
 			{buttonText && (
 				<Button marginTop={5} onClick={onButtonClick} width={{ xs: '100%', md: 'auto' }}>

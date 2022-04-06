@@ -1,6 +1,6 @@
-import { Content } from './types';
+import { Text } from './types';
 
-const contentTheme: Content = {
+const textTheme: Text = {
 	fontSizes: {
 		xs: 0,
 		s: 1,
@@ -24,4 +24,4 @@ const contentTheme: Content = {
 	}
 };
 
-export default contentTheme;
+export default textTheme;

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Content } from '@sergiogc9/react-ui';
+import { Text } from '@sergiogc9/react-ui';
 
 import { ActionMenuItemProps } from './types';
 import variant from './variants/variant';
 
-const StyledActionMenuItem: React.FC<ActionMenuItemProps> = styled(Content)<ActionMenuItemProps>`
+const StyledActionMenuItem: React.FC<ActionMenuItemProps> = styled(Text)<ActionMenuItemProps>`
 	${variant}
 `;
 

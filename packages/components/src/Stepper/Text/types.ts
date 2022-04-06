@@ -1,10 +1,10 @@
-import { ContentProps } from 'components/Content';
 import { StepperProps } from 'components/Stepper';
+import { TextProps } from 'components/Text';
 
 export type StyledStepperTextProps = {
 	isCurrent: boolean;
 	isEnabled: boolean;
 	variant: StepperProps['variant'];
-} & ContentProps;
+} & TextProps;
 
-export type StepperTextProps = ContentProps;
+export type StepperTextProps = TextProps;

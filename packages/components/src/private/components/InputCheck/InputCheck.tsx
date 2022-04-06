@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import Box from 'components/Box';
-import Content from 'components/Content';
 import Flex from 'components/Flex';
 import Icon from 'components/Icon';
+import Text from 'components/Text';
 
 import InputCheckLabel from './Label';
 import StyledInputCheck, { StyledInputCheckWrapper } from './styled';
@@ -54,9 +54,9 @@ const InputCheck: React.FC<InputCheckProps> = ({
 			</StyledInputCheckWrapper>
 			{description && (
 				<Flex paddingRight={2} paddingLeft="44px" width="100%">
-					<Content aspectSize="xs" color="neutral.500">
+					<Text aspectSize="xs" color="neutral.500">
 						{description}
-					</Content>
+					</Text>
 				</Flex>
 			)}
 		</Box>

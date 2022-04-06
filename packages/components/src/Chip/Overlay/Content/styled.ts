@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
-import Content from 'components/Content';
+import Text from 'components/Text';
 
 import aspectSize from './variants/aspectSize';
-import { ChipOverlayContentProps } from './types';
+import { ChipOverlayTextProps } from './types';
 
-const StyledChipOverlayContent: React.FC<ChipOverlayContentProps> = styled(Content)`
+const StyledChipOverlayText: React.FC<ChipOverlayTextProps> = styled(Text)`
 	max-width: 100%;
 	max-height: 100%;
 	${aspectSize}
 `;
 
-StyledChipOverlayContent.defaultProps = {
+StyledChipOverlayText.defaultProps = {
 	fontSize: 0
 };
 
-export default StyledChipOverlayContent;
+export default StyledChipOverlayText;

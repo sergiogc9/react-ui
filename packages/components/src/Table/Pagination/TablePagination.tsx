@@ -1,9 +1,9 @@
 import React from 'react';
 
 import Flex from 'components/Flex';
-import Content from 'components/Content';
 import Icon from 'components/Icon';
 import IconButton from 'components/IconButton';
+import Text from 'components/Text';
 
 import TableContext from '../Context';
 import { TablePaginationProps } from './types';
@@ -52,9 +52,9 @@ const TablePaginator: React.FC<TablePaginationProps> = (props: TablePaginationPr
 			>
 				<Icon icon="arrow-left" styling="outlined" />
 			</IconButton>
-			<Content aspectSize="xs" marginX={3}>
+			<Text aspectSize="xs" marginX={3}>
 				{`${resultValues.from}-${resultValues.to} of ${resultValues.total}`}
-			</Content>
+			</Text>
 			<IconButton data-testid="table-pagination-next-page-btn" isDisabled={!canNextPage} onClick={onNextPageBtnClicked}>
 				<Icon icon="arrow-right" styling="outlined" />
 			</IconButton>

@@ -6,7 +6,6 @@ import alertTheme from './themes/components/Alert';
 import avatarTheme from './themes/components/Avatar';
 import buttonTheme from './themes/components/Button';
 import chipTheme from './themes/components/Chip';
-import contentTheme from './themes/components/Content';
 import counterTheme from './themes/components/Counter';
 import datePickerTheme from './themes/components/DatePicker';
 import dividerTheme from './themes/components/Divider';
@@ -28,6 +27,7 @@ import switchTheme from './themes/components/Switch';
 import switchBoxTheme from './themes/collections/SwitchBox';
 import tabTheme from './themes/components/Tab';
 import tableTheme from './themes/components/Table';
+import textTheme from './themes/components/Text';
 import textFieldTheme from './themes/components/TextField';
 import titleTheme from './themes/components/Title';
 import tooltipTheme from './themes/components/Tooltip';
@@ -126,7 +126,6 @@ const theme: Theme = {
 		avatar: avatarTheme,
 		button: buttonTheme,
 		chip: chipTheme,
-		content: contentTheme,
 		counter: counterTheme,
 		datePicker: datePickerTheme,
 		divider: dividerTheme,
@@ -146,6 +145,7 @@ const theme: Theme = {
 		switch: switchTheme,
 		tab: tabTheme,
 		table: tableTheme,
+		text: textTheme,
 		textField: textFieldTheme,
 		title: titleTheme,
 		tooltip: tooltipTheme

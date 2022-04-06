@@ -1,4 +1,4 @@
-import { ContentProps } from 'components/Content/types';
+import { TextProps } from 'components/Text';
 
 type Props = {
 	/**
@@ -7,4 +7,4 @@ type Props = {
 	readonly behavior?: 'default' | 'opposite';
 };
 
-export type LinkProps = Props & ContentProps;
+export type LinkProps = Props & TextProps;

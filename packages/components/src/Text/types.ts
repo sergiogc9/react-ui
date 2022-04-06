@@ -8,7 +8,7 @@ export type Props = {
 	readonly aspectSize?: 's' | 'xs' | 'm' | 'l' | 'xl';
 };
 
-export type ContentProps<
+export type TextProps<
 	Attrs extends React.HTMLAttributes<any> = React.HTMLAttributes<HTMLSpanElement>,
 	Ref = any
 > = Props & StyledComponentProps<ComposedTextProps, Attrs, Ref>;

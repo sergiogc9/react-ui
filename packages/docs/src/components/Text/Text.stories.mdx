@@ -1,45 +1,46 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
-import Content from 'components/Content';
 
-<Meta title="Components/Content" component={Content} />
+import Text from 'components/Text';
 
-# Content
+<Meta title="Components/Text" component={Text} />
 
-Content component.
+# Text
+
+Text component.
 
 <Story
 	name="playground"
 	args={{ children: 'Play with me', textAlign: 'center', fontFamily: 'main' }}
 	parameters={getPlaygroundStoryParams()}
 >
-	{args => <Content {...args} />}
+	{args => <Text {...args} />}
 </Story>
 
 ## AspectSize prop
 
 The prop `aspectSize` receives a `string` value.
 
-Based on that value it changes the `font-weight, font-size and line-height` styles of the Content component.
+Based on that value it changes the `font-weight, font-size and line-height` styles of the Text component.
 
 <Canvas>
 	<Story name="xs" parameters={getFixedStoryParams()}>
-		<Content aspectSize="xs">I'm a xs content</Content>
+		<Text aspectSize="xs">I'm a xs text</Text>
 	</Story>
 	<Story name="s" parameters={getFixedStoryParams()}>
-		<Content aspectSize="s">I'm a s content</Content>
+		<Text aspectSize="s">I'm a s text</Text>
 	</Story>
 	<Story name="m" parameters={getFixedStoryParams()}>
-		<Content aspectSize="m">I'm a m content</Content>
+		<Text aspectSize="m">I'm a m text</Text>
 	</Story>
 	<Story name="l" parameters={getFixedStoryParams()}>
-		<Content aspectSize="l">I'm a l content</Content>
+		<Text aspectSize="l">I'm a l text</Text>
 	</Story>
 	<Story name="xl" parameters={getFixedStoryParams()}>
-		<Content aspectSize="xl">I'm a xl content</Content>
+		<Text aspectSize="xl">I'm a xl text</Text>
 	</Story>
 </Canvas>
 
 # API
 
-<ArgsTable of={Content} />
+<ArgsTable of={Text} />

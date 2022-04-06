@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Content from 'components/Content';
+import Text from 'components/Text';
+
 import TabsContext from '../Context';
 import StyledTabsTab from './styled';
 import { TabsTabProps } from './types';
@@ -20,9 +21,9 @@ const TabsTab: React.FC<TabsTabProps> = ({ children, id, isError, isDisabled, ..
 			}}
 			{...props}
 		>
-			<Content fontWeight={3} fontSize={0}>
+			<Text fontWeight={3} fontSize={0}>
 				{children}
-			</Content>
+			</Text>
 		</StyledTabsTab>
 	);
 };

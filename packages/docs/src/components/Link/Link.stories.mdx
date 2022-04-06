@@ -2,7 +2,7 @@ import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 
 import Link from 'components/Link';
-import Content from 'components/Content';
+import Text from 'components/Text';
 
 <Meta title="Components/Link" component={Link} />
 
@@ -52,12 +52,12 @@ Disclaimer: This is just an example of how it will look. We still need to define
 
 <Canvas>
 	<Story name="inside a paragraph" parameters={getFixedStoryParams()}>
-		<Content aspectSize="s">
+		<Text aspectSize="s">
 			Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 			<Link aspectSize="s"> I'm a link inside a lorem ipsum</Link> Lorem Ipsum has been the industry's standard dummy text
 			ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 			It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-		</Content>
+		</Text>
 	</Story>
 </Canvas>
 

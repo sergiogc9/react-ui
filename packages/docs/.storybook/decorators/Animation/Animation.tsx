@@ -2,7 +2,7 @@ import React from 'react';
 import { DecoratorFn } from '@storybook/react';
 import { keyframes } from 'styled-components';
 
-import { Animation, Button, Content, Flex, TextField } from '@sergiogc9/react-ui';
+import { Animation, Button, Flex, Text, TextField } from '@sergiogc9/react-ui';
 
 const AnimationDecorator: DecoratorFn = (story, context) => {
 	const [isEnabled, setIsEnabled] = React.useState(true);
@@ -54,7 +54,7 @@ const AnimationListDecorator: DecoratorFn = (story, context) => {
 		() =>
 			keys.map(key => (
 				<Animation.BaseAnimation animation={appearAnimation} key={key}>
-					<Content color="primary.500">List item</Content>
+					<Text color="primary.500">List item</Text>
 				</Animation.BaseAnimation>
 			)),
 		[keys.length]

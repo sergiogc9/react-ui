@@ -1,5 +1,6 @@
-import Content from 'components/Content';
 import React, { useMemo } from 'react';
+
+import Text from 'components/Text';
 
 import { StyledCounter } from './styled';
 import { CounterProps } from './types';
@@ -13,9 +14,9 @@ const Counter: React.FC<CounterProps> = React.forwardRef(({ numberOfItems = 0, v
 
 	return (
 		<StyledCounter ref={ref} variant={variant} {...rest}>
-			<Content aspectSize="xs" mx={1}>
+			<Text aspectSize="xs" mx={1}>
 				{count}
-			</Content>
+			</Text>
 		</StyledCounter>
 	);
 });

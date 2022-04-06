@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
-import Content from 'components/Content';
+import Text from 'components/Text';
 
 import { ChipLabelProps } from './types';
 import aspectSize from './variants/aspectSize';
 
-const StyledContent: React.FC<ChipLabelProps> = styled(Content)<ChipLabelProps>`
+const StyledChipLabelText: React.FC<ChipLabelProps> = styled(Text)<ChipLabelProps>`
 	${aspectSize}
 
 	text-overflow:ellipsis
 `;
 
-StyledContent.defaultProps = {
+StyledChipLabelText.defaultProps = {
 	aspectSize: 's',
 	fontSize: 0,
 	fontWeight: 'semibold',
@@ -21,4 +21,4 @@ StyledContent.defaultProps = {
 	overflow: 'hidden'
 };
 
-export default StyledContent;
+export default StyledChipLabelText;

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Content from 'components/Content';
+import Text from 'components/Text';
 
 import { AlertTextProps } from './types';
 
-const AlertText: React.FC<AlertTextProps> = styled(Content)<AlertTextProps>``;
+const AlertText: React.FC<AlertTextProps> = styled(Text)<AlertTextProps>``;
 
 AlertText.defaultProps = {
 	aspectSize: 'm'

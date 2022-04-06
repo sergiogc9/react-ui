@@ -4,8 +4,8 @@ import userEvent from '@testing-library/user-event';
 import theme from '@sergiogc9/react-ui-theme';
 
 import { withTheme } from 'components/private/utils/tests';
-import Content from 'components/Content';
 import Flex from 'components/Flex';
+import Text from 'components/Text';
 
 import Select from '.';
 import { SelectProps } from './types';
@@ -70,8 +70,8 @@ describe('Select', () => {
 				<Select data-testid={selectTestId}>
 					<Select.Option id="content-option">
 						<Flex>
-							<Content>{contentText}</Content>
-							<Content>{contentText2}</Content>
+							<Text>{contentText}</Text>
+							<Text>{contentText2}</Text>
 						</Flex>
 					</Select.Option>
 				</Select>

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
 
-import Content from 'components/Content';
+import Text from 'components/Text';
 
-const StyledTableCellText: React.FC = styled(Content)`
+const StyledTableCellText: React.FC = styled(Text)`
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;

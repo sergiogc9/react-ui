@@ -1,3 +1,3 @@
-import { ContentProps } from 'components/Content/types';
+import { TextProps } from 'components/Text/types';
 
-export type FloatingButtonTextProps = Omit<ContentProps, 'aspectSize'>;
+export type FloatingButtonTextProps = Omit<TextProps, 'aspectSize'>;

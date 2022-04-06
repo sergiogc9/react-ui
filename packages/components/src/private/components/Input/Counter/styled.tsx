@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import css from '@styled-system/css';
 
-import Content from 'components/Content';
+import Text from 'components/Text';
+
 import { InputCounterProps } from './types';
 
-export const StyledInputCounter: React.FC<InputCounterProps> = styled(Content)<InputCounterProps>`
+export const StyledInputCounter: React.FC<InputCounterProps> = styled(Text)<InputCounterProps>`
 	flex-shrink: 0;
 
 	${({ isDisabled, color }) =>

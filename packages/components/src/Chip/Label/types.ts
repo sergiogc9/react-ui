@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ContentProps } from 'components/Content';
+import { TextProps } from 'components/Text';
 import { ChipProps } from '../types';
 
 type Props = {
@@ -14,4 +14,4 @@ type Props = {
 	readonly variant?: ChipProps['variant'];
 };
 
-export type ChipLabelProps = Props & ContentProps<React.HTMLAttributes<HTMLSpanElement>>;
+export type ChipLabelProps = Props & TextProps<React.HTMLAttributes<HTMLSpanElement>>;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Content, Modal, Title } from '@sergiogc9/react-ui';
+import { Button, Modal, Text, Title } from '@sergiogc9/react-ui';
 
 import { DialogProps } from './types';
 
@@ -20,7 +20,7 @@ const Dialog: React.FC<DialogProps> = ({
 				<Title aspectSize="xs">{titleText}</Title>
 			</Modal.Header>
 			<Modal.Content px={4} py={0}>
-				{typeof content === 'string' ? <Content aspectSize="s">{content}</Content> : content}
+				{typeof content === 'string' ? <Text aspectSize="s">{content}</Text> : content}
 			</Modal.Content>
 			<Modal.Footer>
 				{confirmText && (

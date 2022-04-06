@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { ContentProps } from 'components/Content';
+import { TextProps } from 'components/Text';
+
 import StyledInputCheckLabel from './styled';
 import { InputCheckLabelProps } from './types';
 
 const InputCheckLabel: React.FC<InputCheckLabelProps> = ({ aspectSize = 'm', ...rest }) => {
 	const labelAspectSize = React.useMemo(() => {
-		const labelAspectSizes: Record<NonNullable<InputCheckLabelProps['aspectSize']>, ContentProps['aspectSize']> = {
+		const labelAspectSizes: Record<NonNullable<InputCheckLabelProps['aspectSize']>, TextProps['aspectSize']> = {
 			m: 's',
 			l: 'm'
 		};

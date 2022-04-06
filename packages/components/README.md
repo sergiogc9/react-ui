@@ -25,7 +25,7 @@ yarn add -S @sergiogc9/react-ui
 Finally use any component from the UI library. These components must be used wrapped with the styled-components provider as shown above:
 
 ```tsx
-import { Box, Button, Content, Flex, Grid, Title } from '@sergiogc9/react-ui';
+import { Box, Button, Flex, Grid, Text, Title } from '@sergiogc9/react-ui';
 
 const Page = () => {
 	return (
@@ -35,10 +35,10 @@ const Page = () => {
 			</Box>
 			<Grid>
 				<Grid.Box columns={4}>
-					<Content>The UI Library rocks!</Content>
+					<Text>The UI Library rocks!</Text>
 				</Grid.Box>
 				<Grid.Box columns={8}>
-					<Content>You should learn about styled-components and styled-system before :)</Content>
+					<Text>You should learn about styled-components and styled-system before :)</Text>
 				</Grid.Box>
 				<Grid.Row>
 					<Button aspectSize="l" variant="primary">

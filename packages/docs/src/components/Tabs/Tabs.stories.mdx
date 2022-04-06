@@ -1,6 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
-import Content from 'components/Content';
 import Counter from 'components/Counter';
 import Icon from 'components/Icon';
 import Status from 'components/Status';
@@ -9,6 +8,7 @@ import TabsHeader from 'components/Tabs/Header';
 import TabsMenu from 'components/Tabs/Menu';
 import TabsTab from 'components/Tabs/Tab';
 import TabsContent from 'components/Tabs/Content';
+import Text from 'components/Text';
 
 <Meta title="Components/Tabs" component={Tabs} />
 
@@ -162,7 +162,7 @@ You can use Icon and Status to show errors in a tab, inside a form, for example.
 
 <Canvas>
 	<Story name="with icon" title="with icon" parameters={getFixedStoryParams()}>
-		<Content aspectSize="s">Tip*: See this story in mobile view.</Content>
+		<Text aspectSize="s">Tip*: See this story in mobile view.</Text>
 		<Tabs defaultTab="description" mt={5} width={{ xs: '90vw', md: 500 }}>
 			<Tabs.Header>
 				<Tabs.Menu>

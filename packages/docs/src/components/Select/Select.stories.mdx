@@ -3,9 +3,9 @@ import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 import SelectDecorator from 'storybook/decorators/Select';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import Flex from 'components/Flex';
-import Content from 'components/Content';
 import Icon from 'components/Icon';
 import Select from 'components/Select';
+import Text from 'components/Text';
 
 <Meta title="Components/Select" component={Select} decorators={[SelectDecorator]} />
 
@@ -309,7 +309,7 @@ Using non plain text may cause selected option and filtered option matching inpu
 		{args => (
 			<Select {...args} minHeight={215}>
 				<Select.Option id="option-1">
-					🤟 <Content>Option</Content> 👌 1
+					🤟 <Text>Option</Text> 👌 1
 				</Select.Option>
 				<Select.Option id="option-2">Option 2</Select.Option>
 				<Select.Option id="option-3">Option 3</Select.Option>
@@ -354,7 +354,7 @@ Example with custom content:
 				{...args}
 				emptyResultsContent={
 					<Flex p={4}>
-						<Content color="primary.400">That's weird... no results have been found!</Content>
+						<Text color="primary.400">That's weird... no results have been found!</Text>
 					</Flex>
 				}
 				minHeight={215}
