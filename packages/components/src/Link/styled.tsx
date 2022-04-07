@@ -16,7 +16,7 @@ const StyledLink: React.FC<LinkProps> = styled(Text)<LinkProps>`
 		outline: none;
 	}
 	&::after {
-		${props => systemCSS({ bg: props.theme.components.link.colors.color })}
+		${props => systemCSS({ bg: props.color ?? props.theme.components.link.colors.color })}
 		bottom: 1px;
 		content: '';
 		height: 1px;
@@ -26,7 +26,7 @@ const StyledLink: React.FC<LinkProps> = styled(Text)<LinkProps>`
 		width: 100%;
 	}
 
-	${props => systemCSS({ color: props.theme.components.link.colors.color })}
+	${props => systemCSS({ color: props.color ?? props.theme.components.link.colors.color })}
 
 	${props =>
 		props.behavior === 'opposite' &&
