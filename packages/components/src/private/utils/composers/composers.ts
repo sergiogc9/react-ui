@@ -40,6 +40,7 @@ const customTextProps = system({
 	textTransform: { property: 'textTransform' },
 	transition: { property: 'transition' },
 	textDecoration: { property: 'textDecoration' },
+	textOverflow: { property: 'textOverflow' },
 	whiteSpace: { property: 'whiteSpace' },
 	wordBreak: { property: 'wordBreak' }
 });

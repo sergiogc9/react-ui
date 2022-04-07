@@ -41,6 +41,7 @@ type CustomTextProps = {
 	textTransform?: string;
 	transition?: string | Record<string, string> | string[];
 	textDecoration?: string;
+	textOverflow?: string;
 	whiteSpace?: string;
 	wordBreak?: string;
 };
