@@ -2,6 +2,16 @@
 
 All notable changes to this package will be documented in this file.
 
+## [v0.3.4] - April, 2022
+
+#### Added
+
+- Added textOverflow to text composer
+
+### Updated
+
+- Improved custom coloring in Link component
+
 ## [v0.3.2] - April, 2022
 
 #### Added
