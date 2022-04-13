@@ -1,6 +1,6 @@
 import { ThemeColors } from 'theme/types';
 
-type ButtonAspectSizes = 's' | 'm' | 'l';
+type ButtonAspectSizes = 'xs' | 's' | 'm' | 'l';
 type ButtonVariants = 'danger' | 'default' | 'link' | 'primary' | 'secondary' | 'subtle' | 'success' | 'warning';
 type ButtonBackgrounds = Record<'default' | 'hover' | 'active', string>;
 type ButtonColor = Record<'focusShadow', string> &
@@ -9,8 +9,8 @@ type ButtonColor = Record<'focusShadow', string> &
 export type ButtonColors = Record<ButtonVariants, ButtonColor>;
 type ButtonHeights = Record<ButtonAspectSizes, number | number[]>;
 type ButtonIconMargins = Record<ButtonAspectSizes, string | string[]>;
-type ButtonFontSizes = Record<ButtonAspectSizes, number | number[]>;
-type ButtonLineHeights = Record<ButtonAspectSizes, number | number[]>;
+type ButtonFontSizes = Record<ButtonAspectSizes, number | number[] | string>;
+type ButtonLineHeights = Record<ButtonAspectSizes, number | number[] | string>;
 type ButtonPadding = Record<'default' | 'leftIcon' | 'rightIcon', string | string[]>;
 type ButtonPaddings = Record<ButtonAspectSizes, ButtonPadding>;
 

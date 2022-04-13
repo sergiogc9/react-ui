@@ -3,6 +3,7 @@ import React from 'react';
 import Ripple from 'components/Ripple';
 import Spinner from 'components/Spinner';
 import ButtonText from 'components/Button/Text';
+import { ButtonContext, ButtonContextData } from './Context';
 import StyledButton from './styled';
 import { ButtonProps } from './types';
 
@@ -55,34 +56,39 @@ const Button: React.FC<ButtonProps> = React.forwardRef<HTMLButtonElement, Button
 
 			return (
 				<>
-					{typeof children === 'string' ? (
-						<ButtonText aspectSize={aspectSize} isDisabled={isDisabled} variant={variant}>
-							{children}
-						</ButtonText>
-					) : (
-						children
-					)}
+					{typeof children === 'string' ? <ButtonText>{children}</ButtonText> : children}
 					{!isDisabled && !isLoading && variant !== 'link' && <Ripple duration={1000} />}
 				</>
 			);
-		}, [aspectSize, children, isDisabled, isLoading, variant]);
+		}, [children, isDisabled, isLoading, variant]);
+
+		const buttonContextData = React.useMemo<ButtonContextData>(
+			() => ({
+				aspectSize,
+				isDisabled,
+				variant
+			}),
+			[aspectSize, isDisabled, variant]
+		);
 
 		return (
-			<StyledButton
-				as="button"
-				ref={ref}
-				{...props}
-				aspectSize={aspectSize}
-				disabled={isDisabled}
-				hasIcon={hasIcon}
-				isDisabled={isDisabled}
-				isLoading={isLoading}
-				onClick={onBtnClicked}
-				type={type}
-				variant={variant}
-			>
-				{content}
-			</StyledButton>
+			<ButtonContext.Provider value={buttonContextData}>
+				<StyledButton
+					as="button"
+					ref={ref}
+					{...props}
+					aspectSize={aspectSize}
+					disabled={isDisabled}
+					hasIcon={hasIcon}
+					isDisabled={isDisabled}
+					isLoading={isLoading}
+					onClick={onBtnClicked}
+					type={type}
+					variant={variant}
+				>
+					{content}
+				</StyledButton>
+			</ButtonContext.Provider>
 		);
 	}
 );

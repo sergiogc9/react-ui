@@ -3,19 +3,16 @@ import styled from 'styled-components';
 
 import Icon from 'components/Icon';
 import aspectSize from './variants/aspectSize';
-import { ButtonIconProps } from './types';
+import { StyledButtonIconProps } from './types';
 
-const ButtonIcon: React.FC<ButtonIconProps> = styled(Icon)<ButtonIconProps>`
+const StyledButtonIcon: React.FC<StyledButtonIconProps> = styled(Icon)<StyledButtonIconProps>`
 	fill: currentColor;
 
 	${aspectSize};
 `;
 
-ButtonIcon.defaultProps = {
+StyledButtonIcon.defaultProps = {
 	aspectSize: 'm'
 };
 
-const MemoButtonIcon = React.memo(ButtonIcon);
-MemoButtonIcon.displayName = 'ButtonIcon';
-
-export default MemoButtonIcon;
+export default StyledButtonIcon;

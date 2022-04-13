@@ -53,6 +53,9 @@ The prop `aspectSize` receives a `string` value.
 Based on that value it changes the `height, font-size, line-height and padding` styles of the Button component.
 
 <Canvas>
+	<Story name="xs" parameters={getFixedStoryParams()}>
+		<Button aspectSize="xs">Extra small button</Button>
+	</Story>
 	<Story name="s" parameters={getFixedStoryParams()}>
 		<Button aspectSize="s">Small button</Button>
 	</Story>

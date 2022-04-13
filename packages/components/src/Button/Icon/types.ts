@@ -1,8 +1,9 @@
 import { IconProps } from 'components/Icon/types';
-import { ButtonProps } from 'components/Button/types';
 
-type Props = {
-	readonly aspectSize?: ButtonProps['aspectSize'];
-};
+import { ButtonProps } from '../types';
 
-export type ButtonIconProps = Props & Omit<IconProps, 'aspectSize'>;
+type Props = Omit<IconProps, 'aspectSize'>;
+
+export type ButtonIconProps = Props;
+
+export type StyledButtonIconProps = ButtonIconProps & Pick<ButtonProps, 'aspectSize'>;

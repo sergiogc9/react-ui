@@ -122,26 +122,35 @@ const buttonTheme: Button = {
 		}
 	},
 	fontSizes: {
+		xs: '10px',
 		s: 1,
 		m: 2,
 		l: 2
 	},
 	heights: {
+		xs: 24,
 		s: 32,
 		m: 40,
 		l: 48
 	},
 	iconMargins: {
+		xs: '4px',
 		s: '4px',
 		m: '8px',
 		l: '12px'
 	},
 	lineHeights: {
+		xs: '10px',
 		s: 0,
 		m: 0,
 		l: 2
 	},
 	paddings: {
+		xs: {
+			default: '4px 12px',
+			leftIcon: '4px 8px 4px 6px',
+			rightIcon: '4px 6px 4px 8px'
+		},
 		s: {
 			default: '6px 16px',
 			leftIcon: '6px 12px 6px 8px',

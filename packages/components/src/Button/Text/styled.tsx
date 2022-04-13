@@ -5,9 +5,9 @@ import { getColorFromTheme } from '@sergiogc9/react-ui-theme';
 import Text from 'components/Text';
 
 import aspectSize from './variants/aspectSize';
-import { ButtonTextProps } from './types';
+import { StyledButtonTextProps } from './types';
 
-const ButtonText: React.FC<ButtonTextProps> = styled(Text)<ButtonTextProps>`
+const StyledButtonText: React.FC<StyledButtonTextProps> = styled(Text)<StyledButtonTextProps>`
 	${props =>
 		!props.isDisabled &&
 		props.variant === 'link' &&
@@ -34,14 +34,11 @@ const ButtonText: React.FC<ButtonTextProps> = styled(Text)<ButtonTextProps>`
 	${({ theme }) => aspectSize(theme)};
 `;
 
-ButtonText.defaultProps = {
+StyledButtonText.defaultProps = {
 	aspectSize: 'm',
 	fontWeight: 'inherit',
 	position: 'relative',
 	textDecoration: 'none'
 };
 
-const MemoButtonText = React.memo(ButtonText);
-MemoButtonText.displayName = 'ButtonText';
-
-export default MemoButtonText;
+export default StyledButtonText;

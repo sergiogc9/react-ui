@@ -6,7 +6,7 @@ type Props = {
 	/**
 	 * The size of the button.
 	 */
-	readonly aspectSize?: 's' | 'm' | 'l';
+	readonly aspectSize?: 'xs' | 's' | 'm' | 'l';
 	/**
 	 * If true, the button is disabled
 	 */
