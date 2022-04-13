@@ -24,6 +24,7 @@
 		"prettier:check": "prettier --check . --ignore-path .gitignore",
 		"typescript:check": "lerna exec --parallel \"tsc --noEmit -p .\"",
 		"publish": "lerna publish from-package",
+		"bump:auto": "lerna version --conventional-commits",
 		"bump:version:prerelease": "lerna version prerelease",
 		"bump:version:patch": "lerna version patch",
 		"bump:version:minor": "lerna version minor",
