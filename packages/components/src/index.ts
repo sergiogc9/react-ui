@@ -23,7 +23,7 @@ export {
 	GoogleMapsPlaceComponents
 } from './GoogleMapsAutocomplete';
 export { default as Grid, GridProps, GridBoxProps, GridRowProps } from './Grid';
-export { default as Icon, IconProps } from './Icon';
+export { default as Icon, IconProps, IconFontAwesomeProps } from './Icon';
 export { default as IconButton, IconButtonProps } from './IconButton';
 export { default as Image, ImageProps } from './Image';
 export { default as Link, LinkProps } from './Link';
