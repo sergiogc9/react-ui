@@ -6,6 +6,7 @@ export const IconContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	padding: 5px;
 	padding-top: 10px;
 	min-width: 64px;
@@ -41,4 +42,13 @@ const IconsDecorator: DecoratorFn = story => {
 	);
 };
 
-export default IconsDecorator;
+const IconsFontAwesomeDecorator: DecoratorFn = story => {
+	const Icon = {
+		...story(),
+		props: { fill: 'primary.500', ...(story().props as any) }
+	};
+
+	return <IconContainer>{Icon}</IconContainer>;
+};
+
+export { IconsDecorator, IconsFontAwesomeDecorator };

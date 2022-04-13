@@ -1,14 +1,21 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
-import IconsDecorator from 'storybook/decorators/Icon';
+import { faHeart, faImage } from '@fortawesome/free-solid-svg-icons';
+
+import { IconsDecorator, IconsFontAwesomeDecorator } from 'storybook/decorators/Icon';
 import Icon from 'components/Icon';
+
 import { filledIconsStory, outlinedIconsStory } from './Icon';
 
 <Meta title="Components/Icon" component={Icon} />
 
 # Icon
 
-A component to render an icon.
+A component to render an icon. There are three ways to render icons:
+
+- Use one of the pre-defined icons using the `Icon` component with `icon` and `styling` props.
+- Use your svg content with the `content` prop.
+- Use icons from [Font Awesome](https://fontawesome.com/icons) using `Icon.FontAwesome` component. See its section below for further info.
 
 <Story
 	name="playground"
@@ -24,7 +31,7 @@ A component to render an icon.
 	{args => <Icon {...args} />}
 </Story>
 
-## AspectSize prop
+## Sizing
 
 The prop `aspectSize` receives a `string` value.
 
@@ -42,6 +49,19 @@ Based on that value it changes the `width and height` styles of the Icon compone
 	</Story>
 	<Story name="xl" decorators={[IconsDecorator]} parameters={getFixedStoryParams()}>
 		<Icon aspectSize="xl" icon="add-a-photo" styling="filled" />
+	</Story>
+</Canvas>
+
+## Colouring
+
+The prop `fill` can be used to change the icon color. You can use a custom color or use a color available in the theme.
+
+<Canvas>
+	<Story name="with theme color" decorators={[IconsDecorator]} parameters={getFixedStoryParams()}>
+		<Icon fill="primary.500" icon="add-a-photo" styling="filled" />
+	</Story>
+	<Story name="with custom color" decorators={[IconsDecorator]} parameters={getFixedStoryParams()}>
+		<Icon fill="#FFA500" icon="add-a-photo" styling="filled" />
 	</Story>
 </Canvas>
 
@@ -100,4 +120,113 @@ You can use the Icon component with a custom svg `content` and `viewBox`. If vie
 	</Story>
 </Canvas>
 
+## Font Awesome icons
+
+You can use all icons from Font Awesome using the `Icon.FontAwesome` component.
+
+The core packages needed are built in inside the library, but the icons have to be provided using the `icon` prop:
+
+```tsx
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
+const App = () => {
+	return <Icon.FontAwesome icon={faCoffee} aspectSize="s" />;
+};
+```
+
+⚠️ IMPORTANT: The packages containing the icons **have to be installed by the consumer** and are not provided by the library. This way the consumer can decide what icon family to use, etc.
+
+ℹ️ Remember that if you have a pro subscription, remember to configure the access to pro packages: [See oficial docs](https://fontawesome.com/v6/docs/web/setup/packages#configure-access)
+
+#### Sizing
+
+The Font Awesome icon size can be changed using the same props than the default Icon component. Use the `aspectSize` for theme defined sizes or use the `size` prop for custom sizing:
+
+<Canvas>
+	<Story name="font awesome s" decorators={[IconsFontAwesomeDecorator]} parameters={getFixedStoryParams()}>
+		<Icon.FontAwesome aspectSize="s" icon={faImage} />
+	</Story>
+	<Story name="font awesome m" decorators={[IconsFontAwesomeDecorator]} parameters={getFixedStoryParams()}>
+		<Icon.FontAwesome aspectSize="m" icon={faImage} />
+	</Story>
+	<Story name="font awesome l" decorators={[IconsFontAwesomeDecorator]} parameters={getFixedStoryParams()}>
+		<Icon.FontAwesome aspectSize="l" icon={faImage} />
+	</Story>
+	<Story name="font awesome xl" decorators={[IconsFontAwesomeDecorator]} parameters={getFixedStoryParams()}>
+		<Icon.FontAwesome aspectSize="xl" icon={faImage} />
+	</Story>
+</Canvas>
+
+#### Colouring
+
+The Font Awesome icon can be colourized using the `fill` or `color` props. Theme defined colors or custom colors can be used.
+
+<Canvas>
+	<Story
+		name="font awesome with theme color"
+		decorators={[IconsFontAwesomeDecorator]}
+		parameters={getFixedStoryParams()}
+	>
+		<Icon.FontAwesome fill="green.500" icon={faImage} />
+	</Story>
+	<Story
+		name="font awesome with custom color"
+		decorators={[IconsFontAwesomeDecorator]}
+		parameters={getFixedStoryParams()}
+	>
+		<Icon.FontAwesome fill="#FFA500" icon={faImage} />
+	</Story>
+</Canvas>
+
+ℹ️ For duotone colors, you can also use the `primaryColor` and `secondaryColor` in order to change each layer colors.
+
+#### Customization
+
+The `Icon.FontAwesome` component is a wrapper of `FontAwesomeIcon` component provided by the `@fortawesome/react-fontawesome` package.
+
+That means you can use most of the props defined [here](https://fontawesome.com/v6/docs/web/use-with/react/style) or use the `style` prop to override custom CSS variables defined [here](https://fontawesome.com/v6/docs/web/style/style-cheatsheet).
+
+Some examples customizing icons:
+
+<Canvas>
+	<Story name="font awesome rotation" decorators={[IconsFontAwesomeDecorator]} parameters={getFixedStoryParams()}>
+		<Icon.FontAwesome fill="red.400" icon={faHeart} rotation={90} />
+	</Story>
+	<Story name="font awesome flip" decorators={[IconsFontAwesomeDecorator]} parameters={getFixedStoryParams()}>
+		<Icon.FontAwesome fill="red.400" icon={faHeart} flip="vertical" />
+	</Story>
+	<Story name="font awesome beat animation" decorators={[IconsFontAwesomeDecorator]} parameters={getFixedStoryParams()}>
+		<Icon.FontAwesome fill="red.400" icon={faHeart} beat />
+	</Story>
+	<Story
+		name="font awesome bounce animation"
+		decorators={[IconsFontAwesomeDecorator]}
+		parameters={getFixedStoryParams()}
+	>
+		<Icon.FontAwesome fill="red.400" icon={faHeart} bounce />
+	</Story>
+	<Story name="font awesome fade animation" decorators={[IconsFontAwesomeDecorator]} parameters={getFixedStoryParams()}>
+		<Icon.FontAwesome fill="red.400" icon={faHeart} fade />
+	</Story>
+	<Story
+		name="font awesome shake animation"
+		decorators={[IconsFontAwesomeDecorator]}
+		parameters={getFixedStoryParams()}
+	>
+		<Icon.FontAwesome fill="red.400" icon={faHeart} shake />
+	</Story>
+	<Story name="font awesome spin animation" decorators={[IconsFontAwesomeDecorator]} parameters={getFixedStoryParams()}>
+		<Icon.FontAwesome fill="red.400" icon={faHeart} spin />
+	</Story>
+	<Story name="font awesome with border" decorators={[IconsFontAwesomeDecorator]} parameters={getFixedStoryParams()}>
+		<Icon.FontAwesome fill="red.400" icon={faHeart} border style={{ '--fa-border-color': '#FF6D6C' }} />
+	</Story>
+</Canvas>
+
+## Icon API
+
 <ArgsTable of={Icon} include={['fill']} />
+
+## Icon.FontAwesome API
+
+<ArgsTable of={Icon.FontAwesome} include={['fill']} />
