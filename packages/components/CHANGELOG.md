@@ -1,8 +1,4 @@
-# Changelog
-
-All notable changes to this package will be documented in this file.
-
-## [v0.3.4] - April, 2022
+# [v0.3.4] - April, 2022
 
 #### Added
 
@@ -12,7 +8,7 @@ All notable changes to this package will be documented in this file.
 
 - Improved custom coloring in Link component
 
-## [v0.3.2] - April, 2022
+# [v0.3.2] - April, 2022
 
 #### Added
 
@@ -24,13 +20,13 @@ All notable changes to this package will be documented in this file.
 - Updated Alert colors for light mode.
 - Changed Content component to Text.
 
-## [v0.3.0] - March, 2022
+# [v0.3.0] - March, 2022
 
 #### Added
 
 - Added dark mode.
 
-## [v0.2.0] - December, 2021
+# [v0.2.0] - December, 2021
 
 #### Added
 
@@ -63,7 +59,7 @@ All notable changes to this package will be documented in this file.
 - Change Textfield label animation to be enabled when focusing the textfield
 - Small bugs and fixes
 
-## [v0.1.0] - August, 2021
+# [v0.1.0] - August, 2021
 
 #### Added
 
@@ -84,7 +80,7 @@ All notable changes to this package will be documented in this file.
 - Fixed eye password icon in TextField showing twice in Edge.
 - Fixed blurry behavior in Modal component.
 
-## [v0.0.5] - July, 2021
+# [v0.0.5] - July, 2021
 
 #### Added
 
@@ -96,7 +92,7 @@ All notable changes to this package will be documented in this file.
 
 - Fixed wrong polished dependency.
 
-## [v0.0.4] - July, 2021
+# [v0.0.4] - July, 2021
 
 #### Added
 
@@ -106,7 +102,7 @@ All notable changes to this package will be documented in this file.
 
 - Fixed wrong polished dependency.
 
-## [v0.0.3] - July, 2021
+# [v0.0.3] - July, 2021
 
 #### Added
 
@@ -116,6 +112,6 @@ All notable changes to this package will be documented in this file.
 
 - Improved packages peer dependencies definition.
 
-## [v0.0.2] - July, 2021
+# [v0.0.2] - July, 2021
 
 First beta version
