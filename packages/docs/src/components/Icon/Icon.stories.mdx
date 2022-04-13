@@ -31,6 +31,18 @@ A component to render an icon. There are three ways to render icons:
 	{args => <Icon {...args} />}
 </Story>
 
+<Story
+	name="playground font awesome"
+	args={{
+		aspectSize: 'l',
+		fill: 'red.400'
+	}}
+	decorators={[IconsFontAwesomeDecorator]}
+	parameters={getPlaygroundStoryParams({ include: ['fill'] })}
+>
+	{args => <Icon.FontAwesome icon={faHeart} {...args} />}
+</Story>
+
 ## Sizing
 
 The prop `aspectSize` receives a `string` value.
