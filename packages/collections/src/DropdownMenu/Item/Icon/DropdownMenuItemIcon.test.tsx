@@ -3,7 +3,7 @@ import { cleanup, render, screen } from '@testing-library/react';
 
 import { withTheme } from 'collections/private/utils/tests';
 
-import DropdownMenuItemIcon from './styled';
+import { DropdownMenuItemIcon } from './styled';
 import { DropdownMenuItemIconProps } from './types';
 
 const dropdownMenuItemIconTestId = 'DropdownMenuItemIcon';

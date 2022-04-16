@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import css from '@styled-system/css';
 import { Flex, Icon } from '@sergiogc9/react-ui';
 
-import { SwitchBoxIconProps } from './types';
+import { SwitchBoxIconProps, SwitchBoxIconFontAwesomeProps } from './types';
 
 const StyledSwitchBoxIconWrapper = styled(Flex)`
 	${props => css({ bg: props.theme.collections.switchBox.colors.icon.bg })}
@@ -17,9 +17,16 @@ StyledSwitchBoxIconWrapper.defaultProps = {
 };
 
 const StyledSwitchBoxIcon: React.FC<SwitchBoxIconProps> = styled(Icon)<SwitchBoxIconProps>`
-	${props => css({ fill: props.theme.collections.switchBox.colors.icon.color })}
+	${props => css({ fill: props.fill ?? props.theme.collections.switchBox.colors.icon.color })}
 `;
 
-export { StyledSwitchBoxIcon };
+const StyledSwitchBoxIconFontAwesome: React.FC<SwitchBoxIconFontAwesomeProps> = styled(
+	Icon.FontAwesome
+)<SwitchBoxIconFontAwesomeProps>`
+	${props =>
+		css({
+			color: props.fill ?? props.color ?? props.theme.collections.switchBox.colors.icon.color
+		})}
+`;
 
-export default StyledSwitchBoxIconWrapper;
+export { StyledSwitchBoxIconWrapper, StyledSwitchBoxIcon, StyledSwitchBoxIconFontAwesome };

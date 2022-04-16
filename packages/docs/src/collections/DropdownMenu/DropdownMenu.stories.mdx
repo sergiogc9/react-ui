@@ -1,4 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import { faHeadset } from '@fortawesome/free-solid-svg-icons';
 
 import DropdownMenuDecorator from 'storybook/decorators/DropdownMenu';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
@@ -23,6 +24,10 @@ import Flex from 'components/Flex';
 			<DropdownMenu.Item onClick={() => alert('Company settings!')}>
 				<DropdownMenu.Item.Icon icon="business" styling="outlined" />
 				<DropdownMenu.Item.Text>Company settings</DropdownMenu.Item.Text>
+			</DropdownMenu.Item>
+			<DropdownMenu.Item onClick={() => alert('Chat support!')}>
+				<DropdownMenu.Item.Icon.FontAwesome icon={faHeadset} />
+				<DropdownMenu.Item.Text>Chat support</DropdownMenu.Item.Text>
 			</DropdownMenu.Item>
 			<DropdownMenu.Footer justifyContent="flex-end">
 				<Button
@@ -71,6 +76,10 @@ const App = props => {
 					<DropdownMenu.Item.Icon icon="business" styling="outlined" />
 					<DropdownMenu.Item.Text>Company settings</DropdownMenu.Item.Text>
 				</DropdownMenu.Item>
+				<DropdownMenu.Item onClick={() => alert('Chat support!')}>
+					<DropdownMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<DropdownMenu.Item.Text>Chat support</DropdownMenu.Item.Text>
+				</DropdownMenu.Item>
 				<DropdownMenu.Footer justifyContent="flex-end">
 					<Button aspectSize="s">Logout</Button>
 				</DropdownMenu.Footer>
@@ -105,6 +114,10 @@ Use the `placement` prop to place the component. Example with some placements:
 				<DropdownMenu.Item onClick={() => alert('Company settings!')}>
 					<DropdownMenu.Item.Icon icon="business" styling="outlined" />
 					<DropdownMenu.Item.Text>Company settings</DropdownMenu.Item.Text>
+				</DropdownMenu.Item>
+				<DropdownMenu.Item onClick={() => alert('Chat support!')}>
+					<DropdownMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<DropdownMenu.Item.Text>Chat support</DropdownMenu.Item.Text>
 				</DropdownMenu.Item>
 				<DropdownMenu.Footer justifyContent="flex-end">
 					<Button
@@ -141,6 +154,10 @@ Use the `placement` prop to place the component. Example with some placements:
 					<DropdownMenu.Item.Icon icon="business" styling="outlined" />
 					<DropdownMenu.Item.Text>Company settings</DropdownMenu.Item.Text>
 				</DropdownMenu.Item>
+				<DropdownMenu.Item onClick={() => alert('Chat support!')}>
+					<DropdownMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<DropdownMenu.Item.Text>Chat support</DropdownMenu.Item.Text>
+				</DropdownMenu.Item>
 				<DropdownMenu.Footer justifyContent="flex-end">
 					<Button
 						aspectSize="s"
@@ -175,6 +192,10 @@ Use the `placement` prop to place the component. Example with some placements:
 				<DropdownMenu.Item onClick={() => alert('Company settings!')}>
 					<DropdownMenu.Item.Icon icon="business" styling="outlined" />
 					<DropdownMenu.Item.Text>Company settings</DropdownMenu.Item.Text>
+				</DropdownMenu.Item>
+				<DropdownMenu.Item onClick={() => alert('Chat support!')}>
+					<DropdownMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<DropdownMenu.Item.Text>Chat support</DropdownMenu.Item.Text>
 				</DropdownMenu.Item>
 				<DropdownMenu.Footer justifyContent="flex-end">
 					<Button
@@ -218,6 +239,10 @@ By default, the dropdown menu is shown when hovering the trigger element and is 
 					<DropdownMenu.Item.Icon icon="business" styling="outlined" />
 					<DropdownMenu.Item.Text>Company settings</DropdownMenu.Item.Text>
 				</DropdownMenu.Item>
+				<DropdownMenu.Item onClick={() => alert('Chat support!')}>
+					<DropdownMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<DropdownMenu.Item.Text>Chat support</DropdownMenu.Item.Text>
+				</DropdownMenu.Item>
 				<DropdownMenu.Footer justifyContent="flex-end">
 					<Button
 						aspectSize="s"
@@ -252,6 +277,10 @@ By default, the dropdown menu is shown when hovering the trigger element and is 
 				<DropdownMenu.Item onClick={() => alert('Company settings!')}>
 					<DropdownMenu.Item.Icon icon="business" styling="outlined" />
 					<DropdownMenu.Item.Text>Company settings</DropdownMenu.Item.Text>
+				</DropdownMenu.Item>
+				<DropdownMenu.Item onClick={() => alert('Chat support!')}>
+					<DropdownMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<DropdownMenu.Item.Text>Chat support</DropdownMenu.Item.Text>
 				</DropdownMenu.Item>
 				<DropdownMenu.Footer justifyContent="flex-end">
 					<Button
@@ -296,6 +325,10 @@ The dropdown is shown when hovering the trigger by default. This can be changes 
 					<DropdownMenu.Item.Icon icon="business" styling="outlined" />
 					<DropdownMenu.Item.Text>Company settings</DropdownMenu.Item.Text>
 				</DropdownMenu.Item>
+				<DropdownMenu.Item onClick={() => alert('Chat support!')}>
+					<DropdownMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<DropdownMenu.Item.Text>Chat support</DropdownMenu.Item.Text>
+				</DropdownMenu.Item>
 				<DropdownMenu.Footer justifyContent="flex-end">
 					<Button
 						aspectSize="s"
@@ -331,6 +364,10 @@ The dropdown is shown when hovering the trigger by default. This can be changes 
 				<DropdownMenu.Item onClick={() => alert('Company settings!')}>
 					<DropdownMenu.Item.Icon icon="business" styling="outlined" />
 					<DropdownMenu.Item.Text>Company settings</DropdownMenu.Item.Text>
+				</DropdownMenu.Item>
+				<DropdownMenu.Item onClick={() => alert('Chat support!')}>
+					<DropdownMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<DropdownMenu.Item.Text>Chat support</DropdownMenu.Item.Text>
 				</DropdownMenu.Item>
 				<DropdownMenu.Footer justifyContent="flex-end">
 					<Button

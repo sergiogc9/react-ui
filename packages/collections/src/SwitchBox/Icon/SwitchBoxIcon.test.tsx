@@ -4,14 +4,14 @@ import theme from '@sergiogc9/react-ui-theme';
 
 import { withTheme } from 'collections/private/utils/tests';
 
-import SwitchBoxIcon from './SwitchBoxIcon';
+import { SwitchBoxIcon } from './SwitchBoxIcon';
 import { SwitchBoxIconProps } from './types';
 
 const switchBoxIconTestId = 'switchBoxIcon';
 
 const renderSwitchBoxIcon = (props: Partial<SwitchBoxIconProps> = {}) => {
 	return render(
-		withTheme(<SwitchBoxIcon data-testid={switchBoxIconTestId} icon="users" styling="filled" {...props} />)
+		withTheme(<SwitchBoxIcon data-testid={switchBoxIconTestId} icon="users" styling="filled" {...(props as any)} />)
 	);
 };
 

@@ -1,4 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import { faHeadset } from '@fortawesome/free-solid-svg-icons';
 
 import UserMenuDecorator from 'storybook/decorators/UserMenu';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
@@ -29,6 +30,10 @@ import Flex from 'components/Flex';
 			<UserMenu.Item onClick={() => alert('Company settings!')}>
 				<UserMenu.Item.Icon icon="business" styling="outlined" />
 				<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+			</UserMenu.Item>
+			<UserMenu.Item onClick={() => alert('Chat support!')}>
+				<UserMenu.Item.Icon.FontAwesome icon={faHeadset} />
+				<UserMenu.Item.Text>Chat support</UserMenu.Item.Text>
 			</UserMenu.Item>
 			<UserMenu.Footer>
 				{args.isMobileFullScreenEnabled && args.isMobileFooter ? (
@@ -118,6 +123,10 @@ Use the `placement` prop to place the component. Example with some placements:
 					<UserMenu.Item.Icon icon="business" styling="outlined" />
 					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
 				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Chat support!')}>
+					<UserMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<UserMenu.Item.Text>Chat support</UserMenu.Item.Text>
+				</UserMenu.Item>
 				<UserMenu.Footer>
 					<UserMenu.Item onClick={() => alert('Logout')}>
 						<UserMenu.Item.Icon icon="logout" styling="outlined" />
@@ -149,6 +158,10 @@ Use the `placement` prop to place the component. Example with some placements:
 					<UserMenu.Item.Icon icon="business" styling="outlined" />
 					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
 				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Chat support!')}>
+					<UserMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<UserMenu.Item.Text>Chat support</UserMenu.Item.Text>
+				</UserMenu.Item>
 				<UserMenu.Footer>
 					<UserMenu.Item onClick={() => alert('Logout')}>
 						<UserMenu.Item.Icon icon="logout" styling="outlined" />
@@ -179,6 +192,10 @@ Use the `placement` prop to place the component. Example with some placements:
 				<UserMenu.Item onClick={() => alert('Company settings!')}>
 					<UserMenu.Item.Icon icon="business" styling="outlined" />
 					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Chat support!')}>
+					<UserMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<UserMenu.Item.Text>Chat support</UserMenu.Item.Text>
 				</UserMenu.Item>
 				<UserMenu.Footer>
 					<UserMenu.Item onClick={() => alert('Logout')}>
@@ -218,6 +235,10 @@ By default, the user menu is shown when hovering the trigger element and is hidd
 					<UserMenu.Item.Icon icon="business" styling="outlined" />
 					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
 				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Chat support!')}>
+					<UserMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<UserMenu.Item.Text>Chat support</UserMenu.Item.Text>
+				</UserMenu.Item>
 				<UserMenu.Footer>
 					<UserMenu.Item onClick={() => alert('Logout')}>
 						<UserMenu.Item.Icon icon="logout" styling="outlined" />
@@ -248,6 +269,10 @@ By default, the user menu is shown when hovering the trigger element and is hidd
 				<UserMenu.Item onClick={() => alert('Company settings!')}>
 					<UserMenu.Item.Icon icon="business" styling="outlined" />
 					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Chat support!')}>
+					<UserMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<UserMenu.Item.Text>Chat support</UserMenu.Item.Text>
 				</UserMenu.Item>
 				<UserMenu.Footer>
 					<UserMenu.Item onClick={() => alert('Logout')}>
@@ -288,6 +313,10 @@ The dropdown is shown when hovering the trigger by default. This can be changes 
 					<UserMenu.Item.Icon icon="business" styling="outlined" />
 					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
 				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Chat support!')}>
+					<UserMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<UserMenu.Item.Text>Chat support</UserMenu.Item.Text>
+				</UserMenu.Item>
 				<UserMenu.Footer>
 					<UserMenu.Item onClick={() => alert('Logout')}>
 						<UserMenu.Item.Icon icon="logout" styling="outlined" />
@@ -319,6 +348,10 @@ The dropdown is shown when hovering the trigger by default. This can be changes 
 				<UserMenu.Item onClick={() => alert('Company settings!')}>
 					<UserMenu.Item.Icon icon="business" styling="outlined" />
 					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Chat support!')}>
+					<UserMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<UserMenu.Item.Text>Chat support</UserMenu.Item.Text>
 				</UserMenu.Item>
 				<UserMenu.Footer>
 					<UserMenu.Item onClick={() => alert('Logout')}>
@@ -364,6 +397,10 @@ To see the difference you should watch this Story with a _mobile device_.
 					<UserMenu.Item.Icon icon="business" styling="outlined" />
 					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
 				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Chat support!')}>
+					<UserMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<UserMenu.Item.Text>Chat support</UserMenu.Item.Text>
+				</UserMenu.Item>
 				<UserMenu.Footer>
 					<UserMenu.Item onClick={() => alert('Logout')}>
 						<UserMenu.Item.Icon icon="logout" styling="outlined" />
@@ -393,6 +430,10 @@ To see the difference you should watch this Story with a _mobile device_.
 				<UserMenu.Item onClick={() => alert('Company settings!')}>
 					<UserMenu.Item.Icon icon="business" styling="outlined" />
 					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Chat support!')}>
+					<UserMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<UserMenu.Item.Text>Chat support</UserMenu.Item.Text>
 				</UserMenu.Item>
 				<UserMenu.Footer>
 					<Button aspectSize="l" variant="secondary" width="100%">

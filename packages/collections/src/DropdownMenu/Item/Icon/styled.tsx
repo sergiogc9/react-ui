@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import css from '@styled-system/css';
 import { Icon } from '@sergiogc9/react-ui';
 
-import { DropdownMenuItemIconProps } from './types';
+import { DropdownMenuItemIconFontAwesomeProps, DropdownMenuItemIconProps } from './types';
 
 const DropdownMenuItemIcon: React.FC<DropdownMenuItemIconProps> = styled(Icon)<DropdownMenuItemIconProps>`
-	${props => css({ fill: props.theme.collections.dropdownMenu.colors.optionText })}
+	${props => css({ fill: props.fill ?? props.theme.collections.dropdownMenu.colors.optionText })}
 `;
 
 DropdownMenuItemIcon.defaultProps = {
@@ -15,4 +15,21 @@ DropdownMenuItemIcon.defaultProps = {
 	marginRight: 2
 };
 
-export default DropdownMenuItemIcon;
+const MemoDropdownMenuItemIcon = React.memo(DropdownMenuItemIcon);
+MemoDropdownMenuItemIcon.displayName = 'DropdownMenuItemIcon';
+
+const DropdownMenuItemIconFontAwesome: React.FC<DropdownMenuItemIconFontAwesomeProps> = styled(
+	Icon.FontAwesome
+)<DropdownMenuItemIconFontAwesomeProps>`
+	${props =>
+		css({
+			color: props.fill ?? props.color ?? props.theme.collections.dropdownMenu.colors.optionText,
+			mr: 2
+		})}
+`;
+
+DropdownMenuItemIconFontAwesome.defaultProps = {
+	aspectSize: 's'
+};
+
+export { MemoDropdownMenuItemIcon as DropdownMenuItemIcon, DropdownMenuItemIconFontAwesome };

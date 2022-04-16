@@ -1,5 +1,4 @@
-import { IconProps } from '@sergiogc9/react-ui';
+import { IconFontAwesomeProps, IconProps } from '@sergiogc9/react-ui';
 
-type Props = Record<string, unknown>;
-
-export type SwitchBoxIconProps = Props & Omit<IconProps, 'aspectSize'>;
+export type SwitchBoxIconProps = IconProps;
+export type SwitchBoxIconFontAwesomeProps = IconFontAwesomeProps;

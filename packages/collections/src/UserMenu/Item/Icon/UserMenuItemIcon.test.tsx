@@ -3,7 +3,7 @@ import { cleanup, render, screen } from '@testing-library/react';
 
 import { withTheme } from 'collections/private/utils/tests';
 
-import UserMenuItemIcon from './styled';
+import { UserMenuItemIcon } from './styled';
 import { UserMenuItemIconProps } from './types';
 
 const userMenuItemIconTestId = 'UserMenuItemIcon';
