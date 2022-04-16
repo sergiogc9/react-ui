@@ -2,18 +2,18 @@ import { variant } from 'styled-system';
 import { StyledProps } from 'styled-components';
 
 import { ButtonProps } from 'components/Button/types';
-import { StyledButtonIconProps } from 'components/Button/Icon/types';
-import { IconProps } from 'components/Icon/types';
+import { StyledButtonIconFontAwesomeProps } from 'components/Button/Icon/types';
+import { IconFontAwesomeProps } from 'components/Icon';
 
-const iconSize: Record<NonNullable<ButtonProps['aspectSize']>, NonNullable<IconProps['aspectSize']>> = {
-	xs: 's',
+const iconSize: Record<NonNullable<ButtonProps['aspectSize']>, NonNullable<IconFontAwesomeProps['aspectSize']>> = {
+	xs: 'xs',
 	s: 's',
-	m: 'm',
+	m: 's',
 	l: 'm'
 };
 
-export default (props: StyledProps<StyledButtonIconProps>) => {
-	const generateCSS = (aspectSize: StyledButtonIconProps['aspectSize']) => ({
+export default (props: StyledProps<StyledButtonIconFontAwesomeProps>) => {
+	const generateCSS = (aspectSize: StyledButtonIconFontAwesomeProps['aspectSize']) => ({
 		'&:first-child': {
 			marginRight: props.theme.components.button.iconMargins[aspectSize!]
 		},

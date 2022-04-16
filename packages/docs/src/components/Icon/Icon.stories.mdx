@@ -50,6 +50,9 @@ The prop `aspectSize` receives a `string` value.
 Based on that value it changes the `width and height` styles of the Icon component.
 
 <Canvas>
+	<Story name="xs" decorators={[IconsDecorator]} parameters={getFixedStoryParams()}>
+		<Icon aspectSize="xs" icon="add-a-photo" styling="filled" />
+	</Story>
 	<Story name="s" decorators={[IconsDecorator]} parameters={getFixedStoryParams()}>
 		<Icon aspectSize="s" icon="add-a-photo" styling="filled" />
 	</Story>
@@ -155,6 +158,9 @@ const App = () => {
 The Font Awesome icon size can be changed using the same props than the default Icon component. Use the `aspectSize` for theme defined sizes or use the `size` prop for custom sizing:
 
 <Canvas>
+	<Story name="font awesome xs" decorators={[IconsFontAwesomeDecorator]} parameters={getFixedStoryParams()}>
+		<Icon.FontAwesome aspectSize="xs" icon={faImage} />
+	</Story>
 	<Story name="font awesome s" decorators={[IconsFontAwesomeDecorator]} parameters={getFixedStoryParams()}>
 		<Icon.FontAwesome aspectSize="s" icon={faImage} />
 	</Story>

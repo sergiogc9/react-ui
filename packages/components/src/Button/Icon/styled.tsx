@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 import Icon from 'components/Icon';
 import aspectSize from './variants/aspectSize';
-import { StyledButtonIconProps } from './types';
+import aspectSizeFontAwesome from './variants/aspectSizeFontAwesome';
+import { StyledButtonIconProps, StyledButtonIconFontAwesomeProps } from './types';
 
 const StyledButtonIcon: React.FC<StyledButtonIconProps> = styled(Icon)<StyledButtonIconProps>`
 	fill: currentColor;
@@ -15,4 +16,14 @@ StyledButtonIcon.defaultProps = {
 	aspectSize: 'm'
 };
 
-export default StyledButtonIcon;
+const StyledButtonIconFontAwesome: React.FC<StyledButtonIconFontAwesomeProps> = styled(
+	Icon.FontAwesome
+)<StyledButtonIconFontAwesomeProps>`
+	${aspectSizeFontAwesome};
+`;
+
+StyledButtonIcon.defaultProps = {
+	aspectSize: 'm'
+};
+
+export { StyledButtonIcon, StyledButtonIconFontAwesome };

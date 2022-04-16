@@ -96,7 +96,7 @@ type CommonProps = {
 	/**
 	 * The size of the icon.
 	 */
-	readonly aspectSize?: 's' | 'm' | 'l' | 'xl';
+	readonly aspectSize?: 'xs' | 's' | 'm' | 'l' | 'xl';
 	/**
 	 * A string with classes to use in the Icon component.
 	 */

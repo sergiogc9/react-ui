@@ -10,7 +10,7 @@ const StyledIcon: React.FC<Partial<IconProps>> = styled.svg.withConfig<IconProps
 	shouldForwardProp: shouldStyledComponentForwardProp
 })`
 	${composers.svg}
-	${props => aspectSize(props)}
+	${aspectSize}
 `;
 
 StyledIcon.defaultProps = {
