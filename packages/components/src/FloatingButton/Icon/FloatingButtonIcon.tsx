@@ -3,7 +3,7 @@ import React from 'react';
 import Icon from 'components/Icon';
 
 import FloatingButtonContext from '../Context';
-import { FloatingButtonIconProps } from './types';
+import { FloatingButtonIconFontAwesomeProps, FloatingButtonIconProps } from './types';
 
 const FloatingButtonIcon: React.FC<FloatingButtonIconProps> = props => {
 	const { aspectSize } = React.useContext(FloatingButtonContext);
@@ -11,4 +11,13 @@ const FloatingButtonIcon: React.FC<FloatingButtonIconProps> = props => {
 	return <Icon fill="currentColor" {...props} aspectSize={aspectSize} />;
 };
 
-export default FloatingButtonIcon;
+const FloatingButtonIconFontAwesome: React.FC<FloatingButtonIconFontAwesomeProps> = props => {
+	const { aspectSize } = React.useContext(FloatingButtonContext);
+
+	return <Icon.FontAwesome fill="currentColor" {...props} aspectSize={aspectSize} />;
+};
+
+const MemoFloatingButtonIcon = React.memo(FloatingButtonIcon);
+MemoFloatingButtonIcon.displayName = 'FloatingButtonIcon';
+
+export { MemoFloatingButtonIcon as FloatingButtonIcon, FloatingButtonIconFontAwesome };

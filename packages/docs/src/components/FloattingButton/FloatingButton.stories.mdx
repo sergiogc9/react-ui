@@ -1,5 +1,8 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
+
 import FloatingButton from 'components/FloatingButton';
 
 <Meta title="Components/FloatingButton" component={FloatingButton} />
@@ -66,6 +69,26 @@ Use the `aspectSize` prop to modify the size of the Floating Button.
 	<Story name="l" parameters={getFixedStoryParams()}>
 		<FloatingButton aspectSize="l">
 			<FloatingButton.Icon icon="add" styling="outlined" />
+		</FloatingButton>
+	</Story>
+</Canvas>
+
+With Font Awesome icons:
+
+<Canvas>
+	<Story name="s font awesome" parameters={getFixedStoryParams()}>
+		<FloatingButton aspectSize="s">
+			<FloatingButton.Icon.FontAwesome icon={faPlus} />
+		</FloatingButton>
+	</Story>
+	<Story name="m font awesome" parameters={getFixedStoryParams()}>
+		<FloatingButton aspectSize="m">
+			<FloatingButton.Icon.FontAwesome icon={faPlus} />
+		</FloatingButton>
+	</Story>
+	<Story name="l font awesome" parameters={getFixedStoryParams()}>
+		<FloatingButton aspectSize="l">
+			<FloatingButton.Icon.FontAwesome icon={faPlus} />
 		</FloatingButton>
 	</Story>
 </Canvas>
