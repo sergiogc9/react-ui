@@ -1,4 +1,7 @@
 import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import { faClipboardQuestion, faInfo } from '@fortawesome/free-solid-svg-icons';
+import { faFileLines } from '@fortawesome/free-regular-svg-icons';
+
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import StepperDecorator from 'storybook/decorators/Stepper';
 
@@ -168,6 +171,35 @@ You can use the `Stepper.Icon` inside the `Stepper.Circle` to use custom icons:
 				<Stepper.Step>
 					<Stepper.Circle>
 						<Stepper.Icon icon="flash" styling="outlined" />
+					</Stepper.Circle>
+					<Stepper.Text>Flash Questions</Stepper.Text>
+				</Stepper.Step>
+			</Stepper>
+		)}
+	</Story>
+</Canvas>
+
+With Font Awesome icons:
+
+<Canvas>
+	<Story name="with font awesome icons" decorators={[StepperDecorator]} parameters={getFixedStoryParams()}>
+		{args => (
+			<Stepper {...args}>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon.FontAwesome icon={faInfo} />
+					</Stepper.Circle>
+					<Stepper.Text>Job Description</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon.FontAwesome icon={faFileLines} />
+					</Stepper.Circle>
+					<Stepper.Text>Contract</Stepper.Text>
+				</Stepper.Step>
+				<Stepper.Step>
+					<Stepper.Circle>
+						<Stepper.Icon.FontAwesome icon={faClipboardQuestion} />
 					</Stepper.Circle>
 					<Stepper.Text>Flash Questions</Stepper.Text>
 				</Stepper.Step>
