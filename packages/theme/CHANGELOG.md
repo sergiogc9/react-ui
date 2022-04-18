@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/sergiogc9/react-ui/compare/v0.5.0...v0.5.1) (2022-04-18)
+
+### Bug Fixes
+
+- Fixed button icon namespaced component ([cd0cad6](https://github.com/sergiogc9/react-ui/commit/cd0cad6844435ee56cc0204b3f644d715f016ad0))
+
 # [0.5.0](https://github.com/sergiogc9/react-ui/compare/v0.4.0...v0.5.0) (2022-04-13)
 
 **Note:** Version bump only for package @sergiogc9/react-ui-theme
