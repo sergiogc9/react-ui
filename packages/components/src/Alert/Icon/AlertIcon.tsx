@@ -1,40 +1,34 @@
 import React from 'react';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faCheckCircle, faCircleExclamation, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 import AlertContext from '../Context';
 import { AlertProps } from '../types';
-import StyledAlertIcon from './styled';
-import { AlertIconProps } from './types';
+import { StyledAlertIcon, StyledAlertIconFontAwesome } from './styled';
+import { AlertIconFontAwesomeProps, AlertIconProps } from './types';
 
-const ALERT_STATUS_ICONS: Record<NonNullable<AlertProps['status']>, AlertIconProps['icon']> = {
-	error: 'alert-error',
-	info: 'info',
-	success: 'check-circle',
-	warning: 'alert-error'
+const ALERT_STATUS_ICONS: Record<NonNullable<AlertProps['status']>, IconProp> = {
+	error: faCircleExclamation,
+	info: faCircleInfo,
+	success: faCheckCircle,
+	warning: faCircleExclamation
 };
 
-const ALERT_STATUS_STYLINGS: Record<NonNullable<AlertProps['status']>, AlertIconProps['styling']> = {
-	error: 'filled',
-	info: 'filled',
-	success: 'outlined',
-	warning: 'filled'
+const AlertIconFontAwesome: React.FC<AlertIconFontAwesomeProps> = ({ children, ...rest }) => {
+	return <StyledAlertIconFontAwesome {...rest} />;
 };
 
-const AlertIcon: React.FC<AlertIconProps> = ({ icon, styling, ...rest }) => {
+const AlertIcon: React.FC<AlertIconProps> = ({ icon, ...rest }) => {
 	const { status } = React.useContext(AlertContext);
 
-	const finalIcon = icon ?? ALERT_STATUS_ICONS[status];
-	const finalStyling = styling ?? ALERT_STATUS_STYLINGS[status];
+	// Use font awesome icons as default
+	if (!icon)
+		return <AlertIconFontAwesome data-testid="alertIcon" icon={ALERT_STATUS_ICONS[status]} {...(rest as any)} />;
 
-	return (
-		<StyledAlertIcon
-			data-testid="alertIcon"
-			mr={2}
-			{...(rest as any)}
-			icon={finalIcon}
-			status={status}
-			styling={finalStyling}
-		/>
-	);
+	return <StyledAlertIcon data-testid="alertIcon" {...(rest as any)} icon={icon} status={status} />;
 };
 
-export default React.memo(AlertIcon);
+const MemoAlertIcon = React.memo(AlertIcon);
+MemoAlertIcon.displayName = 'AlertIcon';
+
+export { MemoAlertIcon as AlertIcon, AlertIconFontAwesome };

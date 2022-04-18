@@ -5,7 +5,7 @@ import { StyledAlertIconProps } from '../types';
 
 export default (props: StyledProps<StyledAlertIconProps>) => {
 	const generateCSS = (statusProp: StyledAlertIconProps['status']) => ({
-		fill: props.fill ?? props.theme.components.alert.colors[statusProp!].icon
+		fill: (props as any).color ?? props.fill ?? props.theme.components.alert.colors[statusProp!].icon
 	});
 
 	return variant({

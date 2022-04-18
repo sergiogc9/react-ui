@@ -1,4 +1,5 @@
 import { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
+import { SpaceProps } from 'styled-system';
 
 import { IconProps } from '../types';
 
@@ -31,4 +32,4 @@ type Props = {
 
 type FilteredFontAwesomeIconProps = Omit<FontAwesomeIconProps, 'fontSize' | 'fontSizeAdjust' | 'size'>;
 
-export type IconFontAwesomeProps = FilteredFontAwesomeIconProps & Props;
+export type IconFontAwesomeProps = FilteredFontAwesomeIconProps & SpaceProps & Props;

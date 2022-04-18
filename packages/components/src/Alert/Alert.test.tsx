@@ -48,7 +48,7 @@ describe('Alert', () => {
 	});
 
 	it('should render with custom icon', () => {
-		renderAlert({}, { icon: 'edit' });
+		renderAlert({}, { icon: 'edit', styling: 'filled' });
 
 		expect(screen.getByTestId('alertIcon')).toBeInTheDocument();
 	});
@@ -60,7 +60,7 @@ describe('Alert', () => {
 	});
 
 	it('should render with custom icon filling', () => {
-		renderAlert({}, { fill: 'neutral.200' });
+		renderAlert({}, { icon: 'edit', fill: 'neutral.200', styling: 'filled' });
 
 		expect(screen.getByTestId('alertIcon')).toHaveStyle(`
       fill: ${theme.colors.neutral[200]};
