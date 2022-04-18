@@ -1,11 +1,12 @@
-import { IconProps } from 'components/Icon/types';
+import { IconProps, IconFontAwesomeProps } from 'components/Icon';
 import { ChipProps } from '../types';
 
-type Props = {
-	/**
-	 * Choose the color variant
-	 */
+export type ChipIconProps = IconProps;
+export type StyledChipIconProps = ChipIconProps & {
 	readonly variant?: ChipProps['variant'];
 };
 
-export type ChipIconProps = Props & IconProps;
+export type ChipIconFontAwesomeProps = Omit<IconFontAwesomeProps, 'aspectSize'>;
+export type StyledChipIconFontAwesomeProps = ChipIconFontAwesomeProps & {
+	readonly variant?: ChipProps['variant'];
+};

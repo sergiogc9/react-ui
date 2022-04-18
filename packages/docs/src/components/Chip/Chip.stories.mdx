@@ -1,5 +1,6 @@
 import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 
 import ChipDecorator from 'storybook/decorators/Chip';
 import Chip, { ChipProps } from 'components/Chip';
@@ -217,6 +218,61 @@ Chip has the possibility to integrate icons, they are all passed via children.`
 		</Chip>
 		<Chip aspectSize="m" variant="green">
 			<Chip.Icon styling="filled" icon="bookmark" />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+	</Story>
+</Canvas>
+
+With Font Awesome icons:
+
+<Canvas>
+	<Story parameters={getFixedStoryParams()} name="chip + font awesome icon" decorators={[ChipDecorator]}>
+		<Chip aspectSize="s" variant="transparent">
+			<Chip.Icon.FontAwesome icon={faBookmark} />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="s" variant="blue">
+			<Chip.Icon.FontAwesome icon={faBookmark} />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="s" variant="grey">
+			<Chip.Icon.FontAwesome icon={faBookmark} />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="s" variant="yellow">
+			<Chip.Icon.FontAwesome icon={faBookmark} />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="s" variant="red">
+			<Chip.Icon.FontAwesome icon={faBookmark} />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="s" variant="green">
+			<Chip.Icon.FontAwesome icon={faBookmark} />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="m" variant="transparent">
+			<Chip.Icon.FontAwesome icon={faBookmark} />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="m" variant="blue">
+			<Chip.Icon.FontAwesome icon={faBookmark} />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="m" variant="grey">
+			<Chip.Icon.FontAwesome icon={faBookmark} />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="m" variant="yellow">
+			<Chip.Icon.FontAwesome icon={faBookmark} />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="m" variant="red">
+			<Chip.Icon.FontAwesome icon={faBookmark} />
+			<Chip.Label>Bookmarked</Chip.Label>
+		</Chip>
+		<Chip aspectSize="m" variant="green">
+			<Chip.Icon.FontAwesome icon={faBookmark} />
 			<Chip.Label>Bookmarked</Chip.Label>
 		</Chip>
 	</Story>

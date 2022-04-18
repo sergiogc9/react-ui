@@ -1,10 +1,10 @@
 import { StyledProps } from 'styled-components';
 import { variant } from 'styled-system';
 
-import { ChipIconProps } from '../types';
+import { StyledChipIconProps } from '../types';
 
-export default (props: StyledProps<ChipIconProps>) => {
-	const generateCSS = (variantProp: ChipIconProps['variant']) => ({
+export default (props: StyledProps<StyledChipIconProps>) => {
+	const generateCSS = (variantProp: StyledChipIconProps['variant']) => ({
 		fill: props.fill ?? props.theme.components.chip.colors[variantProp!].color!
 	});
 

@@ -3,16 +3,22 @@ import styled from 'styled-components';
 
 import Icon from 'components/Icon';
 
-import { ChipIconProps } from './types';
 import variant from './variants/variant';
+import { StyledChipIconProps } from './types';
 
-const StyledIcon: React.FC<ChipIconProps> = styled(Icon)`
+const StyledChipIcon: React.FC<StyledChipIconProps> = styled(Icon)`
 	${variant}
 `;
-
-StyledIcon.defaultProps = {
+StyledChipIcon.defaultProps = {
 	aspectSize: 's',
 	position: 'relative'
 };
 
-export default StyledIcon;
+const StyledChipIconFontAwesome = styled(Icon.FontAwesome as any)`
+	${variant}
+`;
+StyledChipIconFontAwesome.defaultProps = {
+	aspectSize: 's'
+};
+
+export { StyledChipIcon, StyledChipIconFontAwesome };
