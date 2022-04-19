@@ -20,7 +20,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-.npmrc
 .history
 
 # This is really not ignored. This line has been added to avoid issues with prettier when publishing and pushing a version.
