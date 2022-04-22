@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/sergiogc9/react-ui/compare/v0.5.1...v0.6.0) (2022-04-22)
+
+### Features
+
+- Make button theme extensible adding option to use other variants and sizes ([37b9815](https://github.com/sergiogc9/react-ui/commit/37b9815b631456a763301d394889b9a0709a7bf4))
+
 ## [0.5.1](https://github.com/sergiogc9/react-ui/compare/v0.5.0...v0.5.1) (2022-04-18)
 
 ### Bug Fixes

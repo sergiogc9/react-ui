@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/sergiogc9/react-ui/compare/v0.5.1...v0.6.0) (2022-04-22)
+
+**Note:** Version bump only for package @sergiogc9/react-ui-collections
+
 ## [0.5.1](https://github.com/sergiogc9/react-ui/compare/v0.5.0...v0.5.1) (2022-04-18)
 
 ### Bug Fixes
