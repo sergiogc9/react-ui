@@ -11,3 +11,20 @@ This library comes with two built-in theme with two color modes: `light` and `da
 ## Customizing the theme
 
 The theme can be imported from `@sergiogc9/react-ui-theme`. You can use it without modifying it, modify some tokens to customize it and / or extend it using extra tokens.
+
+In order to add different variants or sizes to an existing component, you need to overload the Theme definition and update the component theme attributes accordingly updating `theme.components.xxx`.
+
+An example of adding an extra size in button. Create a `.d.ts` file with the following code:
+
+```tsx
+import 'styled-components';
+import { DefaultThemeAttributes, Theme } from '@sergiogc9/react-ui-theme';
+
+export interface ThemeAttributes extends Omit<DefaultThemeAttributes, 'ButtonAspectSize'> {
+	ButtonAspectSize: DefaultThemeAttributes['ButtonAspectSize'] | 'extra-small';
+}
+
+declare module 'styled-components' {
+	interface DefaultTheme extends Theme<ThemeAttributes> {}
+}
+```

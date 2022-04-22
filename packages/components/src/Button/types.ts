@@ -1,12 +1,14 @@
 import { ButtonHTMLAttributes } from 'react';
+import { DefaultTheme } from 'styled-components';
 
 import { FlexProps } from 'components/Flex';
+import { ExtractThemeAttributes } from '@sergiogc9/react-ui-theme';
 
 type Props = {
 	/**
 	 * The size of the button.
 	 */
-	readonly aspectSize?: 'xs' | 's' | 'm' | 'l';
+	readonly aspectSize?: ExtractThemeAttributes<DefaultTheme>['ButtonAspectSize'];
 	/**
 	 * If true, the button is disabled
 	 */
@@ -18,7 +20,7 @@ type Props = {
 	/**
 	 * The variant type of the button
 	 */
-	readonly variant?: 'danger' | 'default' | 'link' | 'primary' | 'secondary' | 'subtle' | 'success' | 'warning';
+	readonly variant?: ExtractThemeAttributes<DefaultTheme>['ButtonVariant'];
 };
 
 export type ButtonProps = Props & FlexProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;

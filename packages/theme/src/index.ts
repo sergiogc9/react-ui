@@ -2,7 +2,7 @@ import ReactUIProvider, { ReactUIProviderProps, useChangeThemeMode } from './com
 import { getColorByMode, getColorFromTheme, getColorFromThemeWithOpacity, getComponentLocale } from './utils';
 import reset from './reset';
 import theme from './theme';
-import { Theme, ThemeColors, ThemePalette } from './types';
+import { DefaultThemeAttributes, ExtractThemeAttributes, Theme, ThemeColors, ThemePalette } from './types';
 
 export {
 	getColorByMode,
@@ -12,10 +12,9 @@ export {
 	ReactUIProvider,
 	ReactUIProviderProps,
 	reset,
-	Theme,
-	ThemeColors,
-	ThemePalette,
 	useChangeThemeMode
 };
+
+export type { DefaultThemeAttributes, ExtractThemeAttributes, Theme, ThemeColors, ThemePalette };
 
 export default theme;

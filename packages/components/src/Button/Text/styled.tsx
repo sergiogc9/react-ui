@@ -31,7 +31,7 @@ const StyledButtonText: React.FC<StyledButtonTextProps> = styled(Text)<StyledBut
 			}
 		`}
 
-	${({ theme }) => aspectSize(theme)};
+	${aspectSize};
 `;
 
 StyledButtonText.defaultProps = {

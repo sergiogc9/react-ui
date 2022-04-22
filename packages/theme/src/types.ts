@@ -2,7 +2,7 @@ import { ArrayWithProps } from './global.types';
 import { ActionMenu } from './themes/collections/ActionMenu';
 import { Alert } from './themes/components/Alert';
 import { Avatar } from './themes/components/Avatar';
-import { Button } from './themes/components/Button';
+import { Button, ButtonAspectSize, ButtonVariant } from './themes/components/Button';
 import { Chip } from './themes/components/Chip';
 import { Counter } from './themes/components/Counter/types';
 import { DatePicker } from './themes/components/DatePicker';
@@ -126,7 +126,30 @@ interface Components {
 	title: Title;
 	tooltip: Tooltip;
 }
-export interface Theme {
+
+/**
+ * To extend the attributes and be able to change theme properties:
+ *
+ * import 'styled-components';
+ *
+ * import { DefaultThemeAttributes, Theme } from './types';
+ *
+ *	export interface ThemeAttributes extends Omit<DefaultThemeAttributes, 'ButtonAspectSize'> {
+ *		ButtonAspectSize: DefaultThemeAttributes['ButtonAspectSize'] | 'extra-small';
+ *	}
+ *
+ * 	declare module 'styled-components' {
+ *		interface DefaultTheme extends Theme<ThemeAttributes> {}
+ *	}
+ */
+export interface DefaultThemeAttributes {
+	ButtonAspectSize: ButtonAspectSize;
+	ButtonVariant: ButtonVariant;
+}
+
+export type ExtractThemeAttributes<Type> = Type extends Theme<infer X> ? X : null;
+
+export interface Theme<ThemeAttributes = DefaultThemeAttributes> {
 	readonly breakpoints: BreakPoints;
 	readonly collections: Collections;
 	readonly colors: ThemeColors<ThemePalette>;
@@ -142,4 +165,6 @@ export interface Theme {
 	readonly shadows: Shadows;
 	readonly space: Space;
 	readonly zIndices: ZIndices;
+	// This is necessary to make ThemeAttributes types to work fine
+	readonly _?: ThemeAttributes;
 }

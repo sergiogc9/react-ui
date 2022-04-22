@@ -1,18 +1,22 @@
-import { ThemeColors } from 'theme/types';
+import { DefaultTheme } from 'styled-components';
+import { ExtractThemeAttributes, ThemeColors } from 'theme/types';
 
-type ButtonAspectSizes = 'xs' | 's' | 'm' | 'l';
-type ButtonVariants = 'danger' | 'default' | 'link' | 'primary' | 'secondary' | 'subtle' | 'success' | 'warning';
+export type ButtonAspectSize = 'xs' | 's' | 'm' | 'l';
+export type ButtonVariant = 'danger' | 'default' | 'link' | 'primary' | 'secondary' | 'subtle' | 'success' | 'warning';
+
+type ThemeAttributes = ExtractThemeAttributes<DefaultTheme>;
+
 type ButtonBackgrounds = Record<'default' | 'hover' | 'active', string>;
 type ButtonColor = Record<'focusShadow', string> &
 	Partial<Record<'border' | 'text', string>> &
 	Record<'background', ButtonBackgrounds>;
-export type ButtonColors = Record<ButtonVariants, ButtonColor>;
-type ButtonHeights = Record<ButtonAspectSizes, number | number[]>;
-type ButtonIconMargins = Record<ButtonAspectSizes, string | string[]>;
-type ButtonFontSizes = Record<ButtonAspectSizes, number | number[] | string>;
-type ButtonLineHeights = Record<ButtonAspectSizes, number | number[] | string>;
+export type ButtonColors = Record<ThemeAttributes['ButtonVariant'], ButtonColor>;
+type ButtonHeights = Record<ThemeAttributes['ButtonAspectSize'], number | number[]>;
+type ButtonIconMargins = Record<ThemeAttributes['ButtonAspectSize'], string | string[]>;
+type ButtonFontSizes = Record<ThemeAttributes['ButtonAspectSize'], number | number[] | string>;
+type ButtonLineHeights = Record<ThemeAttributes['ButtonAspectSize'], number | number[] | string>;
 type ButtonPadding = Record<'default' | 'leftIcon' | 'rightIcon', string | string[]>;
-type ButtonPaddings = Record<ButtonAspectSizes, ButtonPadding>;
+type ButtonPaddings = Record<ThemeAttributes['ButtonAspectSize'], ButtonPadding>;
 
 export interface Button {
 	readonly colors: ThemeColors<ButtonColors>;

@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { Button } from './types';
+export { Button, ButtonAspectSize, ButtonVariant } from './types';

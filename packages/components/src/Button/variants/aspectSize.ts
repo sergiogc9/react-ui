@@ -1,6 +1,6 @@
-import { variant } from 'styled-system';
 import { StyledProps } from 'styled-components';
 
+import { createVariant } from 'components/private/utils/variants';
 import { StyledButtonProps } from 'components/Button/types';
 
 const getButtonPadding = (props: StyledProps<StyledButtonProps>) => {
@@ -10,19 +10,9 @@ const getButtonPadding = (props: StyledProps<StyledButtonProps>) => {
 	return props.theme.components.button.paddings[props.aspectSize!].default;
 };
 
-export default (props: StyledProps<StyledButtonProps>) => {
-	const generateCSS = (aspectSize: StyledButtonProps['aspectSize']) => ({
-		height: props.height ?? props.theme.components.button.heights[aspectSize!],
-		padding: getButtonPadding(props)
-	});
+const generateCSS = (props: StyledProps<StyledButtonProps>, value: StyledButtonProps['aspectSize']) => ({
+	height: props.height ?? props.theme.components.button.heights[value!],
+	padding: getButtonPadding(props)
+});
 
-	return variant({
-		prop: 'aspectSize',
-		variants: {
-			xs: generateCSS('xs'),
-			s: generateCSS('s'),
-			m: generateCSS('m'),
-			l: generateCSS('l')
-		}
-	});
-};
+export default createVariant<StyledButtonProps, 'aspectSize'>('aspectSize', generateCSS);
