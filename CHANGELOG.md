@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/sergiogc9/react-ui/compare/v0.6.0...v0.7.0) (2022-04-24)
+
+### Features
+
+- Add small Alert size ([ae3630f](https://github.com/sergiogc9/react-ui/commit/ae3630fcef6185e3a2fe4a2665c8ca4722d88394))
+
 # [0.6.0](https://github.com/sergiogc9/react-ui/compare/v0.5.1...v0.6.0) (2022-04-22)
 
 ### Features
