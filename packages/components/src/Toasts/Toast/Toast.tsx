@@ -14,6 +14,7 @@ import { ToastProps } from './types';
 const Toast: React.FC<ToastProps> = ({ children, toastOptions, visibleStatus, ...rest }) => {
 	const {
 		actionContent,
+		aspectSize = 'm',
 		duration = 5000,
 		hasCloseBtn = false,
 		hasIcon = true,
@@ -57,7 +58,7 @@ const Toast: React.FC<ToastProps> = ({ children, toastOptions, visibleStatus, ..
 			isVisible={visibleStatus === 'open'}
 			onAnimationEnd={onToastAnimationEnded}
 		>
-			<StyledToast status={status} {...rest}>
+			<StyledToast aspectSize={aspectSize} status={status} {...rest}>
 				{hasIcon && <Alert.Icon />}
 				<Alert.Text mr="auto">{message}</Alert.Text>
 				{actionContent && <Flex ml={2}>{actionContent}</Flex>}

@@ -2,6 +2,8 @@ import React from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faCheckCircle, faCircleExclamation, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
+import { IconProps } from 'components/Icon';
+
 import AlertContext from '../Context';
 import { AlertProps } from '../types';
 import { StyledAlertIcon, StyledAlertIconFontAwesome } from './styled';
@@ -14,18 +16,38 @@ const ALERT_STATUS_ICONS: Record<NonNullable<AlertProps['status']>, IconProp> = 
 	warning: faCircleExclamation
 };
 
+const ALERT_ICON_SIZES: Record<NonNullable<AlertProps['aspectSize']>, NonNullable<IconProps['aspectSize']>> = {
+	s: 's',
+	m: 'm'
+};
+
 const AlertIconFontAwesome: React.FC<AlertIconFontAwesomeProps> = ({ children, ...rest }) => {
 	return <StyledAlertIconFontAwesome {...rest} />;
 };
 
-const AlertIcon: React.FC<AlertIconProps> = ({ icon, ...rest }) => {
-	const { status } = React.useContext(AlertContext);
+const AlertIcon: React.FC<AlertIconProps> = ({ aspectSize: iconAspectSize, icon, ...rest }) => {
+	const { aspectSize, status } = React.useContext(AlertContext);
 
 	// Use font awesome icons as default
 	if (!icon)
-		return <AlertIconFontAwesome data-testid="alertIcon" icon={ALERT_STATUS_ICONS[status]} {...(rest as any)} />;
+		return (
+			<AlertIconFontAwesome
+				aspectSize={iconAspectSize ?? ALERT_ICON_SIZES[aspectSize]}
+				data-testid="alertIcon"
+				icon={ALERT_STATUS_ICONS[status]}
+				{...(rest as any)}
+			/>
+		);
 
-	return <StyledAlertIcon data-testid="alertIcon" {...(rest as any)} icon={icon} status={status} />;
+	return (
+		<StyledAlertIcon
+			aspectSize={iconAspectSize ?? ALERT_ICON_SIZES[aspectSize]}
+			data-testid="alertIcon"
+			{...(rest as any)}
+			icon={icon}
+			status={status}
+		/>
+	);
 };
 
 const MemoAlertIcon = React.memo(AlertIcon);

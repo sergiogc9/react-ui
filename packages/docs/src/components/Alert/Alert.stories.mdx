@@ -55,6 +55,25 @@ Use one of the different `status` available variants:
 	</Story>
 </Canvas>
 
+## Size variants
+
+Use the `aspectSize` prop to use different Alert sizes:
+
+<Canvas>
+	<Story name="s" parameters={getFixedStoryParams()}>
+		<Alert aspectSize="s">
+			<Alert.Icon />
+			<Alert.Text>Some awesome text</Alert.Text>
+		</Alert>
+	</Story>
+	<Story name="m" parameters={getFixedStoryParams()}>
+		<Alert aspectSize="m">
+			<Alert.Icon />
+			<Alert.Text>Some awesome text</Alert.Text>
+		</Alert>
+	</Story>
+</Canvas>
+
 ## Customizable content
 
 Use the built-in namespaced components `Alert.Icon` and `Alert.Text` to create custom alert layouts.

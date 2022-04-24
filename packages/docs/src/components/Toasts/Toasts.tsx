@@ -19,6 +19,7 @@ const ToastsLauncher = () => {
 		(currentToast: ToastOptions, action: any) => ({
 			...currentToast,
 			actionContent: action.type === 'changeActionContent' ? action.payload : currentToast.actionContent,
+			aspectSize: action.type === 'changeAspectSize' ? action.payload : currentToast.aspectSize,
 			duration: action.type === 'changeTimeout' ? action.payload : currentToast.duration,
 			hasCloseBtn: action.type === 'changeCloseBtn' ? action.payload : currentToast.hasCloseBtn,
 			hasIcon: action.type === 'changeIcon' ? action.payload : currentToast.hasIcon,
@@ -27,6 +28,7 @@ const ToastsLauncher = () => {
 		}),
 		{
 			actionContent: undefined,
+			aspectSize: 'm',
 			duration: 3000,
 			key: 'fake',
 			hasCloseBtn: false,
@@ -45,6 +47,18 @@ const ToastsLauncher = () => {
 
 	return (
 		<Grid rowGap={2}>
+			<Grid.Row>
+				<Select
+					defaultValue={newToast.aspectSize}
+					label="aspectSize"
+					onOptionChange={aspectSize => {
+						dispatch({ type: 'changeAspectSize', payload: aspectSize });
+					}}
+				>
+					<Select.Option id="s">small (s)</Select.Option>
+					<Select.Option id="m">medium (m)</Select.Option>
+				</Select>
+			</Grid.Row>
 			<Grid.Row>
 				<Select
 					defaultValue={newToast.status}

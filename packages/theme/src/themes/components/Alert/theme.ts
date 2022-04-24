@@ -20,6 +20,10 @@ const alertTheme: Alert = {
 				warning: { bg: 'yellow.600', icon: 'yellow.50', text: 'neutral.50' }
 			}
 		}
+	},
+	sizes: {
+		s: { minHeight: 40, padding: 2 },
+		m: { minHeight: 48, padding: 3 }
 	}
 };
 

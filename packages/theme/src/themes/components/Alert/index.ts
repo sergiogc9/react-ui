@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { Alert } from './types';
+export { Alert, AlertAspectSize, AlertStatus } from './types';

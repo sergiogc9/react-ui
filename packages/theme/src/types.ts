@@ -1,6 +1,6 @@
 import { ArrayWithProps } from './global.types';
 import { ActionMenu } from './themes/collections/ActionMenu';
-import { Alert } from './themes/components/Alert';
+import { Alert, AlertAspectSize, AlertStatus } from './themes/components/Alert';
 import { Avatar } from './themes/components/Avatar';
 import { Button, ButtonAspectSize, ButtonVariant } from './themes/components/Button';
 import { Chip } from './themes/components/Chip';
@@ -31,7 +31,7 @@ import { Title } from './themes/components/Title';
 import { Tooltip } from './themes/components/Tooltip';
 import { UserMenu } from './themes/collections/UserMenu';
 
-interface ColorPalette {
+export interface ColorPalette {
 	readonly 0?: string;
 	readonly 50: string;
 	readonly 100: string;
@@ -143,6 +143,8 @@ interface Components {
  *	}
  */
 export interface DefaultThemeAttributes {
+	AlertAspectSize: AlertAspectSize;
+	AlertStatus: AlertStatus;
 	ButtonAspectSize: ButtonAspectSize;
 	ButtonVariant: ButtonVariant;
 }

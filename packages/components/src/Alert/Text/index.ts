@@ -1,2 +1,2 @@
-export { default } from './styled';
+export { AlertText as default } from './AlertText';
 export { AlertTextProps } from './types';

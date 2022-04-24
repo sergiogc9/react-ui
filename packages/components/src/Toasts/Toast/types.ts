@@ -4,6 +4,7 @@ import { AlertProps } from 'components/Alert';
 
 export type ToastOptions = {
 	actionContent?: React.ReactNode;
+	aspectSize?: AlertProps['aspectSize'];
 	duration?: number | 'always';
 	key: string; // The key should be numeric and based on time
 	hasIcon?: boolean;
