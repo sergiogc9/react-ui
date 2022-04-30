@@ -4,6 +4,7 @@
 	"description": "React UI Kit Components",
 	"repository": "git://github.com/sergiogc9/react-ui.git",
 	"main": "dist/index.js",
+	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"license": "UNLICENSED",
 	"publishConfig": {

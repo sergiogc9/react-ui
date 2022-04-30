@@ -12,7 +12,7 @@ const config = [
 		input: 'src/index.ts',
 		output: {
 			dir: 'dist',
-			format: 'cjs',
+			format: 'es',
 			sourcemap: 'true'
 		},
 		external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(globalPkg.peerDependencies || {})],
@@ -20,7 +20,7 @@ const config = [
 	},
 	{
 		input: 'src/index.ts',
-		output: [{ file: 'dist/index.d.ts', format: 'cjs' }],
+		output: [{ file: 'dist/index.d.ts' }],
 		plugins: [
 			dts(),
 			alias({
