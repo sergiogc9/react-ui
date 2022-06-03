@@ -10,11 +10,18 @@ import globalPkg from '../../package.json';
 const config = [
 	{
 		input: 'src/index.ts',
-		output: {
-			dir: 'dist',
-			format: 'es',
-			sourcemap: 'true'
-		},
+		output: [
+			{
+				dir: 'dist/esm',
+				format: 'es',
+				sourcemap: 'true'
+			},
+			{
+				dir: 'dist/cjs',
+				format: 'cjs',
+				sourcemap: 'true'
+			}
+		],
 		external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(globalPkg.peerDependencies || {})],
 		plugins: [typescript(), terser({ format: { comments: false } })]
 	},

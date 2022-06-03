@@ -1,7 +1,7 @@
 process.env.TZ = 'UTC';
 
 module.exports = {
-	roots: ['<rootDir>/packages/collections/src', '<rootDir>/packages/components/src'],
+	roots: ['<rootDir>/packages/collections/src', '<rootDir>/packages/components/src', '<rootDir>/packages/theme/src'],
 	transform: {
 		'^.+\\.tsx?$': 'ts-jest'
 	},
