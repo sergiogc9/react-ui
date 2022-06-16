@@ -9,7 +9,7 @@
 	],
 	"scripts": {
 		"start": "start-storybook -p 6006 -s public",
-		"build": "build-storybook"
+		"build-storybook": "build-storybook"
 	},
 	"devDependencies": {
 		"@storybook/addon-actions": "6.4.19",

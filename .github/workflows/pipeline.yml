@@ -47,6 +47,8 @@ jobs:
             ${{ runner.os }}-
       - name: Install dependencies
         run: yarn
+      - name: Build packages
+        run: yarn build
       - name: Validate code quality
         run: yarn lint && yarn typescript:check
       - name: Unit testing

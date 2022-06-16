@@ -9,13 +9,13 @@
 	},
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
-	"types": "dist/index.d.ts",
+	"types": "dist/types/index.d.ts",
 	"files": [
 		"dist"
 	],
 	"scripts": {
-		"prepare": "rollup -c ./rollup.config.js",
-		"watch": "rollup -w -c ./rollup.config.js"
+		"build": "node ./build.js",
+		"watch": "node ./build.js --watch"
 	},
 	"devDependencies": {
 		"@types/lodash": "4.14.162",
