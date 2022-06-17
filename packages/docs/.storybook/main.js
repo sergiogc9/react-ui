@@ -1,4 +1,5 @@
 const path = require('path');
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
 
 module.exports = {
 	stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -28,6 +29,32 @@ module.exports = {
 			test: /\.svg$/,
 			use: ['@svgr/webpack', assetLoader]
 		});
+
+		// Use esbuild
+		const rulesWithoutWebpack = [];
+		config.module.rules.forEach(rule => {
+			if (rule.test.test('.js') || rule.test.test('.ts')) console.log(`Webpack rule with test ${rule.test} removed`);
+			else rulesWithoutWebpack.push(rule);
+		});
+		config.module.rules = rulesWithoutWebpack;
+
+		config.module.rules.unshift({
+			test: /\.tsx?$/,
+			loader: 'esbuild-loader',
+			options: {
+				loader: 'tsx',
+				target: 'es2015'
+			}
+		});
+
+		config.optimization = {
+			minimize: process.env.NODE_ENV === 'production',
+			minimizer: [
+				new ESBuildMinifyPlugin({
+					target: 'es2015'
+				})
+			]
+		};
 
 		return config;
 	}
