@@ -14,8 +14,8 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "node ./build.js",
-		"watch": "node ./build.js --watch"
+		"build": "yarn js-bundle build --tsc-incremental",
+		"watch": "yarn build --watch"
 	},
 	"devDependencies": {
 		"@types/lodash": "4.14.162",

@@ -209,7 +209,7 @@ Example to only execute tests for Focus component:<br/>
 
 ##### `yarn bootstrap`
 
-Builds all packages using @sergiogc9/js-bundle (esbuild + rollup for TS definitions).<br>
+Builds all packages using @sergiogc9/js-bundle (esbuild + tsc).<br>
 The builds are generated inside a `dist` folder on each package.
 
 ##### `yarn bump:version:[patch | minor | major]`
