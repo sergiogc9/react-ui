@@ -3,16 +3,27 @@
 	"version": "0.7.1-alpha.1",
 	"description": "React UI Kit Components",
 	"repository": "git://github.com/sergiogc9/react-ui.git",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
 	"types": "dist/types/index.d.ts",
 	"license": "UNLICENSED",
+	"keywords": [
+		"ui",
+		"react",
+		"styled-components",
+		"design-system"
+	],
 	"publishConfig": {
 		"access": "public"
 	},
+	"main": "dist/cjs/index.js",
 	"files": [
 		"dist"
 	],
+	"exports": {
+		".": {
+			"require": "./dist/cjs/index.js",
+			"import": "./dist/esm/index.js"
+		}
+	},
 	"scripts": {
 		"build": "yarn js-bundle build --tsc-incremental",
 		"watch": "yarn build --watch"
