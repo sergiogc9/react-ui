@@ -214,55 +214,6 @@ describe('Table', () => {
 		expect(screen.getByText('TOTAL: 100 test results')).toBeInTheDocument();
 	});
 
-	it('should keep default order', () => {
-		renderComponent();
-
-		const firstCell = screen.queryAllByRole('cell')[0];
-
-		expect(firstCell.querySelector('span')?.innerHTML).toBe('0');
-	});
-
-	it('should order rows by order provided in initialState', () => {
-		renderComponent({
-			tableOptions: { initialState: { sortBy: [{ id: 'name' }] } }
-		});
-
-		const firstCell = screen.queryAllByRole('cell')[0];
-
-		expect(firstCell.innerHTML).not.toBe('0');
-	});
-
-	it('should toggle order when clicking column header', () => {
-		renderComponent();
-
-		let [firstCell] = screen.queryAllByRole('cell');
-		expect(firstCell.querySelector('span')?.innerHTML).toBe('0');
-
-		userEvent.click(screen.getByText(defaultColumns[1].Header as string));
-		[firstCell] = screen.queryAllByRole('cell');
-
-		expect(firstCell.querySelector('span')?.innerHTML).not.toBe('0');
-	});
-
-	it('should toggle order between all states when clicking column header', () => {
-		renderComponent({
-			tableOptions: { initialState: { sortBy: [{ id: 'id' }] } }
-		});
-
-		let [firstCell] = screen.queryAllByRole('cell');
-		expect(firstCell.querySelector('span')?.innerHTML).toBe('0');
-
-		userEvent.click(screen.getByText(defaultColumns[0].Header as string));
-		[firstCell] = screen.queryAllByRole('cell');
-
-		expect(firstCell.querySelector('span')?.innerHTML).toBe('99');
-
-		userEvent.click(screen.getByText(defaultColumns[0].Header as string));
-		[firstCell] = screen.queryAllByRole('cell');
-
-		expect(firstCell.querySelector('span')?.innerHTML).toBe('0');
-	});
-
 	it('should toggle boolean order between all states when clicking column header', () => {
 		renderComponent({
 			tableOptions: { initialState: { sortBy: [{ id: 'id' }] } }
@@ -279,18 +230,6 @@ describe('Table', () => {
 		[, , firstRowCell] = screen.queryAllByRole('cell');
 
 		expect(firstRowCell.innerHTML).toBe('Enabled');
-	});
-
-	it('should not perform order if manualSorting is set', () => {
-		renderComponent({ tableOptions: { manualSortBy: true } });
-
-		let [firstCell] = screen.queryAllByRole('cell');
-		expect(firstCell.querySelector('span')?.innerHTML).toBe('0');
-
-		userEvent.click(screen.getByText(defaultColumns[1].Header as string));
-		[firstCell] = screen.queryAllByRole('cell');
-
-		expect(firstCell.querySelector('span')?.innerHTML).toBe('0');
 	});
 
 	it('should call onSort change with asc sorting', () => {
