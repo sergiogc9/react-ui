@@ -31,13 +31,13 @@
 		"watch": "yarn build --watch"
 	},
 	"devDependencies": {
-		"@types/lodash": "4.14.162",
+		"@types/lodash": "^4.14.182",
 		"react": "17.0.1",
 		"react-dom": "17.0.1",
 		"styled-components": "5.2.1"
 	},
 	"dependencies": {
-		"lodash": "4.17.20"
+		"lodash": "^4.17.21"
 	},
 	"peerDependencies": {
 		"react": "17.0.1",

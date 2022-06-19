@@ -19,7 +19,7 @@
 		"@storybook/react": "6.5.9",
 		"@svgr/webpack": "5.5.0",
 		"@types/faker": "5.5.0",
-		"@types/lodash": "4.14.162",
+		"@types/lodash": "^4.14.182",
 		"esbuild-loader": "2.19.0",
 		"react": "17.0.1",
 		"react-dom": "17.0.1",
@@ -32,7 +32,7 @@
 		"@sergiogc9/react-ui": "^0.7.1-alpha.3",
 		"@sergiogc9/react-ui-theme": "^0.7.1-alpha.3",
 		"faker": "5.5.3",
-		"lodash": "4.17.20"
+		"lodash": "^4.17.21"
 	},
 	"engines": {
 		"node": ">=14.x.x",
