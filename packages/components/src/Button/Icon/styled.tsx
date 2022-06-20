@@ -6,7 +6,9 @@ import aspectSize from './variants/aspectSize';
 import aspectSizeFontAwesome from './variants/aspectSizeFontAwesome';
 import { StyledButtonIconProps, StyledButtonIconFontAwesomeProps } from './types';
 
-const StyledButtonIcon: React.FC<StyledButtonIconProps> = styled(Icon)<StyledButtonIconProps>`
+// TODO! remove any
+// const StyledButtonIcon: React.FC<StyledButtonIconProps> = styled(Icon)<StyledButtonIconProps>`
+const StyledButtonIcon: React.FC<any> = styled(Icon)<StyledButtonIconProps>`
 	fill: currentColor;
 
 	${aspectSize};

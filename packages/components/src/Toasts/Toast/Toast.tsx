@@ -24,7 +24,7 @@ const Toast: React.FC<ToastProps> = ({ children, toastOptions, visibleStatus, ..
 		status = 'info'
 	} = toastOptions;
 
-	const closeTimeoutRef = React.useRef<number>();
+	const closeTimeoutRef = React.useRef<NodeJS.Timeout>();
 	const isMounted = useIsMounted();
 
 	const { onCloseToast, onToastClosed, placement } = React.useContext(ToastsContext);
@@ -37,7 +37,7 @@ const Toast: React.FC<ToastProps> = ({ children, toastOptions, visibleStatus, ..
 
 	React.useEffect(() => {
 		if (typeof duration === 'number') {
-			closeTimeoutRef.current = setTimeout(closeToast, [duration]);
+			closeTimeoutRef.current = setTimeout(closeToast, duration);
 		}
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 

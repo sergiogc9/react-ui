@@ -14,6 +14,7 @@ const textFields: Record<string, React.FC<any>> = {
 
 const TextField: React.FC<TextFieldProps> = React.forwardRef<
 	HTMLInputElement,
+	// eslint-disable-next-line react/require-default-props
 	Omit<TextFieldProps, 'type'> & { type?: any }
 >(({ type = 'text', ...rest }, ref) => {
 	const TextFieldComponent = textFields[type] || TextFieldBase;

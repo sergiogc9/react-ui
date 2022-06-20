@@ -1,6 +1,8 @@
+import React from 'react';
 import { FlexProps } from 'components/Flex';
 
 type Props = {
+	readonly children: React.ReactNode;
 	/**
 	 * The placement of the page where the toasts will appear.
 	 */

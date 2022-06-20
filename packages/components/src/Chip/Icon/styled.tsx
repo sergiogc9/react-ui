@@ -6,7 +6,9 @@ import Icon from 'components/Icon';
 import variant from './variants/variant';
 import { StyledChipIconProps } from './types';
 
-const StyledChipIcon: React.FC<StyledChipIconProps> = styled(Icon)`
+// TODO! remove any
+// const StyledChipIcon: React.FC<StyledChipIconProps> = styled(Icon)`
+const StyledChipIcon: React.FC<any> = styled(Icon)`
 	${variant}
 `;
 StyledChipIcon.defaultProps = {

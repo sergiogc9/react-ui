@@ -16,7 +16,9 @@ StyledSwitchBoxIconWrapper.defaultProps = {
 	marginRight: 3
 };
 
-const StyledSwitchBoxIcon: React.FC<SwitchBoxIconProps> = styled(Icon)<SwitchBoxIconProps>`
+// TODO! remove any
+// const StyledSwitchBoxIcon: React.FC<SwitchBoxIconProps> = styled(Icon)<SwitchBoxIconProps>`
+const StyledSwitchBoxIcon: React.FC<any> = styled(Icon)<SwitchBoxIconProps>`
 	${props => css({ fill: props.fill ?? props.theme.collections.switchBox.colors.icon.color })}
 `;
 

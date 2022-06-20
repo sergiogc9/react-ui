@@ -37,6 +37,7 @@ const Component: React.FC<{
 	columns: TableProps<TestData>['columns'];
 	data: TableProps<TestData>['data'];
 	tableOptions: TableProps<TestData>['tableOptions'];
+	// eslint-disable-next-line react/require-default-props
 	onRowClick?: TableProps<TestData>['onRowClick'];
 }> = props => {
 	const { contentProps, onRowClick, tableOptions } = props;

@@ -5,7 +5,9 @@ import { Icon } from '@sergiogc9/react-ui';
 
 import { DropdownMenuItemIconFontAwesomeProps, DropdownMenuItemIconProps } from './types';
 
-const DropdownMenuItemIcon: React.FC<DropdownMenuItemIconProps> = styled(Icon)<DropdownMenuItemIconProps>`
+// TODO! remove any
+// const DropdownMenuItemIcon: React.FC<DropdownMenuItemIconProps> = styled(Icon)<DropdownMenuItemIconProps>`
+const DropdownMenuItemIcon: React.FC<any> = styled(Icon)<DropdownMenuItemIconProps>`
 	${props => css({ fill: props.fill ?? props.theme.collections.dropdownMenu.colors.optionText })}
 `;
 

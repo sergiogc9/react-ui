@@ -20,7 +20,7 @@ const defaultColumns: Column<TestData>[] = [
 	{ accessor: 'name', Header: 'Name' },
 	{
 		accessor: 'enabled',
-		Cell: props => (props.value ? 'Enabled' : 'Not enabled'),
+		Cell: props => (props.value ? ('Enabled' as any) : ('Not enabled' as any)),
 		Header: 'Is enabled',
 		sortType: 'boolean'
 	}

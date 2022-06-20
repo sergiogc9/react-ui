@@ -7,7 +7,7 @@ import Toast, { ToastOptions, ToastProps } from './Toast';
 import StyledToasts from './styled';
 import { ToastsProps } from './types';
 
-const Toasts: React.FC<ToastsProps> = ({ children, placement = 'bottom-left', ...rest }) => {
+const Toasts = ({ children, placement = 'bottom-left', ...rest }: ToastsProps) => {
 	const wrapperRef = usePortal('toasts');
 
 	const [toasts, setToasts] = React.useState<
@@ -64,8 +64,10 @@ const Toasts: React.FC<ToastsProps> = ({ children, placement = 'bottom-left', ..
 
 	return (
 		<ToastsContext.Provider value={contextData}>
-			{content}
-			{children}
+			<>
+				{content}
+				{children}
+			</>
 		</ToastsContext.Provider>
 	);
 };

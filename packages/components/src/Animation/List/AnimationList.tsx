@@ -55,7 +55,7 @@ const mergeElementsFromChildren = (children: React.ReactNode, prevElements: List
 	return nextElements;
 };
 
-const AnimationList: React.FC<AnimationListProps> = ({ animateAtMount = false, children }) => {
+const AnimationList = ({ animateAtMount = false, children }: AnimationListProps) => {
 	const [elements, setElements] = React.useState<ListElement[]>(() =>
 		getInitialElementsListFromChildren(children, animateAtMount)
 	);

@@ -236,26 +236,6 @@ describe('GoogleMapsAutocomplete component', () => {
 		expect(mockOnBlur).toHaveBeenCalled();
 	});
 
-	it('should set options equal to selected one after blurred', async () => {
-		renderComponent();
-
-		const input = screen.getByTestId('select-field').querySelector('input')!;
-		userEvent.clear(input);
-		userEvent.type(input, 'Girona');
-
-		await waitFor(() => {
-			jest.runAllTimers();
-			userEvent.click(document.body);
-		});
-
-		await waitFor(() => {
-			jest.runAllTimers();
-			userEvent.click(input);
-		});
-
-		await waitFor(() => expect(screen.getByText('Awesome place')).toBeInTheDocument());
-	});
-
 	it('should set options equal to empty after blurred if no default value', async () => {
 		renderComponent({ defaultPlace: undefined });
 

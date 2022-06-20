@@ -31,10 +31,10 @@
 		"watch": "yarn build --watch"
 	},
 	"devDependencies": {
-		"@types/react": "17.0.0",
-		"@types/react-dom": "17.0.0",
-		"@types/styled-system": "5.1.10",
-		"@types/styled-system__css": "5.0.15"
+		"@types/react": "^18.0.0",
+		"@types/react-dom": "^17.0.0",
+		"@types/styled-system": "5.1.15",
+		"@types/styled-system__css": "5.0.16"
 	},
 	"dependencies": {
 		"@sergiogc9/react-hooks": "^0.2.2",
@@ -43,9 +43,9 @@
 		"@sergiogc9/react-utils": "^0.0.7"
 	},
 	"peerDependencies": {
-		"react": "17.0.1",
-		"react-dom": "17.0.1",
-		"styled-components": "5.2.1"
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"styled-components": "^5.3.5"
 	},
 	"engines": {
 		"node": ">=14.x.x",

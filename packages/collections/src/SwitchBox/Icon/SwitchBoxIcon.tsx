@@ -3,18 +3,18 @@ import React from 'react';
 import { StyledSwitchBoxIcon, StyledSwitchBoxIconFontAwesome, StyledSwitchBoxIconWrapper } from './styled';
 import { SwitchBoxIconProps, SwitchBoxIconFontAwesomeProps } from './types';
 
-const SwitchBoxIcon: React.FC<SwitchBoxIconProps> = React.memo(({ children, ...rest }) => {
+const SwitchBoxIcon = React.memo((props: SwitchBoxIconProps) => {
 	return (
 		<StyledSwitchBoxIconWrapper>
-			<StyledSwitchBoxIcon {...rest} />
+			<StyledSwitchBoxIcon {...props} />
 		</StyledSwitchBoxIconWrapper>
 	);
 });
 
-const SwitchBoxIconFontAwesome: React.FC<SwitchBoxIconFontAwesomeProps> = ({ children, ...rest }) => {
+const SwitchBoxIconFontAwesome = (props: SwitchBoxIconFontAwesomeProps) => {
 	return (
 		<StyledSwitchBoxIconWrapper>
-			<StyledSwitchBoxIconFontAwesome {...rest} />
+			<StyledSwitchBoxIconFontAwesome {...props} />
 		</StyledSwitchBoxIconWrapper>
 	);
 };

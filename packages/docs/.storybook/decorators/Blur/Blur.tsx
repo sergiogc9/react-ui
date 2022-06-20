@@ -28,7 +28,7 @@ const BlurContainer = styled(Flex)`
 	}
 `;
 
-export const PageContainer: React.FC = props => (
+export const PageContainer = (props: { children: React.ReactNode }) => (
 	<BlurContainer justifyContent="center" alignItems="center">
 		<Flex width="90%" height="90%" padding="30px" display="block" border="thin solid lightgray">
 			{props.children}

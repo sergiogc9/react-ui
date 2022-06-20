@@ -41,7 +41,7 @@ const Select: React.FC<SelectProps> = ({
 	...rest
 }) => {
 	const [selectedOptions, setSelectedOptions] = React.useState<Record<string, SelectedOption>>(() =>
-		getSelectOptions(defaultValue, value, (children as React.ReactChildren) || [])
+		getSelectOptions(defaultValue, value, (children as React.ReactNode) || [])
 	);
 
 	const [inputValue, setInputValue] = React.useState(() => getInputLabelFromSelectedOptions(selectedOptions));

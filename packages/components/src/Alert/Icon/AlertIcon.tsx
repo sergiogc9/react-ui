@@ -21,7 +21,7 @@ const ALERT_ICON_SIZES: Record<NonNullable<AlertProps['aspectSize']>, NonNullabl
 	m: 'm'
 };
 
-const AlertIconFontAwesome: React.FC<AlertIconFontAwesomeProps> = ({ children, ...rest }) => {
+const AlertIconFontAwesome: React.FC<AlertIconFontAwesomeProps> = ({ ...rest }) => {
 	return <StyledAlertIconFontAwesome {...rest} />;
 };
 

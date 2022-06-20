@@ -42,7 +42,7 @@ const TextArea: React.FC<TextAreaProps> = React.forwardRef(
 		const mergeRefs = useMergeRefs(innerRef, ref);
 
 		const onValueChanged = useCallback(
-			event => {
+			(event: React.ChangeEvent<HTMLTextAreaElement>) => {
 				setTextAreaContent(event.target.value);
 				if (onChange) onChange(event);
 			},

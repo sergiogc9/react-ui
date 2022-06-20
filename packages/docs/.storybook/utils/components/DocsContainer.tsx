@@ -3,11 +3,15 @@ import { DocsContainer as BaseContainer, DocsContainerProps } from '@storybook/a
 import { useDarkMode } from 'storybook-dark-mode';
 import { themes } from '@storybook/theming';
 
-export const DocsContainer: React.FC<DocsContainerProps> = ({ children, context }: any) => {
+const FinalBaseContainer = (props: DocsContainerProps & { children: React.ReactNode }) => {
+	return <BaseContainer {...props} />;
+};
+
+export const DocsContainer = ({ children, context }: DocsContainerProps & { children: React.ReactNode }) => {
 	const dark = useDarkMode();
 
 	return (
-		<BaseContainer
+		<FinalBaseContainer
 			context={{
 				...context,
 				storyById: id => {
@@ -26,6 +30,6 @@ export const DocsContainer: React.FC<DocsContainerProps> = ({ children, context 
 			}}
 		>
 			{children}
-		</BaseContainer>
+		</FinalBaseContainer>
 	);
 };
