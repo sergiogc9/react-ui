@@ -35,7 +35,7 @@ Packages:
 
 See the Storybook running live in:
 
-[http://react-ui.sergiogcosgaya.rocks](http://react-ui.sergiogcosgaya.rocks)
+[http://react-ui.sergiogcosgaya.com](http://react-ui.sergiogcosgaya.com)
 
 ## Usage
 
