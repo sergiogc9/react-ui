@@ -26,4 +26,6 @@ This package basically exports some utilities as util components or custom hooks
 
 The exported items are:
 
-- `Responsive`: A component to show or hide its children depending on the screen width and the defined breakpoints.
+- `Responsive`: Component to show or hide its children depending on the screen width and the defined breakpoints.
+- `useBackdrop`: Custom hook that returns the current breakpoint.
+- `useScreenSize`: Custom hook that returns the current breakpoint.
