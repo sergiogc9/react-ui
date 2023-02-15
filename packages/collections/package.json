@@ -39,6 +39,7 @@
 		"@sergiogc9/react-hooks": "^0.2.2",
 		"@sergiogc9/react-ui": "^0.8.0",
 		"@sergiogc9/react-ui-theme": "^0.8.0",
+		"@sergiogc9/react-ui-utils": "^0.8.0",
 		"@sergiogc9/react-utils": "^0.0.7"
 	},
 	"peerDependencies": {

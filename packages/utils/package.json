@@ -37,6 +37,8 @@
 		"styled-components": "^5.3.5"
 	},
 	"dependencies": {
+		"@sergiogc9/react-ui": "0.8.0",
+		"@sergiogc9/react-ui-theme": "0.8.0",
 		"@hookform/resolvers": "2.7.1",
 		"lodash": "^4.17.21",
 		"react-hook-form": "7.15.0",
