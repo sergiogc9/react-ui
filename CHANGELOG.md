@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/sergiogc9/react-ui/compare/v0.7.1...v0.8.0) (2023-02-15)
+
+### Features
+
+- Add Form wrapper utility using react-hook-form and yup ([5c01686](https://github.com/sergiogc9/react-ui/commit/5c016867b1bf542f3548062072e613c6b18f1c51))
+- Add useBackdrop hook in react-ui-utils ([552515e](https://github.com/sergiogc9/react-ui/commit/552515e382b9391f799d829a20d72e9129c86748))
+- Add utils package with Responsive component ([4608efc](https://github.com/sergiogc9/react-ui/commit/4608efcb853f614672f2f08b84559f6749742bd9))
+
 # [0.7.0](https://github.com/sergiogc9/react-ui/compare/v0.6.0...v0.7.0) (2022-04-24)
 
 ### Features
