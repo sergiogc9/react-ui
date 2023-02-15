@@ -24,8 +24,17 @@ yarn add -S @sergiogc9/react-ui-utils
 
 This package basically exports some utilities as util components or custom hooks.
 
-The exported items are:
+Exported components:
 
+- `Form`: Wrapper combining form UI components from this library and `react-hook-forms` and `yup` with automatic validation and much more.
 - `Responsive`: Component to show or hide its children depending on the screen width and the defined breakpoints.
+
+Exported custom hooks:
+
+- `useAnimatedFieldArray`: Custom hook that improves Form components when used together with animated components where the behavior was buggy after removing elements from the field array.
 - `useBackdrop`: Custom hook that returns the current breakpoint.
 - `useScreenSize`: Custom hook that returns the current breakpoint.
+
+Exported custom high order components:
+
+- `withFormField`: Creates a component ready to be used inside a react-hook-form form
