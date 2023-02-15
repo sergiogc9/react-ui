@@ -1,9 +1,8 @@
 /* eslint-disable radix */
 import React from 'react';
-import { useTheme } from 'styled-components';
+import { DefaultTheme, useTheme } from 'styled-components';
 import debounce from 'lodash/debounce';
 import isEmpty from 'lodash/isEmpty';
-import { Theme } from '@sergiogc9/react-ui-theme';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const __listeners: Function[] = [];
@@ -12,23 +11,22 @@ const onDebouncedScreenResize = debounce(() => {
 	__listeners.forEach(fn => fn());
 }, 100);
 
-export type Breakpoint = Exclude<Extract<keyof Theme['breakpoints'], string>, keyof Array<any>>;
+export type Breakpoint = Exclude<Extract<keyof DefaultTheme['breakpoints'], string>, keyof Array<any>>;
 
-const getScreenSize = (theme: Theme): Breakpoint => {
-	const screenWidth = window.innerWidth;
-	if (screenWidth < parseInt(theme.breakpoints.sm!)) return 'xs';
-	if (screenWidth < parseInt(theme.breakpoints.md!)) return 'sm';
-	if (screenWidth < parseInt(theme.breakpoints.lg!)) return 'md';
-	if (screenWidth < parseInt(theme.breakpoints.xl!)) return 'lg';
+const getScreenSize = (screenWidth: number, theme: DefaultTheme): Breakpoint => {
+	if (screenWidth < parseInt(theme.breakpoints.sm!, 10)) return 'xs';
+	if (screenWidth < parseInt(theme.breakpoints.md!, 10)) return 'sm';
+	if (screenWidth < parseInt(theme.breakpoints.lg!, 10)) return 'md';
+	if (screenWidth < parseInt(theme.breakpoints.xl!, 10)) return 'lg';
 	return 'xl';
 };
 
 const useScreenSize = () => {
 	const theme = useTheme();
 
-	const [size, setSize] = React.useState<Breakpoint>(getScreenSize(theme));
+	const [screenWidth, setScreenWidth] = React.useState<number>(window.innerWidth);
 
-	const onSizeUpdated = React.useCallback(() => setSize(getScreenSize(theme)), [theme]);
+	const onSizeUpdated = React.useCallback(() => setScreenWidth(window.innerWidth), []);
 
 	React.useEffect(() => {
 		if (isEmpty(__listeners)) {
@@ -44,11 +42,12 @@ const useScreenSize = () => {
 		};
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+	const size = React.useMemo<Breakpoint>(() => getScreenSize(screenWidth, theme), [screenWidth, theme]);
 	const isMobile = React.useMemo(() => ['xs', 'sm'].includes(size), [size]);
 	const isTablet = React.useMemo(() => ['md'].includes(size), [size]);
 	const isDesktop = React.useMemo(() => ['lg', 'xl'].includes(size), [size]);
 
-	return { isMobile, isTablet, isDesktop, size };
+	return { isMobile, isTablet, isDesktop, screenWidth, size };
 };
 
 export default useScreenSize;
