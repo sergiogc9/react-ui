@@ -1,7 +1,6 @@
 import React from 'react';
 import { Divider, Flex } from '@sergiogc9/react-ui';
-
-import Responsive from 'collections/private/components/Responsive/Responsive';
+import { Responsive } from '@sergiogc9/react-ui-utils';
 
 import UserMenuContext from '../Context';
 import StyledUserMenuItem from './styled';

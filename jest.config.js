@@ -1,7 +1,12 @@
 process.env.TZ = 'UTC';
 
 module.exports = {
-	roots: ['<rootDir>/packages/collections/src', '<rootDir>/packages/components/src', '<rootDir>/packages/theme/src'],
+	roots: [
+		'<rootDir>/packages/collections/src',
+		'<rootDir>/packages/components/src',
+		'<rootDir>/packages/theme/src',
+		'<rootDir>/packages/utils/src'
+	],
 	transform: {
 		'^.+\\.tsx?$': 'ts-jest'
 	},
@@ -12,6 +17,7 @@ module.exports = {
 		'^collections/(.*)': '<rootDir>/packages/collections/src/$1',
 		'^components/(.*)': '<rootDir>/packages/components/src/$1',
 		'^theme/(.*)': '<rootDir>/packages/theme/src/$1',
+		'^utils/(.*)': '<rootDir>/packages/utils/src/$1',
 		'^react$': '<rootDir>/node_modules/react',
 		'^react-dom$': '<rootDir>/node_modules/react-dom'
 	},

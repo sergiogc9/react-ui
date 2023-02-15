@@ -1,0 +1,50 @@
+{
+	"name": "@sergiogc9/react-ui-utils",
+	"version": "0.7.1",
+	"description": "React UI Kit Utils",
+	"repository": "git://github.com/sergiogc9/react-ui.git",
+	"license": "UNLICENSED",
+	"types": "dist/types/index.d.ts",
+	"keywords": [
+		"ui",
+		"react",
+		"styled-components",
+		"design-system"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"dist"
+	],
+	"main": "./dist/cjs/index.js",
+	"module": "./dist/esm/index.js",
+	"exports": {
+		".": {
+			"require": "./dist/cjs/index.js",
+			"import": "./dist/esm/index.js"
+		}
+	},
+	"scripts": {
+		"build": "yarn js-bundle build --tsc-incremental",
+		"watch": "yarn build --watch"
+	},
+	"devDependencies": {
+		"@types/lodash": "^4.14.182",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"styled-components": "^5.3.5"
+	},
+	"dependencies": {
+		"lodash": "^4.17.21"
+	},
+	"peerDependencies": {
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"styled-components": "^5.3.5"
+	},
+	"engines": {
+		"node": ">=14.x.x",
+		"npm": ">=6.0.0"
+	}
+}

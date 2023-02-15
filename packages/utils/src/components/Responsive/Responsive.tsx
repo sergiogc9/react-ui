@@ -1,6 +1,6 @@
 import React from 'react';
 
-import useScreenSize from 'collections/private/utils/hooks/useScreenSize';
+import useScreenSize from 'utils/hooks/useScreenSize';
 
 import { ResponsiveProps } from './types';
 

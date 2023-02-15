@@ -20,7 +20,8 @@
 		"paths": {
 			"collections/*": ["./packages/collections/src/*"],
 			"components/*": ["./packages/components/src/*"],
-			"theme/*": ["./packages/theme/src/*"]
+			"theme/*": ["./packages/theme/src/*"],
+			"utils/*": ["./packages/utils/src/*"]
 		}
 	}
 }

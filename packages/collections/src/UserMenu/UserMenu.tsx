@@ -1,6 +1,5 @@
 import React from 'react';
-
-import Responsive, { ResponsiveBreakPoints } from 'collections/private/components/Responsive';
+import { Responsive, ResponsiveBreakPoints } from '@sergiogc9/react-ui-utils';
 
 import UserMenuFullScreen from './FullScreen';
 import UserMenuPopover from './Popover';

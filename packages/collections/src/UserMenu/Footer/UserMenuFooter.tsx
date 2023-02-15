@@ -1,7 +1,6 @@
 import React from 'react';
 import { Divider, Flex } from '@sergiogc9/react-ui';
-
-import useScreenSize from 'collections/private/utils/hooks/useScreenSize';
+import { useScreenSize } from '@sergiogc9/react-ui-utils';
 
 import UserMenuContext from '../Context';
 import StyledUserMenuFooter from './styled';

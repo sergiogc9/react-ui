@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 
-import { simulateScreenWidthChange, withTheme } from 'collections/private/utils/tests';
+import { simulateScreenWidthChange, withTheme } from 'utils/private/utils/tests';
 
 import useScreenSize from './useScreenSize';
 
