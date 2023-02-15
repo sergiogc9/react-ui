@@ -3,8 +3,8 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import * as Yup from 'yup';
 
-import Form from 'utils/components/Form';
-import { withTheme } from 'utils/private/utils/tests';
+import Form from 'form/components/Form';
+import { withTheme } from 'form/private/utils/tests';
 
 import FormButtonSubmit from '.';
 import { FormButtonSubmitProps } from './types';

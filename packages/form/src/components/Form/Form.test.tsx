@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import * as Yup from 'yup';
 import { Button } from '@sergiogc9/react-ui';
 
-import { withTheme } from 'utils/private/utils/tests';
+import { withTheme } from 'form/private/utils/tests';
 
 import Form from '.';
 import { FormProps } from './types';

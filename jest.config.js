@@ -4,6 +4,7 @@ module.exports = {
 	roots: [
 		'<rootDir>/packages/collections/src',
 		'<rootDir>/packages/components/src',
+		'<rootDir>/packages/form/src',
 		'<rootDir>/packages/theme/src',
 		'<rootDir>/packages/utils/src'
 	],
@@ -16,6 +17,7 @@ module.exports = {
 	moduleNameMapper: {
 		'^collections/(.*)': '<rootDir>/packages/collections/src/$1',
 		'^components/(.*)': '<rootDir>/packages/components/src/$1',
+		'^form/(.*)': '<rootDir>/packages/form/src/$1',
 		'^theme/(.*)': '<rootDir>/packages/theme/src/$1',
 		'^utils/(.*)': '<rootDir>/packages/utils/src/$1',
 		'^react$': '<rootDir>/node_modules/react',

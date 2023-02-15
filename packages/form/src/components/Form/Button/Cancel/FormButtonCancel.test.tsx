@@ -2,8 +2,8 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import * as Yup from 'yup';
 
-import Form from 'utils/components/Form';
-import { withTheme } from 'utils/private/utils/tests';
+import Form from 'form/components/Form';
+import { withTheme } from 'form/private/utils/tests';
 
 import FormButtonCancel from '.';
 

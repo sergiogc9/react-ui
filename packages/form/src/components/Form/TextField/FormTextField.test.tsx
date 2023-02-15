@@ -4,8 +4,8 @@ import userEvent from '@testing-library/user-event';
 import * as Yup from 'yup';
 import { TextFieldProps } from '@sergiogc9/react-ui';
 
-import Form from 'utils/components/Form';
-import { withTheme } from 'utils/private/utils/tests';
+import Form from 'form/components/Form';
+import { withTheme } from 'form/private/utils/tests';
 
 import FormTextField from '.';
 import { FormTextFieldProps } from './types';

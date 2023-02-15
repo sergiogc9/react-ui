@@ -3,7 +3,7 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import * as Yup from 'yup';
 import userEvent from '@testing-library/user-event';
 
-import Form from 'utils/components/Form';
+import Form from 'form/components/Form';
 
 import withFormField from './withFormField';
 

@@ -12,7 +12,7 @@ import {
 } from 'react-hook-form';
 import { FlexProps } from '@sergiogc9/react-ui';
 
-import { RecursivePartial } from 'utils/types';
+import { RecursivePartial } from 'form/types';
 
 export type FormHelpers<FormValues extends FieldValues> = {
 	reset: UseFormReset<FormValues>;
