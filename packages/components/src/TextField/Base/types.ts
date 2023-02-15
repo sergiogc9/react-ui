@@ -3,7 +3,21 @@ import React from 'react';
 import { StyledInputProps } from 'components/private/components/Input';
 import { FlexProps } from 'components/Flex';
 
-export type Props = {
+export interface Props
+	extends Pick<
+		StyledInputProps,
+		| 'aspectSize'
+		| 'isDisabled'
+		| 'isError'
+		| 'isSuccess'
+		| 'name'
+		| 'onBlur'
+		| 'onChange'
+		| 'onClick'
+		| 'placeholder'
+		| 'ref'
+		| 'type'
+	> {
 	/**
 	 * The default value used in the textField. Used only when textField is uncontrolled.
 	 */
@@ -80,22 +94,8 @@ export type Props = {
 	 * The value attribute specifies the value of an input element. Used to control the textField from outside.
 	 */
 	readonly value?: string | number;
-} & Pick<
-	StyledInputProps,
-	| 'aspectSize'
-	| 'isDisabled'
-	| 'isError'
-	| 'isSuccess'
-	| 'name'
-	| 'onBlur'
-	| 'onChange'
-	| 'onClick'
-	| 'placeholder'
-	| 'ref'
-	| 'type'
->;
+}
 
-export type TextFieldBaseProps = Props &
-	Omit<FlexProps, keyof Props> & {
-		readonly inputProps?: Omit<StyledInputProps, keyof Props>;
-	};
+export interface TextFieldBaseProps extends Props, Omit<FlexProps, keyof Props> {
+	readonly inputProps?: Omit<StyledInputProps, keyof Props>;
+}

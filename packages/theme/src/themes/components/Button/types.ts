@@ -7,9 +7,10 @@ export type ButtonVariant = 'danger' | 'default' | 'link' | 'primary' | 'seconda
 type ThemeAttributes = ExtractThemeAttributes<DefaultTheme>;
 
 type ButtonBackgrounds = Record<'default' | 'hover' | 'active', string>;
-type ButtonColor = Record<'focusShadow', string> &
-	Partial<Record<'border' | 'text', string>> &
-	Record<'background', ButtonBackgrounds>;
+interface ButtonColor
+	extends Record<'focusShadow', string>,
+		Partial<Record<'border' | 'text', string>>,
+		Record<'background', ButtonBackgrounds> {}
 export type ButtonColors = Record<ThemeAttributes['ButtonVariant'], ButtonColor>;
 type ButtonHeights = Record<ThemeAttributes['ButtonAspectSize'], number | number[]>;
 type ButtonIconMargins = Record<ThemeAttributes['ButtonAspectSize'], string | string[]>;

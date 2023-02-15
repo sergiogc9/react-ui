@@ -2,9 +2,11 @@ import { HeaderProps, ColumnInstance } from 'react-table';
 
 import { FlexProps } from 'components/Flex';
 
-export type TableHeaderCellProps = FlexProps & HeaderProps<any>;
+export interface TableHeaderCellProps
+	extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined>,
+		HeaderProps<any> {}
 
-export type StyledTableHeaderCellProps = FlexProps & {
+export interface StyledTableHeaderCellProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	readonly canSort: ColumnInstance['canSort'];
-};
-export type StyledTableHeaderCellContentProps = FlexProps;
+}
+export interface StyledTableHeaderCellContentProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}

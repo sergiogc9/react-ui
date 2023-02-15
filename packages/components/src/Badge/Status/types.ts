@@ -1,10 +1,8 @@
 import { StatusProps } from 'components/Status';
 
-type Props = {
+export interface BadgeStatusProps extends StatusProps {
 	/**
 	 * Choose the badge location.
 	 */
 	readonly location?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
-};
-
-export type BadgeStatusProps = Props & StatusProps;
+}

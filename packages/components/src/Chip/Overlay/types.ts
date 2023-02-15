@@ -1,7 +1,7 @@
 import { FlexProps } from 'components/Flex';
 import { ChipProps } from '../types';
 
-type Props = {
+export interface ChipOverlayProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	/**
 	 * Choose one size
 	 */
@@ -14,6 +14,4 @@ type Props = {
 	 * Choose the color variant
 	 */
 	readonly variant?: ChipProps['variant'];
-};
-
-export type ChipOverlayProps = Props & FlexProps;
+}

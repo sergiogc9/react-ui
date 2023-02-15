@@ -2,16 +2,16 @@ import { TextFieldBaseProps } from './Base';
 import { TextFieldDateProps } from './Date';
 import { TextFieldNumberProps } from './Number';
 
-type DateProps = {
+interface DateProps extends Omit<TextFieldDateProps, 'type'> {
 	type: 'date';
-} & Omit<TextFieldDateProps, 'type'>;
+}
 
-type NumberProps = {
+interface NumberProps extends Omit<TextFieldNumberProps, 'type'> {
 	type: 'number';
-} & Omit<TextFieldNumberProps, 'type'>;
+}
 
-type BaseProps = {
+interface BaseProps extends Omit<TextFieldDateProps, 'type'> {
 	type?: Exclude<TextFieldBaseProps['type'], 'date' | 'number'>;
-} & Omit<TextFieldBaseProps, 'type'>;
+}
 
 export type TextFieldProps = BaseProps | DateProps | NumberProps;

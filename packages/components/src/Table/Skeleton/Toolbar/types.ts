@@ -1,1 +1,1 @@
-export type TableSkeletonToolbarProps = Record<string, never>;
+export interface TableSkeletonToolbarProps extends Record<string, never> {}

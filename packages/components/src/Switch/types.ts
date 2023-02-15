@@ -1,6 +1,6 @@
 import { FlexProps } from 'components/Flex';
 
-type Props = {
+export interface SwitchProps extends Omit<FlexProps, 'onChange'> {
 	/**
 	 * Switch size
 	 */
@@ -21,6 +21,4 @@ type Props = {
 	 * Handler called when the switch changes the state
 	 */
 	readonly onChange?: (defaultChecked: boolean) => void;
-};
-
-export type SwitchProps = Props & Omit<FlexProps, 'onChange'>;
+}

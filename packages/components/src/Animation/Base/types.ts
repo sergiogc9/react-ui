@@ -3,7 +3,7 @@ import CSS from 'csstype';
 
 import { FlexProps } from 'components/Flex';
 
-export type AnimationProps = {
+export interface AnimationProps {
 	/**
 	 * Boolean to enable or disable the animation at first mount
 	 */
@@ -93,6 +93,6 @@ export type AnimationProps = {
 	 * CSS rule: animation-timing-function
 	 */
 	readonly timingFunctionExit?: CSS.Properties['animationTimingFunction'];
-};
+}
 
 export type BaseAnimationProps<P = Record<string, unknown>> = AnimationProps & FlexProps & P;

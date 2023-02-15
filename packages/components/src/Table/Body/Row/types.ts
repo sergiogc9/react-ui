@@ -1,3 +1,3 @@
 import { FlexProps } from 'components/Flex';
 
-export type TableBodyRowProps = FlexProps;
+export interface TableBodyRowProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}

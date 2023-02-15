@@ -3,13 +3,12 @@ import React from 'react';
 import { FlexProps } from 'components/Flex';
 import { SelectProps } from 'components/Select/types';
 
-type Props = {
+export interface SelectOptionProps extends FlexProps<React.HTMLAttributes<HTMLLIElement>, HTMLLIElement> {
 	/**
 	 * The option id or value
 	 */
 	readonly id: string;
-};
-
-export type SelectOptionProps = Props & FlexProps<React.HTMLAttributes<HTMLLIElement>>;
-export type StyledSelectOptionProps = SelectOptionProps &
-	Pick<SelectProps, 'aspectSize' | 'variant'> & { isSelected: boolean };
+}
+export interface StyledSelectOptionProps extends SelectOptionProps, Pick<SelectProps, 'aspectSize' | 'variant'> {
+	isSelected: boolean;
+}

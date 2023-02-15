@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FlexProps } from 'components/Flex';
 
-type Props = {
+export interface CounterProps extends Omit<FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'bg'> {
 	/**
 	 * The size of the text.
 	 */
@@ -19,6 +19,4 @@ type Props = {
 	 * The color variant.
 	 */
 	readonly variant?: 'blue' | 'green' | 'grey' | 'red' | 'yellow';
-};
-
-export type CounterProps = Props & Omit<FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'bg'>;
+}

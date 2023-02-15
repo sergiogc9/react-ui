@@ -1,3 +1,3 @@
 import { FlexProps } from 'components/Flex';
 
-export type ModalHeaderProps = FlexProps;
+export interface ModalHeaderProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}

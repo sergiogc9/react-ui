@@ -1,8 +1,10 @@
-import { FlexProps } from 'components/Flex';
-import { DateRange } from 'components/private/utils/date/types';
+import React from 'react';
 import { DayPickerProps } from 'react-day-picker';
 
-type Props = {
+import { FlexProps } from 'components/Flex';
+import { DateRange } from 'components/private/utils/date/types';
+
+export interface DatePickerProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	/**
 	 * The date to be shown as selected. Use it to control the component from outside. Only used without range.
 	 */
@@ -65,6 +67,4 @@ type Props = {
 	 * Toggle between day or month view. If month view is used, no day can be selected.
 	 */
 	readonly view?: 'day' | 'month';
-};
-
-export type DatePickerProps = Props & FlexProps;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlexProps, ButtonProps } from '@sergiogc9/react-ui';
 
-type Props = {
+export interface UserFeedbackProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	/**
 	 * The button text. If not provided, the button is not shown.
 	 */
@@ -26,7 +26,5 @@ type Props = {
 	 * The title text.
 	 */
 	readonly titleText: string;
-};
-
-export type UserFeedbackProps = Props & FlexProps;
-export type StyledUserFeedbackProps = FlexProps;
+}
+export interface StyledUserFeedbackProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}

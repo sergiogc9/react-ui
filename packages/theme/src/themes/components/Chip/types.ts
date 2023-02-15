@@ -7,7 +7,7 @@ type ChipColorAttrs = Record<'color', string>;
 type ChipBorderColor = Record<'borderColor' | 'background', ChipHoverTypes>;
 type ChipActionableBg = Record<'actionableBg', Omit<ChipHoverTypes, 'overlay'>>;
 
-type ChipColorsParams = ChipColorAttrs & ChipBorderColor & ChipActionableBg;
+interface ChipColorsParams extends ChipColorAttrs, ChipBorderColor, ChipActionableBg {}
 export type ChipColors = Record<ChipColorVariants, ChipColorsParams>;
 
 type ChipSizeVariants = 's' | 'm';

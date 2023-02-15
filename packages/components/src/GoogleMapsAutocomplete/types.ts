@@ -1,6 +1,10 @@
 import { SelectProps } from 'components/Select';
 
-type Props = {
+export interface GoogleMapsAutocompleteProps
+	extends Omit<
+		SelectProps,
+		'children' | 'defaultValue' | 'isAutocomplete' | 'onInputChange' | 'onOptionChange' | 'value'
+	> {
 	/**
 	 * The country or countries where to limit the search. Can be a string or a 5-length maximum string array with country codes. If array is bigger than 5 elements, countries from 6th position are ignored.
 	 * More info at: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#ComponentRestrictions
@@ -23,18 +27,15 @@ type Props = {
 	 * Handler called when value changed
 	 */
 	readonly onPlaceChange?: (value: GoogleMapsPlace | null) => void;
-};
+}
 
-export type GoogleMapsAutocompleteProps = Props &
-	Omit<SelectProps, 'children' | 'defaultValue' | 'isAutocomplete' | 'onInputChange' | 'onOptionChange' | 'value'>;
-
-export type PredictionOptions = {
+export interface PredictionOptions {
 	componentRestrictions?: { country: string | string[] };
 	input: string;
 	types?: string[];
-};
+}
 
-export type MapsSearchPlace = {
+export interface MapsSearchPlace {
 	description: string;
 	place_id: string;
 	structured_formatting: {
@@ -47,15 +48,15 @@ export type MapsSearchPlace = {
 			}
 		];
 	};
-};
+}
 
-export type GoogleMapsPlace = {
+export interface GoogleMapsPlace {
 	latitude: number;
 	longitude: number;
 	name: string;
 	placeComponents: Partial<GoogleMapsPlaceComponents>;
 	placeId: string;
-};
+}
 
 export const googleMapsAdressKeys = [
 	'country',
@@ -69,8 +70,8 @@ export type GoogleMapsKeys = typeof googleMapsAdressKeys[number];
 
 export type GoogleMapsPlaceComponents = Record<GoogleMapsKeys, string>;
 
-export type GoogleMapsAddressComponent = {
+export interface GoogleMapsAddressComponent {
 	long_name: string;
 	short_name: string;
 	types: string[];
-};
+}

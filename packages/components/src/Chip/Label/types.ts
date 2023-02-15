@@ -3,7 +3,7 @@ import React from 'react';
 import { TextProps } from 'components/Text';
 import { ChipProps } from '../types';
 
-type Props = {
+export interface ChipLabelProps extends TextProps<React.HTMLAttributes<HTMLSpanElement>, undefined> {
 	/**
 	 * Choose one size
 	 */
@@ -12,6 +12,4 @@ type Props = {
 	 * Choose the color variant
 	 */
 	readonly variant?: ChipProps['variant'];
-};
-
-export type ChipLabelProps = Props & TextProps<React.HTMLAttributes<HTMLSpanElement>>;
+}

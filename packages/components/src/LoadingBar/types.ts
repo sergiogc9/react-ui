@@ -1,12 +1,12 @@
 import { FlexProps } from 'components/Flex';
 
-type Props = {
+export interface LoadingBarProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	/**
 	 * Boolean to show or hide the bar
 	 */
 	readonly isVisible: boolean;
-};
-
-export type LoadingBarProps = Props & FlexProps;
-export type StyledLoadingBarProps = FlexProps;
-export type StyledLoadingBarProgressProps = FlexProps & { percentage: number };
+}
+export interface StyledLoadingBarProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+export interface StyledLoadingBarProgressProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+	percentage: number;
+}

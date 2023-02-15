@@ -2,7 +2,7 @@ import React from 'react';
 
 import { AlertProps } from 'components/Alert';
 
-export type ToastOptions = {
+export interface ToastOptions {
 	actionContent?: React.ReactNode;
 	aspectSize?: AlertProps['aspectSize'];
 	duration?: number | 'always';
@@ -12,9 +12,9 @@ export type ToastOptions = {
 	onClose?: () => void;
 	message: string;
 	status?: AlertProps['status'];
-};
+}
 
-type Props = {
+export interface ToastProps extends AlertProps {
 	/**
 	 * The toast data given by the provider
 	 */
@@ -24,7 +24,5 @@ type Props = {
 	 * The toast visibility status. It should be controlled from the provider.
 	 */
 	readonly visibleStatus: 'open' | 'closing';
-};
-
-export type ToastProps = Props & AlertProps;
-export type StyledToastProps = AlertProps;
+}
+export interface StyledToastProps extends AlertProps {}

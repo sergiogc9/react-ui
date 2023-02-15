@@ -1,7 +1,11 @@
 import { FlexProps } from 'components/Flex';
 import { StyledTextAreaProps as BaseStyledTextAreaProps } from 'components/private/components/Input';
 
-type Props = {
+interface Props
+	extends Pick<
+		BaseStyledTextAreaProps,
+		'isDisabled' | 'isError' | 'isSuccess' | 'name' | 'onBlur' | 'onChange' | 'onClick' | 'placeholder' | 'ref'
+	> {
 	/**
 	 * The default value used in the textArea
 	 */
@@ -27,14 +31,10 @@ type Props = {
 	 * The content of the textArea. Only used if the textArea is controlled from outside
 	 */
 	readonly value?: string;
-} & Pick<
-	BaseStyledTextAreaProps,
-	'isDisabled' | 'isError' | 'isSuccess' | 'name' | 'onBlur' | 'onChange' | 'onClick' | 'placeholder' | 'ref'
->;
+}
 
-export type TextAreaProps = Props &
-	Omit<FlexProps, keyof Props> & {
-		readonly textareaProps?: Omit<BaseStyledTextAreaProps, keyof Props>;
-	};
+export interface TextAreaProps extends Props, Omit<FlexProps, keyof Props> {
+	readonly textareaProps?: Omit<BaseStyledTextAreaProps, keyof Props>;
+}
 
-export type StyledTextAreaProps = Props & BaseStyledTextAreaProps;
+export interface StyledTextAreaProps extends Props, Omit<BaseStyledTextAreaProps, keyof Props> {}

@@ -1,8 +1,8 @@
 import { TextProps } from 'components/Text/types';
 import { ButtonProps } from '../types';
 
-type Props = Omit<TextProps, 'aspectSize'>;
+interface Props extends Omit<TextProps, 'aspectSize'> {}
 
-export type ButtonTextProps = Props;
+export interface ButtonTextProps extends Props {}
 
-export type StyledButtonTextProps = Props & Pick<ButtonProps, 'aspectSize' | 'isDisabled' | 'variant'>;
+export interface StyledButtonTextProps extends Props, Pick<ButtonProps, 'aspectSize' | 'isDisabled' | 'variant'> {}

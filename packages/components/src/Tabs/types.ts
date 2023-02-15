@@ -1,6 +1,6 @@
 import { FlexProps } from 'components/Flex';
 
-export type Props = {
+export interface TabsProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	/**
 	 * The default active tab ID
 	 */
@@ -10,6 +10,4 @@ export type Props = {
 	 * A handler called when the active tab changes
 	 */
 	readonly onTabChange?: (id: string) => void;
-};
-
-export type TabsProps = Props & FlexProps;
+}

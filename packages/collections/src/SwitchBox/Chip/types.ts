@@ -1,3 +1,3 @@
 import { ChipProps } from '@sergiogc9/react-ui';
 
-export type SwitchBoxChipProps = ChipProps;
+export interface SwitchBoxChipProps extends ChipProps {}

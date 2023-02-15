@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FlexProps } from 'components/Flex';
 
-type Props = {
+export interface TabsTabProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	/**
 	 * The content of the tab
 	 */
@@ -19,7 +19,7 @@ type Props = {
 	 * True if the current tab contains errors
 	 */
 	readonly isError?: boolean;
-};
-
-export type TabsTabProps = Props & FlexProps;
-export type StyledTabsTabProps = TabsTabProps & { activeID?: string };
+}
+export interface StyledTabsTabProps extends TabsTabProps {
+	activeID?: string;
+}

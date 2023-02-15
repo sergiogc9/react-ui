@@ -1,7 +1,9 @@
 import { ReactNode } from 'react';
 import { ComposedSvgProps, ComposedColorProps } from 'components/private/utils/composers/types';
 
-type Props = {
+export interface SvgPathProps extends ComposedSvgProps {}
+
+export interface SvgProps extends ComposedSvgProps, ComposedColorProps {
 	/**
 	 * The SVG content
 	 */
@@ -27,8 +29,4 @@ type Props = {
 	 * A custom viewbox used in the SVG component.
 	 */
 	readonly viewBox?: string;
-};
-
-export type SvgPathProps = ComposedSvgProps;
-
-export type SvgProps = Props & ComposedSvgProps & ComposedColorProps;
+}

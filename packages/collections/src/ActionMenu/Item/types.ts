@@ -1,8 +1,5 @@
-import { FlexProps, TextProps } from '@sergiogc9/react-ui';
+import { TextProps } from '@sergiogc9/react-ui';
 
-type Props = {
-	aspectSize?: TextProps['aspectSize'];
+export interface ActionMenuItemProps extends TextProps<React.HTMLAttributes<HTMLSpanElement>, undefined> {
 	variant?: 'default' | 'danger';
-};
-
-export type ActionMenuItemProps = FlexProps & Props;
+}

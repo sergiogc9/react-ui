@@ -1,6 +1,6 @@
 import { FloatingButtonProps } from '../types';
 
-export type FloatingButtonContextData = {
+export interface FloatingButtonContextData {
 	aspectSize: FloatingButtonProps['aspectSize'];
 	isDisabled: FloatingButtonProps['isDisabled'];
-};
+}

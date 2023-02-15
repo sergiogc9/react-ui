@@ -1,3 +1,3 @@
 import { PopoverProps } from 'components/Popover';
 
-export type TooltipProps = PopoverProps;
+export interface TooltipProps extends PopoverProps {}

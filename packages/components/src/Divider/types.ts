@@ -1,5 +1,5 @@
 import { FlexProps } from 'components/Flex';
 
-export type DividerProps = FlexProps & {
+export interface DividerProps extends FlexProps<React.HTMLAttributes<HTMLSpanElement>, HTMLDivElement> {
 	readonly isVertical?: boolean;
-};
+}

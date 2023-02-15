@@ -1,10 +1,8 @@
 import { FlexProps } from 'components/Flex';
 
-type Props = {
+export interface StatusProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	/**
 	 * The color variant.
 	 */
 	readonly variant?: 'blue' | 'green' | 'grey' | 'red' | 'yellow';
-};
-
-export type StatusProps = Props & FlexProps;
+}

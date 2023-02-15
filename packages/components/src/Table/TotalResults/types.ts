@@ -2,13 +2,11 @@ import { ReactNode } from 'react';
 
 import { FlexProps } from 'components/Flex';
 
-type TableTotalResultsRenderProps = {
+interface TableTotalResultsRenderProps {
 	totalResults: number;
-};
+}
 
-type Props = {
+export interface TableTotalResultsProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	readonly render: (props: TableTotalResultsRenderProps) => ReactNode;
-};
-
-export type TableTotalResultsProps = Props & FlexProps;
-export type StyledTableTotalResultsProps = FlexProps;
+}
+export interface StyledTableTotalResultsProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}

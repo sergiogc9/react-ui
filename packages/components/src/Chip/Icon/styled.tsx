@@ -6,11 +6,9 @@ import Icon from 'components/Icon';
 import variant from './variants/variant';
 import { StyledChipIconProps } from './types';
 
-// TODO! remove any
-// const StyledChipIcon: React.FC<StyledChipIconProps> = styled(Icon)`
-const StyledChipIcon: React.FC<any> = styled(Icon)`
+const StyledChipIcon = styled(Icon)`
 	${variant}
-`;
+` as React.FC<StyledChipIconProps>;
 StyledChipIcon.defaultProps = {
 	aspectSize: 's',
 	position: 'relative'

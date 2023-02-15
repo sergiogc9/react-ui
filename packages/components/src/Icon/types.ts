@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { ComposedSvgProps } from 'components/private/utils/composers/types';
 
 export type IconStyling = 'filled' | 'outlined';
@@ -78,21 +80,9 @@ export type Icon =
 	| 'wifi'
 	| 'work';
 
-export type Icons = Record<Icon, JSX.Element | null>;
+export interface Icons extends Record<Icon, JSX.Element | null> {}
 
-type PredefinedIconProps = {
-	readonly styling: IconStyling;
-	readonly icon: Icon;
-	readonly content?: never;
-};
-
-type CustomIconProps = {
-	readonly content: JSX.Element;
-	readonly styling?: never;
-	readonly icon?: never;
-};
-
-type CommonProps = {
+export interface IconProps extends ComposedSvgProps {
 	/**
 	 * The size of the icon.
 	 */
@@ -125,6 +115,8 @@ type CommonProps = {
 	 * A custom svg content used to show the Icon component. Only used when defining a custom icon.
 	 */
 	readonly viewBox?: string;
-};
+}
 
-export type IconProps = CommonProps & (PredefinedIconProps | CustomIconProps) & ComposedSvgProps;
+export interface StyledIconProps extends IconProps {
+	children: React.ReactNode;
+}

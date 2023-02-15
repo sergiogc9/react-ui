@@ -6,11 +6,11 @@ import { ActionMenuItemProps } from './types';
 import variant from './variants/variant';
 
 const StyledActionMenuItem: React.FC<ActionMenuItemProps> = styled(Text)<ActionMenuItemProps>`
+	align-items: center;
 	${variant}
 `;
 
 StyledActionMenuItem.defaultProps = {
-	alignItems: 'center',
 	aspectSize: 'm',
 	cursor: 'pointer',
 	minHeight: '40px',

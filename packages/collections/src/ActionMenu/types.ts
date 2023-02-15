@@ -1,5 +1,5 @@
 import { PopoverContentProps } from '@sergiogc9/react-ui';
 
-export type StyledActionMenuProps = PopoverContentProps;
+export interface StyledActionMenuProps extends PopoverContentProps {}
 
-export type ActionMenuProps = Omit<StyledActionMenuProps, 'isInteractive'>;
+export interface ActionMenuProps extends Omit<StyledActionMenuProps, 'isInteractive'> {}

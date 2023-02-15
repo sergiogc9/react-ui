@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from 'react';
 
 import { FlexProps } from 'components/Flex';
 
-type Props = {
+export interface FloatingButtonProps extends FlexProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
 	/**
 	 * The size of the button.
 	 */
@@ -15,10 +15,7 @@ type Props = {
 	 * If true, a loader spinner is shown
 	 */
 	readonly isLoading?: boolean;
-};
-type StyledProps = {
+}
+export interface StyledFloatingButtonProps extends FloatingButtonProps {
 	readonly hasText: boolean;
-};
-
-export type FloatingButtonProps = Props & FlexProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
-export type StyledFloatingButtonProps = StyledProps & FloatingButtonProps;
+}

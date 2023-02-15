@@ -1,3 +1,3 @@
 import { IconButtonProps } from 'components/IconButton';
 
-export type ModalCloseProps = Omit<IconButtonProps, 'children'>;
+export interface ModalCloseProps extends Omit<IconButtonProps, 'children'> {}

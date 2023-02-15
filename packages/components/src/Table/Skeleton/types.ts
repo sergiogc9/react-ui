@@ -1,3 +1,3 @@
 import { SkeletonProps } from 'components/Skeleton';
 
-export type TableSkeletonProps = SkeletonProps;
+export interface TableSkeletonProps extends SkeletonProps {}

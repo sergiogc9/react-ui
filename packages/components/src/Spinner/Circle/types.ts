@@ -1,6 +1,6 @@
 import { FlexProps } from 'components/Flex';
 
-type Props = {
+export interface SpinnerCircleProps extends Omit<FlexProps, 'color'> {
 	/**
 	 * The number of circles of the animation. From 1 to 3.
 	 */
@@ -25,6 +25,4 @@ type Props = {
 	 * The circles width. In px. Default: 4px
 	 */
 	readonly circleSize?: number;
-};
-
-export type SpinnerCircleProps = Props & Omit<FlexProps, 'color'>;
+}

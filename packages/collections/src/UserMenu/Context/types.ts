@@ -1,3 +1,3 @@
-export type UserMenuContextData = {
+export interface UserMenuContextData {
 	isMobileFullScreenEnabled: boolean;
-};
+}

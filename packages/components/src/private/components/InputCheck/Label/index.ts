@@ -1,2 +1,2 @@
 export { InputCheckLabelProps } from './types';
-export { default } from './InputCheck';
+export { default } from './InputCheckLabel';

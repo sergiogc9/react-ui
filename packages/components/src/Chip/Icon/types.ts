@@ -1,12 +1,12 @@
 import { IconProps, IconFontAwesomeProps } from 'components/Icon';
 import { ChipProps } from '../types';
 
-export type ChipIconProps = IconProps;
-export type StyledChipIconProps = ChipIconProps & {
+export interface ChipIconProps extends IconProps {}
+export interface StyledChipIconProps extends ChipIconProps {
 	readonly variant?: ChipProps['variant'];
-};
+}
 
-export type ChipIconFontAwesomeProps = Omit<IconFontAwesomeProps, 'aspectSize'>;
-export type StyledChipIconFontAwesomeProps = ChipIconFontAwesomeProps & {
+export interface ChipIconFontAwesomeProps extends Omit<IconFontAwesomeProps, 'aspectSize'> {}
+export interface StyledChipIconFontAwesomeProps extends ChipIconFontAwesomeProps {
 	readonly variant?: ChipProps['variant'];
-};
+}

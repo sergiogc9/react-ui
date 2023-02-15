@@ -1,3 +1,3 @@
 import { PopoverContentProps } from '@sergiogc9/react-ui';
 
-export type UserMenuPopoverProps = PopoverContentProps;
+export interface UserMenuPopoverProps extends PopoverContentProps {}

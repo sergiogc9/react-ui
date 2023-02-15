@@ -1,3 +1,3 @@
 import { TitleProps } from '@sergiogc9/react-ui';
 
-export type UserMenuTitleProps = TitleProps;
+export interface UserMenuTitleProps extends TitleProps<React.HTMLAttributes<HTMLSpanElement>, undefined> {}

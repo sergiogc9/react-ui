@@ -1,6 +1,6 @@
 import { ChipProps } from '../types';
 
-export type ChipContextData = {
+export interface ChipContextData {
 	aspectSize: ChipProps['aspectSize'];
 	variant: ChipProps['variant'];
-};
+}

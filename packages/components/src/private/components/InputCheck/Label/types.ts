@@ -2,6 +2,10 @@ import { TextProps } from 'components/Text';
 
 import { InputCheckProps } from '../types';
 
-export type InputCheckLabelProps = InputCheckProps & TextProps;
+export interface InputCheckLabelProps
+	extends Omit<TextProps, 'aspectSize'>,
+		Pick<InputCheckProps, 'aspectSize' | 'isDisabled' | 'type'> {}
 
-export type StyledInputCheckLabelProps = Omit<InputCheckProps, 'aspectSize'> & TextProps;
+export interface StyledInputCheckLabelProps
+	extends TextProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>,
+		Pick<InputCheckProps, 'isDisabled' | 'type'> {}

@@ -1,3 +1,5 @@
 import React from 'react';
 
-export type PopoverProps = React.PropsWithChildren<unknown>;
+export interface PopoverProps {
+	children: React.ReactNode;
+}

@@ -1,3 +1,3 @@
 import { FlexProps } from '@sergiogc9/react-ui';
 
-export type UserMenuItemProps = FlexProps;
+export interface UserMenuItemProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}

@@ -1,7 +1,7 @@
 import { BaseAnimationProps } from 'components/Animation';
 import { FlexProps } from 'components/Flex';
 
-export type Props = {
+export interface OverlayProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	/**
 	 * If a blurred overlay is wanted, use this prop to set the blur px.
 	 */
@@ -10,6 +10,4 @@ export type Props = {
 	 * Boolean to show or hide the overlay
 	 */
 	readonly isVisible?: BaseAnimationProps['isVisible'];
-};
-
-export type OverlayProps = Props & FlexProps;
+}

@@ -3,7 +3,7 @@ import React from 'react';
 import { StyledStepperCircleLineProps } from './types';
 
 const useGetLineLength = (variant: StyledStepperCircleLineProps['variant']) => {
-	const ref = React.useRef<HTMLElement>();
+	const ref = React.useRef<HTMLDivElement>(null);
 
 	const [length, setLength] = React.useState(0);
 

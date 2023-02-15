@@ -2,4 +2,4 @@ import { PropsWithChildren } from 'react';
 
 import { FlexProps } from 'components/Flex';
 
-export type TabsMenuProps = PropsWithChildren<FlexProps>;
+export interface TabsMenuProps extends PropsWithChildren<FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined>> {}

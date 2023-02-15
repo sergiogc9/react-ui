@@ -6,7 +6,7 @@ import { SelectedOption } from '../types';
 
 type KeySource = 'listBox' | 'option' | 'textField';
 
-export type SelectContextData = {
+export interface SelectContextData {
 	readonly areExternalOptionsValid: NonNullable<SelectProps['areExternalOptionsValid']>;
 	readonly aspectSize: NonNullable<SelectProps['aspectSize']>;
 	readonly emptyResultsContent: SelectProps['emptyResultsContent'];
@@ -24,4 +24,4 @@ export type SelectContextData = {
 	readonly onShowPopover: (show: boolean) => void;
 	readonly selectedOptions: Record<string, SelectedOption>;
 	readonly variant: NonNullable<SelectProps['variant']>;
-};
+}

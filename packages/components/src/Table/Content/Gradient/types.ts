@@ -1,12 +1,8 @@
 import { FlexProps } from 'components/Flex';
 
-type Props = {
+export interface TableContentGradientProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	/**
 	 * Choose the gradient location.
 	 */
 	readonly location?: 'bottom' | 'left' | 'right' | 'top';
-};
-
-type TableContentGradientProps = FlexProps & Props;
-
-export default TableContentGradientProps;
+}

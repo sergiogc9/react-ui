@@ -1,3 +1,3 @@
 import { FlexProps } from '@sergiogc9/react-ui';
 
-export type SwitchBoxContentProps = FlexProps;
+export interface SwitchBoxContentProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}

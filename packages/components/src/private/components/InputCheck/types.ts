@@ -1,6 +1,6 @@
 import { FlexProps } from 'components/Flex';
 
-type Props = {
+export interface InputCheckProps extends FlexProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
 	/**
 	 * The size of the input label
 	 */
@@ -25,6 +25,4 @@ type Props = {
 	 * The label to show at right of the input
 	 */
 	readonly label?: string;
-};
-
-export type InputCheckProps = Props & FlexProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+}

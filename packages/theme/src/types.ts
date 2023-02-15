@@ -45,9 +45,9 @@ export interface ColorPalette {
 	readonly 900: string;
 }
 
-type BrandColors = {
+interface BrandColors {
 	readonly linkedin: string;
-};
+}
 
 export type ThemeColors<T extends Record<string, any>> = T & { modes: Record<ThemeColorMode, T> };
 

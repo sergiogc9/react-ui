@@ -1,7 +1,7 @@
 import { DatePickerProps } from 'components/DatePicker';
 import { TextFieldBaseProps } from '../Base';
 
-type Props = {
+export interface TextFieldDateProps extends TextFieldBaseProps {
 	/**
 	 * The date to show in the input when used as controlled
 	 */
@@ -21,6 +21,4 @@ type Props = {
 	 * Handler with the new selected date
 	 */
 	readonly onDateChange?: (date?: Date) => void;
-};
-
-export type TextFieldDateProps = Props & TextFieldBaseProps;
+}

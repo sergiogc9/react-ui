@@ -1,4 +1,4 @@
 import { IconFontAwesomeProps, IconProps } from '@sergiogc9/react-ui';
 
-export type UserMenuItemIconProps = IconProps;
-export type UserMenuItemIconFontAwesomeProps = IconFontAwesomeProps;
+export interface UserMenuItemIconProps extends IconProps {}
+export interface UserMenuItemIconFontAwesomeProps extends IconFontAwesomeProps {}

@@ -1,6 +1,6 @@
 import { FlexProps } from 'components/Flex';
 
-type Props = {
+export interface SkeletonProps extends Omit<FlexProps, 'color'> {
 	/**
 	 * Boolean to perform or not the animation
 	 */
@@ -13,6 +13,4 @@ type Props = {
 	 * The animation duration in seconds
 	 */
 	readonly duration?: number;
-};
-
-export type SkeletonProps = Props & Omit<FlexProps, 'color'>;
+}

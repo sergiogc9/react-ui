@@ -1,3 +1,3 @@
-export type PopoverContextData = {
+export interface PopoverContextData {
 	popoverRef: React.MutableRefObject<HTMLElement>;
-};
+}

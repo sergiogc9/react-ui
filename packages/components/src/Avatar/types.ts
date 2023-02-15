@@ -1,6 +1,6 @@
 import { FlexProps } from 'components/Flex';
 
-type Props = {
+export interface AvatarProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	/**
 	 * Avatar size
 	 */
@@ -21,6 +21,4 @@ type Props = {
 	 * Avatar Variants
 	 */
 	readonly variant?: 'circle' | 'rounded';
-};
-
-export type AvatarProps = Props & FlexProps;
+}

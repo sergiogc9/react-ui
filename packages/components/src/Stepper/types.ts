@@ -1,6 +1,6 @@
 import { FlexProps } from 'components/Flex';
 
-type Props = {
+export interface StepperProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	/**
 	 * The current step starting from 1.
 	 */
@@ -17,6 +17,4 @@ type Props = {
 	 * The variant of the stepper.
 	 */
 	readonly variant?: 'compacted' | 'compacted-no-line' | 'horizontal' | 'vertical';
-};
-
-export type StepperProps = Props & FlexProps;
+}

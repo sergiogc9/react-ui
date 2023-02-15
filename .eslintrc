@@ -4,5 +4,7 @@
 	"parserOptions": {
 		"project": "./tsconfig.json"
 	},
-	"rules": {}
+	"rules": {
+		"@typescript-eslint/no-empty-interface": "off"
+	}
 }

@@ -5,7 +5,7 @@ import { TextFieldProps } from 'components/TextField';
 
 export type SelectedOption = Record<'label', string>;
 
-type Props = {
+interface Props {
 	/**
 	 * Boolean to tell the Select component that an external options are fetched and updated with last input change. It should be false at first, and only be true once a fetch is done.
 	 */
@@ -60,21 +60,22 @@ type Props = {
 	 * The color variant
 	 */
 	readonly variant?: 'neutral' | 'primary';
-};
+}
 
-export type SelectProps = Props &
-	Pick<
-		TextFieldProps,
-		| 'hasRemoveButton'
-		| 'helperText'
-		| 'inputProps'
-		| 'isDisabled'
-		| 'isError'
-		| 'isSuccess'
-		| 'label'
-		| 'labelPosition'
-		| 'leftContent'
-		| 'name'
-		| 'placeholder'
-	> &
-	Omit<FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, keyof Props>;
+export interface SelectProps
+	extends Pick<
+			TextFieldProps,
+			| 'hasRemoveButton'
+			| 'helperText'
+			| 'inputProps'
+			| 'isDisabled'
+			| 'isError'
+			| 'isSuccess'
+			| 'label'
+			| 'labelPosition'
+			| 'leftContent'
+			| 'name'
+			| 'placeholder'
+		>,
+		Omit<FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, keyof Props>,
+		Props {}

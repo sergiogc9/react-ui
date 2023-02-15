@@ -1,10 +1,10 @@
 import { StepperProps } from 'components/Stepper';
 import { TextProps } from 'components/Text';
 
-export type StyledStepperTextProps = {
+export interface StyledStepperTextProps extends TextProps<React.HTMLAttributes<HTMLSpanElement>, undefined> {
 	isCurrent: boolean;
 	isEnabled: boolean;
 	variant: StepperProps['variant'];
-} & TextProps;
+}
 
-export type StepperTextProps = TextProps;
+export interface StepperTextProps extends TextProps<React.HTMLAttributes<HTMLSpanElement>, undefined> {}

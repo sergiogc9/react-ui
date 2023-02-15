@@ -21,7 +21,7 @@ import {
 
 import { FlexProps } from 'components/Flex';
 
-type Props<D extends Record<string, unknown>> = {
+interface Props<D extends Record<string, unknown>> {
 	/**
 	 * The table column definitions
 	 */
@@ -92,10 +92,12 @@ type Props<D extends Record<string, unknown>> = {
 	 * The table options.
 	 */
 	readonly tableOptions?: Omit<TableOptions<D>, 'data' | 'columns'>;
-};
+}
 
-export type TableProps<D extends Record<string, unknown>> = Props<D> & FlexProps;
-export type StyledTableWrapperProps = FlexProps;
+export interface TableProps<D extends Record<string, unknown>>
+	extends Props<D>,
+		FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}
+export interface StyledTableWrapperProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}
 
 export type TableColumn<D extends Record<string, unknown>> = Column<D> &
 	UseFiltersColumnOptions<D> &
@@ -104,16 +106,18 @@ export type TableColumn<D extends Record<string, unknown>> = Column<D> &
 		getCellWidthText?: (row: D) => string;
 	};
 
-export type TableOptions<D extends Record<string, unknown>> = Omit<ReactTableOptions<D>, 'initialState'> &
-	UseFiltersOptions<D> &
-	UseGlobalFiltersOptions<D> &
-	UsePaginationOptions<D> &
-	UseSortByOptions<D> & {
-		initialState?: TableState<D>;
-	};
+export interface TableOptions<D extends Record<string, unknown>>
+	extends Omit<ReactTableOptions<D>, 'initialState'>,
+		UseFiltersOptions<D>,
+		UseGlobalFiltersOptions<D>,
+		UsePaginationOptions<D>,
+		UseSortByOptions<D> {
+	initialState?: TableState<D>;
+}
 
-export type TableState<D extends Record<string, unknown>> = Partial<
-	ReactTableState<D> & UseFiltersState<D> & UseGlobalFiltersState<D> & UsePaginationState<D> & UseSortByState<D>
->;
+export interface TableState<D extends Record<string, unknown>>
+	extends Partial<
+		ReactTableState<D> & UseFiltersState<D> & UseGlobalFiltersState<D> & UsePaginationState<D> & UseSortByState<D>
+	> {}
 
-export type TableCellProps<D extends Record<string, unknown>> = CellProps<D>;
+export interface TableCellProps<D extends Record<string, unknown>> extends CellProps<D> {}

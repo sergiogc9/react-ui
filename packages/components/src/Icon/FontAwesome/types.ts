@@ -3,7 +3,9 @@ import { SpaceProps } from 'styled-system';
 
 import { IconProps } from '../types';
 
-type Props = {
+type FilteredFontAwesomeIconProps = Omit<FontAwesomeIconProps, 'fontSize' | 'fontSizeAdjust' | 'size'>;
+
+export interface IconFontAwesomeProps extends FilteredFontAwesomeIconProps, SpaceProps {
 	/**
 	 * The size of the icon.
 	 */
@@ -28,8 +30,4 @@ type Props = {
 	 * The size of the icon.
 	 */
 	readonly size?: IconProps['size'];
-};
-
-type FilteredFontAwesomeIconProps = Omit<FontAwesomeIconProps, 'fontSize' | 'fontSizeAdjust' | 'size'>;
-
-export type IconFontAwesomeProps = FilteredFontAwesomeIconProps & SpaceProps & Props;
+}

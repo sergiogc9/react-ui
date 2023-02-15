@@ -1,12 +1,12 @@
 import { FlexProps } from 'components/Flex';
 import { GridBoxProps } from 'components/Grid';
 
-type SkeletonRectBoxProps = {
+interface SkeletonRectBoxProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	readonly type?: 'box';
-} & FlexProps;
+}
 
-type SkeletonRectGridBoxProps = {
+interface SkeletonRectGridBoxProps extends GridBoxProps {
 	readonly type: 'grid';
-} & GridBoxProps;
+}
 
 export type SkeletonRectProps = SkeletonRectBoxProps | SkeletonRectGridBoxProps;

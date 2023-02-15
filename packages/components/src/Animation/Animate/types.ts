@@ -1,7 +1,7 @@
 import { FlexProps } from 'components/Flex';
 import { AnimationProps } from '../Base/types';
 
-type Props = {
+export interface AnimateProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	/**
 	 * Boolean to enable or disable the animation at first mount
 	 */
@@ -74,6 +74,4 @@ type Props = {
 	 * Array of timing functions to be used for each exit animation.
 	 */
 	readonly timingFunctionExit?: NonNullable<AnimationProps['timingFunctionExit']>[];
-};
-
-export type AnimateProps = Props & FlexProps;
+}

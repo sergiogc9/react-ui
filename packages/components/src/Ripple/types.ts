@@ -1,6 +1,6 @@
 import { FlexProps } from 'components/Flex';
 
-type Props = {
+export interface RippleProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	/**
 	 * The color of the ripple. If not set, color will be "currentColor".
 	 */
@@ -9,12 +9,10 @@ type Props = {
 	 * The duration of the animation of the ripple.
 	 */
 	readonly duration?: number;
-};
+}
 
-export type RippleProps = Props & FlexProps;
-
-export type RippleAnimationProps = {
+export interface RippleAnimationProps extends RippleProps {
 	readonly x: number;
 	readonly y: number;
 	readonly size: number;
-} & RippleProps;
+}

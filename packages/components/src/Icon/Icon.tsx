@@ -4,13 +4,11 @@ import icons from './icons';
 import StyledIcon from './styled';
 import { type IconProps } from './types';
 
-// TODO! Remove any
-// const Icon = forwardRef<SVGSVGElement, IconProps>(
-const Icon = forwardRef<SVGSVGElement, any>(
+const Icon = forwardRef<SVGSVGElement, IconProps>(
 	({ aspectSize = 'm', content, icon, styling, viewBox = '0 0 24 24', ...restProps }, ref) => {
 		const svgContent = React.useMemo(() => {
 			if (content) return content;
-			// TODO! remove as any
+
 			return (icons as any)[styling!][icon!];
 		}, [content, icon, styling]);
 

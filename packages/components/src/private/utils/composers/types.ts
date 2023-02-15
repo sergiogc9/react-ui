@@ -16,15 +16,17 @@ import {
  * This fix prevents typescript from complaining. More info at:
  * https://stackoverflow.com/questions/53711454/styled-system-props-typing-with-typescript
  */
-type FixedColorProps = Omit<ColorProps, 'color'> & { color?: string };
+interface FixedColor {
+	color?: string;
+}
+interface FixedColorProps extends Omit<ColorProps, 'color'>, FixedColor {}
 
-type CustomBoxProps = {
+interface CustomBoxProps {
 	id?: string;
 	backgroundClip?: string;
 	boxSizing?: string;
 	columnGap?: GridProps['gridColumnGap'];
 	cursor?: string;
-	fontFamily?: string;
 	gap?: GridProps['gridGap'];
 	outline?: string;
 	pointerEvents?: string;
@@ -33,9 +35,9 @@ type CustomBoxProps = {
 	transform?: string | Record<string, string> | string[];
 	transition?: string | Record<string, string> | string[];
 	whiteSpace?: string;
-};
+}
 
-type CustomTextProps = {
+interface CustomTextProps {
 	cursor?: string;
 	id?: string;
 	textTransform?: string;
@@ -44,36 +46,42 @@ type CustomTextProps = {
 	textOverflow?: string;
 	whiteSpace?: string;
 	wordBreak?: string;
-};
+}
 
-type CustomSvgProps = {
+interface CustomSvgProps {
 	cursor?: string;
 	fill?: string;
 	pointerEvents?: string;
 	stroke?: string;
-};
+}
 
-export type ComposedBoxProps = FlexboxProps &
-	LayoutProps &
-	SpaceProps &
-	FixedColorProps &
-	BorderProps &
-	PositionProps &
-	BackgroundProps &
-	ShadowProps &
-	TypographyProps &
-	CustomBoxProps;
-export type ComposedColorProps = FixedColorProps;
-export type ComposedGridProps = ComposedBoxProps &
-	Omit<GridProps, 'gridGap' | 'gridColumnGap' | 'gridRowGap'> & {
-		columnGap?: GridProps['gridColumnGap'];
-		gap?: GridProps['gridGap'];
-		rowGap?: GridProps['gridRowGap'];
-	};
-export type ComposedTextProps = LayoutProps &
-	SpaceProps &
-	FixedColorProps &
-	PositionProps &
-	TypographyProps &
-	CustomTextProps;
-export type ComposedSvgProps = FlexboxProps & LayoutProps & PositionProps & SpaceProps & CustomSvgProps;
+export interface ComposedBoxProps
+	extends FlexboxProps,
+		LayoutProps,
+		SpaceProps,
+		FixedColorProps,
+		BorderProps,
+		PositionProps,
+		BackgroundProps,
+		ShadowProps,
+		TypographyProps,
+		CustomBoxProps {}
+export interface ComposedColorProps extends FixedColorProps {}
+
+interface ExtraGridProps {
+	columnGap?: GridProps['gridColumnGap'];
+	gap?: GridProps['gridGap'];
+	rowGap?: GridProps['gridRowGap'];
+}
+export interface ComposedGridProps
+	extends ComposedBoxProps,
+		Omit<GridProps, 'gridGap' | 'gridColumnGap' | 'gridRowGap'>,
+		ExtraGridProps {}
+export interface ComposedTextProps
+	extends LayoutProps,
+		SpaceProps,
+		FixedColorProps,
+		PositionProps,
+		TypographyProps,
+		CustomTextProps {}
+export interface ComposedSvgProps extends FlexboxProps, LayoutProps, PositionProps, SpaceProps, CustomSvgProps {}

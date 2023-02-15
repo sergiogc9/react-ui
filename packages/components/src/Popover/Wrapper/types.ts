@@ -19,7 +19,7 @@ type Placement =
 	| 'top-start'
 	| 'top-end';
 
-type Props = {
+export interface PopoverWrapperProps {
 	/**
 	 * The distance between the tooltip and the reference or trigger
 	 */
@@ -91,6 +91,4 @@ type Props = {
 	 * The z-index of the tooltip
 	 */
 	readonly zIndex?: number;
-};
-
-export type PopoverWrapperProps = Props;
+}

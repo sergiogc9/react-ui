@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type AnimationListProps = {
+export interface AnimationListProps {
 	/**
 	 * Boolean to enable or disable the animation at list first mount.
 	 */
@@ -9,11 +9,11 @@ export type AnimationListProps = {
 	 * The children components
 	 */
 	readonly children?: React.ReactNode;
-};
+}
 
-export type ListElement = {
+export interface ListElement {
 	animateAtMount: boolean;
 	child: React.ReactElement;
 	isVisible: boolean;
 	key: React.Key;
-};
+}

@@ -1,5 +1,5 @@
 import { ThemeColorMode } from 'theme/types';
 
-export type ReactUIThemeContextData = {
+export interface ReactUIThemeContextData {
 	onChangeMode: (mode: ThemeColorMode) => void;
-};
+}

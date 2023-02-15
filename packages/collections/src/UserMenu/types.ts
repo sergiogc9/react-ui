@@ -1,7 +1,7 @@
 import React from 'react';
 import { UserMenuPopoverProps } from './Popover/types';
 
-type Props = {
+export interface UserMenuProps extends UserMenuPopoverProps {
 	/**
 	 * The container in which the UserMenu is appended
 	 */
@@ -16,6 +16,4 @@ type Props = {
 	 * Function to handle when the UserMenu is closed
 	 */
 	readonly onClose?: () => void;
-};
-
-export type UserMenuProps = Props & UserMenuPopoverProps;
+}

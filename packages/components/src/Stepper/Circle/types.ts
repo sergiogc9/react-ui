@@ -1,6 +1,6 @@
 import { FlexProps } from 'components/Flex';
 import { StepperStepContextData } from '../Context/types';
 
-export type StyledStepperCircleProps = StepperStepContextData & FlexProps;
+export interface StepperCircleProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}
 
-export type StepperCircleProps = FlexProps;
+export interface StyledStepperCircleProps extends StepperStepContextData, StepperCircleProps {}

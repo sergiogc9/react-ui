@@ -1,4 +1,6 @@
 import { FlexProps, SwitchProps } from '@sergiogc9/react-ui';
 
-export type SwitchBoxProps = SwitchProps;
-export type SwitchBoxWrapperProps = FlexProps & Pick<SwitchBoxProps, 'isDisabled'>;
+export interface SwitchBoxProps extends SwitchProps {}
+export interface SwitchBoxWrapperProps
+	extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined>,
+		Pick<SwitchBoxProps, 'isDisabled'> {}

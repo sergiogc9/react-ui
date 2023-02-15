@@ -5,11 +5,9 @@ import { Icon } from '@sergiogc9/react-ui';
 
 import { UserMenuItemIconProps, UserMenuItemIconFontAwesomeProps } from './types';
 
-// TODO! remove any
-// const UserMenuItemIcon: React.FC<UserMenuItemIconProps> = styled(Icon)<UserMenuItemIconProps>`
-const UserMenuItemIcon: React.FC<any> = styled(Icon)<UserMenuItemIconProps>`
+const UserMenuItemIcon = styled(Icon)<UserMenuItemIconProps>`
 	${props => css({ fill: props.fill ?? props.theme.collections.userMenu.colors.optionText })}
-`;
+` as React.FC<UserMenuItemIconProps>;
 
 UserMenuItemIcon.defaultProps = {
 	aspectSize: 'm',
