@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/sergiogc9/react-ui/compare/v0.8.0...v0.9.0) (2023-02-15)
+
+### Features
+
+- Move Forms component to a new react-ui-form package ([4f20834](https://github.com/sergiogc9/react-ui/commit/4f2083443ec18b676f579b68c9cefbd6a0bcfd7e))
+
 # [0.8.0](https://github.com/sergiogc9/react-ui/compare/v0.7.1...v0.8.0) (2023-02-15)
 
 ### Features
