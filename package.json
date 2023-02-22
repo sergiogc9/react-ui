@@ -11,6 +11,7 @@
 		"build": "FORCE_COLOR=true lerna run build --stream",
 		"start": "yarn watch & yarn workspace @sergiogc9/react-ui-docs start",
 		"watch": "FORCE_COLOR=true lerna exec --parallel yarn watch",
+		"clean": "FORCE_COLOR=true lerna exec --parallel \"rm -r -f ./dist ./node_modules\"",
 		"link:all": "lerna exec --parallel yarn link",
 		"unlink:all": "lerna exec --parallel --bail=false yarn unlink",
 		"test": "jest --coverage --reporters=default --reporters=jest-junit",
