@@ -1,5 +1,5 @@
 import { addDecorator, addParameters } from '@storybook/react';
-import { DocsPage } from '@storybook/addon-docs/blocks';
+import { DocsPage } from '@storybook/addon-docs';
 import { themes } from '@storybook/theming';
 
 import ThemeDecorator from 'storybook/decorators/Theme';

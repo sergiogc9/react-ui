@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryProps as SBStoryProps } from '@storybook/addon-docs/blocks';
+import { StoryProps as SBStoryProps } from '@storybook/addon-docs';
 
 type CustomProps = { include: string[]; exclude: [] };
 

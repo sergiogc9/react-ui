@@ -1,11 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import {
-	ArgsTable as SBArgsTable,
-	Meta as SBMeta,
-	Story as SBStory,
-	Canvas as SBCanvas
-} from '@storybook/addon-docs/blocks';
+import { ArgsTable as SBArgsTable, Meta as SBMeta, Story as SBStory, Canvas as SBCanvas } from '@storybook/addon-docs';
 import { getFixedStoryParams, getExcludedProps, getPlaygroundStoryParams } from 'storybook/parameters';
 import { ArgsTableProps, StoryProps } from './types';
 
