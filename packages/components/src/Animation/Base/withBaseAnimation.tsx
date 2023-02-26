@@ -95,8 +95,10 @@ const withBaseAnimation = <P extends {} = {}>(Component: React.ComponentType<P>,
 				if (innerRef.current === event.target) {
 					event.stopPropagation();
 
-					const element = innerRef.current;
-					if (element) element.style.animationDirection = '';
+					setTimeout(() => {
+						const element = innerRef.current;
+						if (element) element.style.animationDirection = '';
+					}, 100);
 
 					if (!isVisible) setIsComponentRendered(false);
 					if (onAnimationEnd) onAnimationEnd(event);
