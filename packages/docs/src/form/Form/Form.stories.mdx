@@ -1,0 +1,119 @@
+import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+
+import FormDecorator from 'storybook/decorators/Form';
+import { getFixedStoryParams } from 'storybook/parameters';
+import Flex from 'components/Flex';
+import { Form } from 'form';
+
+<Meta title="Form/Form" component={Form} decorators={[FormDecorator]} />
+
+# Form
+
+The Form component is a high level wrapper using `react-hook-form` and some components available in this library. This wrapper automatically handles validation state using `yup` and updates the UI components accordingly.
+
+Example:
+
+<Canvas>
+	<Story name="playground" parameters={getFixedStoryParams()}>
+		{args => (
+			<Form {...args}>
+				<Flex flexDirection="column" my={4} rowGap={3} width="100%">
+					<Form.TextField aspectSize="s" label="Name" name="name" />
+					<Flex columnGap={2}>
+						<Form.TextField aspectSize="s" label="Email" name="email" type="email" />
+						<Form.TextField aspectSize="s" label="Phone number" name="phone" type="tel" />
+					</Flex>
+					<Form.TextArea height={150} label="Description" name="comments" />
+					<Form.ButtonSubmit variant="primary">SUBMIT</Form.ButtonSubmit>
+				</Flex>
+			</Form>
+		)}
+	</Story>
+</Canvas>
+
+## Usage
+
+You need to provide three props to the `Form` component:
+
+### 1. Default values
+
+First, define the interface or type for the data used in the form:
+
+```tsx
+export type ContactFormValues = {
+	comments: string;
+	email: string;
+	name: string;
+	phone: string;
+};
+```
+
+Then, specify the initial values the form has, using `useMemo`:
+
+```tsx
+const defaultValues = React.useMemo<ContactFormValues>(
+	() => ({
+		comments: '',
+		email: '',
+		name: '',
+		phone: ''
+	}),
+	[]
+);
+```
+
+### 2. Validation schema
+
+Define a validation schema using `yup`. This schema will be used to validate the fields inside the form, as well enabling or disabling the submit button.
+
+Be sure the schema **matches the `ContactFormValues` interface**, otherwise TypeScript will complain.
+
+```tsx
+const validationSchema = React.useMemo(
+	() =>
+		Yup.object({
+			comments: Yup.string().required('This field is mandatory'),
+			email: Yup.string().email('Enter a valid e-mail').required('This field is mandatory'),
+			name: Yup.string().required('This field is mandatory'),
+			phone: Yup.string().required('This field is mandatory')
+		}),
+	[]
+);
+```
+
+### 3. Submit handler
+
+Finally, you need to provide a submit handler which be called when submitting the form with all fields validated:
+
+```tsx
+const onFormSubmit = React.useCallback(async (values: ContactFormValues) => {
+	// use the form fields values here
+}, []);
+```
+
+### Form fields components
+
+Once you have the necessary props, use the `Form` component with them. This will create a `form` HTML element.
+
+Inside the `Form` component all necessary fields component must be placed. Some of the wrapped components are `Form.TextField`, `Form.TextArea` or `Form.ButtonSubmit`.
+All fields components need a `name` prop matching the property name in the `ContactFormValues` interface (e.g. `name`, `email`, `phone`, etc).
+
+The code for the example above is:
+
+```tsx
+<Form defaultValues={defaultValues} onFormSubmit={onFormSubmit} validationSchema={validationSchema}>
+	<Flex flexDirection="column" my={4} rowGap={3} width="100%">
+		<Form.TextField aspectSize="s" label="Name" name="name" />
+		<Flex columnGap={2}>
+			<Form.TextField aspectSize="s" label="Email" name="email" type="email" />
+			<Form.TextField aspectSize="s" label="Phone number" name="phone" type="tel" />
+		</Flex>
+		<Form.TextArea height={150} label="Description" name="comments" />
+		<Form.ButtonSubmit variant="primary">SUBMIT</Form.ButtonSubmit>
+	</Flex>
+</Form>
+```
+
+## Form API
+
+<ArgsTable of={Form} />

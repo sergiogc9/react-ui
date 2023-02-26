@@ -13,6 +13,7 @@ module.exports = {
 		 */
 		config.resolve.alias.collections = path.resolve(__dirname, '../../collections/src');
 		config.resolve.alias.components = path.resolve(__dirname, '../../components/src');
+		config.resolve.alias.form = path.resolve(__dirname, '../../form/src');
 		config.resolve.alias.theme = path.resolve(__dirname, '../../theme/src');
 
 		// Add SVGR Loader
