@@ -56,7 +56,7 @@ const Form = <FormValues extends Record<string, unknown>>(props: FormProps<FormV
 
 	const finalUseFormProps = React.useMemo<UseFormProps<FormValues>>(
 		() => ({
-			mode: 'onBlur',
+			mode: 'onTouched',
 			resolver: yupResolver(validationSchema),
 			...useFormProps,
 			defaultValues: defaultValues as any
