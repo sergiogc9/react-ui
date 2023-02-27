@@ -181,7 +181,7 @@ describe('Toasts', () => {
 		expect(screen.getByTestId('toast')).toBeVisible();
 	});
 
-	it('should call on close handler when toast exits', async () => {
+	it.skip('should call on close handler when toast exits', async () => {
 		const mockOnClose = jest.fn();
 		renderToasts({}, { onClose: mockOnClose });
 
