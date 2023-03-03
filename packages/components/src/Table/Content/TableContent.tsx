@@ -1,4 +1,5 @@
 import React from 'react';
+import { flexRender } from '@tanstack/react-table';
 import { useIsHorizontalScrolled } from '@sergiogc9/react-hooks';
 
 import Divider from 'components/Divider';
@@ -7,6 +8,7 @@ import Flex from 'components/Flex';
 import TableContext from '../Context';
 import TableBodyCell from '../Body/Cell';
 import TableBodyRow from '../Body/Row';
+import { TableHeaderCellWrapper } from '../Header/Cell';
 import TableHeaderGroup from '../Header/Group';
 import TableContentGradient from './Gradient';
 import StyledContentTable from './styled';
@@ -15,10 +17,7 @@ import { TableContentProps } from './types';
 const TableContent: React.FC<TableContentProps> = (props: TableContentProps) => {
 	const { minWidth, ...rest } = props;
 
-	const {
-		onRowClick,
-		tableInstance: { getTableBodyProps, getTableProps, headerGroups, page, prepareRow }
-	} = React.useContext(TableContext);
+	const { onRowClick, table } = React.useContext(TableContext);
 
 	const scrollContentRef = React.useRef(null);
 	const { hasScroll, percentage } = useIsHorizontalScrolled(scrollContentRef);
@@ -27,43 +26,36 @@ const TableContent: React.FC<TableContentProps> = (props: TableContentProps) => 
 
 	return (
 		<Flex position="relative">
-			<StyledContentTable {...rest} {...getTableProps()} minWidth="0 !important" ref={scrollContentRef}>
+			<StyledContentTable {...rest} minWidth="0 !important" ref={scrollContentRef}>
 				<Flex alignItems="center" flexDirection="column" minWidth={minWidth}>
-					{headerGroups.map(headerGroup => (
-						// eslint-disable-next-line react/jsx-key
-						<TableHeaderGroup {...headerGroup.getHeaderGroupProps()}>
-							{headerGroup.headers.map(column => {
-								return column.render('Header', {
-									...column.getHeaderProps(),
-									maxWidth: column.maxWidth
-								});
-							})}
+					{table.getHeaderGroups().map(headerGroup => (
+						<TableHeaderGroup key={headerGroup.id} role="row">
+							{headerGroup.headers.map(header => (
+								<TableHeaderCellWrapper key={header.id} flex={`${header.getSize()} 0 auto`} width={header.getSize()}>
+									{header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+								</TableHeaderCellWrapper>
+							))}
 						</TableHeaderGroup>
 					))}
 				</Flex>
-				<Flex {...getTableBodyProps()} alignItems="center" flexDirection="column" minWidth={minWidth} mt={2}>
-					{page.map(row => {
-						prepareRow(row);
-						return (
-							<React.Fragment key={row.getRowProps().key}>
-								<TableBodyRow
-									{...row.getRowProps()}
-									cursor={onRowClick ? 'pointer' : 'unset'}
-									onClick={() => {
-										if (onRowClick) onRowClick(row);
-									}}
-								>
-									{row.cells.map(cell => (
-										// eslint-disable-next-line react/jsx-key
-										<TableBodyCell {...cell.getCellProps()} maxWidth={cell.column.maxWidth}>
-											{cell.render('Cell')}
-										</TableBodyCell>
-									))}
-								</TableBodyRow>
-								<Divider paddingX={2} />
-							</React.Fragment>
-						);
-					})}
+				<Flex alignItems="center" flexDirection="column" minWidth={minWidth} mt={2}>
+					{table.getRowModel().rows.map(row => (
+						<React.Fragment key={row.id}>
+							<TableBodyRow
+								cursor={onRowClick ? 'pointer' : 'unset'}
+								onClick={() => {
+									if (onRowClick) onRowClick(row);
+								}}
+							>
+								{row.getVisibleCells().map(cell => (
+									<TableBodyCell key={cell.id} flex={`${cell.column.getSize()} 0 auto`} width={cell.column.getSize()}>
+										{flexRender(cell.column.columnDef.cell, cell.getContext())}
+									</TableBodyCell>
+								))}
+							</TableBodyRow>
+							<Divider paddingX={2} />
+						</React.Fragment>
+					))}
 				</Flex>
 			</StyledContentTable>
 			{hasScroll && (

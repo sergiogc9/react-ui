@@ -1,7 +1,7 @@
-import { CellProps } from 'react-table';
+import { CellContext } from '@tanstack/react-table';
 
 import { TextProps } from 'components/Text';
 
 export interface TableCellTextProps
-	extends CellProps<any>,
+	extends CellContext<any, any>,
 		TextProps<React.HTMLAttributes<HTMLSpanElement>, undefined> {}

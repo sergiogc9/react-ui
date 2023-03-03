@@ -1,13 +1,12 @@
 import React from 'react';
-import { cleanup, render, screen, waitFor } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Column } from 'react-table';
 import faker from 'faker';
 import range from 'lodash/range';
 
 import { withTheme } from 'components/private/utils/tests';
 
-import Table, { TableProps } from '.';
+import Table, { TableColumnDef, TableProps } from '.';
 
 type TestData = {
 	id: number;
@@ -15,14 +14,14 @@ type TestData = {
 	enabled: boolean;
 };
 
-const defaultColumns: Column<TestData>[] = [
-	{ accessor: 'id', Header: 'Id' },
-	{ accessor: 'name', Header: 'Name' },
+const defaultColumns: TableColumnDef<TestData>[] = [
+	{ accessorKey: 'id', id: 'id', header: 'Id' },
+	{ accessorKey: 'name', id: 'name', header: 'Name' },
 	{
-		accessor: 'enabled',
-		Cell: props => (props.value ? ('Enabled' as any) : ('Not enabled' as any)),
-		Header: 'Is enabled',
-		sortType: 'boolean'
+		accessorKey: 'enabled',
+		id: 'enabled',
+		cell: props => (props.getValue() ? 'Enabled' : 'Not enabled'),
+		header: 'Is enabled'
 	}
 ];
 
@@ -32,16 +31,14 @@ const defaultData: TestData[] = range(0, 100).map(num => ({
 	enabled: num % 2 === 0
 }));
 
-const mockOnSettingsChange = jest.fn();
-const mockOnSortChange = jest.fn();
+const mockOnSortingChange = jest.fn();
 
 const getComponent = (props: Partial<TableProps<TestData>> = {}) =>
 	withTheme(
 		<Table
 			data={defaultData}
 			columns={defaultColumns}
-			onSettingsChange={mockOnSettingsChange}
-			onSortChange={mockOnSortChange}
+			tableOptions={{ onSortingChange: mockOnSortingChange }}
 			{...props}
 		>
 			<Table.Toolbar>
@@ -67,8 +64,8 @@ describe('Table', () => {
 	it('should render header', () => {
 		renderComponent();
 
-		expect(screen.getByText(defaultColumns[0].Header as string)).toBeInTheDocument();
-		expect(screen.getByText(defaultColumns[1].Header as string)).toBeInTheDocument();
+		expect(screen.getByText(defaultColumns[0].header as string)).toBeInTheDocument();
+		expect(screen.getByText(defaultColumns[1].header as string)).toBeInTheDocument();
 	});
 
 	it('should render header with custom JSX', () => {
@@ -76,38 +73,40 @@ describe('Table', () => {
 			columns: [
 				defaultColumns[0],
 				{
-					accessor: 'name',
-					Header: props => <Table.HeaderCell {...props}>Awesome name</Table.HeaderCell>
+					accessorKey: 'name',
+					id: 'name',
+					header: props => <Table.HeaderCell.Default {...props}>Awesome name</Table.HeaderCell.Default>
 				}
 			]
 		});
 
-		expect(screen.getByText(defaultColumns[0].Header as string)).toBeInTheDocument();
+		expect(screen.getByText(defaultColumns[0].header as string)).toBeInTheDocument();
 		expect(screen.getByText('Awesome name')).toBeInTheDocument();
 	});
 
 	it('should render multiple header levels', () => {
 		renderComponent({
 			columns: [
-				{ id: 'common-info', Header: 'Common info', columns: defaultColumns },
+				{ id: 'common-info', header: 'Common info', columns: defaultColumns },
 				{
 					id: 'extra-info',
 					columns: [
-						{ accessor: 'email', Header: 'Email' },
-						{ accessor: 'country', Header: 'Country' }
+						{ accessorKey: 'email', id: 'email', header: 'Email' },
+						{ accessorKey: 'country', id: 'country', header: 'Country' }
 					],
-					Header: 'Extra info'
+					header: 'Extra info'
 				}
 			],
 			data: range(0, 100).map(num => ({
 				id: num,
 				name: faker.name.firstName(),
 				email: faker.internet.email(),
-				country: faker.address.country()
+				country: faker.address.country(),
+				enabled: true
 			}))
-		} as any);
+		});
 
-		expect(screen.getByText(defaultColumns[0].Header as string)).toBeInTheDocument();
+		expect(screen.getByText(defaultColumns[0].header as string)).toBeInTheDocument();
 		expect(screen.getByText('Common info')).toBeInTheDocument();
 		expect(screen.getByText('Extra info')).toBeInTheDocument();
 		expect(screen.getByText('Email')).toBeInTheDocument();
@@ -133,10 +132,12 @@ describe('Table', () => {
 		expect(screen.getByText('1-10 of 100')).toBeInTheDocument();
 	});
 
-	it('should filter rows with filters provided in initialState', () => {
+	it('should filter rows with filters provided from outside', () => {
 		renderComponent({
 			tableOptions: {
-				initialState: { filters: [{ id: 'name', value: defaultData[0].name }] }
+				initialState: {
+					columnFilters: [{ id: 'name', value: defaultData[0].name }]
+				}
 			}
 		});
 
@@ -144,7 +145,7 @@ describe('Table', () => {
 	});
 
 	it('should filter rows with filters provided by prop', () => {
-		renderComponent({ filters: [{ id: 'name', value: defaultData[0].name }] });
+		renderComponent({ tableOptions: { state: { columnFilters: [{ id: 'name', value: defaultData[0].name }] } } });
 
 		expect(screen.queryByText('TOTAL: 100 test results')).toBeNull();
 	});
@@ -154,13 +155,17 @@ describe('Table', () => {
 
 		expect(screen.getByText('TOTAL: 100 test results')).toBeInTheDocument();
 
-		rerender(getComponent({ filters: [{ id: 'name', value: defaultData[0].name }] }));
+		rerender(
+			getComponent({ tableOptions: { state: { columnFilters: [{ id: 'name', value: defaultData[0].name }] } } })
+		);
 
 		expect(screen.queryByText('TOTAL: 100 test results')).toBeNull();
 	});
 
 	it('should disable filter rows after updating prop', () => {
-		const { rerender } = render(getComponent({ filters: [{ id: 'name', value: defaultData[0].name }] }));
+		const { rerender } = render(
+			getComponent({ tableOptions: { state: { columnFilters: [{ id: 'name', value: defaultData[0].name }] } } })
+		);
 
 		expect(screen.queryByText('TOTAL: 100 test results')).toBeNull();
 
@@ -172,8 +177,8 @@ describe('Table', () => {
 	it('should not filter rows if manualFilters is set', () => {
 		renderComponent({
 			tableOptions: {
-				initialState: { filters: [{ id: 'name', value: defaultData[0].name }] },
-				manualFilters: true
+				state: { columnFilters: [{ id: 'name', value: defaultData[0].name }] },
+				manualFiltering: true
 			}
 		});
 
@@ -182,14 +187,14 @@ describe('Table', () => {
 
 	it('should global filter rows with filters provided in initialState', () => {
 		renderComponent({
-			tableOptions: { initialState: { globalFilter: defaultData[0].name } }
+			tableOptions: { state: { globalFilter: defaultData[0].name } }
 		});
 
 		expect(screen.queryByText('TOTAL: 100 test results')).toBeNull();
 	});
 
 	it('should global filter rows with filters provided by prop', () => {
-		renderComponent({ globalFilter: defaultData[0].name });
+		renderComponent({ tableOptions: { state: { globalFilter: defaultData[0].name } } });
 
 		expect(screen.queryByText('TOTAL: 100 test results')).toBeNull();
 	});
@@ -199,13 +204,13 @@ describe('Table', () => {
 
 		expect(screen.getByText('TOTAL: 100 test results')).toBeInTheDocument();
 
-		rerender(getComponent({ globalFilter: defaultData[0].name }));
+		rerender(getComponent({ tableOptions: { state: { globalFilter: defaultData[0].name } } }));
 
 		expect(screen.queryByText('TOTAL: 100 test results')).toBeNull();
 	});
 
 	it('should disable global filter rows after updating prop', () => {
-		const { rerender } = render(getComponent({ globalFilter: defaultData[0].name }));
+		const { rerender } = render(getComponent({ tableOptions: { state: { globalFilter: defaultData[0].name } } }));
 
 		expect(screen.queryByText('TOTAL: 100 test results')).toBeNull();
 
@@ -214,114 +219,22 @@ describe('Table', () => {
 		expect(screen.getByText('TOTAL: 100 test results')).toBeInTheDocument();
 	});
 
-	it('should toggle boolean order between all states when clicking column header', () => {
-		renderComponent({
-			tableOptions: { initialState: { sortBy: [{ id: 'id' }] } }
-		});
-
-		let [, , firstRowCell] = screen.queryAllByRole('cell');
-
-		userEvent.click(screen.getByText(defaultColumns[2].Header as string));
-		[, , firstRowCell] = screen.queryAllByRole('cell');
-
-		expect(firstRowCell.innerHTML).toBe('Not enabled');
-
-		userEvent.click(screen.getByText(defaultColumns[2].Header as string));
-		[, , firstRowCell] = screen.queryAllByRole('cell');
-
-		expect(firstRowCell.innerHTML).toBe('Enabled');
-	});
-
 	it('should call onSort change with asc sorting', () => {
 		renderComponent();
 
-		userEvent.click(screen.getByText(defaultColumns[1].Header as string));
+		userEvent.click(screen.getByText(defaultColumns[1].header as string));
 
-		expect(mockOnSortChange).toHaveBeenCalledTimes(1);
-		expect(mockOnSortChange).toHaveBeenCalledWith('name', false);
-	});
-
-	it('should call onSort change with desc sorting', () => {
-		renderComponent({
-			tableOptions: { initialState: { sortBy: [{ id: 'name' }] } }
-		});
-
-		userEvent.click(screen.getByText(defaultColumns[1].Header as string));
-
-		expect(mockOnSortChange).toHaveBeenCalledTimes(1);
-		expect(mockOnSortChange).toHaveBeenCalledWith('name', true);
-	});
-
-	it('should call onSort change when disabling sorting', () => {
-		renderComponent({
-			tableOptions: { initialState: { sortBy: [{ id: 'name', desc: true }] } }
-		});
-
-		userEvent.click(screen.getByText(defaultColumns[1].Header as string));
-
-		expect(mockOnSortChange).toHaveBeenCalledTimes(1);
-		expect(mockOnSortChange).toHaveBeenCalledWith('name', false);
-	});
-
-	it('should not call onSort change if not provided', () => {
-		renderComponent({ onSortChange: undefined });
-
-		userEvent.click(screen.getByText(defaultColumns[1].Header as string));
-
-		expect(mockOnSortChange).toHaveBeenCalledTimes(0);
-	});
-
-	it('should call on settings change handler when sorting changes', async () => {
-		jest.useRealTimers();
-		renderComponent();
-
-		userEvent.click(screen.getByText(defaultColumns[1].Header as string));
-
-		await waitFor(() => expect(mockOnSettingsChange).toHaveBeenCalledTimes(1));
-		expect(mockOnSettingsChange).toHaveBeenCalledWith(
-			expect.objectContaining({
-				sortBy: [
-					{
-						desc: false,
-						id: 'name'
-					}
-				]
-			})
-		);
-	});
-
-	it('should not call on settings change handler when sorting changes if not provided', async () => {
-		jest.useRealTimers();
-		renderComponent({ onSettingsChange: undefined });
-
-		userEvent.click(screen.getByText(defaultColumns[1].Header as string));
-
-		// Waiting for debounced callback to be called
-		await new Promise(resolve => setTimeout(resolve, 200));
-
-		expect(mockOnSettingsChange).toHaveBeenCalledTimes(0);
+		expect(mockOnSortingChange).toHaveBeenCalledTimes(1);
 	});
 
 	it('should paginate to page index provided in initialState', () => {
-		renderComponent({ tableOptions: { initialState: { pageIndex: 2 } } });
+		renderComponent({ tableOptions: { initialState: { pagination: { pageIndex: 2 } } } });
 
 		expect(screen.getByText('21-30 of 100')).toBeInTheDocument();
 	});
 
 	it('should paginate with page size provided in initialState', () => {
-		renderComponent({ tableOptions: { initialState: { pageSize: 20 } } });
-
-		expect(screen.getByText('1-20 of 100')).toBeInTheDocument();
-	});
-
-	it('should paginate to page index provided by prop', () => {
-		renderComponent({ pageIndex: 2 });
-
-		expect(screen.getByText('21-30 of 100')).toBeInTheDocument();
-	});
-
-	it('should paginate with page size provided by prop', () => {
-		renderComponent({ pageSize: 20 });
+		renderComponent({ tableOptions: { initialState: { pagination: { pageSize: 20 } } } });
 
 		expect(screen.getByText('1-20 of 100')).toBeInTheDocument();
 	});
@@ -331,7 +244,7 @@ describe('Table', () => {
 
 		expect(screen.getByText('1-10 of 100')).toBeInTheDocument();
 
-		rerender(getComponent({ pageIndex: 2 }));
+		rerender(getComponent({ tableOptions: { state: { pagination: { pageSize: 10, pageIndex: 2 } } } }));
 
 		expect(screen.getByText('21-30 of 100')).toBeInTheDocument();
 	});
@@ -341,13 +254,15 @@ describe('Table', () => {
 
 		expect(screen.getByText('1-10 of 100')).toBeInTheDocument();
 
-		rerender(getComponent({ pageSize: 20 }));
+		rerender(getComponent({ tableOptions: { state: { pagination: { pageSize: 20, pageIndex: 0 } } } }));
 
 		expect(screen.getByText('1-20 of 100')).toBeInTheDocument();
 	});
 
 	it('should paginate to default index after removing prop', () => {
-		const { rerender } = render(getComponent({ pageIndex: 2 }));
+		const { rerender } = render(
+			getComponent({ tableOptions: { state: { pagination: { pageSize: 10, pageIndex: 2 } } } })
+		);
 
 		expect(screen.getByText('21-30 of 100')).toBeInTheDocument();
 
@@ -357,7 +272,9 @@ describe('Table', () => {
 	});
 
 	it('should paginate with page size after removing prop', () => {
-		const { rerender } = render(getComponent({ pageSize: 20 }));
+		const { rerender } = render(
+			getComponent({ tableOptions: { state: { pagination: { pageSize: 20, pageIndex: 0 } } } })
+		);
 
 		expect(screen.getByText('1-20 of 100')).toBeInTheDocument();
 
@@ -374,18 +291,18 @@ describe('Table', () => {
 
 	it('should render column width based on getCellWidthText column option', () => {
 		renderComponent({
-			columns: [{ ...defaultColumns[0], getCellWidthText: () => 'test' }, defaultColumns[1]]
+			columns: [{ ...defaultColumns[0], getCellWidthText: () => 'test example' }, defaultColumns[1]]
 		});
 
 		const firstCell = screen.queryAllByRole('cell')[0];
 		expect(firstCell).toHaveStyle(`
-			flex: 40 0 auto;
+			flex: 120 0 auto;
 		`);
 	});
 
 	it('should render column width based on width column option', () => {
 		renderComponent({
-			columns: [{ ...defaultColumns[0], width: 110 }, defaultColumns[1]]
+			columns: [{ ...defaultColumns[0], size: 110 }, defaultColumns[1]]
 		});
 
 		const firstCell = screen.queryAllByRole('cell')[0];
@@ -399,7 +316,7 @@ describe('Table', () => {
 			columns: [
 				{
 					...defaultColumns[0],
-					accessor: ((row: TestData) => row.id) as any,
+					accessorFn: ((row: TestData) => row.id) as any,
 					id: 'id'
 				},
 				defaultColumns[1]
@@ -408,20 +325,18 @@ describe('Table', () => {
 
 		const firstCell = screen.queryAllByRole('cell')[0];
 		expect(firstCell).toHaveStyle(`
-			flex: 20 0 auto;
+			flex: 60 0 auto;
 		`);
 	});
 
-	it('should hide columns provided by prop', () => {
-		renderComponent({ hiddenColumns: ['name'] });
+	it('should hide columns provided by state', () => {
+		renderComponent({ tableOptions: { state: { columnVisibility: { name: false } } } });
 
 		expect(screen.queryByText(defaultData[0].name)).toBeNull();
 	});
 
 	it('should hide columns provided by initialState prop', () => {
-		renderComponent({
-			tableOptions: { initialState: { hiddenColumns: ['name'] } }
-		});
+		renderComponent({ tableOptions: { initialState: { columnVisibility: { name: false } } } });
 
 		expect(screen.queryByText(defaultData[0].name)).toBeNull();
 	});
@@ -431,13 +346,13 @@ describe('Table', () => {
 
 		expect(screen.getByText(defaultData[0].name)).toBeInTheDocument();
 
-		rerender(getComponent({ hiddenColumns: ['name'] }));
+		rerender(getComponent({ tableOptions: { state: { columnVisibility: { name: false } } } }));
 
 		expect(screen.queryByText(defaultData[0].name)).toBeNull();
 	});
 
 	it('should revert hide columns after updating prop', () => {
-		const { rerender } = render(getComponent({ hiddenColumns: ['name'] }));
+		const { rerender } = render(getComponent({ tableOptions: { state: { columnVisibility: { name: false } } } }));
 
 		expect(screen.queryByText(defaultData[0].name)).toBeNull();
 

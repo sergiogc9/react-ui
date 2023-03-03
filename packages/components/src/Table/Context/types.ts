@@ -1,8 +1,7 @@
-import { Row, TableInstance } from 'react-table';
-import { TableProps } from '../types';
+import { Row, Table } from '@tanstack/react-table';
 
 export interface TableContextData<Data extends Record<string, unknown>> {
 	onRowClick?: (row: Row<Data>) => void;
-	rowsCount?: TableProps<Data>['rowsCount'];
-	tableInstance: TableInstance<Data>;
+	rowsCount?: number;
+	table: Table<Data>;
 }

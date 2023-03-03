@@ -18,7 +18,8 @@ const TableBodyCell: React.FC<TableBodyCellProps> = styled(Flex)<TableBodyCellPr
 `;
 
 TableBodyCell.defaultProps = {
-	px: '12px'
+	px: '12px',
+	role: 'cell'
 };
 
 export default TableBodyCell;

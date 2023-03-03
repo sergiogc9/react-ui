@@ -6,47 +6,47 @@ import merge from 'lodash/merge';
 import { RecursivePartial } from 'components/types';
 import { withTheme } from 'components/private/utils/tests';
 
-import TableHeaderCell from '.';
-import { TableHeaderCellProps } from './types';
+import TableHeaderCellDefault from '.';
+import { TableHeaderCellDefaultProps } from './types';
 
-const tableHeaderCellTestId1 = 'TableHeaderCell1';
-const tableHeaderCellTestId2 = 'TableHeaderCell2';
-const tableHeaderCellTestId3 = 'TableHeaderCell3';
+const tableHeaderCellDefaultTestId1 = 'TableHeaderCellDefault1';
+const tableHeaderCellDefaultTestId2 = 'TableHeaderCellDefault2';
+const tableHeaderCellDefaultTestId3 = 'TableHeaderCellDefault3';
 
 const cellFirstText = 'First Header';
 const cellSecondText = 'Second Header';
 const cellThirdText = 'Third Header';
 
-const mockOnToggleSortBy = jest.fn();
+const mockToggleSorting = jest.fn();
 
-const defaultProps: RecursivePartial<TableHeaderCellProps> = {
+const defaultProps: RecursivePartial<TableHeaderCellDefaultProps> = {
 	column: {
-		canSort: false,
-		isSorted: false,
-		isSortedDesc: false,
-		toggleSortBy: mockOnToggleSortBy
+		getCanSort: () => false,
+		getIsSorted: () => false,
+		getCanMultiSort: () => false,
+		toggleSorting: mockToggleSorting
 	}
 };
 
-const getComponent = (props: RecursivePartial<TableHeaderCellProps> = {}) => {
+const getComponent = (props: RecursivePartial<TableHeaderCellDefaultProps> = {}) => {
 	return render(
 		withTheme(
 			<>
-				<TableHeaderCell data-testid={tableHeaderCellTestId1} {...merge(defaultProps, props as any)}>
+				<TableHeaderCellDefault data-testid={tableHeaderCellDefaultTestId1} {...merge(defaultProps, props as any)}>
 					{cellFirstText}
-				</TableHeaderCell>
-				<TableHeaderCell data-testid={tableHeaderCellTestId2} {...merge(defaultProps, props as any)}>
+				</TableHeaderCellDefault>
+				<TableHeaderCellDefault data-testid={tableHeaderCellDefaultTestId2} {...merge(defaultProps, props as any)}>
 					{cellSecondText}
-				</TableHeaderCell>
-				<TableHeaderCell data-testid={tableHeaderCellTestId3} {...merge(defaultProps, props as any)}>
+				</TableHeaderCellDefault>
+				<TableHeaderCellDefault data-testid={tableHeaderCellDefaultTestId3} {...merge(defaultProps, props as any)}>
 					{cellThirdText}
-				</TableHeaderCell>
+				</TableHeaderCellDefault>
 			</>
 		)
 	);
 };
 
-describe('TableHeaderCell', () => {
+describe('TableHeaderCellDefault', () => {
 	afterEach(cleanup);
 
 	beforeEach(() => {
@@ -56,11 +56,11 @@ describe('TableHeaderCell', () => {
 	it('should render first header cell with correct styles', () => {
 		getComponent();
 
-		expect(screen.getByTestId(tableHeaderCellTestId1)).toHaveStyle(`
+		expect(screen.getByTestId(tableHeaderCellDefaultTestId1)).toHaveStyle(`
 			align-items: center;
 			font-size: 14px;
 			font-weight: 600;
-			padding-left: 16px;
+			padding-left: 12px;
 			transition: background-color ease-in 0.15s;
 		`);
 	});
@@ -68,7 +68,7 @@ describe('TableHeaderCell', () => {
 	it('should render second header cell with correct styles', () => {
 		getComponent();
 
-		expect(screen.getByTestId(tableHeaderCellTestId2)).toHaveStyle(`
+		expect(screen.getByTestId(tableHeaderCellDefaultTestId2)).toHaveStyle(`
 			align-items: center;
 			font-size: 14px;
 			font-weight: 600;
@@ -79,11 +79,11 @@ describe('TableHeaderCell', () => {
 	it('should render last header cell with correct styles', () => {
 		getComponent();
 
-		expect(screen.getByTestId(tableHeaderCellTestId3)).toHaveStyle(`
+		expect(screen.getByTestId(tableHeaderCellDefaultTestId3)).toHaveStyle(`
 			align-items: center;
 			font-size: 14px;
 			font-weight: 600;
-			padding-right: 16px;
+			padding-right: 12px;
 			transition: background-color ease-in 0.15s;
 		`);
 	});
@@ -97,7 +97,7 @@ describe('TableHeaderCell', () => {
 	});
 
 	it('should not render arrows if sorting enabled but column not sorted', () => {
-		const { container } = getComponent({ column: { canSort: true } });
+		const { container } = getComponent({ column: { getCanSort: () => true } });
 
 		const icon = container.querySelector('svg')!;
 		const path = container.querySelector('path')!;
@@ -111,7 +111,7 @@ describe('TableHeaderCell', () => {
 
 	it('should render down arrow if sorting enabled and column sorted desc', () => {
 		const { container } = getComponent({
-			column: { canSort: true, isSorted: true, isSortedDesc: true }
+			column: { getCanSort: () => true, getIsSorted: () => 'desc' }
 		});
 
 		const icon = container.querySelector('svg')!;
@@ -125,7 +125,7 @@ describe('TableHeaderCell', () => {
 
 	it('should render upward arrow if sorting enabled and column sorted asc', () => {
 		const { container } = getComponent({
-			column: { canSort: true, isSorted: true, isSortedDesc: false }
+			column: { getCanSort: () => true, getIsSorted: () => 'asc' }
 		});
 
 		const icon = container.querySelector('svg')!;
@@ -138,18 +138,18 @@ describe('TableHeaderCell', () => {
 	});
 
 	it('should toggle column order by clicking', () => {
-		getComponent({ column: { canSort: true } });
+		getComponent({ column: { getCanSort: () => true } });
 
-		userEvent.click(screen.getByTestId(tableHeaderCellTestId1));
+		userEvent.click(screen.getByTestId(tableHeaderCellDefaultTestId1));
 
-		expect(mockOnToggleSortBy).toHaveBeenCalled();
+		expect(mockToggleSorting).toHaveBeenCalled();
 	});
 
 	it('should not toggle column order by clicking if order is disabled', () => {
-		getComponent({ column: { canSort: false } });
+		getComponent({ column: { getCanSort: () => false } });
 
-		userEvent.click(screen.getByTestId(tableHeaderCellTestId1));
+		userEvent.click(screen.getByTestId(tableHeaderCellDefaultTestId1));
 
-		expect(mockOnToggleSortBy).not.toHaveBeenCalled();
+		expect(mockToggleSorting).not.toHaveBeenCalled();
 	});
 });

@@ -8,12 +8,11 @@ import { TableTotalResultsProps } from './types';
 const TableToolbar: React.FC<TableTotalResultsProps> = (props: TableTotalResultsProps) => {
 	const { render, ...rest } = props;
 
-	const {
-		rowsCount,
-		tableInstance: { rows }
-	} = React.useContext(TableContext);
+	const { rowsCount, table } = React.useContext(TableContext);
 
-	return <Flex {...rest}>{render({ totalResults: rowsCount ?? rows.length })}</Flex>;
+	const { rows: filteredRows } = table.getFilteredRowModel();
+
+	return <Flex {...rest}>{render({ totalResults: rowsCount ?? filteredRows.length })}</Flex>;
 };
 
 export default React.memo(TableToolbar);

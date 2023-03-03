@@ -1,22 +1,22 @@
 import React from 'react';
+import { SortDirection } from '@tanstack/react-table';
 
 import Icon, { IconProps } from 'components/Icon';
 
-import StyledTableHeaderCell, { StyledTableHeaderCellContent } from './styled';
-import { TableHeaderCellProps } from './types';
+import StyledTableHeaderCell, { StyledTableHeaderCellDefaultContent } from './styled';
+import { TableHeaderCellDefaultProps } from './types';
 
-const TableHeaderCell: React.FC<TableHeaderCellProps> = props => {
-	const {
-		children,
-		data,
-		column: { canSort, isSorted, isSortedDesc, toggleSortBy },
-		headers,
-		...rest
-	} = props;
+const TableHeaderCell: React.FC<TableHeaderCellDefaultProps> = props => {
+	const { children, column, header, ...rest } = props;
+
+	const canSort = column.getCanSort();
+	const canMultiSort = column.getCanMultiSort();
+	const isSorted = !!column.getIsSorted();
+	const isSortedDesc = isSorted && (column.getIsSorted() as SortDirection) === 'desc';
 
 	const onHeaderClicked = React.useCallback(() => {
-		if (canSort) toggleSortBy();
-	}, [canSort, toggleSortBy]);
+		if (canSort) column.toggleSorting(undefined, canMultiSort);
+	}, [canMultiSort, canSort, column]);
 
 	const rightContent = React.useMemo(() => {
 		if (!canSort) return null;
@@ -37,7 +37,7 @@ const TableHeaderCell: React.FC<TableHeaderCellProps> = props => {
 
 	return (
 		<StyledTableHeaderCell {...rest} canSort={canSort} onClick={onHeaderClicked}>
-			<StyledTableHeaderCellContent>{children}</StyledTableHeaderCellContent>
+			<StyledTableHeaderCellDefaultContent>{children}</StyledTableHeaderCellDefaultContent>
 			{rightContent}
 		</StyledTableHeaderCell>
 	);

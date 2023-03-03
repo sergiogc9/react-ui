@@ -1,6 +1,7 @@
 import { createNameSpacedComponent } from '@sergiogc9/react-utils';
+import { createColumnHelper } from '@tanstack/react-table';
 
-import TableHeaderCell, { TableHeaderCellProps } from './Header/Cell';
+import TableHeaderCell, { TableHeaderCellDefaultProps } from './Header/Cell';
 import TableCell, { TableCellDefaultProps, TableCellDateProps, TableCellTextProps } from './Cell';
 import TableContent, { TableContentProps } from './Content';
 import TablePagination, { TablePaginationProps } from './Pagination';
@@ -8,17 +9,16 @@ import TableSkeleton, { TableSkeletonProps, TableSkeletonContentProps } from './
 import TableToolbar, { TableToolbarProps } from './Toolbar';
 import TableTotalResults, { TableTotalResultsProps } from './TotalResults';
 import Table from './Table';
-import { TableProps, TableCellProps, TableColumn, TableOptions } from './types';
+import { Row, TableColumnDef, TableProps } from './types';
 
 export type {
-	TableCellProps,
-	TableColumn,
+	Row,
 	TableCellDateProps,
 	TableCellDefaultProps,
 	TableCellTextProps,
+	TableColumnDef,
 	TableContentProps,
-	TableHeaderCellProps,
-	TableOptions,
+	TableHeaderCellDefaultProps,
 	TablePaginationProps,
 	TableProps,
 	TableSkeletonProps,
@@ -26,6 +26,7 @@ export type {
 	TableToolbarProps,
 	TableTotalResultsProps
 };
+export { createColumnHelper };
 export default createNameSpacedComponent(Table, {
 	Cell: TableCell,
 	Content: TableContent,

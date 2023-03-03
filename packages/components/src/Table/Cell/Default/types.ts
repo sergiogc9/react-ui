@@ -1,9 +1,9 @@
 import React from 'react';
-import { CellProps } from 'react-table';
+import { CellContext } from '@tanstack/react-table';
 
 import { FlexProps } from 'components/Flex';
 import { TextProps } from 'components/Text';
 
 type Props = React.PropsWithChildren<FlexProps> | TextProps;
 
-export type TableCellDefaultProps = CellProps<any> & Props;
+export type TableCellDefaultProps = CellContext<any, any> & Props;

@@ -9,7 +9,9 @@ const cellValue = 'Fake value';
 const tableCellDefaultTestId = 'TableCellDefault';
 
 const getComponent = (props: any = {}) => {
-	return render(withTheme(<TableCellDefault data-testid={tableCellDefaultTestId} value={cellValue} {...props} />));
+	return render(
+		withTheme(<TableCellDefault data-testid={tableCellDefaultTestId} cell={{ getValue: () => cellValue }} {...props} />)
+	);
 };
 
 describe('TableCellDefault', () => {

@@ -28,15 +28,13 @@ import Text from 'components/Text';
 
 ## Introduction
 
-The table components helps is useful to show data in grid.
+It's built based on the library `TanStack Table`, hence its documentation should be checked before going further in this documentation:
 
-It's built based on the library `react-table`, hence its documentation should be checked before going further in this documentation:
-
-[React table docs](https://react-table.tanstack.com/docs/overview)
+[TanStack Table docs](https://tanstack.com/table/v8/docs/guide/introduction)
 
 The Table components are the following:
 
-- `Table`: The table wrapper component itself. It is a Box component with `display: block` which encapsulates all the logic together with `react-table`. This component **must wrap the other components**.
+- `Table`: The table wrapper component itself. It is a Box component with `display: block` which encapsulates all the logic together with `TanStack table`. This component **must wrap the other components**.
 - `Table.Content`: The component that renders the table content (headers and rows). It is a Box component which can receive all Box Props **except flexbox related props** because it is not a flex container.
 - `Table.HeaderCell`: The component to render as a header column cell. It encapsulates some logic as, for example, showing or hiding the sorting arrows. It should only be used if custom header cells are needed.
 - `Table.Cell`: The component to render as a row cell. It basically prints the value of the column for the desired row. This is one of the built-in `Cell` components that are available to use (more info below).
@@ -44,14 +42,71 @@ The Table components are the following:
 - `Table.TotalResults`: A helpful component to render the total number of rows. Use its `render` prop which receives the number of rows to render the desired content.
 - `Table.Pagination`: A plug and play component to show a simple pagination.
 
-As it can be seen in `react-table` docs, the `useTable` hook needs an `options` object and some **plugins**. The Table component can receive these options but the plugins used can not be customized in each Table.
+As it can be seen in `TanStack table` docs, the `useReactTable` hook needs an `options`. You can use them for customizing the table behavior using the `tableOptions` props. The `data` and `columns` props must be provided as separated props.
 
-The used plugins inside Table are:
+An example of use is the following:
 
-- `useFlexLayout`: Defines the layout.
-- `useSortBy`: Helps sorting the table results.
-- `useFilters`: Helps filtering the table results.
-- `usePagination`: Helps with paginating the results.
+```tsx
+import { createColumnHelper, Table } from '@sergiogc9/react-ui';
+
+type Data = {
+	id: number;
+	name: string;
+	date: Date;
+};
+
+const columnHelper = createColumnHelper<Data>();
+
+const CustomTable = () => {
+	const columns = React.useMemo(
+		() => [
+			columnHelper.accessor('id', {
+				id: 'id',
+				cell: props => <Table.Cell.Text {...props} aspectSize="xs" color="neutral.600" />,
+				header: 'ID',
+				size: 40
+			}),
+			columnHelper.accessor('name', {
+				id: 'name',
+				cell: props => <Table.Cell.Text {...props} fontWeight="bold" />,
+				header: 'Name'
+			}),
+			{
+				...columnHelper.accessor('date', {
+					id: 'date',
+					cell: Table.Cell.Date,
+					header: 'Register date'
+				}),
+				getCellWidthText: () => 'May 20, 2013'
+			}
+		],
+		[]
+	);
+
+	const data = React.useMemo<Data[]>(() => {
+		return Array.from(Array(1000).keys()).map<Data>((_, index) => ({
+			id: index + 1,
+			name: faker.name.firstName(),
+			date: faker.date.recent(10 * 365)
+		}));
+	}, []);
+
+	return (
+		<Table columns={columns} data={data} width="90vw">
+			<Table.Toolbar>
+				<Table.TotalResults
+					render={({ totalResults }) => <Text aspectSize="xs">{`Total instagramers: ${totalResults}`}</Text>}
+				/>
+				<Table.Pagination ml="auto" />
+			</Table.Toolbar>
+			<Table.Content minWidth={1280} />
+			<Table.Toolbar>
+				<Table.Pagination ml="auto" />
+			</Table.Toolbar>
+		</Table>
+	);
+};
+```
 
 ## Table component
 
@@ -59,16 +114,15 @@ The Table component can receive any prop from Box component. Also it has the fol
 
 ### `columns`
 
-The columns prop is **required** and it must be an array of [Column options](https://react-table.tanstack.com/docs/api/useTable#column-options). It accepts all properties specified in `react-table` docs plus the added by the available plugins.
+The columns prop is **required** and it must be an array of [column definition options](https://tanstack.com/table/v8/docs/guide/column-defs) plus some other options added in this component.
 
 Important:
 
 - It must **be memoized**.
 - Nested column grouping is supported.
-- Each column must **have both Header and Cell attributes**.
 - Header attribute can be a string or a Component. If a string is provided, the default `Table.HeaderCell` is used.
 - Cell attribute must be a Component. It can be one of the pre-defined (`Table.Cell`, `Table.Cell.Date`, etc...) or a totally customized one. Keep in mind that the returned JSX by this component will be placed inside a Box component.
-- By default, each column width **is automatically defined based on all cells value**. See columns width section for further documentation.
+- By default, each column width **is automatically defined based on all cells value**. See columns sizing section for further documentation.
 
 Example with three columns:
 
@@ -83,35 +137,35 @@ const columns = React.useMemo<Column<Data>[]>(
 	() => [
 		{
 			id: 'name',
-			accessor: 'name',
-			Header: 'Name', // Use default Table.HeaderCell,
-			Cell: Table.Cell,
-			width: 100
+			accessorKey: 'name',
+			header: 'Name', // Use default Table.HeaderCell,
+			cell: Table.Cell.Default,
+			size: 100
 		},
 		{
 			id: 'email',
-			accessor: 'email',
+			accessorKey: 'email',
 			// Example with custom content and style
-			Header: props => (
-				<Table.HeaderCell {...props} justifyContent="center">
+			header: props => (
+				<Table.HeaderCell.Default {...props} justifyContent="center">
 					<Icon icon="info" styling="outlined" />
-				</Table.HeaderCell>
+				</Table.HeaderCell.Default>
 			),
 			// Example with custom cell
-			Cell: props => (
+			cell: props => (
 				<Table.Cell.Default {...props} justifyContent="center">
 					<TextField value={props.value} />
 				</Table.Cell.Default>
 			),
-			width: 200
+			size: 200
 		},
 		{
 			id: 'age',
-			accessor: 'age',
-			Header: 'Age',
+			accessorKey: 'age',
+			header: 'Age',
 			// Example with date specific pre-defined cell component
-			Cell: Table.Cell.Date,
-			width: 100
+			cell: Table.Cell.Date,
+			size: 100
 		}
 	],
 	[]
@@ -155,12 +209,12 @@ const data = React.useMemo<Data[]>(
 
 ### `tableOptions`
 
-The options prop can be used to specify other optional `react-table` options than `columns` and `data`. All options passed will be directly passed to `useTable` hook.
+The options prop can be used to specify other optional `TanStack table` options than `columns` and `data`. All options passed will be directly passed to `useReactTable` hook.
 
 Important:
 
 - Use it if you want to control from outside some features as sorting or pagination.
-- Remember to check additional options added by each available plugin!
+- There are some defined options set by default, but they can be overriden when needed.
 
 ### `rowsCount`
 
@@ -174,7 +228,7 @@ By default, each column width **is automatically defined based on all cells valu
 
 The Table component computes each column width based on the cell value obtained from the data. There are some considerations:
 
-- The minimum width is 20.
+- The minimum width is 60.
 - The maximum width is 400.
 - Remember to set a min-width in the Table component to avoid columns to be positioned over another.
 - Use the `getCellWidthText` column option to specify a different text value than the provided in the data:
@@ -184,9 +238,9 @@ The Table component computes each column width based on the cell value obtained 
 
 ### Custom width
 
-You can use custom widths using the prop `width` to set flex components width. Keep in mind that **its values are flex-basis values** and not pixels. For example, if you want a column to be the double than another, you can set widths of `50` and `100`. Using the `width` column option will prevent that column from performing the automatic width computation.
+You can use custom widths using the column definition property `size` to set flex components width. Keep in mind that **its values are flex-basis values** and not pixels. For example, if you want a column to be the double than another, you can set widths of `50` and `100`. Using the `size` column option will prevent that column from performing the automatic width computation.
 
-TIP: Use both `minWidth` and `maxWidth` values to define a **fixed column width**.
+TIP: Use both `minSize` and `maxSize` values to define a **fixed column width**.
 
 ## Controlled vs uncontrolled
 
@@ -196,60 +250,13 @@ _IMPORTANT_: Remember that filtering is always controlled from outside!
 
 #### _Controlled_
 
-Use it when parent component **IS RESPONSIBLE** for updating the data to be shown in the table. When controlling from outside, you should use `manualPagination`, `manualSortBy` and other table props. When using these props, the table won't perform sorting, pagination nor ordering by its own and it **PRINTS ALL ROWS PROVIDED IN `data`** prop, so only specific sorted, paginated and filtered rows should be provided.
+Use it when parent component **IS RESPONSIBLE** for updating the data to be shown in the table. When controlling from outside, you should use `manualPagination`, `manualSorting` and other table props. When using these props, the table won't perform sorting, pagination nor ordering by its own and it **PRINTS ALL ROWS PROVIDED IN `data`** prop, so only specific sorted, paginated and filtered rows should be provided.
 
-The parent component is responsible to listen for user interactions using handler props. There are many handlers that can be used to listen for changes in pagination or sorting, but **BY DEFAULT the prop `onSettingsChange` SHOULD BE USED** to listen for these changes!
+The parent component is responsible to listen for user interactions using handler props. There are many handlers that can be used to listen for changes in pagination or sorting.
 
 #### _Uncontrolled_
 
 Use the uncontrolled mode when you want let the table the responsibility for sorting and paginate all data. In this mode, you only need to provide the data and let the table do the magic.
-
-## Sorting
-
-The Table component uses the [useSortBy](https://react-table.tanstack.com/docs/api/useSortBy) plugin to easily enable some sorting features.
-
-- Multi-sorting is not compatible at this moment.
-- Sorting is enabled by default. You can disable it using the `disableSortBy` table option.
-- By default, all columns are sortable by default. Disable it using the `disableSortBy` column option.
-- If the column is sortable, the table can be sorted by clicking on a column header.
-- You can use a pre-defined sort function (see docs) or use a custom one passing a function to `sortType` column option.
-  **IMPORTANT**: Custom sorting functions can be added as pre-defined functions in Table component. If it is a common use case, add the sorting function in Table level please.
-
-If you want to control the sorting from outside the table, set the option `manualSortBy` with a `true` value. Then, use the `onSortChange` prop to handle the changes.
-
-Custom pre-defined sorting options:
-
-- `boolean`: Sorts columns based on boolean values.
-
-## Filtering
-
-The Table component uses the [useFilters](https://react-table.tanstack.com/docs/api/useFilters) and [useGlobalFilter](https://react-table.tanstack.com/docs/api/useGlobalFilter) plugins to easily enable some filtering features.
-
-**IMPORTANT**: You can follow the same approach implementing the filters inside the Table if wanted but the `Table` component has been implemented to be fully controlled from outside using the `filters` prop.
-
-- Use `filters` and `globalFilter` props to modify the filters to be used.
-- Don't use `tableOptions.initialState.filters` option. Use `filters` prop instead. By default, in first render the `tableOptions.initialState.filters` is used if passed.
-- Don't use `tableOptions.initialState.globalFilter` option. Use `globalFilter` prop instead. By default, in first render the `tableOptions.initialState.globalFilter` is used if passed.
-- To prevent a column to be filtered using the `globalFilter` use the `disableGlobalFilter` column option.
-- Remember to specify a `filter` column option and/or `globalFilter` table option to specify filter type. A function can be used for custom filtering. If string is passed, a pre-defined or built-in filter is used.
-  **IMPORTANT**: Custom filtering functions can be added as pre-defined functions in Table component. If it is a common use case, add the sorting function in Table level please.
-
-_Controlled vs uncontrolled filtering:_
-
-The above docs should be used to filter the data provided with the `data` prop. This means the filters will be applied into provided `data`. **If you want to fully control the filtering from outside, DO NOT USE** these filters features but provide the data filtered instead.
-
-## Pagination
-
-The Table component uses the [usePagination](https://react-table.tanstack.com/docs/api/usePagination) plugin in order to easily enable pagination features.
-
-- Use the `Table.Pagination` component to show the built-in pagination component.
-- Use the `onSettingsChange` prop in `Table` or `onGoToPage` prop in `Table.Pagination` to handle pagination user actions.
-- You can control from outside the current page as its size by changing `pageIndex`, `pageSize` and `pageCount` props.
-- To use a full controlled mode use the `manualPagination` table option.
-
-_Controlled vs uncontrolled pagination:_
-
-When using the `manualPagination` prop the table will still change between pages but it won't perform any pagination inside data, showing in the table all the data provided! When using it, the parent component **should only provide the data for the current paginated page**.
 
 ## Table API
 

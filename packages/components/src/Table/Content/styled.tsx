@@ -10,6 +10,7 @@ const StyledTableContent: React.FC<TableContentProps> = styled(Flex)<TableConten
 
 StyledTableContent.defaultProps = {
 	overflowX: 'auto',
+	role: 'table',
 	width: '100%'
 };
 

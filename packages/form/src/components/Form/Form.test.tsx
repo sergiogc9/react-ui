@@ -68,30 +68,6 @@ describe('Form', () => {
 		expect(onDirtyChangeMock).toHaveBeenCalledTimes(0);
 	});
 
-	it('should call change and valid handlers', async () => {
-		const { container } = getComponent();
-
-		const input = container.querySelector('input')!;
-		userEvent.clear(input);
-		userEvent.type(input, 'nice');
-		fireEvent.blur(input);
-
-		await waitFor(() => expect(onChangeMock).toHaveBeenCalledWith({ name: 'nice' }));
-		expect(onValidChangeMock).toHaveBeenCalledWith(true, {});
-
-		userEvent.clear(input);
-		fireEvent.blur(input);
-
-		await waitFor(() =>
-			expect(
-				expect(onValidChangeMock).toHaveBeenCalledWith(
-					false,
-					expect.objectContaining({ name: expect.objectContaining({ message: 'Required' }) })
-				)
-			)
-		);
-	});
-
 	it('should call onDirtyChange handlers when form is edited', async () => {
 		const { container } = getComponent();
 

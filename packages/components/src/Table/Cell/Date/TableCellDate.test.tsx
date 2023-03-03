@@ -13,13 +13,13 @@ const getComponent = (props: any = {}) => {
 
 describe('TableCellDate', () => {
 	it('should render cell with correct locale string', () => {
-		getComponent({ value: '2021-06-15T12:34:18.547Z' });
+		getComponent({ cell: { getValue: () => '2021-06-15T12:34:18.547Z' } });
 
 		expect(screen.getByText('Jun 15, 2021')).toBeInTheDocument();
 	});
 
 	it('should render cell with correct date', () => {
-		getComponent({ value: new Date('2021-06-15T12:34:18.547Z') });
+		getComponent({ cell: { getValue: () => new Date('2021-06-15T12:34:18.547Z') } });
 
 		expect(screen.getByText('Jun 15, 2021')).toBeInTheDocument();
 	});

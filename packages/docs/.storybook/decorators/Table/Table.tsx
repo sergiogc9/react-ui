@@ -1,7 +1,7 @@
 import React from 'react';
 import { DecoratorFn } from '@storybook/react';
 import faker from 'faker';
-import { Button, Chip, ChipProps, Table, TableCellProps, TableColumn } from '@sergiogc9/react-ui';
+import { Button, Chip, ChipProps, createColumnHelper, Table } from '@sergiogc9/react-ui';
 
 type Data = {
 	age: number;
@@ -21,86 +21,95 @@ const getVariantFromProgress = (progress: number): ChipProps['variant'] => {
 	return 'blue';
 };
 
+const columnHelper = createColumnHelper<Data>();
+
 const TableDecorator: DecoratorFn = (story, context) => {
-	const columns = React.useMemo<TableColumn<Data>[]>(
+	const columns = React.useMemo(
 		() => [
+			columnHelper.accessor('id', {
+				id: 'id',
+				cell: props => <Table.Cell.Text {...props} aspectSize="xs" color="neutral.600" />,
+				header: 'ID',
+				size: 40
+			}),
+			columnHelper.accessor('name', {
+				id: 'name',
+				cell: props => <Table.Cell.Text {...props} fontWeight="bold" />,
+				header: 'Name'
+			}),
+			columnHelper.accessor('lastName', {
+				id: 'lastName',
+				header: 'Last Name'
+			}),
+			columnHelper.accessor('age', {
+				id: 'age',
+				header: 'Age'
+			}),
 			{
-				accessor: 'id',
-				Cell: props => <Table.Cell.Text {...props} aspectSize="xs" color="neutral.600" />,
-				Header: 'ID'
-			},
-			{
-				accessor: 'name',
-				Cell: props => <Table.Cell.Text {...props} fontWeight="bold" />,
-				Header: 'Name'
-			},
-			{
-				accessor: 'lastName',
-				Header: 'Last Name'
-			},
-			{
-				accessor: 'age',
-				Header: 'Age'
-			},
-			{
-				accessor: 'date',
-				Cell: Table.Cell.Date,
-				Header: 'Register date',
+				...columnHelper.accessor('date', {
+					id: 'date',
+					cell: Table.Cell.Date,
+					header: 'Register date'
+				}),
 				getCellWidthText: () => 'May 20, 2013'
 			},
-			{
-				accessor: 'followers',
-				Header: 'Followers',
-				Cell: props => (
+			columnHelper.accessor('followers', {
+				id: 'followers',
+				header: 'Followers',
+				cell: props => (
 					<Table.Cell.Default {...props} color="primary.500" fontWeight="bold">
-						{props.value >= 1000 ? Math.round(props.value / 1000) + 'K' : props.value}
+						{props.getValue() >= 1000 ? Math.round(props.getValue() / 1000) + 'K' : props.getValue()}
 					</Table.Cell.Default>
 				)
-			},
+			}),
 			{
-				accessor: 'status',
-				Header: 'Verified',
-				Cell: props => (
-					<Table.Cell.Default {...props} color="primary.500" fontWeight="bold">
-						{props.value === 'not_verified' && (
-							<Chip title="Not verified" variant="red">
-								<Chip.Icon icon="close" styling="outlined" />
-							</Chip>
-						)}
-						{props.value === 'verified' && (
-							<Chip title="Verified" variant="green">
-								<Chip.Icon icon="check" styling="outlined" />
-							</Chip>
-						)}
-					</Table.Cell.Default>
-				),
+				...columnHelper.accessor('status', {
+					id: 'status',
+					header: 'Verified',
+					cell: props => (
+						<Table.Cell.Default {...props} color="primary.500" fontWeight="bold">
+							{props.getValue() === 'not_verified' && (
+								<Chip title="Not verified" variant="red">
+									<Chip.Icon icon="close" styling="outlined" />
+								</Chip>
+							)}
+							{props.getValue() === 'verified' && (
+								<Chip title="Verified" variant="green">
+									<Chip.Icon icon="check" styling="outlined" />
+								</Chip>
+							)}
+						</Table.Cell.Default>
+					)
+				}),
 				getCellWidthText: () => ''
 			},
-			{
-				accessor: 'progress',
-				Header: 'Progress',
-				Cell: props => (
+			columnHelper.accessor('progress', {
+				id: 'progress',
+				header: 'Progress',
+				cell: props => (
 					<Table.Cell.Default {...props} color="primary.500" fontWeight="bold">
-						<Chip variant={getVariantFromProgress(props.value)}>
-							<Chip.Label>{props.value}%</Chip.Label>
+						<Chip variant={getVariantFromProgress(props.getValue())}>
+							<Chip.Label>{props.getValue()}%</Chip.Label>
 						</Chip>
 					</Table.Cell.Default>
 				)
-			},
+			}),
 			{
-				id: 'buttons',
-				Header: '',
-				Cell: (props: TableCellProps<Data>) => (
-					<Table.Cell.Default {...props}>
-						<Button
-							aspectSize="s"
-							onClick={() => alert(`Opened instagram profile with ID ${props.row.values.id}`)}
-							variant="secondary"
-						>
-							See profile
-						</Button>
-					</Table.Cell.Default>
-				),
+				...columnHelper.display({
+					id: 'buttons',
+					header: '',
+					cell: props => (
+						<Table.Cell.Default {...props}>
+							<Button
+								aspectSize="s"
+								onClick={() => alert(`Opened instagram profile with ID ${props.row.getValue('id')}`)}
+								variant="secondary"
+							>
+								See profile
+							</Button>
+						</Table.Cell.Default>
+					)
+				}),
 				getCellWidthText: () => 'buttons'
 			}
 		],
@@ -108,7 +117,7 @@ const TableDecorator: DecoratorFn = (story, context) => {
 	);
 
 	const data = React.useMemo<Data[]>(() => {
-		return Array.from(Array(100).keys()).map<Data>((_, index) => ({
+		return Array.from(Array(1000).keys()).map<Data>((_, index) => ({
 			age: faker.datatype.number({ min: 16, max: 85 }),
 			id: index + 1,
 			date: faker.date.recent(10 * 365),

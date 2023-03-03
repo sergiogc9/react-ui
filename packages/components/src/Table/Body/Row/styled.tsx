@@ -35,6 +35,7 @@ StyledTableBodyRow.defaultProps = {
 	borderRadius: 1,
 	marginBottom: '-1px',
 	minHeight: 56,
+	role: 'row',
 	transition: 'background-color ease-in 0.15s',
 	width: '100%'
 };

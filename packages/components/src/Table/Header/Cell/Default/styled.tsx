@@ -3,9 +3,11 @@ import css from '@styled-system/css';
 
 import Flex from 'components/Flex';
 
-import { StyledTableHeaderCellProps, StyledTableHeaderCellContentProps } from './types';
+import { StyledTableHeaderCellDefaultProps, StyledTableHeaderCellDefaultContentProps } from './types';
 
-const StyledTableHeaderCell: React.FC<StyledTableHeaderCellProps> = styled(Flex)<StyledTableHeaderCellProps>`
+const StyledTableHeaderCellDefault: React.FC<StyledTableHeaderCellDefaultProps> = styled(
+	Flex
+)<StyledTableHeaderCellDefaultProps>`
 	flex-shrink: 1 !important;
 	${props => css({ color: props.color ?? props.theme.components.table.colors.header.text })}
 
@@ -30,36 +32,29 @@ const StyledTableHeaderCell: React.FC<StyledTableHeaderCellProps> = styled(Flex)
 			visibility: visible;
 		}
 	}
-
-	&:first-child {
-		${css({ pl: 3 })}
-	}
-
-	&:last-child {
-		${css({ pr: 3 })}
-	}
 `;
 
-StyledTableHeaderCell.defaultProps = {
+StyledTableHeaderCellDefault.defaultProps = {
 	alignItems: 'center',
 	fontSize: 1,
 	fontWeight: 'semibold',
 	overflow: 'hidden',
 	px: '12px',
-	transition: 'background-color ease-in 0.15s'
+	transition: 'background-color ease-in 0.15s',
+	width: '100%'
 };
 
-const StyledTableHeaderCellContent: React.FC<StyledTableHeaderCellContentProps> = styled(Flex)`
+const StyledTableHeaderCellDefaultContent: React.FC<StyledTableHeaderCellDefaultContentProps> = styled(Flex)`
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;
 	word-break: break-word;
 `;
 
-StyledTableHeaderCellContent.defaultProps = {
+StyledTableHeaderCellDefaultContent.defaultProps = {
 	maxWidth: '100%',
 	overflow: 'hidden'
 };
 
-export { StyledTableHeaderCellContent };
-export default StyledTableHeaderCell;
+export { StyledTableHeaderCellDefaultContent };
+export default StyledTableHeaderCellDefault;

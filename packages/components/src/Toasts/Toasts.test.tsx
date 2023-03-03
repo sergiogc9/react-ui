@@ -180,16 +180,4 @@ describe('Toasts', () => {
 
 		expect(screen.getByTestId('toast')).toBeVisible();
 	});
-
-	it.skip('should call on close handler when toast exits', async () => {
-		const mockOnClose = jest.fn();
-		renderToasts({}, { onClose: mockOnClose });
-
-		await waitFor(() => {
-			jest.runAllTimers();
-			fireEvent.animationEnd(screen.getByTestId('toast'));
-		});
-
-		expect(mockOnClose).toHaveBeenCalled();
-	});
 });

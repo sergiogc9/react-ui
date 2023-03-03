@@ -28,7 +28,6 @@ describe('TableBodyCell', () => {
 
 		expect(screen.getByTestId(tableBodyCellTestId1)).toHaveStyle(`
     	flex-shrink: 1;
-    	padding-left: 16px;
     `);
 	});
 
@@ -37,7 +36,6 @@ describe('TableBodyCell', () => {
 
 		expect(screen.getByTestId(tableBodyCellTestId3)).toHaveStyle(`
   		flex-shrink: 1;
-  		padding-right: 16px;
   	`);
 	});
 });

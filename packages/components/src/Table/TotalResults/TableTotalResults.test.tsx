@@ -1,10 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Column } from 'react-table';
 
 import { withTheme } from 'components/private/utils/tests';
 
-import Table from '..';
+import Table, { TableColumnDef } from '..';
 import TableTotalResults from '.';
 
 type TestData = {
@@ -12,9 +11,9 @@ type TestData = {
 	name: string;
 };
 
-const defaultColumns: Column<TestData>[] = [
-	{ accessor: 'id', Header: 'Id' },
-	{ accessor: 'name', Header: 'Name' }
+const defaultColumns: TableColumnDef<TestData>[] = [
+	{ accessorKey: 'id', id: 'id', header: 'Id' },
+	{ accessorKey: 'name', id: 'name', header: 'Name' }
 ];
 
 const defaultData: TestData[] = [

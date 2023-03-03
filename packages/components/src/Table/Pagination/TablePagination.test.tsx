@@ -1,13 +1,12 @@
 import React from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Column } from 'react-table';
 import faker from 'faker';
 import range from 'lodash/range';
 
 import { withTheme } from 'components/private/utils/tests';
 
-import Table, { TablePaginationProps, TableProps } from '..';
+import Table, { TableColumnDef, TablePaginationProps, TableProps } from '..';
 import TablePagination from '.';
 
 type TestData = {
@@ -15,9 +14,9 @@ type TestData = {
 	name: string;
 };
 
-const defaultColumns: Column<TestData>[] = [
-	{ accessor: 'id', Header: 'Id' },
-	{ accessor: 'name', Header: 'Name' }
+const defaultColumns: TableColumnDef<TestData>[] = [
+	{ accessorKey: 'id', id: 'id', header: 'Id' },
+	{ accessorKey: 'name', id: 'name', header: 'Name' }
 ];
 
 const defaultData: TestData[] = range(0, 100).map(num => ({
@@ -56,19 +55,19 @@ describe('TablePagination', () => {
 	});
 
 	it('should render pagination info with custom pageSize', () => {
-		getComponent({}, { pageSize: 20 });
+		getComponent({}, { tableOptions: { initialState: { pagination: { pageSize: 20 } } } });
 
 		expect(screen.getByText('1-20 of 100')).toBeInTheDocument();
 	});
 
 	it('should render pagination info with custom page index', () => {
-		getComponent({}, { pageIndex: 5 });
+		getComponent({}, { tableOptions: { initialState: { pagination: { pageIndex: 5 } } } });
 
 		expect(screen.getByText('51-60 of 100')).toBeInTheDocument();
 	});
 
 	it('should render pagination info with custom page count without providing exact rows length', () => {
-		getComponent({}, { tableOptions: { manualPagination: true }, pageCount: 100 });
+		getComponent({}, { tableOptions: { manualPagination: true, pageCount: 100 } });
 
 		expect(screen.getByText('1-10 of ~1000')).toBeInTheDocument();
 	});
@@ -77,8 +76,7 @@ describe('TablePagination', () => {
 		getComponent(
 			{},
 			{
-				tableOptions: { manualPagination: true },
-				pageCount: 100,
+				tableOptions: { manualPagination: true, pageCount: 100 },
 				rowsCount: 950
 			}
 		);
@@ -96,7 +94,7 @@ describe('TablePagination', () => {
 	});
 
 	it('should go to previous page', () => {
-		getComponent({}, { pageIndex: 2 });
+		getComponent({}, { tableOptions: { initialState: { pagination: { pageIndex: 2 } } } });
 
 		expect(screen.getByText('21-30 of 100')).toBeInTheDocument();
 		userEvent.click(screen.getByTestId(previousBtnTestId));
@@ -106,7 +104,7 @@ describe('TablePagination', () => {
 	});
 
 	it('should not go to next page if last page', () => {
-		getComponent({}, { pageIndex: 9 });
+		getComponent({}, { tableOptions: { initialState: { pagination: { pageIndex: 9 } } } });
 
 		userEvent.click(screen.getByTestId(nextBtnTestId));
 
@@ -115,7 +113,7 @@ describe('TablePagination', () => {
 	});
 
 	it('should go to next page', () => {
-		getComponent({}, { pageIndex: 2 });
+		getComponent({}, { tableOptions: { initialState: { pagination: { pageIndex: 2 } } } });
 
 		expect(screen.getByText('21-30 of 100')).toBeInTheDocument();
 		userEvent.click(screen.getByTestId(nextBtnTestId));
@@ -125,7 +123,7 @@ describe('TablePagination', () => {
 	});
 
 	it('should not call go to page handler if not provided on previous btn click', () => {
-		getComponent({ onGoToPage: undefined }, { pageIndex: 2 });
+		getComponent({ onGoToPage: undefined }, { tableOptions: { initialState: { pagination: { pageIndex: 2 } } } });
 
 		expect(screen.getByText('21-30 of 100')).toBeInTheDocument();
 		userEvent.click(screen.getByTestId(previousBtnTestId));
@@ -134,7 +132,7 @@ describe('TablePagination', () => {
 	});
 
 	it('should not call go to page handler if not provided on next btn click', () => {
-		getComponent({ onGoToPage: undefined }, { pageIndex: 2 });
+		getComponent({ onGoToPage: undefined }, { tableOptions: { initialState: { pagination: { pageIndex: 2 } } } });
 
 		expect(screen.getByText('21-30 of 100')).toBeInTheDocument();
 		userEvent.click(screen.getByTestId(nextBtnTestId));

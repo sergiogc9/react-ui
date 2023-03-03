@@ -6,14 +6,14 @@ import { TableCellDefaultProps } from './types';
 import TableCellText from '../Text';
 
 const TableCellDefault: React.FC<TableCellDefaultProps> = props => {
-	const { children, data, headers, value, ...rest } = props;
+	const { children, ...rest } = props;
 
 	return children ? (
 		<Flex height="100%" width="100%" {...(rest as any)}>
 			{children}
 		</Flex>
 	) : (
-		<TableCellText data={data} headers={headers} value={value} {...rest} />
+		<TableCellText {...rest} />
 	);
 };
 

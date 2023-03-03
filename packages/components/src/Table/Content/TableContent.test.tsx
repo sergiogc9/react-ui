@@ -1,12 +1,11 @@
 import React from 'react';
-import { Column } from 'react-table';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import merge from 'lodash/merge';
 
 import { withTheme } from 'components/private/utils/tests';
 
-import Table, { TableProps } from '..';
+import Table, { TableColumnDef, TableProps } from '..';
 import TableContent from '.';
 import { TableContentProps } from './types';
 
@@ -17,9 +16,9 @@ type TestData = {
 	name: string;
 };
 
-const defaultColumns: Column<TestData>[] = [
-	{ accessor: 'id', Header: 'Id' },
-	{ accessor: 'name', Header: 'Name' }
+const defaultColumns: TableColumnDef<TestData>[] = [
+	{ accessorKey: 'id', id: 'id', header: 'Id' },
+	{ accessorKey: 'name', id: 'name', header: 'Name' }
 ];
 
 const defaultData: TestData[] = [
@@ -93,8 +92,8 @@ describe('TableContent', () => {
 	it('should render headers', () => {
 		getComponent();
 
-		expect(screen.getByText(defaultColumns[0].Header as string)).toBeInTheDocument();
-		expect(screen.getByText(defaultColumns[1].Header as string)).toBeInTheDocument();
+		expect(screen.getByText(defaultColumns[0].header as string)).toBeInTheDocument();
+		expect(screen.getByText(defaultColumns[1].header as string)).toBeInTheDocument();
 	});
 
 	it('should render rows', () => {
