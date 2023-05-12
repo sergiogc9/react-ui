@@ -62,7 +62,6 @@ const Modal: React.FC<ModalProps> = ({
 					isMobileFullScreen={isMobileFullScreen}
 					isVisible={isModalVisible}
 					ref={modalWrapperRef}
-					// eslint-disable-next-line jsx-a11y/aria-role
 					role="modal"
 					{...rest}
 				>

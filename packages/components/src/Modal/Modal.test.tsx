@@ -114,37 +114,37 @@ describe('Modal component', () => {
 		renderModal();
 		const closeBtn = screen.getByTestId(closeBtnTestId);
 		userEvent.click(closeBtn);
-		expect(mockOnClose).toBeCalledTimes(1);
+		expect(mockOnClose).toHaveBeenCalledTimes(1);
 	});
 
 	it('should not call onClose if button is clicked but not prop is provided', () => {
 		renderModal({ onClose: undefined });
 		const closeBtn = screen.getByTestId(closeBtnTestId);
 		userEvent.click(closeBtn);
-		expect(mockOnClose).toBeCalledTimes(0);
+		expect(mockOnClose).toHaveBeenCalledTimes(0);
 	});
 
 	it('should call onClose if click outside is done', () => {
 		renderModal();
 		userEvent.click(document.body);
-		expect(mockOnClose).toBeCalledTimes(1);
+		expect(mockOnClose).toHaveBeenCalledTimes(1);
 	});
 
 	it('should not call onClose if click outside is done but prop is false', () => {
 		renderModal({ closeOnOutsideClick: false });
 		userEvent.click(document.body);
-		expect(mockOnClose).toBeCalledTimes(0);
+		expect(mockOnClose).toHaveBeenCalledTimes(0);
 	});
 
 	it('should call onClose if escape key is pressed', () => {
 		renderModal();
 		fireEvent.keyDown(document, { key: 'Escape' });
-		expect(mockOnClose).toBeCalledTimes(1);
+		expect(mockOnClose).toHaveBeenCalledTimes(1);
 	});
 
 	it('should not call onClose if escape key is pressed but prop is false', () => {
 		renderModal({ closeOnEsc: false });
 		fireEvent.keyDown(document, { key: 'Escape' });
-		expect(mockOnClose).toBeCalledTimes(0);
+		expect(mockOnClose).toHaveBeenCalledTimes(0);
 	});
 });

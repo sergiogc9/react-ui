@@ -382,7 +382,7 @@ describe('Select', () => {
 		expect(screen.getByTestId(optionTwoID)).toBeInTheDocument();
 		userEvent.click(screen.getByTestId(optionTwoID));
 
-		expect(mockOnOptionChange).toBeCalledWith(optionTwoID);
+		expect(mockOnOptionChange).toHaveBeenCalledWith(optionTwoID);
 	});
 
 	it('should show not results found if entered text does not match with any option when autocomplete', () => {

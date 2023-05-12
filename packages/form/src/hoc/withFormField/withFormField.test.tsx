@@ -31,7 +31,6 @@ const renderInputComponent = () =>
 	);
 
 const CustomObjectField: React.FC<any> = props => {
-	// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
 	return <div onClick={() => props.onChange({ awesome: 'yes' })}>{props.value.awesome}</div>;
 };
 const FormCustomObjectField = withFormField(CustomObjectField);

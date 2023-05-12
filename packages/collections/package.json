@@ -36,11 +36,11 @@
 		"@types/styled-system__css": "5.0.16"
 	},
 	"dependencies": {
-		"@sergiogc9/react-hooks": "^0.2.2",
+		"@sergiogc9/react-hooks": "^0.3.2",
 		"@sergiogc9/react-ui": "^0.10.0",
 		"@sergiogc9/react-ui-theme": "^0.10.0",
 		"@sergiogc9/react-ui-utils": "^0.10.0",
-		"@sergiogc9/react-utils": "^0.0.7"
+		"@sergiogc9/react-utils": "^0.0.10"
 	},
 	"peerDependencies": {
 		"react": "^18.0.0 || ^17.0.0",
