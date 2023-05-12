@@ -1,6 +1,6 @@
 {
 	"name": "@sergiogc9/react-ui-form",
-	"version": "0.10.0",
+	"version": "0.10.1",
 	"description": "React UI Kit Form",
 	"repository": "git://github.com/sergiogc9/react-ui.git",
 	"license": "UNLICENSED",
@@ -38,8 +38,8 @@
 	},
 	"dependencies": {
 		"@hookform/resolvers": "2.7.1",
-		"@sergiogc9/react-ui": "^0.10.0",
-		"@sergiogc9/react-ui-collections": "^0.10.0",
+		"@sergiogc9/react-ui": "^0.10.1",
+		"@sergiogc9/react-ui-collections": "^0.10.1",
 		"@sergiogc9/react-ui-theme": "^0.10.0",
 		"lodash": "^4.17.21",
 		"react-hook-form": "7.15.0",

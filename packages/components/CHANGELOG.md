@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/sergiogc9/react-ui/compare/v0.10.0...v0.10.1) (2023-05-12)
+
+### Bug Fixes
+
+- Export missing types in Table component ([c729fea](https://github.com/sergiogc9/react-ui/commit/c729fea947a0d2d7f1d2cdfa8f7966d1dfc40eb7))
+
 # [0.10.0](https://github.com/sergiogc9/react-ui/compare/v0.9.2...v0.10.0) (2023-03-03)
 
 ### Bug Fixes
