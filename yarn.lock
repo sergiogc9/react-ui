@@ -2590,10 +2590,10 @@
     redux-thunk "^2.4.2"
     reselect "^4.1.8"
 
-"@sergiogc9/eslint-config@^1.0.11":
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/eslint-config/-/eslint-config-1.0.11.tgz#cbeb51081f70adab32ab169a367b40260c3a4dbd"
-  integrity sha512-CkzU8QIgiJ9WAsy1kUGJolJTxzKLuNfe1xCq3LvE2HYsudVrzRehaAaFGhcr4ssq46+9QHXtcUn9b/t38aQZ5w==
+"@sergiogc9/eslint-config@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/eslint-config/-/eslint-config-1.0.12.tgz#0ca81df08324b47f8b19b2a2314a5a4a7cb1ec1c"
+  integrity sha512-E/2QKg3dGs25+yghyUNA1m9Is3Sv32yh1JBxJFsEOedUnxKOx9biHZjCLSq1uIq9i50zxBWAUJy68sJC5l+5cw==
   dependencies:
     "@typescript-eslint/parser" "5.59.5"
     eslint-config-airbnb "19.0.4"
