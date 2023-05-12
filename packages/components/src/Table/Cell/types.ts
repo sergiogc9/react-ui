@@ -2,6 +2,6 @@ import { CellContext } from '@tanstack/react-table';
 
 import { FlexProps } from 'components/Flex';
 
-export interface TableCellProps
-	extends CellContext<any, any>,
+export interface TableCellProps<T>
+	extends CellContext<T, any>,
 		FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}

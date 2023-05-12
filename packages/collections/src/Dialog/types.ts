@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonProps, ModalProps } from '@sergiogc9/react-ui';
 
-export interface DialogProps extends Omit<ModalProps, 'onClose'> {
+export interface DialogProps extends Omit<ModalProps, 'onClose' | 'content'> {
 	/**
 	 * The cancel button text. If not provided, the button is not shown.
 	 */

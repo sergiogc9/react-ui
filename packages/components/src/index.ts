@@ -60,6 +60,7 @@ export {
 	TableProps,
 	TableCellDateProps,
 	TableCellDefaultProps,
+	TableCellProps,
 	TableCellTextProps,
 	TableColumnDef,
 	TableContentProps,
