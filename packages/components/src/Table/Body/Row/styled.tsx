@@ -19,15 +19,20 @@ const StyledTableBodyRow: React.FC<TableBodyRowProps> = styled(Flex)<TableBodyRo
 
 		+ div:not([role="row"]) {
 			${props =>
+				!props.showAllBorders &&
 				css({
 					bg: props.theme.components.table.colors.content.bgHover
 				})}
 		}
 	}
 
-	&:not(:first-child) {
-		margin-top: -1px;
-	}
+	${props =>
+		!props.showAllBorders &&
+		`
+			&:not(:first-child) {
+				margin-top: -1px;
+			}
+		`}
 `;
 
 StyledTableBodyRow.defaultProps = {

@@ -5,7 +5,12 @@ import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/paramet
 import Table from 'components/Table';
 import Text from 'components/Text';
 
-<Meta title="Components/Table" component={Table} decorators={[TableDecorator]} />
+<Meta
+	title="Components/Table"
+	component={Table}
+	decorators={[TableDecorator]}
+	argTypes={{ showAllBorders: { control: 'boolean' } }}
+/>
 
 <Story name="playground" parameters={getPlaygroundStoryParams()}>
 	{args => (
@@ -17,7 +22,7 @@ import Text from 'components/Text';
 				<Table.GlobalFilter textFieldProps={{ label: 'Filter all the table' }} mx="auto" width={400} />
 				<Table.Pagination />
 			</Table.Toolbar>
-			<Table.Content minWidth={1280} />
+			<Table.Content minWidth={1280} showAllBorders={args.showAllBorders} />
 			<Table.Toolbar>
 				<Table.Pagination ml="auto" />
 			</Table.Toolbar>

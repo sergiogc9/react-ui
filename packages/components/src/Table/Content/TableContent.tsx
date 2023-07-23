@@ -18,7 +18,7 @@ import StyledContentTable from './styled';
 import { TableContentProps } from './types';
 
 const TableContent: React.FC<TableContentProps> = (props: TableContentProps) => {
-	const { minWidth, ...rest } = props;
+	const { minWidth, showAllBorders = false, ...rest } = props;
 
 	const { onRowClick, table } = React.useContext(TableContext);
 
@@ -59,6 +59,7 @@ const TableContent: React.FC<TableContentProps> = (props: TableContentProps) => 
 								onClick={() => {
 									if (onRowClick) onRowClick(row);
 								}}
+								showAllBorders={showAllBorders}
 							>
 								{row.getVisibleCells().map(cell => (
 									<TableBodyCell key={cell.id} flex={`${cell.column.getSize()} 0 auto`} width={cell.column.getSize()}>
