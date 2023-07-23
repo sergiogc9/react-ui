@@ -18,7 +18,7 @@ import StyledContentTable from './styled';
 import { TableContentProps } from './types';
 
 const TableContent: React.FC<TableContentProps> = (props: TableContentProps) => {
-	const { minWidth, showAllBorders = false, ...rest } = props;
+	const { minWidth, showAllBorders = false, rowProps = () => ({}), ...rest } = props;
 
 	const { onRowClick, table } = React.useContext(TableContext);
 
@@ -55,6 +55,7 @@ const TableContent: React.FC<TableContentProps> = (props: TableContentProps) => 
 					{table.getRowModel().rows.map(row => (
 						<React.Fragment key={row.id}>
 							<TableBodyRow
+								{...rowProps(row)}
 								cursor={onRowClick ? 'pointer' : 'unset'}
 								onClick={() => {
 									if (onRowClick) onRowClick(row);

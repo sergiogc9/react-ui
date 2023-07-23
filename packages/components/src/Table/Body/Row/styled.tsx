@@ -8,7 +8,11 @@ import { TableBodyRowProps } from './types';
 const StyledTableBodyRow: React.FC<TableBodyRowProps> = styled(Flex)<TableBodyRowProps>`
 	${props =>
 		css({
-			bg: props.theme.components.table.colors.content.bg
+			bg:
+				(props.bg as string) ??
+				props.background ??
+				props.backgroundColor ??
+				props.theme.components.table.colors.content.bg
 		})}
 
 	&:hover {
@@ -33,6 +37,8 @@ const StyledTableBodyRow: React.FC<TableBodyRowProps> = styled(Flex)<TableBodyRo
 				margin-top: -1px;
 			}
 		`}
+
+	${props => props.css}
 `;
 
 StyledTableBodyRow.defaultProps = {
