@@ -104,4 +104,12 @@ declare module '@tanstack/table-core' {
 	interface TableMeta<TData extends RowData> {
 		locale: Theme['locale'];
 	}
+
+	interface FilterFns {
+		default: FilterFn<unknown>;
+	}
+
+	interface SortingFns {
+		locale: SortingFn<unknown>;
+	}
 }

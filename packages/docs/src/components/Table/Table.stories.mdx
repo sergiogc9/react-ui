@@ -271,7 +271,37 @@ There are some additions:
 
 By default, all columns with filtering enabled will use a custom "default" filter function, you can customize it specifying the `filterFn` property in the column definition. This default function transform the values to string and checks if the filter value is included on it with a case-insensitive match.
 
-#### _Table locale_
+To use the `default` option you will need to explicitly cast it when using TypeScript:
+
+```ts
+columnHelper.accessor('name', {
+	...
+	filterFn: 'default' as keyof TableFilterFns
+});
+```
+
+## Table sorting
+
+The Table follows the options from react-table. See the [sorting offical docs](https://tanstack.com/table/v8/docs/api/features/sorting).
+
+There are some additions:
+
+#### _Custom builtin sorting functions_
+
+By default, the table follows the same behaviour than react-table does. There are also extra custom builtin functions to sort the rows. Use them specifying the `sortingFn` property in the column definition:
+
+- `locale`: Performs a case-insenstive text sorting following the locale provided in the Theme or in the table options meta. It works better than react-table defaults when having tricky characters or accents.
+
+To use these custom options you will need to explicitly cast it when using TypeScript:
+
+```ts
+columnHelper.accessor('name', {
+	...
+	sortingFn: 'locale' as keyof TableSortingFns
+});
+```
+
+## _Table locale_
 
 By default the `Table` component uses the `locale` property defined in the `Theme`. If you want to customize it, pass a `locale` property inside the `meta` property in `tableOptions`. The locale is used in many places, e.g. to format and filter Date based columns.
 

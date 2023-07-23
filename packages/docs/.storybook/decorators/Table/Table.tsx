@@ -1,7 +1,7 @@
 import React from 'react';
 import { DecoratorFn } from '@storybook/react';
 import faker from 'faker';
-import { Button, Chip, ChipProps, createColumnHelper, Table } from '@sergiogc9/react-ui';
+import { Button, Chip, ChipProps, createColumnHelper, Table, TableSortingFns } from '@sergiogc9/react-ui';
 
 type Data = {
 	age: number;
@@ -35,11 +35,13 @@ const TableDecorator: DecoratorFn = (story, context) => {
 			columnHelper.accessor('name', {
 				id: 'name',
 				cell: props => <Table.Cell.Text {...props} fontWeight="bold" />,
-				header: 'Name'
+				header: 'Name',
+				sortingFn: 'locale' as keyof TableSortingFns
 			}),
 			columnHelper.accessor('lastName', {
 				id: 'lastName',
-				header: 'Last Name'
+				header: 'Last Name',
+				sortingFn: 'locale' as keyof TableSortingFns
 			}),
 			columnHelper.accessor('age', {
 				id: 'age',

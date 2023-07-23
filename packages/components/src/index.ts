@@ -64,6 +64,8 @@ export {
 	TableCellTextProps,
 	TableColumnDef,
 	TableContentProps,
+	TableFilterFns,
+	TableSortingFns,
 	TableHeaderCellDefaultProps,
 	TablePaginationProps,
 	TableSkeletonContentProps,

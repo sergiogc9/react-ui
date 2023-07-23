@@ -10,7 +10,7 @@ import TableSkeleton, { TableSkeletonProps, TableSkeletonContentProps } from './
 import TableToolbar, { TableToolbarProps } from './Toolbar';
 import TableTotalResults, { TableTotalResultsProps } from './TotalResults';
 import Table from './Table';
-import { Row, TableColumnDef, TableProps } from './types';
+import { Row, TableColumnDef, TableFilterFns, TableSortingFns, TableProps } from './types';
 
 export type {
 	Row,
@@ -20,6 +20,8 @@ export type {
 	TableCellTextProps,
 	TableColumnDef,
 	TableContentProps,
+	TableFilterFns,
+	TableSortingFns,
 	TableHeaderCellDefaultProps,
 	TablePaginationProps,
 	TableProps,

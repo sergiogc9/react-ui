@@ -1,4 +1,4 @@
-import { ColumnDef, Row, TableOptions } from '@tanstack/react-table';
+import { ColumnDef, FilterFns, Row, SortingFns, TableOptions } from '@tanstack/react-table';
 
 import { FlexProps } from 'components/Flex';
 
@@ -32,13 +32,18 @@ interface Props<D extends Record<string, unknown>> {
 	/**
 	 * The table options.
 	 */
-	readonly tableOptions?: Omit<TableOptions<D>, 'data' | 'columns' | 'getCoreRowModel'> & {
+	readonly tableOptions?: Omit<TableOptions<D>, 'data' | 'columns' | 'getCoreRowModel' | 'filterFns' | 'sortingFns'> & {
 		getCoreRowModel?: TableOptions<D>['getCoreRowModel']; // Making getCoreRowModel optional
+		filterFns?: TableOptions<D>['filterFns']; // Making filterFns optional
+		sortingFns?: TableOptions<D>['sortingFns']; // Making sortingFns optional
 	};
 }
+
+type TableFilterFns = FilterFns;
+type TableSortingFns = SortingFns;
 
 export interface TableProps<D extends Record<string, unknown>>
 	extends Props<D>,
 		FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}
 export interface StyledTableWrapperProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}
-export { TableColumnDef, Row };
+export { TableColumnDef, TableFilterFns, TableSortingFns, Row };
