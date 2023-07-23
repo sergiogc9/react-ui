@@ -258,6 +258,20 @@ The parent component is responsible to listen for user interactions using handle
 
 Use the uncontrolled mode when you want let the table the responsibility for sorting and paginate all data. In this mode, you only need to provide the data and let the table do the magic.
 
+## Table filtering
+
+The Table follows the options from react-table. See the [filtering offical docs](https://tanstack.com/table/v8/docs/api/features/filters). Just add `enableFilters` to `tableOptions` to enable filtering on all columns.
+
+There are some additions:
+
+#### _Default filtering function_
+
+By default, all columns with filtering enabled will use a custom "default" filter function, you can customize it specifying the `filterFn` property in the column definition. This default function transform the values to string and checks if the filter value is included on it with a case-insensitive match.
+
+#### _Table locale_
+
+By default the `Table` component uses the `locale` property defined in the `Theme`. If you want to customize it, pass a `locale` property inside the `meta` property in `tableOptions`. The locale is used in many places, e.g. to format and filter Date based columns.
+
 ## Table API
 
 <ArgsTable of={Table} />
