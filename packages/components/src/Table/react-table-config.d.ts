@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
+import { Theme } from '@sergiogc9/react-ui-theme';
 import {
 	UseFiltersColumnOptions,
 	UseFiltersColumnProps,
@@ -96,4 +97,11 @@ declare module 'react-table' {
 	// 	UseGroupByRowProps<D>,
 	// 	UseRowSelectRowProps<D>,
 	// 	UseRowStateRowProps<D> {}
+}
+
+declare module '@tanstack/table-core' {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	interface TableMeta<TData extends RowData> {
+		locale: Theme['locale'];
+	}
 }

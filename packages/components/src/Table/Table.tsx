@@ -19,6 +19,7 @@ import TableContext from './Context';
 import TableHeaderCell from './Header/Cell';
 import StyledTableWrapper from './styled';
 import { TableProps, TableColumnDef } from './types';
+import { useTheme } from 'styled-components';
 
 const getColumnWidth = <Data extends Record<string, unknown>>(rows: Data[], column: TableColumnDef<Data>) => {
 	const accessor =
@@ -74,32 +75,33 @@ const generateFinalColumnsData = <Data extends Record<string, unknown>>(
 	});
 };
 
-const defaultFilterFn: FilterFn<unknown> = (row, columnId, filterValue) => {
-	const value = row.getValue(columnId);
-	if (typeof value === 'string') return value.toLowerCase().includes(filterValue.toLowerCase());
-	if (typeof value === 'number' || typeof value === 'boolean')
-		return value.toString().toLowerCase().includes(filterValue.toLowerCase());
-	// TODO! use theme.locale if possble
-	if (value instanceof Date)
-		return value
-			.toLocaleDateString('es', {
-				year: 'numeric',
-				month: 'short',
-				day: 'numeric'
-			})
-			.toLowerCase()
-			.includes(filterValue.toLowerCase());
-	return true;
-};
-
-const defaultFilterFns: FilterFns = {
-	default: defaultFilterFn
-};
-
 const Table = <Data extends Record<string, unknown>>(props: TableProps<Data>) => {
 	const { children, columns, data, onRowClick, rowsCount, tableOptions, ...rest } = props;
 
+	const theme = useTheme();
+
 	const finalColumns = React.useMemo(() => generateFinalColumnsData(columns, data), [columns, data]);
+
+	const defaultFilterFns = React.useMemo<FilterFns>(() => {
+		const defaultFilterFn: FilterFn<unknown> = (row, columnId, filterValue) => {
+			const value = row.getValue(columnId);
+			if (typeof value === 'string') return value.toLowerCase().includes(filterValue.toLowerCase());
+			if (typeof value === 'number' || typeof value === 'boolean')
+				return value.toString().toLowerCase().includes(filterValue.toLowerCase());
+			if (value instanceof Date)
+				return value
+					.toLocaleDateString(tableOptions?.meta?.locale ?? theme.locale ?? 'en', {
+						year: 'numeric',
+						month: 'short',
+						day: 'numeric'
+					})
+					.toLowerCase()
+					.includes(filterValue.toLowerCase());
+			return true;
+		};
+
+		return { default: defaultFilterFn };
+	}, [tableOptions?.meta?.locale, theme.locale]);
 
 	const table = useReactTable<Data>({
 		columns: finalColumns,
@@ -112,7 +114,8 @@ const Table = <Data extends Record<string, unknown>>(props: TableProps<Data>) =>
 		getSortedRowModel: getSortedRowModel(),
 		globalFilterFn: 'default' as keyof FilterFns,
 		...(tableOptions ?? {}),
-		filterFns: { ...defaultFilterFns, ...tableOptions?.filterFns }
+		filterFns: { ...defaultFilterFns, ...tableOptions?.filterFns },
+		meta: { locale: theme.locale, ...tableOptions?.meta }
 	});
 
 	return (

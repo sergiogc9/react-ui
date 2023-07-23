@@ -129,7 +129,10 @@ const TableDecorator: DecoratorFn = (story, context) => {
 		}));
 	}, []);
 
-	const newContext = { ...context, args: { ...context.args, columns, data, tableOptions: { enableFilters: true } } };
+	const newContext = {
+		...context,
+		args: { ...context.args, columns, data, tableOptions: { enableFilters: true } }
+	};
 
 	return story(newContext);
 };
