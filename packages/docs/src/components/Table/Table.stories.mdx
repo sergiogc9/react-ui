@@ -14,7 +14,8 @@ import Text from 'components/Text';
 				<Table.TotalResults
 					render={({ totalResults }) => <Text aspectSize="xs">{`Total instagramers: ${totalResults}`}</Text>}
 				/>
-				<Table.Pagination ml="auto" />
+				<Table.GlobalFilter textFieldProps={{ label: 'Filter all the table' }} mx="auto" width={400} />
+				<Table.Pagination />
 			</Table.Toolbar>
 			<Table.Content minWidth={1280} />
 			<Table.Toolbar>
@@ -41,6 +42,7 @@ The Table components are the following:
 - `Table.Toolbar`: A simple Box component to use as a Toolbar. It should be used above or below the content.
 - `Table.TotalResults`: A helpful component to render the total number of rows. Use its `render` prop which receives the number of rows to render the desired content.
 - `Table.Pagination`: A plug and play component to show a simple pagination.
+- `Table.GlobalFilter`: A Flex component with a TextField inside that handles global filtering through all the columns.
 
 As it can be seen in `TanStack table` docs, the `useReactTable` hook needs an `options`. You can use them for customizing the table behavior using the `tableOptions` props. The `data` and `columns` props must be provided as separated props.
 
@@ -97,7 +99,8 @@ const CustomTable = () => {
 				<Table.TotalResults
 					render={({ totalResults }) => <Text aspectSize="xs">{`Total instagramers: ${totalResults}`}</Text>}
 				/>
-				<Table.Pagination ml="auto" />
+				<Table.GlobalFilter textFieldProps={{ label: 'Filter all the table' }} mx="auto" width={400} />
+				<Table.Pagination />
 			</Table.Toolbar>
 			<Table.Content minWidth={1280} />
 			<Table.Toolbar>
@@ -303,3 +306,7 @@ By default the `Table` component uses the `locale` property defined in the `Them
 ## Table.TotalResults API
 
 <ArgsTable of={Table.TotalResults} />
+
+## Table.GlobalFilter API
+
+<ArgsTable of={Table.GlobalFilter} />

@@ -85,6 +85,7 @@ const Table = <Data extends Record<string, unknown>>(props: TableProps<Data>) =>
 	const defaultFilterFns = React.useMemo<FilterFns>(() => {
 		const defaultFilterFn: FilterFn<unknown> = (row, columnId, filterValue) => {
 			const value = row.getValue(columnId);
+
 			if (typeof value === 'string') return value.toLowerCase().includes(filterValue.toLowerCase());
 			if (typeof value === 'number' || typeof value === 'boolean')
 				return value.toString().toLowerCase().includes(filterValue.toLowerCase());
