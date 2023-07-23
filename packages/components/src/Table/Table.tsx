@@ -8,7 +8,9 @@ import {
 	getCoreRowModel,
 	getPaginationRowModel,
 	getSortedRowModel,
-	getFilteredRowModel
+	getFilteredRowModel,
+	FilterFn,
+	FilterFns
 } from '@tanstack/react-table';
 import get from 'lodash/get';
 
@@ -67,13 +69,35 @@ const generateFinalColumnsData = <Data extends Record<string, unknown>>(
 					? props => <TableHeaderCell.Default {...props}>{column.header?.toString()}</TableHeaderCell.Default>
 					: column.header,
 			size: column.size ?? getColumnWidth(data, column),
-			filterFn: column.filterFn ?? 'weakEquals'
+			filterFn: column.filterFn ?? ('default' as keyof FilterFns)
 		};
 	});
 };
 
+const defaultFilterFn: FilterFn<unknown> = (row, columnId, filterValue) => {
+	const value = row.getValue(columnId);
+	if (typeof value === 'string') return value.toLowerCase().includes(filterValue.toLowerCase());
+	if (typeof value === 'number' || typeof value === 'boolean')
+		return value.toString().toLowerCase().includes(filterValue.toLowerCase());
+	// TODO! use theme.locale if possble
+	if (value instanceof Date)
+		return value
+			.toLocaleDateString('es', {
+				year: 'numeric',
+				month: 'short',
+				day: 'numeric'
+			})
+			.toLowerCase()
+			.includes(filterValue.toLowerCase());
+	return true;
+};
+
+const defaultFilterFns: FilterFns = {
+	default: defaultFilterFn
+};
+
 const Table = <Data extends Record<string, unknown>>(props: TableProps<Data>) => {
-	const { children, columns, data, onRowClick, rowsCount, tableOptions = {}, ...rest } = props;
+	const { children, columns, data, onRowClick, rowsCount, tableOptions, ...rest } = props;
 
 	const finalColumns = React.useMemo(() => generateFinalColumnsData(columns, data), [columns, data]);
 
@@ -86,8 +110,9 @@ const Table = <Data extends Record<string, unknown>>(props: TableProps<Data>) =>
 		getFilteredRowModel: getFilteredRowModel(),
 		getPaginationRowModel: getPaginationRowModel(),
 		getSortedRowModel: getSortedRowModel(),
-		globalFilterFn: 'weakEquals',
-		...tableOptions
+		globalFilterFn: 'default' as keyof FilterFns,
+		...(tableOptions ?? {}),
+		filterFns: { ...defaultFilterFns, ...tableOptions?.filterFns }
 	});
 
 	return (

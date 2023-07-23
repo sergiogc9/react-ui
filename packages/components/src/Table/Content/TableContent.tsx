@@ -9,6 +9,9 @@ import TableContext from '../Context';
 import TableBodyCell from '../Body/Cell';
 import TableBodyRow from '../Body/Row';
 import { TableHeaderCellWrapper } from '../Header/Cell';
+import StyledTableFilterGroup from '../Filter/Group';
+import TableFilterCellWrapper from '../Filter/Cell/Wrapper';
+import StyledTableFilterCellDefault from '../Filter/Cell/Default';
 import TableHeaderGroup from '../Header/Group';
 import TableContentGradient from './Gradient';
 import StyledContentTable from './styled';
@@ -37,6 +40,16 @@ const TableContent: React.FC<TableContentProps> = (props: TableContentProps) => 
 							))}
 						</TableHeaderGroup>
 					))}
+					{table.options.enableFilters &&
+						table.getHeaderGroups().map(headerGroup => (
+							<StyledTableFilterGroup key={headerGroup.id} role="row">
+								{headerGroup.headers.map(header => (
+									<TableFilterCellWrapper key={header.id} flex={`${header.getSize()} 0 auto`} width={header.getSize()}>
+										{<StyledTableFilterCellDefault column={header.column} />}
+									</TableFilterCellWrapper>
+								))}
+							</StyledTableFilterGroup>
+						))}
 				</Flex>
 				<Flex alignItems="center" flexDirection="column" minWidth={minWidth} mt={2}>
 					{table.getRowModel().rows.map(row => (
