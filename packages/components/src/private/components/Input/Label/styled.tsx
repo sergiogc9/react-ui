@@ -12,7 +12,7 @@ const InputLabel: React.FC<InputLabelProps> = styled(Flex).withConfig<InputLabel
 	shouldForwardProp: prop => prop !== 'placeholder'
 })`
 	${composers.text}
-	${({ aspectSize, theme, ...props }) => {
+	${({ aspectSize = 'm', theme, ...props }) => {
 		const statusColor = new StatusColor(props, theme);
 		const { fontSize: fontSizeProp } = theme.components.input;
 

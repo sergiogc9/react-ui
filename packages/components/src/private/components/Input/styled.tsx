@@ -37,7 +37,7 @@ const commonStyles = css`
 export const StyledInput: React.FC<StyledInputProps> = styled(InputBox)<StyledInputProps>`
 	${commonStyles}
 
-	${({ aspectSize, theme }) => {
+	${({ aspectSize = 'm', theme }) => {
 		const { aspectSize: aspectSizeProp } = theme.components.input;
 		const { fontSize: fontSizeProp } = theme.components.input;
 

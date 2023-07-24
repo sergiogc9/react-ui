@@ -8,7 +8,7 @@ import StatusColor from '../collaborator/StatusColor';
 import { InputHelperTextProps } from './types';
 
 const InputHelperText: React.FC<InputHelperTextProps> = styled(Text)<InputHelperTextProps>`
-	${({ aspectSize, theme, ...props }) => {
+	${({ aspectSize = 'm', theme, ...props }) => {
 		const statusColor = new StatusColor(props, theme);
 		const { fontSize: fontSizeProp } = theme.components.input;
 
