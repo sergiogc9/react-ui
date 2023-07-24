@@ -11,7 +11,6 @@ const InputHelperText: React.FC<InputHelperTextProps> = styled(Text)<InputHelper
 	${({ aspectSize, theme, ...props }) => {
 		const statusColor = new StatusColor(props, theme);
 		const { fontSize: fontSizeProp } = theme.components.input;
-		console.log(aspectSize)
 
 		return css({
 			color: statusColor.getStatusColorWithFallback('default'),
