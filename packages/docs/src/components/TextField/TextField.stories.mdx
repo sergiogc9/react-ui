@@ -49,6 +49,24 @@ TextField component.
 	</Story>
 </Canvas>
 
+
+## Sizes
+
+<Canvas>
+	<Story name="extra small" parameters={getFixedStoryParams()}>
+		<TextField aspectSize="xs" label="Enter some text" title="extra small" />
+	</Story>
+	<Story name="small" parameters={getFixedStoryParams()}>
+		<TextField aspectSize="s" label="Enter some text" title="small" />
+	</Story>
+	<Story name="medium" parameters={getFixedStoryParams()}>
+		<TextField aspectSize="m" label="Enter some text" title="medium" />
+	</Story>
+	<Story name="large" parameters={getFixedStoryParams()}>
+		<TextField aspectSize="l" label="Enter some text" title="large" />
+	</Story>
+</Canvas>
+
 ## Content
 
 You can add content to left or right using the `leftContent` and `rightContent` props.

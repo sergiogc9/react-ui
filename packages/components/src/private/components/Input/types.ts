@@ -5,7 +5,7 @@ export interface InputProps {
 	/**
 	 * The size of the input
 	 */
-	readonly aspectSize?: 's' | 'm' | 'l';
+	readonly aspectSize?: 'xs' | 's' | 'm' | 'l';
 
 	/**
 	 * If true, the textField is marked as success

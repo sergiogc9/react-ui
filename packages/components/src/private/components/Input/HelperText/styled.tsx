@@ -8,18 +8,20 @@ import StatusColor from '../collaborator/StatusColor';
 import { InputHelperTextProps } from './types';
 
 const InputHelperText: React.FC<InputHelperTextProps> = styled(Text)<InputHelperTextProps>`
-	${({ theme, ...props }) => {
+	${({ aspectSize, theme, ...props }) => {
 		const statusColor = new StatusColor(props, theme);
+		const { fontSize: fontSizeProp } = theme.components.input;
+		console.log(aspectSize)
 
 		return css({
-			color: statusColor.getStatusColorWithFallback('default')
+			color: statusColor.getStatusColorWithFallback('default'),
+			fontSize: fontSizeProp[aspectSize!].label
 		});
 	}}
 `;
 
 InputHelperText.defaultProps = {
 	color: 'neutral.500',
-	fontSize: 0,
 	wordBreak: 'break-word'
 };
 

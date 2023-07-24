@@ -2,6 +2,11 @@ import { TextField } from './types';
 
 const textFieldTheme: TextField = {
 	aspectSize: {
+		xs: {
+			label: {
+				offset: 8
+			}
+		},
 		s: {
 			label: {
 				offset: 8

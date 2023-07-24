@@ -4,7 +4,8 @@ const inputTheme: Input = {
 	aspectSize: {
 		l: { height: 56 },
 		m: { height: 48 },
-		s: { height: 40 }
+		s: { height: 40 },
+		xs: { height: 32 }
 	},
 	colors: {
 		default: '',
@@ -37,6 +38,12 @@ const inputTheme: Input = {
 				success: 'green.500'
 			}
 		}
+	},
+	fontSize: {
+		l: { label: 0, text: 2 },
+		m: { label: 0, text: 2 },
+		s: { label: 0, text: 2 },
+		xs: { label: '10px', text: 1 }
 	},
 	removeButton: {
 		bg: 'neutral.100',

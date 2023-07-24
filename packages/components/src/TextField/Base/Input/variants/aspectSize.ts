@@ -21,6 +21,7 @@ export default (props: StyledProps<TextFieldInputProps>) => {
 	return variant({
 		prop: 'aspectSize',
 		variants: {
+			xs: generateCSS('xs'),
 			s: generateCSS('s'),
 			m: generateCSS('m'),
 			l: generateCSS('l')

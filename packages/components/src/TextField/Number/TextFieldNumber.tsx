@@ -11,7 +11,10 @@ import StyledTextFieldNumber from './styled';
 import { TextFieldNumberProps } from './types';
 
 const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInputElement, TextFieldNumberProps>(
-	({ defaultValue, inputProps, inputMode = 'decimal', isDisabled, min = 0, max, onChange, value, ...rest }, ref) => {
+	(
+		{ aspectSize, defaultValue, inputProps, inputMode = 'decimal', isDisabled, min = 0, max, onChange, value, ...rest },
+		ref
+	) => {
 		const [numberValue, setNumberValue] = React.useState(defaultValue ? +defaultValue : '');
 
 		const innerRef = React.useRef<HTMLInputElement>(null);
@@ -29,7 +32,7 @@ const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInp
 							const num = value ?? numberValue;
 							dispatchOnChange(innerRef, (+num + 1).toString());
 						}}
-						size={16}
+						size={aspectSize === 'xs' ? 12 : 16}
 					>
 						<Icon aspectSize="s" icon="arrow-up" styling="outlined" />
 					</IconButton>
@@ -42,13 +45,13 @@ const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInp
 							dispatchOnChange(innerRef, (+num - 1).toString());
 						}}
 						marginTop={1}
-						size={16}
+						size={aspectSize === 'xs' ? 12 : 16}
 					>
 						<Icon aspectSize="s" icon="arrow-down" styling="outlined" />
 					</IconButton>
 				</Flex>
 			);
-		}, [isDisabled, max, min, numberValue, value]);
+		}, [aspectSize, isDisabled, max, min, numberValue, value]);
 
 		const onTextFieldChange = React.useCallback<NonNullable<TextFieldNumberProps['onChange']>>(
 			ev => {
@@ -80,6 +83,7 @@ const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInp
 		return (
 			<StyledTextFieldNumber
 				{...rest}
+				aspectSize={aspectSize}
 				inputProps={{ min, inputMode, ...inputProps }}
 				isDisabled={isDisabled}
 				onChange={onTextFieldChange}

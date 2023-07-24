@@ -39,8 +39,10 @@ export const StyledInput: React.FC<StyledInputProps> = styled(InputBox)<StyledIn
 
 	${({ aspectSize, theme }) => {
 		const { aspectSize: aspectSizeProp } = theme.components.input;
+		const { fontSize: fontSizeProp } = theme.components.input;
 
 		return systemCSS.css({
+			fontSize: fontSizeProp[aspectSize!].text,
 			height: aspectSizeProp[aspectSize!].height
 		});
 	}}
@@ -48,7 +50,6 @@ export const StyledInput: React.FC<StyledInputProps> = styled(InputBox)<StyledIn
 
 StyledInput.defaultProps = {
 	color: 'common.text',
-	fontSize: 2,
 	pb: 0,
 	pr: 3,
 	pt: 0,

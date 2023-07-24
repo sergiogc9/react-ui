@@ -158,7 +158,7 @@ const TextField: React.FC<TextFieldBaseProps> = React.forwardRef<HTMLInputElemen
 					paddingX={1}
 					zIndex={0}
 				>
-					<InputHelperText isDisabled={isDisabled} isError={isError} isSuccess={isSuccess}>
+					<InputHelperText aspectSize={aspectSize} isDisabled={isDisabled} isError={isError} isSuccess={isSuccess}>
 						{helperText}
 					</InputHelperText>
 					{!!maxLength && (

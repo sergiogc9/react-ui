@@ -12,11 +12,13 @@ const InputLabel: React.FC<InputLabelProps> = styled(Flex).withConfig<InputLabel
 	shouldForwardProp: prop => prop !== 'placeholder'
 })`
 	${composers.text}
-	${({ theme, ...props }) => {
+	${({ aspectSize, theme, ...props }) => {
 		const statusColor = new StatusColor(props, theme);
+		const { fontSize: fontSizeProp } = theme.components.input;
 
 		return css({
-			color: statusColor.getStatusColorWithFallback('default')
+			color: statusColor.getStatusColorWithFallback('default'),
+			fontSize: fontSizeProp[aspectSize!].label
 		});
 	}}
 `;
@@ -25,7 +27,6 @@ InputLabel.defaultProps = {
 	as: 'label',
 	color: 'neutral.500',
 	cursor: 'inherit',
-	fontSize: 0,
 	overflow: 'hidden',
 	pointerEvents: 'none',
 	transition: 'all ease-in 0.2s',

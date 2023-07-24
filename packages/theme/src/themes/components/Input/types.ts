@@ -4,10 +4,11 @@ type Color = 'default' | 'background' | 'borderDefault' | 'disabled' | 'error' |
 type InputColors = Record<Color, string>;
 type VariantProps = 'bg' | 'color';
 
-export type AspectSize = 's' | 'm' | 'l';
+export type AspectSize = 'xs' | 's' | 'm' | 'l';
 
 export interface Input {
 	aspectSize: Record<AspectSize, Record<'height', number | string>>;
 	colors: ThemeColors<InputColors>;
+	fontSize: Record<AspectSize, Record<'label' | 'text', number | string>>;
 	removeButton: Record<VariantProps, string>;
 }

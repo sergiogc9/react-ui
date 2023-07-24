@@ -7,7 +7,7 @@ export default (props: StyledProps<TextFieldLabelProps>) => {
 	const generateCSS = (aspectSize: TextFieldLabelProps['aspectSize']) => {
 		if (!props.value!.toString().trim() && !props.placeholder && !props.isInputFocused) {
 			return {
-				fontSize: 2
+				fontSize: props.theme.components.input.fontSize[aspectSize!].text
 			};
 		}
 
@@ -28,6 +28,7 @@ export default (props: StyledProps<TextFieldLabelProps>) => {
 	return variant({
 		prop: 'aspectSize',
 		variants: {
+			xs: generateCSS('xs'),
 			s: generateCSS('s'),
 			m: generateCSS('m'),
 			l: generateCSS('l')
