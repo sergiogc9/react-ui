@@ -23,8 +23,9 @@ const TableGlobalFilter = (props: TableGlobalFilterProps) => {
 		<Flex {...rest}>
 			{isGlobalFilterEnabled && (
 				<TextField
-					aspectSize="s"
+					aspectSize="xs"
 					onChange={onFilterChanged}
+					hasRemoveButton
 					value={table.getState().globalFilter}
 					{...textFieldProps}
 				/>

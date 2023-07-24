@@ -16,7 +16,9 @@ const TableFilterCell = (props: TableFilterCellDefaultProps) => {
 
 	if (!canFilter) return null;
 
-	return <TextField aspectSize="s" onChange={onFilterChanged} value={column.getFilterValue() as string} />;
+	return (
+		<TextField aspectSize="xs" hasRemoveButton onChange={onFilterChanged} value={column.getFilterValue() as string} />
+	);
 };
 
 export default TableFilterCell;

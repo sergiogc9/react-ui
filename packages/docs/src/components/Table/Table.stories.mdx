@@ -19,7 +19,7 @@ import Text from 'components/Text';
 				<Table.TotalResults
 					render={({ totalResults }) => <Text aspectSize="xs">{`Total instagramers: ${totalResults}`}</Text>}
 				/>
-				<Table.GlobalFilter textFieldProps={{ label: 'Filter all the table' }} mx="auto" width={400} />
+				<Table.GlobalFilter textFieldProps={{ placeholder: 'Filter all the table' }} mx="auto" width={400} />
 				<Table.Pagination />
 			</Table.Toolbar>
 			<Table.Content minWidth={1280} showAllBorders={args.showAllBorders} />
