@@ -32,8 +32,7 @@ You can play with those `Box` depending if you need a fluid content or inside a 
 	name="playground"
 	args={{
 		defaultTab: 'tab_1',
-		width: '100%',
-		maxWidth: '100%'
+		width: 500
 	}}
 	parameters={getPlaygroundStoryParams()}
 >
@@ -41,21 +40,94 @@ You can play with those `Box` depending if you need a fluid content or inside a 
 		<Tabs {...args}>
 			<Tabs.Header>
 				<Tabs.Menu>
-					{['tab_1', 'tab_2', 'tab_3', 'tab_4', 'tab_5', 'tab_6', 'tab_7', 'tab_8'].map((tab_id, index) => (
+					{['tab_1', 'tab_2', 'tab_3', 'tab_4'].map((tab_id, index) => (
 						<Tabs.Tab key={`${tab_id}`} id={`${tab_id}`}>
-							{`${tab_id}`}
+							{`Tab ${tab_id.replace('tab_', '')}`}
 						</Tabs.Tab>
 					))}
 				</Tabs.Menu>
 			</Tabs.Header>
-			{['tab_1', 'tab_2', 'tab_3', 'tab_4', 'tab_5', 'tab_6', 'tab_7', 'tab_8'].map((tab_id, index) => (
+			{['tab_1', 'tab_2', 'tab_3', 'tab_4'].map((tab_id, index) => (
 				<Tabs.Content key={`${tab_id}`} id={`${tab_id}`} px={3} height={200}>
-					This is the content of {`${tab_id}`}
+					This is the content of {tab_id.replace('tab_', '')}
 				</Tabs.Content>
 			))}
 		</Tabs>
 	)}
 </Story>
+
+## Tabs menu layout
+
+The tabs items in the menu can have diferent sizes and layouts depending on the `tabsLayout` prop available in the `Tabs` component. The options are:
+
+### `big-evenly`:
+
+The tabs width are the same distributed evenly through all tabs. This is the default.
+
+<Canvas>
+	<Story name="big-evenly" title="Tabs layout: big-evenly" parameters={getFixedStoryParams()}>
+		<Tabs defaultTab="tab_1" mt={3} tabsLayout="big-evenly" width={500}>
+			<Tabs.Header>
+				<Tabs.Menu>
+					<Tabs.Tab id="tab_1">Tab 1</Tabs.Tab>
+					<Tabs.Tab id="tab_2">Tab 2</Tabs.Tab>
+				</Tabs.Menu>
+			</Tabs.Header>
+			<Tabs.Content id="tab_1" px={3} height={200}>
+				This is the content of Tab 1
+			</Tabs.Content>
+			<Tabs.Content id="tab_2" px={3} height={200}>
+				This is the content of Tab 2
+			</Tabs.Content>
+		</Tabs>
+	</Story>
+</Canvas>
+
+### `small-left`:
+
+The tabs width depends on the content and they're place on the left.
+
+<Canvas>
+	<Story name="small-left" title="Tabs layout: small-left" parameters={getFixedStoryParams()}>
+		<Tabs defaultTab="tab_1" mt={3} tabsLayout="small-left" width={500}>
+			<Tabs.Header>
+				<Tabs.Menu>
+					<Tabs.Tab id="tab_1">Tab 1</Tabs.Tab>
+					<Tabs.Tab id="tab_2">Tab 2</Tabs.Tab>
+				</Tabs.Menu>
+			</Tabs.Header>
+			<Tabs.Content id="tab_1" px={3} height={200}>
+				This is the content of Tab 1
+			</Tabs.Content>
+			<Tabs.Content id="tab_2" px={3} height={200}>
+				This is the content of Tab 2
+			</Tabs.Content>
+		</Tabs>
+	</Story>
+</Canvas>
+
+### `small-evenly`:
+
+The tabs width depends on the content and they're placed evenly.
+
+<Canvas>
+	<Story name="small-evenly" title="Tabs layout: small-evenly" parameters={getFixedStoryParams()}>
+		<Tabs defaultTab="tab_1" mt={3} tabsLayout="small-evenly" width={500}>
+			<Tabs.Header>
+				<Tabs.Menu>
+					<Tabs.Tab id="tab_1">Tab 1</Tabs.Tab>
+					<Tabs.Tab id="tab_2">Tab 2</Tabs.Tab>
+				</Tabs.Menu>
+			</Tabs.Header>
+			<Tabs.Content id="tab_1" px={3} height={200}>
+				This is the content of Tab 1
+			</Tabs.Content>
+			<Tabs.Content id="tab_2" px={3} height={200}>
+				This is the content of Tab 2
+			</Tabs.Content>
+		</Tabs>
+	</Story>
+</Canvas>
 
 ## Default state
 
@@ -79,6 +151,8 @@ By default, every tab has `hover` state except the active one.
 		</Tabs>
 	</Story>
 </Canvas>
+
+## With error
 
 ## With error
 

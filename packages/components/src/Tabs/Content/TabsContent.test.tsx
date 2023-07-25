@@ -12,7 +12,8 @@ const text = 'Awesome tab';
 
 const defaultContextData: TabsContextData = {
 	activeID: 'fake-id',
-	onTabClicked: jest.fn()
+	onTabClicked: jest.fn(),
+	tabsLayout: 'big-evenly'
 };
 
 const renderTabsContent = (props: Partial<TabsContentProps> = {}, contextData: Partial<TabsContextData> = {}) =>

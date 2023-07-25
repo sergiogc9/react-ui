@@ -10,4 +10,9 @@ export interface TabsProps extends FlexProps<React.HTMLAttributes<HTMLDivElement
 	 * A handler called when the active tab changes
 	 */
 	readonly onTabChange?: (id: string) => void;
+
+	/**
+	 * Defines the layout for tabs.
+	 */
+	readonly tabsLayout?: 'small-left' | 'small-evenly' | 'big-evenly';
 }

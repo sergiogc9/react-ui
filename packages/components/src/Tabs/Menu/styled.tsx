@@ -1,21 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import css from '@styled-system/css';
 
 import Flex from 'components/Flex';
 
-import { TabsMenuProps } from './types';
+import { StyledTabsMenuProps } from './types';
 
-const StyledTabsMenu: React.FC<TabsMenuProps> = styled(Flex)`
+const StyledTabsMenu: React.FC<StyledTabsMenuProps> = styled(Flex)<StyledTabsMenuProps>`
 	white-space: nowrap;
 	&::-webkit-scrollbar {
 		display: none;
 	}
+
+	${props =>
+		css({
+			justifyContent: props.tabsLayout === 'small-left' ? 'flex-start' : 'space-evenly'
+		})}
 `;
 
 StyledTabsMenu.defaultProps = {
 	flexShrink: 0,
 	flexWrap: 'nowrap',
-	justifyContent: { xs: 'space-between', md: 'flex-start' },
 	margin: 0,
 	overflowX: 'auto',
 	width: '100%'

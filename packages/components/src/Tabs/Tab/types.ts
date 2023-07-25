@@ -2,6 +2,8 @@ import React from 'react';
 
 import { FlexProps } from 'components/Flex';
 
+import { TabsProps } from '../types';
+
 export interface TabsTabProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
 	/**
 	 * The content of the tab
@@ -20,6 +22,6 @@ export interface TabsTabProps extends FlexProps<React.HTMLAttributes<HTMLDivElem
 	 */
 	readonly isError?: boolean;
 }
-export interface StyledTabsTabProps extends TabsTabProps {
+export interface StyledTabsTabProps extends TabsTabProps, Required<Pick<TabsProps, 'tabsLayout'>> {
 	activeID?: string;
 }

@@ -5,7 +5,7 @@ import TabsContext from 'components/Tabs/Context';
 import StyledTabs from './styled';
 import { TabsProps } from './types';
 
-const Tabs: React.FC<TabsProps> = ({ children, defaultTab, onTabChange, ...props }) => {
+const Tabs: React.FC<TabsProps> = ({ children, defaultTab, onTabChange, tabsLayout = 'big-evenly', ...props }) => {
 	const [activeID, setActive] = useState(defaultTab);
 	const contextValues = React.useMemo(
 		() => ({
@@ -13,9 +13,10 @@ const Tabs: React.FC<TabsProps> = ({ children, defaultTab, onTabChange, ...props
 			onTabClicked: (id: string) => {
 				setActive(id);
 				if (onTabChange) onTabChange(id);
-			}
+			},
+			tabsLayout
 		}),
-		[activeID, onTabChange]
+		[activeID, onTabChange, tabsLayout]
 	);
 
 	return (

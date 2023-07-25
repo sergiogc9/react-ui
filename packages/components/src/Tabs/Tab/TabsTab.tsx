@@ -7,7 +7,7 @@ import StyledTabsTab from './styled';
 import { TabsTabProps } from './types';
 
 const TabsTab: React.FC<TabsTabProps> = ({ children, id, isError, isDisabled, ...props }) => {
-	const { activeID, onTabClicked } = React.useContext(TabsContext);
+	const { activeID, onTabClicked, tabsLayout } = React.useContext(TabsContext);
 
 	return (
 		<StyledTabsTab
@@ -19,6 +19,7 @@ const TabsTab: React.FC<TabsTabProps> = ({ children, id, isError, isDisabled, ..
 			onClick={() => {
 				if (!isDisabled && onTabClicked) onTabClicked(id);
 			}}
+			tabsLayout={tabsLayout}
 			{...props}
 		>
 			<Text fontWeight={3} fontSize={0}>

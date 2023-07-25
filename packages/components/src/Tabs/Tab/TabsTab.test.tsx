@@ -16,7 +16,8 @@ const mockOnClick = jest.fn();
 
 const defaultContextData: TabsContextData = {
 	activeID: 'fake-id',
-	onTabClicked: mockOnClick
+	onTabClicked: mockOnClick,
+	tabsLayout: 'big-evenly'
 };
 
 const renderTabsTab = (props: Partial<TabsTabProps> = {}, contextData: Partial<TabsContextData> = {}) =>

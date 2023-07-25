@@ -6,8 +6,12 @@ import { getColorFromTheme } from '@sergiogc9/react-ui-theme';
 import Flex from 'components/Flex';
 import { StyledTabsTabProps } from './types';
 
-const StyledTabsTab = styled(Flex)<StyledTabsTabProps>`
-	${props => systemCSS({ color: props.theme.components.tab.colors.default })}
+const StyledTabsTab: React.FC<StyledTabsTabProps> = styled(Flex)<StyledTabsTabProps>`
+	${props =>
+		systemCSS({
+			color: props.theme.components.tab.colors.default,
+			flexGrow: props.tabsLayout.startsWith('small') ? 0 : 1
+		})}
 	cursor: pointer;
 	text-transform: uppercase;
 
@@ -102,7 +106,6 @@ const StyledTabsTab = styled(Flex)<StyledTabsTabProps>`
 
 StyledTabsTab.defaultProps = {
 	alignItems: 'flex-start',
-	flexGrow: { xs: 1, md: 0 },
 	fontSize: 0,
 	height: { xs: 36, md: 40 },
 	justifyContent: 'center',
