@@ -94,11 +94,27 @@ const StyledTabsTab: React.FC<StyledTabsTabProps> = styled(Flex)<StyledTabsTabPr
 			 {
 				${props.activeID !== props.id &&
 				css`
-					color: ${props.theme.colors.red['500']};
+					color: ${props.theme.colors.red[400]};
+				`}
+
+				&:hover {
+					> span {
+						${systemCSS({
+							color: props.theme.colors.red[500]
+						})}
+					}
+				}
+
+				${props.activeID === props.id &&
+				css`
+					 {
+						${systemCSS({ color: props.theme.colors.red[400] })}
+					}
 				`}
 
 				&::after {
 					visibility: visible;
+					background-color: ${props.theme.colors.red[400]};
 				}
 			}
 		`}

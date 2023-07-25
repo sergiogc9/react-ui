@@ -47,7 +47,7 @@ describe('TabsTab component', () => {
 		renderTabsTab({ isError: true });
 		const tab = screen.getByTestId(tabTestId);
 		expect(tab).toHaveStyle(`
-      color: ${theme.colors.red['500']};
+      color: ${theme.colors.red['400']};
     `);
 	});
 	it('should render tab as disabled', () => {
