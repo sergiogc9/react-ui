@@ -10,7 +10,9 @@ const StyledTabsTab: React.FC<StyledTabsTabProps> = styled(Flex)<StyledTabsTabPr
 	${props =>
 		systemCSS({
 			color: props.theme.components.tab.colors.default,
-			flexGrow: props.tabsLayout.startsWith('small') ? 0 : 1
+			flexBasis: props.flexBasis ?? props.tabsLayout === 'big-evenly' ? 0 : undefined,
+			flexGrow: props.flexGrow ?? props.tabsLayout.startsWith('small') ? 0 : 1,
+			flexShrink: props.flexShrink ?? props.tabsLayout === 'big-evenly' ? 0 : undefined
 		})}
 	cursor: pointer;
 	text-transform: uppercase;
