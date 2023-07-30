@@ -17,7 +17,7 @@ export default (props: StyledProps<TextFieldLabelProps>) => {
 			};
 		}
 
-		const leftPadding = props.leftContent ? 48 : 16;
+		const leftPadding = props.leftContent ? (props.aspectSize === 'xs' ? 40 : 48) : 16;
 		return {
 			pl: 0,
 			pointerEvents: 'inherit',

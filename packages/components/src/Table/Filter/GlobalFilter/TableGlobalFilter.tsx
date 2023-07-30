@@ -1,6 +1,8 @@
 import React from 'react';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import Flex from 'components/Flex';
+import Icon from 'components/Icon';
 import TextField, { TextFieldProps } from 'components/TextField';
 
 import TableContext from '../../Context';
@@ -26,6 +28,7 @@ const TableGlobalFilter = (props: TableGlobalFilterProps) => {
 					aspectSize="xs"
 					onChange={onFilterChanged}
 					hasRemoveButton
+					leftContent={<Icon.FontAwesome icon={faMagnifyingGlass} aspectSize="s" />}
 					value={table.getState().globalFilter}
 					{...textFieldProps}
 				/>

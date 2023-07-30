@@ -140,7 +140,7 @@ const TextField: React.FC<TextFieldBaseProps> = React.forwardRef<HTMLInputElemen
 						onClick={onClick}
 						onFocus={onInputFocus}
 						placeholder={placeholder}
-						pl={leftContent ? 7 : 3}
+						pl={leftContent ? (aspectSize === 'xs' ? 6 : 7) : 3}
 						pr={rightInputPadding}
 						ref={mergeRefs}
 						type={type}
