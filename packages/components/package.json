@@ -1,6 +1,6 @@
 {
 	"name": "@sergiogc9/react-ui",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "React UI Kit Components",
 	"repository": "git://github.com/sergiogc9/react-ui.git",
 	"types": "dist/types/index.d.ts",

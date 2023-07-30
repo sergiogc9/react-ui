@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/sergiogc9/react-ui/compare/v1.0.0...v1.1.0) (2023-07-30)
+
+### Bug Fixes
+
+- Fix Tabs menu tabs width for big-evenly variant ([85ee304](https://github.com/sergiogc9/react-ui/commit/85ee304758a4e935c353b7308892683ae36c77bd))
+
+### Features
+
+- Add Table.Empty component ([30430e9](https://github.com/sergiogc9/react-ui/commit/30430e9550e727340d10ba9ca7f1e6180d09e45a))
+
 ## [0.10.2](https://github.com/sergiogc9/react-ui/compare/v0.10.1...v0.10.2) (2023-05-27)
 
 ### Bug Fixes
