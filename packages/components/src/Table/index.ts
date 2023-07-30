@@ -4,6 +4,7 @@ import { createColumnHelper } from '@tanstack/react-table';
 import TableHeaderCell, { TableHeaderCellDefaultProps } from './Header/Cell';
 import TableCell, { TableCellProps, TableCellDefaultProps, TableCellDateProps, TableCellTextProps } from './Cell';
 import TableContent, { TableContentProps } from './Content';
+import TableEmpty, { TableEmptyProps } from './Empty';
 import TableGlobalFilter from './Filter/GlobalFilter';
 import TablePagination, { TablePaginationProps } from './Pagination';
 import TableSkeleton, { TableSkeletonProps, TableSkeletonContentProps } from './Skeleton';
@@ -20,6 +21,7 @@ export type {
 	TableCellTextProps,
 	TableColumnDef,
 	TableContentProps,
+	TableEmptyProps,
 	TableFilterFns,
 	TableSortingFns,
 	TableHeaderCellDefaultProps,
@@ -34,6 +36,7 @@ export { createColumnHelper };
 export default createNameSpacedComponent(Table, {
 	Cell: TableCell,
 	Content: TableContent,
+	Empty: TableEmpty,
 	GlobalFilter: TableGlobalFilter,
 	HeaderCell: TableHeaderCell,
 	Pagination: TablePagination,

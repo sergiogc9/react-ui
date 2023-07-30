@@ -4,12 +4,13 @@ import TableDecorator from 'storybook/decorators/Table';
 import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import Table from 'components/Table';
 import Text from 'components/Text';
+import Title from 'components/Title';
 
 <Meta
 	title="Components/Table"
 	component={Table}
 	decorators={[TableDecorator]}
-	argTypes={{ showAllBorders: { control: 'boolean' } }}
+	argTypes={{ forceEmpty: { control: 'boolean' }, showAllBorders: { control: 'boolean' } }}
 />
 
 <Story name="playground" parameters={getPlaygroundStoryParams()}>
@@ -23,6 +24,11 @@ import Text from 'components/Text';
 				<Table.Pagination />
 			</Table.Toolbar>
 			<Table.Content minWidth={1280} showAllBorders={args.showAllBorders} />
+			<Table.Empty>
+				<Title aspectSize="subtle" color="primary.600">
+					No elements found
+				</Title>
+			</Table.Empty>
 			<Table.Toolbar>
 				<Table.Pagination ml="auto" />
 			</Table.Toolbar>
@@ -48,6 +54,7 @@ The Table components are the following:
 - `Table.TotalResults`: A helpful component to render the total number of rows. Use its `render` prop which receives the number of rows to render the desired content.
 - `Table.Pagination`: A plug and play component to show a simple pagination.
 - `Table.GlobalFilter`: A Flex component with a TextField inside that handles global filtering through all the columns.
+- `Table.Empty`: A Flex component only visible when the table has no results. Udeful to show feedback when filtering. By default the content is centered both horizontal and vertical.
 
 As it can be seen in `TanStack table` docs, the `useReactTable` hook needs an `options`. You can use them for customizing the table behavior using the `tableOptions` props. The `data` and `columns` props must be provided as separated props.
 
@@ -108,6 +115,11 @@ const CustomTable = () => {
 				<Table.Pagination />
 			</Table.Toolbar>
 			<Table.Content minWidth={1280} />
+			<Table.Empty>
+				<Title aspectSize="subtle" color="primary.600">
+					No elements found
+				</Title>
+			</Table.Empty>
 			<Table.Toolbar>
 				<Table.Pagination ml="auto" />
 			</Table.Toolbar>
@@ -345,3 +357,7 @@ By default the `Table` component uses the `locale` property defined in the `Them
 ## Table.GlobalFilter API
 
 <ArgsTable of={Table.GlobalFilter} />
+
+## Table.Empty API
+
+<ArgsTable of={Table.Empty} />

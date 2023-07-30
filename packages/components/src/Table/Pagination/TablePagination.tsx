@@ -32,8 +32,9 @@ const TablePaginator: React.FC<TablePaginationProps> = (props: TablePaginationPr
 		const from = pageIndex * pageSize + 1;
 		const to = Math.min(filteredRows.length, (pageIndex + 1) * pageSize);
 		const total = manualPagination ? rowsCount ?? `~${pageSize * pageCount}` : rowsCount ?? filteredRows.length;
+		const isEmpty = !(manualPagination ? rowsCount ?? pageSize * pageCount : rowsCount ?? filteredRows.length);
 
-		return { from, to, total };
+		return { isEmpty, from, to, total };
 	}, [manualPagination, pageCount, pageIndex, pageSize, filteredRows.length, rowsCount]);
 
 	return (
@@ -45,8 +46,8 @@ const TablePaginator: React.FC<TablePaginationProps> = (props: TablePaginationPr
 			>
 				<Icon icon="arrow-left" styling="outlined" />
 			</IconButton>
-			<Text aspectSize="xs" marginX={3}>
-				{`${resultValues.from}-${resultValues.to} of ${resultValues.total}`}
+			<Text aspectSize="xs" marginX={resultValues.isEmpty ? 5 : 3}>
+				{resultValues.isEmpty ? '-' : `${resultValues.from}-${resultValues.to} of ${resultValues.total}`}
 			</Text>
 			<IconButton
 				data-testid="table-pagination-next-page-btn"
