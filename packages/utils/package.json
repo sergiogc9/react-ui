@@ -1,6 +1,6 @@
 {
 	"name": "@sergiogc9/react-ui-utils",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "React UI Kit Utils",
 	"repository": "git://github.com/sergiogc9/react-ui.git",
 	"license": "UNLICENSED",
@@ -36,7 +36,7 @@
 		"styled-components": "^5.3.5"
 	},
 	"dependencies": {
-		"@sergiogc9/react-ui": "^1.1.0",
+		"@sergiogc9/react-ui": "^1.2.0",
 		"@sergiogc9/react-ui-theme": "^1.0.0",
 		"lodash": "^4.17.21"
 	},

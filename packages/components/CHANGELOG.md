@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/sergiogc9/react-ui/compare/v1.1.0...v1.2.0) (2023-08-28)
+
+### Bug Fixes
+
+- Improve rowProps prop in TableContent ([72c4f06](https://github.com/sergiogc9/react-ui/commit/72c4f0610acc45d2c78f30138ae1b50e71fd77fa))
+
+### Features
+
+- Add search default icon in Table GlobalFilter component ([ee921b3](https://github.com/sergiogc9/react-ui/commit/ee921b31769ac7466c407c125e2e27de426b6a00))
+
 # [1.1.0](https://github.com/sergiogc9/react-ui/compare/v1.0.0...v1.1.0) (2023-07-30)
 
 ### Bug Fixes
