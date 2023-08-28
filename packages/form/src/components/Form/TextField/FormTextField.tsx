@@ -5,6 +5,8 @@ import { TextField, TextFieldDateProps } from '@sergiogc9/react-ui';
 
 import { FormTextFieldProps } from './types';
 
+const formatNumber = (value: string) => (value.endsWith('.') ? value : +value);
+
 const FormInput: React.FC<FormTextFieldProps> = props => {
 	const { helperText, isDisabled, name, type, ...rest } = props;
 
@@ -25,7 +27,7 @@ const FormInput: React.FC<FormTextFieldProps> = props => {
 			return {
 				onChange: ev => {
 					const { value } = ev.currentTarget;
-					field.onChange(isEmpty(value) ? null : +value);
+					field.onChange(isEmpty(value) ? null : formatNumber(value));
 				}
 			};
 

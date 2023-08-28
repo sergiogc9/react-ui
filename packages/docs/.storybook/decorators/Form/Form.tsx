@@ -12,7 +12,7 @@ export type ContactFormValues = {
 };
 
 const FormDecorator: DecoratorFn = (story, context) => {
-	const onFormSubmit = React.useCallback(async (values: ContactFormValues) => {
+	const onSubmit = React.useCallback(async (values: ContactFormValues) => {
 		console.log(values);
 	}, []);
 
@@ -32,7 +32,8 @@ const FormDecorator: DecoratorFn = (story, context) => {
 				comments: Yup.string().required('This field is mandatory'),
 				email: Yup.string().email('Enter a valid e-mail').required('This field is mandatory'),
 				name: Yup.string().required('This field is mandatory'),
-				phone: Yup.string().required('This field is mandatory')
+				phone: Yup.string().required('This field is mandatory'),
+				age: Yup.number().required('This field is mandatory')
 			}),
 		[]
 	);
@@ -40,7 +41,7 @@ const FormDecorator: DecoratorFn = (story, context) => {
 	context.args = {
 		...context.args,
 		defaultValues,
-		onFormSubmit,
+		onSubmit,
 		validationSchema
 	};
 
