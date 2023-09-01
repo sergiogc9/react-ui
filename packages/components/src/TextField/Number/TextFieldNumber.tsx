@@ -12,7 +12,7 @@ import { TextFieldNumberProps } from './types';
 
 const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInputElement, TextFieldNumberProps>(
 	(
-		{ aspectSize, defaultValue, inputProps, inputMode = 'decimal', isDisabled, min = 0, max, onChange, value, ...rest },
+		{ aspectSize, defaultValue, inputProps, inputMode = 'decimal', isDisabled, min, max, onChange, value, ...rest },
 		ref
 	) => {
 		const [numberValue, setNumberValue] = React.useState(defaultValue ? +defaultValue : '');
