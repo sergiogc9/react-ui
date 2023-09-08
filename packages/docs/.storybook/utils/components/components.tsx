@@ -1,44 +1,25 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import { ArgsTable as SBArgsTable, Meta as SBMeta, Story as SBStory, Canvas as SBCanvas } from '@storybook/addon-docs';
-import { getFixedStoryParams, getExcludedProps, getPlaygroundStoryParams } from 'storybook/parameters';
-import { ArgsTableProps, StoryProps } from './types';
+import {
+	ArgTypes as SBArgTypes,
+	Canvas as SBCanvas,
+	Controls as SBControls,
+	Meta as SBMeta,
+	Story as SBStory
+} from '@storybook/addon-docs';
+import { getExcludedProps } from 'storybook/parameters';
 
 export const Canvas = SBCanvas;
+export const Controls = SBControls;
 export const Meta = SBMeta;
+export const Story = SBStory;
 
-export const ArgsTable: React.FC<ArgsTableProps> = props => {
+type ArgTypesProps = React.ComponentProps<typeof SBArgTypes>;
+
+export const ArgTypes: React.FC<ArgTypesProps> = props => {
 	const { include = [], exclude = [], ...rest } = props;
 
-	const excludedProps = getExcludedProps(include, exclude);
+	const excludedProps = getExcludedProps(include as string[], exclude as string[]);
 
-	return <SBArgsTable {...rest} exclude={excludedProps} />;
+	return <SBArgTypes {...rest} exclude={excludedProps} />;
 };
-
-/**
- *  Commented due it is not working correctly. As using mdx it always gets the default Story component even importing from here.
- */
-export const Story = SBStory;
-// export const Story: React.FC<StoryProps> = (props) => {
-//   const {
-//     include = [],
-//     isPlayground = false,
-//     exclude = [],
-//     parameters,
-//     ...rest
-//   } = props;
-
-//   const excludedProps = __getExcludedProps(include, exclude);
-
-//   const finalParameters = merge(
-//     isPlayground ? getPlaygroundStoryParams() : getFixedStoryParams(),
-//     parameters
-//   );
-
-//   finalParameters.controls = {
-//     ...finalParameters.controls,
-//     exclude: excludedProps
-//   };
-
-//   return <SBStory {...rest} parameters={finalParameters} />;
-// };

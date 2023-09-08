@@ -1,3 +1,5 @@
+import { ArgTypes } from '@storybook/react';
+
 const EXCLUDED_PROPS = [
 	'as',
 	'backgroundClip',
@@ -23,32 +25,15 @@ const EXCLUDED_PROPS = [
 	'wordBreak'
 ];
 
-const playgroundStoryParams = {
-	options: { showPanel: true },
-	docs: { disable: true }
-};
-
-const fixedStoryParams = {
-	controls: { disable: true },
-	actions: { disable: true },
-	options: { showPanel: false }
-};
-
-export const getExcludedProps = (include: string[], exclude: string[]) =>
+export const getExcludedProps = (include: string[] = [], exclude: string[] = []) =>
 	[...EXCLUDED_PROPS, ...exclude].filter(prop => !include.includes(prop));
 
-export const getPlaygroundStoryParams = (
-	{ include, exclude, ...rest }: Record<'include' | 'exclude', string[]> = {
-		include: [],
-		exclude: []
-	}
-) => ({
-	...playgroundStoryParams,
-	controls: {
-		...playgroundStoryParams,
-		exclude: getExcludedProps(include || [], exclude || [])
-	},
-	...rest
-});
+export const getExcludedArgTypes = <T extends Object>(
+	include: string[] = [],
+	exclude: string[] = []
+): Partial<ArgTypes<T>> =>
+	getExcludedProps(include, exclude).reduce((prev: Partial<ArgTypes<T>>, curr) => {
+		prev[curr as keyof Partial<ArgTypes<T>>] = { table: { disable: true } };
 
-export const getFixedStoryParams = () => fixedStoryParams;
+		return prev;
+	}, {});

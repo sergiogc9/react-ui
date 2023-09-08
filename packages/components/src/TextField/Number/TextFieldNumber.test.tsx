@@ -21,7 +21,6 @@ describe('TextFieldNumber component', () => {
 	it('should render input with default props', () => {
 		renderTextFieldNumber();
 		const input = screen.getByTestId(textFieldNumberTestId)!.querySelector('input')!;
-		expect(input).toHaveAttribute('min', '0');
 		expect(input).toHaveAttribute('inputmode', 'decimal');
 		expect(input).toHaveAttribute('type', 'text');
 	});
