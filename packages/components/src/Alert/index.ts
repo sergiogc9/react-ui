@@ -5,8 +5,14 @@ import AlertText, { AlertTextProps } from './Text';
 import Alert from './Alert';
 import { AlertProps } from './types';
 
-export type { AlertProps, AlertTextProps, AlertIconProps };
-export default createNameSpacedComponent(Alert, {
+const NamespacedAlert = createNameSpacedComponent(Alert, {
 	Icon: AlertIcon,
 	Text: AlertText
 });
+
+NamespacedAlert.displayName = 'Alert';
+AlertIcon.displayName = 'Alert.Icon';
+AlertText.displayName = 'Alert.Text';
+
+export type { AlertProps, AlertTextProps, AlertIconProps };
+export default NamespacedAlert;

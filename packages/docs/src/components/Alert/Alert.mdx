@@ -1,0 +1,67 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import AlertDecorator from 'storybook/decorators/Alert';
+import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
+
+import Alert from 'components/Alert';
+import Icon from 'components/Icon';
+import Text from 'components/Text';
+
+import * as AlertMeta from './Alert.stories';
+
+<Meta of={AlertMeta} />
+
+# Alert
+
+<Canvas of={AlertMeta.Playground} />
+
+<Controls />
+
+Most important features:
+
+- 4 different built-in status variants.
+- Customizable content.
+
+## Status variants
+
+Use one of the different `status` available variants:
+
+<Canvas>
+	<Story of={AlertMeta.Error} />
+	<Story of={AlertMeta.Info} />
+	<Story of={AlertMeta.Success} />
+	<Story of={AlertMeta.Warning} />
+</Canvas>
+
+## Size variants
+
+Use the `aspectSize` prop to use different Alert sizes:
+
+<Canvas>
+	<Story of={AlertMeta.Small} />
+	<Story of={AlertMeta.Medium} />
+</Canvas>
+
+## Customizable content
+
+Use the built-in namespaced components `Alert.Icon` and `Alert.Text` to create custom alert layouts.
+
+Default layout:
+
+<Canvas of={AlertMeta.DefaultLayout} />
+
+Customized layout:
+
+<Canvas of={AlertMeta.CustomLayout} />
+
+## Alert API
+
+<ArgTypes of={Alert} />
+
+## Alert.Icon API
+
+<ArgTypes of={Alert.Icon} />
+
+## Alert.Text API
+
+<ArgTypes of={Alert.Text} />
