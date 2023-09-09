@@ -1,5 +1,5 @@
 import React from 'react';
-import { DecoratorFn } from '@storybook/react';
+import { Decorator } from '@storybook/react';
 import * as Yup from 'yup';
 
 import { Flex } from '@sergiogc9/react-ui';
@@ -11,7 +11,7 @@ export type ContactFormValues = {
 	phone: string;
 };
 
-const FormDecorator: DecoratorFn = (story, context) => {
+const FormDecorator: Decorator = (story, context) => {
 	const onSubmit = React.useCallback(async (values: ContactFormValues) => {
 		console.log(values);
 	}, []);

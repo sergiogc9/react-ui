@@ -1,9 +1,9 @@
 import React from 'react';
-import { DecoratorFn } from '@storybook/react';
+import { Decorator } from '@storybook/react';
 
 import { Flex, IconButton, Icon } from '@sergiogc9/react-ui';
 
-const ActionMenuDecorator: DecoratorFn = (story, context) => {
+const ActionMenuDecorator: Decorator = (story, context) => {
 	const iconRef = React.useRef();
 
 	const newContext = {

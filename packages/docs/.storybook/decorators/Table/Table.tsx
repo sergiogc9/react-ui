@@ -1,5 +1,5 @@
 import React from 'react';
-import { DecoratorFn } from '@storybook/react';
+import { Decorator } from '@storybook/react';
 import faker from 'faker';
 import { Button, Chip, ChipProps, createColumnHelper, Table, TableSortingFns } from '@sergiogc9/react-ui';
 
@@ -23,7 +23,7 @@ const getVariantFromProgress = (progress: number): ChipProps['variant'] => {
 
 const columnHelper = createColumnHelper<Data>();
 
-const TableDecorator: DecoratorFn = (story, context) => {
+const TableDecorator: Decorator = (story, context) => {
 	const columns = React.useMemo(
 		() => [
 			columnHelper.accessor('id', {
