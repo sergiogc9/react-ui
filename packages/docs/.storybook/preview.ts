@@ -12,6 +12,7 @@ const preview: Preview = {
 			page: DocsPage
 		},
 		controls: { expanded: true },
+		layout: 'centered',
 		options: {
 			storySort: {
 				order: ['Home', 'Theme', 'Collections', 'Components', 'Form']
