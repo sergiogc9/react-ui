@@ -1,10 +1,10 @@
 import React from 'react';
-import { DecoratorFn } from '@storybook/react';
+import { Decorator } from '@storybook/react';
 import { keyframes } from 'styled-components';
 
 import { Animation, Button, Flex, Text, TextField } from '@sergiogc9/react-ui';
 
-const AnimationDecorator: DecoratorFn = (story, context) => {
+const AnimationDecorator: Decorator = (story, context) => {
 	const [isEnabled, setIsEnabled] = React.useState(true);
 
 	context.args.isEnabled = isEnabled;
@@ -15,7 +15,7 @@ const AnimationDecorator: DecoratorFn = (story, context) => {
 	};
 
 	return (
-		<Flex alignItems="center" justifyContent="space-between" minWidth="500px">
+		<Flex alignItems="center" justifyContent="space-between" width="500px">
 			{story(context)}
 			<Button aspectSize="s" onClick={onRestartAnimation}>
 				Restart animation
@@ -36,7 +36,7 @@ const appearAnimation = keyframes`
   }
 `;
 
-const AnimationListDecorator: DecoratorFn = (story, context) => {
+const AnimationListDecorator: Decorator = (story, context) => {
 	const [keys, setKeys] = React.useState([new Date().getTime(), new Date().getTime() + 1]);
 
 	const [itemToRemove, setItemToRemove] = React.useState(1);
