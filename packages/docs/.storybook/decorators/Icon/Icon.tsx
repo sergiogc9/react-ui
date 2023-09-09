@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { DecoratorFn } from '@storybook/react';
+import { Decorator } from '@storybook/react';
 
 export const IconContainer = styled.div`
 	display: flex;
@@ -27,7 +27,7 @@ export const IconName = styled.span`
 		'Segoe UI Emoji', 'Segoe UI Symbol';
 `;
 
-const IconsDecorator: DecoratorFn = story => {
+const IconsDecorator: Decorator = story => {
 	const { icon } = story().props as any;
 	const Icon = {
 		...story(),
@@ -42,7 +42,7 @@ const IconsDecorator: DecoratorFn = story => {
 	);
 };
 
-const IconsFontAwesomeDecorator: DecoratorFn = story => {
+const IconsFontAwesomeDecorator: Decorator = story => {
 	const Icon = {
 		...story(),
 		props: { fill: 'primary.500', ...(story().props as any) }

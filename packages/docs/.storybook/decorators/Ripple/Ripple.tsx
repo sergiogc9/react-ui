@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
-import { DecoratorFn } from '@storybook/react';
+import { Decorator } from '@storybook/react';
 
 export const RippleWrapper = styled.div`
 	${props =>
@@ -10,7 +10,7 @@ export const RippleWrapper = styled.div`
 		})}
 `;
 
-const RippleDecorator: DecoratorFn = story => {
+const RippleDecorator: Decorator = story => {
 	return <RippleWrapper>{story()}</RippleWrapper>;
 };
 

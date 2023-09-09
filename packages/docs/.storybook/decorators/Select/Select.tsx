@@ -1,9 +1,9 @@
 import React from 'react';
-import { DecoratorFn } from '@storybook/react';
+import { Decorator } from '@storybook/react';
 
 import { Flex } from '@sergiogc9/react-ui';
 
-const SelectDecorator: DecoratorFn = story => {
+const SelectDecorator: Decorator = story => {
 	const { minHeight } = story().props as any;
 
 	if (!minHeight) return story();

@@ -1,7 +1,7 @@
 import React from 'react';
-import { DecoratorFn } from '@storybook/react';
+import { Decorator } from '@storybook/react';
 
-const StepperDecorator: DecoratorFn = (story, context) => {
+const StepperDecorator: Decorator = (story, context) => {
 	const [current, setCurrent] = React.useState(2);
 	let { current: isSumming } = React.useRef(true);
 

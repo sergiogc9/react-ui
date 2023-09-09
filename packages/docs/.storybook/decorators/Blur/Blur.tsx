@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { DecoratorFn } from '@storybook/react';
+import { Decorator } from '@storybook/react';
 
 import { Flex } from '@sergiogc9/react-ui';
 
@@ -36,7 +36,7 @@ export const PageContainer = (props: { children: React.ReactNode }) => (
 	</BlurContainer>
 );
 
-const BlurDecorator: DecoratorFn = story => {
+const BlurDecorator: Decorator = story => {
 	return <PageContainer>{story()}</PageContainer>;
 };
 

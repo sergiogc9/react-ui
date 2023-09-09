@@ -1,7 +1,7 @@
 import React from 'react';
-import { DecoratorFn } from '@storybook/react';
+import { Decorator } from '@storybook/react';
 
-const ImageDecorator: DecoratorFn = (story, context) => {
+const ImageDecorator: Decorator = (story, context) => {
 	const [isTimeoutFinished, setIsTimeoutFinished] = React.useState(false);
 
 	React.useEffect(() => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { DecoratorFn } from '@storybook/react';
+import { Decorator } from '@storybook/react';
 
 export const ChipWrapper = styled.div`
 	display: flex;
@@ -11,7 +11,7 @@ export const ChipWrapper = styled.div`
 	}
 `;
 
-const ChipDecorator: DecoratorFn = story => {
+const ChipDecorator: Decorator = story => {
 	return <ChipWrapper>{story()}</ChipWrapper>;
 };
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import { DecoratorFn } from '@storybook/react';
+import { Decorator } from '@storybook/react';
 
 import { Avatar, Flex } from '@sergiogc9/react-ui';
 
-const UserMenuDecorator: DecoratorFn = (story, context) => {
+const UserMenuDecorator: Decorator = (story, context) => {
 	const avatarRef = React.useRef();
 
 	const newContext = {
