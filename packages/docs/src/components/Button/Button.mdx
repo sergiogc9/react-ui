@@ -1,0 +1,130 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Button from 'components/Button';
+import Icon from 'components/Icon';
+import Text from 'components/Text';
+
+import * as ButtonMeta from './Button.stories';
+
+<Meta of={ButtonMeta} />
+
+# Button
+
+<Canvas of={ButtonMeta.Playground} />
+
+<Controls />
+
+## With icons
+
+Use the `Button.Icon` component to render icons at right or left of the text:
+
+## AspectSize prop
+
+The prop `aspectSize` receives a `string` value.
+
+Based on that value it changes the `height, font-size, line-height and padding` styles of the Button component.
+
+<Canvas>
+	<Story of={ButtonMeta.xs} />
+	<Story of={ButtonMeta.s} />
+	<Story of={ButtonMeta.m} />
+	<Story of={ButtonMeta.l} />
+</Canvas>
+
+## Icons
+
+Icons can be added at left or right. For a button with only an icon and no text, please use the IconButton:
+
+<Canvas>
+	<Story of={ButtonMeta.LeftIcon} />
+	<Story of={ButtonMeta.RightIcon} />
+	<Story of={ButtonMeta.FontAwesomeIcon} />
+</Canvas>
+
+## Variant prop
+
+The prop `variant` switches between the different versions of the button:
+
+#### Default
+
+<Canvas>
+	<Story of={ButtonMeta.Default} />
+	<Story of={ButtonMeta.DefaultLoading} />
+	<Story of={ButtonMeta.DefaultDisabled} />
+	<Story of={ButtonMeta.DefaultLeftIcon} />
+	<Story of={ButtonMeta.DefaultRightIcon} />
+</Canvas>
+
+#### Primary
+
+<Canvas>
+	<Story of={ButtonMeta.Primary} />
+	<Story of={ButtonMeta.PrimaryLoading} />
+	<Story of={ButtonMeta.PrimaryDisabled} />
+	<Story of={ButtonMeta.PrimaryLeftIcon} />
+	<Story of={ButtonMeta.PrimaryRightIcon} />
+</Canvas>
+
+#### Secondary
+
+<Canvas>
+	<Story of={ButtonMeta.Secondary} />
+	<Story of={ButtonMeta.SecondaryLoading} />
+	<Story of={ButtonMeta.SecondaryDisabled} />
+	<Story of={ButtonMeta.SecondaryLeftIcon} />
+	<Story of={ButtonMeta.SecondaryRightIcon} />
+</Canvas>
+
+#### Link
+
+<Canvas>
+	<Story of={ButtonMeta.Link} />
+	<Story of={ButtonMeta.LinkLoading} />
+	<Story of={ButtonMeta.LinkDisabled} />
+	<Story of={ButtonMeta.LinkLeftIcon} />
+	<Story of={ButtonMeta.LinkRightIcon} />
+</Canvas>
+
+#### Warning
+
+<Canvas>
+	<Story of={ButtonMeta.Warning} />
+	<Story of={ButtonMeta.WarningLoading} />
+	<Story of={ButtonMeta.WarningDisabled} />
+	<Story of={ButtonMeta.WarningLeftIcon} />
+	<Story of={ButtonMeta.WarningRightIcon} />
+</Canvas>
+
+#### Success
+
+<Canvas>
+	<Story of={ButtonMeta.Success} />
+	<Story of={ButtonMeta.SuccessLoading} />
+	<Story of={ButtonMeta.SuccessDisabled} />
+	<Story of={ButtonMeta.SuccessLeftIcon} />
+	<Story of={ButtonMeta.SuccessRightIcon} />
+</Canvas>
+
+#### Danger
+
+<Canvas>
+	<Story of={ButtonMeta.Danger} />
+	<Story of={ButtonMeta.DangerLoading} />
+	<Story of={ButtonMeta.DangerDisabled} />
+	<Story of={ButtonMeta.DangerLeftIcon} />
+	<Story of={ButtonMeta.DangerRightIcon} />
+</Canvas>
+
+#### Subtle
+
+<Canvas>
+	<Story of={ButtonMeta.Subtle} />
+	<Story of={ButtonMeta.SubtleLoading} />
+	<Story of={ButtonMeta.SubtleDisabled} />
+	<Story of={ButtonMeta.SubtleLeftIcon} />
+	<Story of={ButtonMeta.SubtleRightIcon} />
+</Canvas>
+
+# API
+
+<ArgTypes of={Button} />
