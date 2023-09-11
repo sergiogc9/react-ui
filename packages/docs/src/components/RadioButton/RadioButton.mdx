@@ -1,0 +1,60 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import RadioButton from 'components/RadioButton';
+
+import * as RadioButtonMeta from './RadioButton.stories';
+
+<Meta of={RadioButtonMeta} />
+
+# RadioButton
+
+Radio buttons allows you to select one option from a set.
+
+<Canvas of={RadioButtonMeta.Playground} />
+
+<Controls />
+
+## Default Selected
+
+By default, RadioButtons will change their status on `click` .
+
+If you pass the `isDefaultSelected` prop to `true` it will be checked by default.
+
+<Canvas>
+	<Story of={RadioButtonMeta.DefaultSelected} />
+	<Story of={RadioButtonMeta.NotDefaultSelected} />
+</Canvas>
+
+## Disabled RadioButton
+
+You can disable it adding the `isDisabled` prop.
+
+<Canvas of={RadioButtonMeta.Disabled} />
+
+## With label
+
+<Canvas>
+	<Story of={RadioButtonMeta.WithLabel} />
+	<Story of={RadioButtonMeta.WithLabelDisabled} />
+</Canvas>
+
+## With label and description
+
+<Canvas>
+	<Story of={RadioButtonMeta.WithDescription} />
+	<Story of={RadioButtonMeta.WithDescriptionDisabled} />
+</Canvas>
+
+## Sizes
+
+The size only modifies the label but not the input.
+
+<Canvas>
+
+<Story of={RadioButtonMeta.SizeMedium} />
+<Story of={RadioButtonMeta.SizeLarge} />
+</Canvas>
+
+# API
+
+<ArgTypes of={RadioButton} />

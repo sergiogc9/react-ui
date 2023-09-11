@@ -9,9 +9,16 @@ import { PopoverWrapperProps } from './Wrapper/types';
 import Popover from './Popover';
 import { PopoverProps } from './types';
 
-export { PopoverProps, PopoverContentProps, PopoverTriggerProps, PopoverWrapperProps };
-export default createNameSpacedComponent(Popover, {
+const NamespacedPopover = createNameSpacedComponent(Popover, {
 	Content: PopoverContent,
 	Trigger: PopoverTrigger,
 	Wrapper: PopoverWrapper
 });
+
+NamespacedPopover.displayName = 'Popover';
+PopoverContent.displayName = 'Popover.Content';
+PopoverTrigger.displayName = 'Popover.Trigger';
+PopoverWrapper.displayName = 'Popover.Wrapper';
+
+export type { PopoverProps, PopoverContentProps, PopoverTriggerProps, PopoverWrapperProps };
+export default NamespacedPopover;

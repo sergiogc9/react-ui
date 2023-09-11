@@ -1,0 +1,139 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Select from 'components/Select';
+
+import * as SelectMeta from './Select.stories';
+
+<Meta of={SelectMeta} />
+
+# Select
+
+A select component with multi selection and autocomplete features.
+
+Most important features:
+
+- Select one or many options (single or multi select).
+- Type inside input to filter options (autocomplete).
+- Dynamic option updates while user writes. The options are updated from outside the component.
+- Navigable using the keyboard.
+- Use it as controlled or uncontrolled component.
+- Disabled, error and success styles supported.
+
+<Canvas of={SelectMeta.Playground} />
+
+<Controls />
+
+## Sizes
+
+Use one of the different sizes to match your design:
+
+<Canvas of={SelectMeta.Sizes} />
+
+## Variants
+
+Use one of the different variants to match your design:
+
+<Canvas of={SelectMeta.Variants} />
+
+## States
+
+The Select has different states implement. Useful to use inside a form, for example:
+
+<Canvas>
+<Story of={SelectMeta.Default} />
+<Story of={SelectMeta.Disabled} />
+<Story of={SelectMeta.Error} />
+<Story of={SelectMeta.Success} />
+
+</Canvas>
+
+## Multi selection
+
+You can enable or disable the possibility to select more than one option. Enabling the `isMultiSelect` prop will cause the `onOptionChange`, `defaultValue` and `value` props to work with arrays instead:
+
+<Canvas height={'500px'}>
+	<Story of={SelectMeta.SingleSelect} />
+	<Story of={SelectMeta.MultiSelect} />
+</Canvas>
+
+## Autocomplete
+
+You can enable the input to let the user to filter the options while is typing. Enable this feature using the `isAutocomplete` prop. It works in both single and select modes.
+
+The Select component can be also used as an asynchronous autocomplete. To achieve this use the `onInputChange` handler to update options passed as children with newer refetched options. You should also check `isExternalFiltered` and `areExternalOptionsValid` props.
+
+<Canvas>
+
+    <Story of={SelectMeta.WithoutAutocomplete}/>
+    <Story of={SelectMeta.WithAutocomplete}/>
+
+</Canvas>
+
+## With custom icon
+
+You can add some content at left of the input using the TextField prop `leftContent`. Keep in mind that nothing but an Icon should be used:
+
+<Canvas of={SelectMeta.WithCustomIcon} />
+
+## Labels, placeholder and helper text
+
+You can use the props `label`, `labelPosition`, `placeholder` and `helperText` which are inherited from TextField:
+
+Without label or placeholder:
+
+<Canvas of={SelectMeta.WithoutLabelAndPlaceholder} />
+
+With inside and outside label:
+
+<Canvas>
+
+<Story of={SelectMeta.InsideLabel} />
+<Story of={SelectMeta.OutsideLabel} />
+</Canvas>
+
+With placeholder:
+
+<Canvas of={SelectMeta.WithPlaceholder} />
+
+With both label and placeholder:
+
+<Canvas of={SelectMeta.WithLabelAndPlaceholder} />
+
+With helper text:
+
+<Canvas>
+<Story of={SelectMeta.WithHelperText} />
+<Story of={SelectMeta.WithHelperTextError} />
+<Story of={SelectMeta.WithHelperTextSuccess} />
+<Story of={SelectMeta.WithHelperTextDisabled} />
+
+</Canvas>
+
+## Full customizable option values
+
+You can use plain text, html, SVG or emojis as option value.
+
+Using non plain text may cause selected option and filtered option matching input text (in autocomplete mode) to appear as bold to not work. This feature should only be used when needed.
+
+<Canvas of={SelectMeta.WithCustomOptions} />
+
+## Customize empty results content
+
+When no options are provided (or there are no results that matches the text in autocomplete) a "No results" content is shown by default.
+
+This can be customized using the `emptyResultsContent` prop.
+
+Example with default content:
+
+<Canvas of={SelectMeta.DefaultEmptyResults} />
+
+Example with custom content:
+
+<Canvas of={SelectMeta.CustomEmptyResults} />
+## Select API
+
+<ArgTypes of={Select} />
+
+## Select.Option API
+
+<ArgTypes of={Select.Option} />
