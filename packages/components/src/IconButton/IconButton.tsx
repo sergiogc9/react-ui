@@ -31,4 +31,4 @@ const IconButton: React.FC<IconButtonProps> = React.forwardRef(
 	}
 );
 
-export default React.memo(IconButton);
+export default IconButton;

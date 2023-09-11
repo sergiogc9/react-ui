@@ -1,0 +1,45 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Link from 'components/Link';
+
+import * as LinkMeta from './Link.stories';
+
+<Meta of={LinkMeta} />
+
+# Link
+
+This simple component will apply the link style a the text inside it. It extends all the `Content` component props.
+
+It should be used if you need inside a paragraph or a WYSIWYG. To another cases use the `Button` with the `link` variant.
+
+<Canvas of={LinkMeta.Playground} />
+
+<Controls />
+
+## Default behavior
+
+<Canvas of={LinkMeta.Default} />
+
+## Opposite behavior
+
+You can pass `opposite` to the `behavior` prop and the underline will be hidden by default and showed on ':hover'.
+
+<Canvas of={LinkMeta.Opposite} />
+
+## Link as `<button>`
+
+You can render a `<button>` tag on the DOM if you create the Link with `as="button"`. The style is the same, though.
+
+<Canvas of={LinkMeta.AsButton} />
+
+## Link inside a paragraph
+
+If you need to style a link inside a paragraph or some text coming from a WYSIWYG ( for example ). It will look like this.
+
+Disclaimer: This is just an example of how it will look. We still need to define which `wrapper` we need to use in order to create the `stylesheet`rule.
+
+<Canvas of={LinkMeta.InsideText} />
+
+# API
+
+<ArgTypes of={Link} />

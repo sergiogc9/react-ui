@@ -1,11 +1,8 @@
-import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
 
-import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import GoogleMapsAutocomplete from 'components/GoogleMapsAutocomplete';
-import Icon from 'components/Icon';
-import Text from 'components/Text';
 
-<Meta title="Components/GoogleMapsAutocomplete" component={GoogleMapsAutocomplete} />
+<Meta title="Components/GoogleMapsAutocomplete" />
 
 # GoogleMapsAutocomplete
 
@@ -25,4 +22,4 @@ Use the props `onlyRegions` and `countries` to filter results.
 
 ## GoogleMapsAutocomplete API
 
-<ArgsTable of={GoogleMapsAutocomplete} />
+<ArgTypes of={GoogleMapsAutocomplete} />

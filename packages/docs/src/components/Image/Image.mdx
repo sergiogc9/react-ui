@@ -1,0 +1,36 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Image from 'components/Image';
+
+import * as ImageMeta from './Image.stories';
+
+<Meta of={ImageMeta} />
+
+# Image
+
+The Image component is a simple wrapper for an <img /> component with an extra skeleton behavior added when image is loading.
+
+Most important features:
+
+- Same props as the `<img />` component.
+- Shows an skeleton while loading.
+
+A component used to render an Image.
+
+<Canvas of={ImageMeta.Playground} />
+
+<Controls />
+
+## Sizes
+
+Use `size`, `width` and / or `width` props to size the image:
+
+<Canvas>
+	<Story of={ImageMeta.Small} />
+	<Story of={ImageMeta.Medium} />
+	<Story of={ImageMeta.Large} />
+</Canvas>
+
+## Image API
+
+<ArgTypes of={Image} />
