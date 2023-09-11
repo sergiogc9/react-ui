@@ -1,13 +1,20 @@
 import { createNameSpacedComponent } from '@sergiogc9/react-utils';
 
 import Badge from './Badge';
-import Status from './Status';
-import Counter from './Counter';
+import BadgeStatus from './Status';
+import BadgeCounter from './Counter';
 
-export { BadgeCounterProps } from './Counter/types';
-export { BadgeStatusProps } from './Status/types';
+import { BadgeCounterProps } from './Counter/types';
+import { BadgeStatusProps } from './Status/types';
 
-export default createNameSpacedComponent(Badge, {
-	Status,
-	Counter
+const NamespacedBadge = createNameSpacedComponent(Badge, {
+	Counter: BadgeCounter,
+	Status: BadgeStatus
 });
+
+NamespacedBadge.displayName = 'Badge';
+BadgeCounter.displayName = 'Badge.Counter';
+BadgeStatus.displayName = 'Badge.Status';
+
+export type { BadgeCounterProps, BadgeStatusProps };
+export default NamespacedBadge;

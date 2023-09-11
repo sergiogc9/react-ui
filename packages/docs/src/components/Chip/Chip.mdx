@@ -1,0 +1,71 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Chip from 'components/Chip';
+
+import * as ChipMeta from './Chip.stories';
+
+<Meta of={ChipMeta} />
+
+# Chip
+
+Chips are small elements to display tags, links or useful information.
+
+<Canvas of={ChipMeta.Playground} />
+
+<Controls />
+
+## Chip Label
+
+It can be used as a simple label and two `aspectSize` are actually available, `s`and `m`.
+
+<Canvas of={ChipMeta.Label} />
+
+## Chip Label with link
+
+But it can be also a link, just add the `href` prop to the parent.
+
+<Canvas of={ChipMeta.Link} />
+
+## Chip Label with Icon
+
+Chip has the possibility to integrate icons, they are all passed via children.`
+
+<Canvas of={ChipMeta.LabelWithIcon} />
+
+With Font Awesome icons:
+
+<Canvas of={ChipMeta.LabelWithFontAwesomeIcon} />
+
+## Chip Label with Handler
+
+An icon can have an handler. Adding an `onClick`function to the component will let the parent know this icon needs to be actionable.
+
+<Canvas of={ChipMeta.WithHandler} />
+
+## Chip with Handler and Icon
+
+It is possible to compose the chip using all of its pieces.
+
+<Canvas of={ChipMeta.WithHandlerAndIcons} />
+
+## Custom Chip
+
+The Chip has been built to be composable, be creative!
+
+<Canvas of={ChipMeta.Custom} />
+
+## Chip With an Overlay on Hover
+
+A chip can have an Overlay when hovered. Adding some element or text to the component's prop `overlayContent` will show an animated overlay when the chip is hovered.
+
+<Canvas of={ChipMeta.WithOverlay} />
+
+## Chip With an Overlay Fixed
+
+A chip can have an Overlay fixed. It can be fixed by setting the `isOverlayAlwaysVisible` to `true`.
+
+<Canvas of={ChipMeta.WithFixedOverlay} />
+
+# API
+
+<ArgTypes of={Chip} />

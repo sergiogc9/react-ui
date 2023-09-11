@@ -21,4 +21,7 @@ const Counter: React.FC<CounterProps> = React.forwardRef(({ numberOfItems = 0, v
 	);
 });
 
-export default React.memo(Counter);
+const MemoCounter = React.memo(Counter);
+MemoCounter.displayName = 'Counter';
+
+export default MemoCounter;

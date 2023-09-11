@@ -4,11 +4,18 @@ import Chip from './Chip';
 import ChipIcon from './Icon';
 import ChipLabel from './Label';
 
-export { ChipProps } from './types';
-export { ChipLabelProps } from './Label/types';
-export { ChipIconProps } from './Icon/types';
+import { ChipProps } from './types';
+import { ChipIconProps } from './Icon/types';
+import { ChipLabelProps } from './Label/types';
 
-export default createNameSpacedComponent(Chip, {
+const NamespacedChip = createNameSpacedComponent(Chip, {
 	Icon: ChipIcon,
 	Label: ChipLabel
 });
+
+NamespacedChip.displayName = 'Chip';
+ChipIcon.displayName = 'Chip.Icon';
+ChipLabel.displayName = 'Chip.Label';
+
+export type { ChipProps, ChipIconProps, ChipLabelProps };
+export default NamespacedChip;
