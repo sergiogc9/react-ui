@@ -42,13 +42,4 @@ const IconsDecorator: Decorator = story => {
 	);
 };
 
-const IconsFontAwesomeDecorator: Decorator = story => {
-	const Icon = {
-		...story(),
-		props: { fill: 'primary.500', ...(story().props as any) }
-	};
-
-	return <IconContainer>{Icon}</IconContainer>;
-};
-
-export { IconsDecorator, IconsFontAwesomeDecorator };
+export { IconsDecorator };

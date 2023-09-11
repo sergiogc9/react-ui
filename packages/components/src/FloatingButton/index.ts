@@ -4,10 +4,18 @@ import FloatingButton from './FloatingButton';
 import FloatingButtonIcon from './Icon';
 import FloatingButtonText from './Text';
 
-export { FloatingButtonProps } from './types';
-export { FloatingButtonIconProps } from './Icon/types';
-export { FloatingButtonTextProps } from './Text/types';
-export default createNameSpacedComponent(FloatingButton, {
+import { FloatingButtonProps } from './types';
+import { FloatingButtonIconProps } from './Icon/types';
+import { FloatingButtonTextProps } from './Text/types';
+
+const NamespacedFloatingButton = createNameSpacedComponent(FloatingButton, {
 	Icon: FloatingButtonIcon,
 	Text: FloatingButtonText
 });
+
+NamespacedFloatingButton.displayName = 'FloatingButton';
+FloatingButtonIcon.displayName = 'FloatingButton.Icon';
+FloatingButtonText.displayName = 'FloatingButton.Text';
+
+export type { FloatingButtonProps, FloatingButtonTextProps, FloatingButtonIconProps };
+export default NamespacedFloatingButton;

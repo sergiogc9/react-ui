@@ -1,14 +1,10 @@
-import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
 
-import LoadingBarDecorator from 'storybook/decorators/LoadingBar';
-import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import LoadingBar from 'components/LoadingBar';
 
-<Meta title="Components/LoadingBar" component={LoadingBar} decorators={[LoadingBarDecorator]} />
+import * as LoadingBarMeta from './LoadingBar.stories';
 
-<Story name="playground" args={{ isVisible: true }} parameters={getPlaygroundStoryParams()}>
-	{args => <LoadingBar {...args} />}
-</Story>
+<Meta of={LoadingBarMeta} />
 
 # Loading Bar
 
@@ -25,4 +21,4 @@ See the live demo using the playground story.
 
 ## LoadingBar API
 
-<ArgsTable of={LoadingBar} />
+<ArgTypes of={LoadingBar} />

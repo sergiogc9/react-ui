@@ -1,0 +1,130 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Icon from 'components/Icon';
+
+import * as IconMeta from './Icon.stories';
+
+<Meta of={IconMeta} />
+
+# Icon
+
+A component to render an icon. There are three ways to render icons:
+
+- Use one of the pre-defined icons using the `Icon` component with `icon` and `styling` props.
+- Use your svg content with the `content` prop.
+- Use icons from [Font Awesome](https://fontawesome.com/icons) using `Icon.FontAwesome` component. See its section below for further info.
+
+<Canvas of={IconMeta.Playground} />
+
+<Controls />
+
+## Sizing
+
+The prop `aspectSize` receives a `string` value.
+
+Based on that value it changes the `width and height` styles of the Icon component.
+
+<Canvas of={IconMeta.Sizes} />
+
+## Colouring
+
+The prop `fill` can be used to change the icon color. You can use a custom color or use a color available in the theme.
+
+<Canvas>
+	<Story of={IconMeta.WithThemeColor} />
+	<Story of={IconMeta.WithCustomColor} />
+</Canvas>
+
+## Pre-defined icons
+
+There are a set of pre-defined icons that can be used using the `styling` and `icon` props. A pre-defined icon can be available in `filled`, `outlined` or both styles.
+
+Passing a wrong combination of `styling` and `icon` props will show no icon.
+
+#### Filled icons
+
+Sample:
+
+<Canvas of={IconMeta.FilledSample} />
+
+All filled icons:
+
+<Canvas of={IconMeta.FilledIcons} />
+
+#### Outlined icons
+
+Sample:
+
+<Canvas of={IconMeta.OutlinedSample} />
+
+All outlined icons:
+
+<Canvas of={IconMeta.OutlinedIcons} />
+
+## Custom icons
+
+You can use the Icon component with a custom svg `content` and `viewBox`. If viewBox is not provided, a default of 24px is used.
+
+<Canvas of={IconMeta.CustomIcon} />
+
+## Font Awesome icons
+
+You can use all icons from Font Awesome using the `Icon.FontAwesome` component.
+
+The core packages needed are built in inside the library, but the icons have to be provided using the `icon` prop:
+
+```tsx
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
+const App = () => {
+	return <Icon.FontAwesome icon={faCoffee} aspectSize="s" />;
+};
+```
+
+⚠️ IMPORTANT: The packages containing the icons **have to be installed by the consumer** and are not provided by the library. This way the consumer can decide what icon family to use, etc. [See available icon packages](https://fontawesome.com/docs/apis/javascript/import-icons#package-names)
+
+ℹ️ Remember that if you have a pro subscription, remember to configure the access to pro packages: [See docs](https://fontawesome.com/v6/docs/web/setup/packages#configure-access)
+
+#### Sizing
+
+The Font Awesome icon size can be changed using the same props than the default Icon component. Use the `aspectSize` for theme defined sizes or use the `size` prop for custom sizing:
+
+<Canvas of={IconMeta.SizesFontAwesome} />
+
+#### Colouring
+
+The Font Awesome icon can be colourized using the `fill` or `color` props. Theme defined colors or custom colors can be used.
+
+<Canvas>
+	<Story of={IconMeta.FontAwesomeThemeColor} />
+	<Story of={IconMeta.FontAwesomeCustomColor} />
+</Canvas>
+
+ℹ️ For duotone colors, you can also use the `primaryColor` and `secondaryColor` in order to change each layer colors.
+
+#### Customization
+
+The `Icon.FontAwesome` component is a wrapper of `FontAwesomeIcon` component provided by the `@fortawesome/react-fontawesome` package.
+
+That means you can use most of the props defined [here](https://fontawesome.com/v6/docs/web/use-with/react/style) or use the `style` prop to override custom CSS variables defined [here](https://fontawesome.com/v6/docs/web/style/style-cheatsheet).
+
+Some examples customizing icons:
+
+<Canvas>
+	<Story of={IconMeta.FontAwesomeRotation} />
+	<Story of={IconMeta.FontAwesomeFlip} />
+	<Story of={IconMeta.FontAwesomeBeatAnimation} />
+	<Story of={IconMeta.FontAwesomeBounceAnimation} />
+	<Story of={IconMeta.FontAwesomeFadeAnimation} />
+	<Story of={IconMeta.FontAwesomeShakeAnimation} />
+	<Story of={IconMeta.FontAwesomeSpinAnimation} />
+	<Story of={IconMeta.FontAwesomeWithBorder} />
+</Canvas>
+
+## Icon API
+
+<ArgTypes of={Icon} include={['fill']} />
+
+## Icon.FontAwesome API
+
+<ArgTypes of={Icon.FontAwesome} include={['fill']} />

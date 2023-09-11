@@ -1,0 +1,38 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import FloatingButton from 'components/FloatingButton';
+
+import * as FloatingButtonMeta from './FloatingButton.stories';
+
+<Meta of={FloatingButtonMeta} />
+
+# FloatingButton
+
+FloatingButton component.
+
+<Canvas of={FloatingButtonMeta.Playground} />
+
+<Controls />
+
+## AspectSize prop
+
+Use the `aspectSize` prop to modify the size of the Floating Button.
+
+<Canvas of={FloatingButtonMeta.Sizes} />
+
+With Font Awesome icons:
+
+<Canvas of={FloatingButtonMeta.SizesWithFontAwesome} />
+
+## Icon and text
+
+The floating button can be used with or without text. Simply pass as children a `<FloatingButton.Text />` component.
+
+<Canvas>
+	<Story of={FloatingButtonMeta.WithoutText} />
+	<Story of={FloatingButtonMeta.WithText} />
+</Canvas>
+
+# API
+
+<ArgTypes of={FloatingButton} />

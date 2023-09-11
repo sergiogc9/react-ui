@@ -6,7 +6,12 @@ import Icon from './Icon';
 import IconFontAwesome from './FontAwesome';
 import { IconFontAwesomeProps } from './FontAwesome/types';
 
-export { IconProps, IconFontAwesomeProps };
-export default createNameSpacedComponent(Icon, {
+const NamespacedIcon = createNameSpacedComponent(Icon, {
 	FontAwesome: IconFontAwesome
 });
+
+NamespacedIcon.displayName = 'Icon';
+IconFontAwesome.displayName = 'Icon.FontAwesome';
+
+export type { IconProps, IconFontAwesomeProps };
+export default NamespacedIcon;

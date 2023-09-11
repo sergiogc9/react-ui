@@ -1,0 +1,27 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import IconButton from 'components/IconButton';
+
+import * as IconButtonMeta from './IconButton.stories';
+
+<Meta of={IconButtonMeta} />
+
+# IconButton
+
+The IconButton component can be used to show a button with only an icon. If you want to use some text, use the `Button` component.
+
+<Canvas of={IconButtonMeta.Playground} />
+
+<Controls />
+
+## Sizing
+
+The prop `aspectSize` receives a `string` value.
+
+Based on that value it changes some attributes as its size.
+
+<Canvas of={IconButtonMeta.Sizes} />
+
+# API
+
+<ArgTypes of={IconButton} />
