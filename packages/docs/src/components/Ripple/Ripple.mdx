@@ -1,0 +1,19 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Ripple from 'components/Ripple';
+
+import * as RippleMeta from './Ripple.stories';
+
+<Meta of={RippleMeta} />
+
+# Ripple
+
+A component used to render an Ripple.
+
+<Canvas of={RippleMeta.Playground} />
+
+<Controls />
+
+# API
+
+<ArgTypes of={Ripple} include={['color']} />

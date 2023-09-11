@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
 	${reset}
 	body {
 		margin: 0;
+		filter: unset !important;
 	}
 	// These styles are only applied to playground stories to center them
 	.sbdocs .docs-story > div {

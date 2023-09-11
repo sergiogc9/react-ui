@@ -1,0 +1,76 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Popover from 'components/Popover';
+
+import * as PopoverMeta from './Popover.stories';
+
+<Meta of={PopoverMeta} />
+
+# Popover
+
+This is a Popover component, helpful to show a Box content next to another component that acts as a trigger.
+
+It is made with these components:
+
+- **Popover**: The default exported namespaced component. It acts as a provider and it is a shortcut to all other components.
+- **Trigger**: It acts as the trigger element which handles the trigger event to show and / or hide the popover content.
+- **Content**: The popover content Box element shown when trigger event occurs.
+- **Wrapper**: The component that handles the logic to show and hide the content, as well other stuff. It is based on the Tippy library.
+
+**IMPORTANT**: Only use the `Popover.Wrapper` component to create a custom Popover content components (e.g. the `Popover.Content` and `Tooltip.Content` use it). If you want to use the default Popover content styling, use the Popover Content component.
+
+<Canvas of={PopoverMeta.Playground} />
+
+## Timing
+
+You can change the enter and exit timing using the `enterDelay` and `exitDelay` props:
+
+<Canvas>
+<Story of={PopoverMeta.EnterTiming}/>
+<Story of={PopoverMeta.ExitTiming}/>
+
+</Canvas>
+
+## Interactive popover
+
+By default, the popover is hidden when mousing out the trigger. This behavior can be changed using the `isInteractive` prop:
+
+<Canvas>
+<Story of={PopoverMeta.NotInteractive}/>
+<Story of={PopoverMeta.Interactive}/>
+
+</Canvas>
+
+## Changing trigger event
+
+By default, the popover is shown when hovering the trigger. You can change it using the `trigger` prop:
+
+<Canvas>
+<Story of={PopoverMeta.OnHover}/>
+<Story of={PopoverMeta.OnClick}/>
+
+</Canvas>
+
+## Using without provider and trigger
+
+You can use the popover without the provider and trigger, using the `reference` prop with the element that will act as the trigger.
+
+<Canvas of={PopoverMeta.WithoutProvider} />
+
+## Positioning
+
+You can locate the popover in different places around the trigger component. See the `placement` prop for all values:
+
+<Canvas of={PopoverMeta.Positioning} />
+
+# Popover Content API
+
+<ArgTypes of={Popover.Content} />
+
+# Popover Wrapper API
+
+<ArgTypes of={Popover.Wrapper} />
+
+# Popover Trigger API
+
+<ArgTypes of={Popover.Trigger} />

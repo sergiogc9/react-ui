@@ -4,7 +4,12 @@ import SelectOption, { SelectOptionProps } from './Option';
 import Select from './Select';
 import { SelectProps } from './types';
 
-export type { SelectProps, SelectOptionProps };
-export default createNameSpacedComponent(Select, {
+const NamespacedSelect = createNameSpacedComponent(Select, {
 	Option: SelectOption
 });
+
+NamespacedSelect.displayName = 'Select';
+SelectOption.displayName = 'Select.Option';
+
+export type { SelectProps, SelectOptionProps };
+export default NamespacedSelect;

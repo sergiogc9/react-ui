@@ -12,8 +12,8 @@ const config: StorybookConfig = {
 	},
 	// stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
 	stories: [
-		'../src/components/(Alert|Animation|Avatar|Badge|Box|Button|CheckBox|Chip|Counter|DatePicker|Divider|FloatingButton|GoogleMapsAutocomplete|Icon|IconButton|Image|Link|LoadingBar)/**/*.mdx',
-		'../src/components/(Alert|Animation|Avatar|Badge|Box|Button|CheckBox|Chip|Counter|DatePicker|Divider|FloatingButton|GoogleMapsAutocomplete|Icon|IconButton|Image|Link|LoadingBar)/**/*.stories.@(js|jsx|ts|tsx)'
+		'../src/components/(Alert|Animation|Avatar|Badge|Box|Button|CheckBox|Chip|Counter|DatePicker|Divider|FloatingButton|GoogleMapsAutocomplete|Icon|IconButton|Image|Link|LoadingBar||Modal|Overlay|Popover|RadioButton|Ripple|Select)/**/*.mdx',
+		'../src/components/(Alert|Animation|Avatar|Badge|Box|Button|CheckBox|Chip|Counter|DatePicker|Divider|FloatingButton|GoogleMapsAutocomplete|Icon|IconButton|Image|Link|LoadingBar||Modal|Overlay|Popover|RadioButton|Ripple|Select)/**/*.stories.@(js|jsx|ts|tsx)'
 	],
 	docs: {
 		autodocs: true

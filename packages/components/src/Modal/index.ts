@@ -11,10 +11,18 @@ import { ModalHeaderProps } from './Header/types';
 import Modal from './Modal';
 import { ModalProps } from './types';
 
-export { ModalProps, ModalCloseProps, ModalContentProps, ModalFooterProps, ModalHeaderProps };
-export default createNameSpacedComponent(Modal, {
+const NamespacedModal = createNameSpacedComponent(Modal, {
 	Close: ModalClose,
 	Content: ModalContent,
 	Footer: ModalFooter,
 	Header: ModalHeader
 });
+
+NamespacedModal.displayName = 'Modal';
+ModalClose.displayName = 'Modal.Close';
+ModalContent.displayName = 'Modal.Content';
+ModalFooter.displayName = 'Modal.Footer';
+ModalHeader.displayName = 'Modal.Header';
+
+export type { ModalProps, ModalCloseProps, ModalContentProps, ModalFooterProps, ModalHeaderProps };
+export default NamespacedModal;

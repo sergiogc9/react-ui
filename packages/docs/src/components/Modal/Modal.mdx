@@ -1,0 +1,65 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Modal from 'components/Modal';
+
+import * as ModalMeta from './Modal.stories';
+
+<Meta of={ModalMeta} />
+
+# Modal
+
+The Modal component show content on top of the page. You can use the `Header`, `Content`, `Footer` and `Close` namespaced components to easily layout the modal.
+
+Each Modal is inserted inside a div with an id equal to `modals` that should be located outside the `root` div where React is mounted in. If the `modals` div is not found, the Modal is inserted as a `body` child.
+If you don't want this approach, set the prop `withPortal` to false.
+
+The `Modal.Header` component includes the `Modal.Close` button but you can use the `Modal.Close` standalone. It will be absoultelly positioned at top-right by default.
+
+The modal visibility can be used **uncontrolled** or **controlled** from outside. To control its visibility from outside use the `isVisible` and `onClose` props.
+
+<Canvas of={ModalMeta.Playground} />
+
+<Controls />
+
+## Sizes
+
+You can change the Modal size using the `aspectSize` prop. From smaller to bigger:
+
+<Canvas>
+	<Story of={ModalMeta.Small} />
+	<Story of={ModalMeta.Medium} />
+	<Story of={ModalMeta.Large} />
+	<Story of={ModalMeta.ExtraLarge} />
+</Canvas>
+
+## Overlay
+
+The modal, by default uses a background Overlay behind it. You can disable it with the prop `withOverlay`:
+
+With overlay:
+
+<Canvas of={ModalMeta.WithOverlay} />
+
+Without overlay:
+
+<Canvas of={ModalMeta.WithoutOverlay} />
+
+## Closing the modal
+
+The modal, by default can be closed by clicking anywhere outside of it or pressing the `Escape` key. This can be disabled using the props `closeOnOutsideClick` and `closeOnEsc`:
+
+Default closing behavior:
+
+<Canvas of={ModalMeta.DefaultClose} />
+
+Clicking outside closing behavior disabled:
+
+<Canvas of={ModalMeta.OutsideClickDisabled} />
+
+Pressing escape closing behavior disabled:
+
+<Canvas of={ModalMeta.EscPressDisabled} />
+
+# Modal API
+
+<ArgTypes of={Modal} />
