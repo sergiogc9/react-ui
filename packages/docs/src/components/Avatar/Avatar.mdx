@@ -1,0 +1,55 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Avatar from 'components/Avatar';
+
+import * as AvatarMeta from './Avatar.stories';
+
+<Meta of={AvatarMeta} />
+
+# Avatar
+
+A component used to render an avatar.
+
+<Canvas of={AvatarMeta.Playground} />
+
+<Controls />
+
+## Content
+
+The Avatar will display (from more to less priority):
+
+- An image if you provide the `src` prop. If the image fails to load, will jump to the next case.
+- Name and surname initials.
+- An icon
+
+<Canvas>
+	<Story of={AvatarMeta.WithImage} />
+	<Story of={AvatarMeta.WithStringInitials} />
+	<Story of={AvatarMeta.WithIcon} />
+</Canvas>
+
+## AspectSize prop
+
+The prop `aspectSize` receives a `string` value.
+
+Based on that value it changes the `width and height` styles of the Avatar component. Also, you can provide a `size` (in pixels) for a custom size.
+
+All sizes icons:
+
+<Canvas>
+	<Story of={AvatarMeta.s} />
+	<Story of={AvatarMeta.m} />
+	<Story of={AvatarMeta.l} />
+	<Story of={AvatarMeta.CustomSize} />
+</Canvas>
+
+## Variants
+
+You can use the avatar in `circle` and `rounded` variant.
+
+<Canvas>
+	<Story of={AvatarMeta.Circle} />
+	<Story of={AvatarMeta.Rounded} />
+</Canvas>
+
+<ArgTypes of={Avatar} />

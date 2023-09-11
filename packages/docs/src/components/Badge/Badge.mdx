@@ -1,0 +1,52 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Badge from 'components/Badge';
+
+import * as BadgeMeta from './Badge.stories';
+
+<Meta of={BadgeMeta} />
+
+# Badge
+
+<Canvas of={BadgeMeta.Playground} />
+
+<Controls />
+
+Badge is a container for `Badge.Status` and `Badge.Counters`.
+Both `Badge.Counter` and `Badge.Status` can be positioned using the `location` prop:
+
+The Badge accept any kind of children but it's usually uused together with `Icon` and `Avatar`.
+
+<Canvas>
+	<Story of={BadgeMeta.AvatarTopLeft} />
+	<Story of={BadgeMeta.AvatarTopRight} />
+	<Story of={BadgeMeta.AvatarBottomLeft} />
+	<Story of={BadgeMeta.AvatarBottomRight} />
+</Canvas>
+
+<Canvas>
+	<Story of={BadgeMeta.IconTopLeft} />
+	<Story of={BadgeMeta.IconTopRight} />
+	<Story of={BadgeMeta.IconBottomLeft} />
+	<Story of={BadgeMeta.IconBottomRight} />
+</Canvas>
+
+<Canvas>
+	<Story of={BadgeMeta.CounterTopLeft} />
+	<Story of={BadgeMeta.CounterTopRight} />
+	<Story of={BadgeMeta.CounterBottomLeft} />
+	<Story of={BadgeMeta.CounterBottomRight} />
+	<Story of={BadgeMeta.CounterCustomColor} />
+</Canvas>
+
+# Badge API
+
+<ArgTypes of={Badge} />
+
+# Badge Status API
+
+<ArgTypes of={Badge.Status} />
+
+# Badge Counter API
+
+<ArgTypes of={Badge.Counter} />

@@ -1,0 +1,31 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Counter from 'components/Counter';
+
+import * as CounterMeta from './Counter.stories';
+
+<Meta of={CounterMeta} />
+
+# Counter
+
+Counter component.
+
+<Canvas of={CounterMeta.Playground} />
+
+<Controls />
+
+## Sizes
+
+The Counter size can be modified using the `aspectSize` prop:
+
+<Canvas of={CounterMeta.Sizes} />
+
+## Variants
+
+Change the `Counter` styling using the different availables variants changing the `variant` prop:
+
+<Canvas of={CounterMeta.Variants} />
+
+# API
+
+<ArgTypes of={Counter} />{' '}

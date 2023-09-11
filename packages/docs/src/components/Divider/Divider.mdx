@@ -1,0 +1,40 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Divider from 'components/Divider';
+
+import * as DividerMeta from './Divider.stories';
+
+<Meta of={DividerMeta} />
+
+# Divider
+
+The divider will help you organize better your content. Really useful when you have a lot of content on your page.
+
+<Canvas of={DividerMeta.Playground} />
+
+<Controls />
+
+## Default behavior
+
+By default, it will adapt automatically to the width of your container. You can use a padding to trim width from X or Y axis.
+
+<Canvas of={DividerMeta.Default} />
+
+## Vertical behavior
+
+You can convert the divider into a vertical divider using the `isVertical` prop. You can use a padding to trim width from X or Y axis.
+
+<Canvas of={DividerMeta.Vertical} />
+
+## Custom divider
+
+You can customize it giving the color, height, etc.. that you need. So you can be as creative as you want.
+
+<Canvas>
+	<Story of={DividerMeta.CustomColor} />
+	<Story of={DividerMeta.CreativeColor} />
+</Canvas>
+
+# API
+
+<ArgTypes of={Divider} />

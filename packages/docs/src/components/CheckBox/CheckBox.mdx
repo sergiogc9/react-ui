@@ -1,0 +1,59 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import CheckBox from 'components/CheckBox';
+
+import * as CheckBoxMeta from './CheckBox.stories';
+
+<Meta of={CheckBoxMeta} />
+
+# CheckBox
+
+Radio buttons allows you to select one option from a set.
+
+<Canvas of={CheckBoxMeta.Playground} />
+
+<Controls />
+
+## Default Selected
+
+By default, CheckBoxs will change their status on `click` .
+
+If you pass the `isDefaultSelected` prop to `true` it will be checked by default.
+
+<Canvas>
+	<Story of={CheckBoxMeta.DefaultSelected} />
+	<Story of={CheckBoxMeta.DefaultSelected} />
+</Canvas>
+
+## Disabled CheckBox
+
+You can disable it adding the `isDisabled` prop.
+
+<Canvas of={CheckBoxMeta.Disabled} />
+
+## With label
+
+<Canvas>
+	<Story of={CheckBoxMeta.WithLabel} />
+	<Story of={CheckBoxMeta.WithLabelDisabled} />
+</Canvas>
+
+## With label and description
+
+<Canvas>
+	<Story of={CheckBoxMeta.WithLabelAndDescription} />
+	<Story of={CheckBoxMeta.WithLabelAndDescriptionDisabled} />
+</Canvas>
+
+## Sizes
+
+The size only modifies the label but not the input.
+
+<Canvas>
+	<Story of={CheckBoxMeta.SizeMedium} />
+	<Story of={CheckBoxMeta.SizeLarge} />
+</Canvas>
+
+# API
+
+<ArgTypes of={CheckBox} />
