@@ -1,16 +1,24 @@
 import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 
-import {
-	Button,
-	CheckBox,
-	Grid,
-	Select,
-	TextField,
-	ToastOptions,
-	Toasts,
-	ToastsProps,
-	useToasts
-} from '@sergiogc9/react-ui';
+import Button from 'components/Button';
+import CheckBox from 'components/CheckBox';
+import Grid from 'components/Grid';
+import Select from 'components/Select';
+import TextField from 'components/TextField';
+import Toasts, { ToastOptions, useToasts } from 'components/Toasts';
+
+import { getExcludedArgTypes } from 'storybook/parameters';
+
+type Story = StoryObj<typeof Toasts>;
+
+const meta: Meta<typeof Toasts> = {
+	title: 'Components/Toasts',
+	component: Toasts,
+	argTypes: getExcludedArgTypes()
+};
+
+export default meta;
 
 const ToastsLauncher = () => {
 	const { addToast } = useToasts();
@@ -157,10 +165,12 @@ const ToastsLauncher = () => {
 	);
 };
 
-const ToastsStory = (props: Partial<ToastsProps> = {}) => (
-	<Toasts {...props}>
-		<ToastsLauncher />
-	</Toasts>
-);
-
-export { ToastsStory };
+export const Playground: Story = {
+	render: args => {
+		return (
+			<Toasts {...args}>
+				<ToastsLauncher />
+			</Toasts>
+		);
+	}
+};

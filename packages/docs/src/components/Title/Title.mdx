@@ -1,0 +1,32 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Title from 'components/Title';
+
+import * as TitleMeta from './Title.stories';
+
+<Meta of={TitleMeta} />
+
+# Title
+
+Title component.
+
+<Canvas of={TitleMeta.Playground} />
+
+<Controls />
+
+## AspectSize prop
+
+The prop `aspectSize` receives a `string` value.
+
+Based on that value it changes the `font-weight, font-size and line-height` styles of the Content component.
+
+<Canvas>
+	<Story of={TitleMeta.ExtraSmall} />
+	<Story of={TitleMeta.Small} />
+	<Story of={TitleMeta.Medium} />
+	<Story of={TitleMeta.Large} />
+	<Story of={TitleMeta.ExtraLarge} />
+</Canvas>
+# API
+
+<ArgTypes of={Title} />

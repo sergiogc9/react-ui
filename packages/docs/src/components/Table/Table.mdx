@@ -1,42 +1,14 @@
-import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
 
-import TableDecorator from 'storybook/decorators/Table';
-import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
 import Table from 'components/Table';
-import Text from 'components/Text';
-import Title from 'components/Title';
 
-<Meta
-	title="Components/Table"
-	component={Table}
-	decorators={[TableDecorator]}
-	argTypes={{ forceEmpty: { control: 'boolean' }, showAllBorders: { control: 'boolean' } }}
-/>
+import * as TableMeta from './Table.stories';
 
-<Story name="playground" parameters={getPlaygroundStoryParams()}>
-	{args => (
-		<Table {...args} width="90vw">
-			<Table.Toolbar>
-				<Table.TotalResults
-					render={({ totalResults }) => <Text aspectSize="xs">{`Total instagramers: ${totalResults}`}</Text>}
-				/>
-				<Table.GlobalFilter textFieldProps={{ placeholder: 'Filter all the table' }} mx="auto" width={400} />
-				<Table.Pagination />
-			</Table.Toolbar>
-			<Table.Content minWidth={1280} showAllBorders={args.showAllBorders} />
-			<Table.Empty>
-				<Title aspectSize="subtle" color="primary.600">
-					No elements found
-				</Title>
-			</Table.Empty>
-			<Table.Toolbar>
-				<Table.Pagination ml="auto" />
-			</Table.Toolbar>
-		</Table>
-	)}
-</Story>
+<Meta of={TableMeta} />
 
 # Table
+
+A component used to render a table.
 
 ## Introduction
 
@@ -324,40 +296,40 @@ By default the `Table` component uses the `locale` property defined in the `Them
 
 ## Table API
 
-<ArgsTable of={Table} />
+<ArgTypes of={Table} />
 
 ## Table.Cell API
 
-<ArgsTable of={Table.Cell} />
+<ArgTypes of={Table.Cell} />
 
 ## Table.Content API
 
-<ArgsTable of={Table.Content} />
+<ArgTypes of={Table.Content} />
 
 ## Table.HeaderCell API
 
-<ArgsTable of={Table.HeaderCell} />
+<ArgTypes of={Table.HeaderCell} />
 
 ## Table.Pagination API
 
-<ArgsTable of={Table.Pagination} />
+<ArgTypes of={Table.Pagination} />
 
 ## Table.Skeleton API
 
-<ArgsTable of={Table.Skeleton} />
+<ArgTypes of={Table.Skeleton} />
 
 ## Table.Toolbar API
 
-<ArgsTable of={Table.Toolbar} />
+<ArgTypes of={Table.Toolbar} />
 
 ## Table.TotalResults API
 
-<ArgsTable of={Table.TotalResults} />
+<ArgTypes of={Table.TotalResults} />
 
 ## Table.GlobalFilter API
 
-<ArgsTable of={Table.GlobalFilter} />
+<ArgTypes of={Table.GlobalFilter} />
 
 ## Table.Empty API
 
-<ArgsTable of={Table.Empty} />
+<ArgTypes of={Table.Empty} />

@@ -12,8 +12,8 @@ const config: StorybookConfig = {
 	},
 	// stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
 	stories: [
-		'../src/components/(Alert|Animation|Avatar|Badge|Box|Button|CheckBox|Chip|Counter|DatePicker|Divider|FloatingButton|GoogleMapsAutocomplete|Icon|IconButton|Image|Link|LoadingBar||Modal|Overlay|Popover|RadioButton|Ripple|Select)/**/*.mdx',
-		'../src/components/(Alert|Animation|Avatar|Badge|Box|Button|CheckBox|Chip|Counter|DatePicker|Divider|FloatingButton|GoogleMapsAutocomplete|Icon|IconButton|Image|Link|LoadingBar||Modal|Overlay|Popover|RadioButton|Ripple|Select)/**/*.stories.@(js|jsx|ts|tsx)'
+		'../src/components/(Icon|IconButton|Image|Link|LoadingBar||Modal|Overlay|Popover|RadioButton|Ripple|Select|Skeleton|Spinner|Status|Stepper|Svg|Switch|Table|Tabs|Text|Title|TextArea|TextField|Toasts|Tooltip)/**/*.mdx',
+		'../src/components/(Icon|IconButton|Image|Link|LoadingBar||Modal|Overlay|Popover|RadioButton|Ripple|Select|Skeleton|Spinner|Status|Stepper|Svg|Switch|Table|Tabs|Text|Title|TextArea|TextField|Toasts|Tooltip)/**/*.stories.@(js|jsx|ts|tsx)'
 	],
 	docs: {
 		autodocs: true
@@ -34,20 +34,20 @@ const config: StorybookConfig = {
 
 		// Add SVGR Loader
 		// ========================================================
-		const assetRule = config.module.rules.find(({ test }: any) => {
-			if (test.test) return test.test('.svg');
-			else return false;
+		// This modifies the existing image rule to exclude `.svg` files
+		// since we handle those with `@svgr/webpack`.
+		const imageRule = config.module.rules.find((rule: any) => {
+			if (typeof rule !== 'string' && rule.test instanceof RegExp) {
+				return rule.test.test('.svg');
+			}
 		});
+		if (typeof imageRule !== 'string') {
+			imageRule.exclude = /\.svg$/;
+		}
 
-		const assetLoader = {
-			loader: assetRule.loader,
-			options: assetRule.options || assetRule.query
-		};
-
-		// Merge our rule with existing assetLoader rules
-		config.module.rules.unshift({
+		config.module.rules.push({
 			test: /\.svg$/,
-			use: ['@svgr/webpack', assetLoader]
+			use: ['@svgr/webpack', 'url-loader']
 		});
 
 		return config;

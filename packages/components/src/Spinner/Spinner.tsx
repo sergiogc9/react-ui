@@ -8,7 +8,13 @@ import { SpinnerProps } from './types';
 
 const Spinner: React.FC<SpinnerProps> = React.memo(props => <StyledSpinner {...props} />);
 
-export default createNameSpacedComponent(Spinner, {
+const NamespacedSpinner = createNameSpacedComponent(Spinner, {
 	Circle,
 	Pulse
 });
+
+NamespacedSpinner.displayName = 'Spinner';
+Circle.displayName = 'Spinner.Circle';
+Pulse.displayName = 'Spinner.Pulse';
+
+export default NamespacedSpinner;

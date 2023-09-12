@@ -1,0 +1,110 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import TextField from 'components/TextField';
+
+import * as TextFieldMeta from './TextField.stories';
+
+<Meta of={TextFieldMeta} />
+
+# TextField
+
+TextField component.
+
+<Canvas of={TextFieldMeta.Playground} />
+
+<Controls />
+
+## States
+
+<Canvas>
+	<Story of={TextFieldMeta.Default} />
+	<Story of={TextFieldMeta.Disabled} />
+	<Story of={TextFieldMeta.Error} />
+	<Story of={TextFieldMeta.Success} />
+</Canvas>
+
+## Sizes
+
+<Canvas>
+	<Story of={TextFieldMeta.ExtraSmall} />
+	<Story of={TextFieldMeta.Small} />
+	<Story of={TextFieldMeta.Medium} />
+	<Story of={TextFieldMeta.Large} />
+</Canvas>
+
+## Content
+
+You can add content to left or right using the `leftContent` and `rightContent` props.
+
+The left content should be used to add informative content and the right content should be used to add actionable or clickable content.
+
+<Canvas>
+	<Story of={TextFieldMeta.OnlyInput} />
+	<Story of={TextFieldMeta.LeftIcon} />
+	<Story of={TextFieldMeta.RightIcon} />
+	<Story of={TextFieldMeta.BothIcons} />
+</Canvas>
+
+## Labels and placeholders
+
+You can pass a label using the `label` prop and a placeholder using the `placeholder` prop.
+
+Labels can be positioned inside or outside the input element using the `labelPosition` prop:
+
+#### With labels outside:
+
+<Canvas>
+	<Story of={TextFieldMeta.OnlyIconLabelOutside} />
+	<Story of={TextFieldMeta.LeftIconLabelOutside} />
+	<Story of={TextFieldMeta.RightIconLabelOutside} />
+	<Story of={TextFieldMeta.BothIconsLabelOutside} />
+</Canvas>
+
+#### With placeholder:
+
+<Canvas>
+	<Story of={TextFieldMeta.OnlyInputAndPlaceholder} />
+	<Story of={TextFieldMeta.LeftIconAndPlaceholder} />
+	<Story of={TextFieldMeta.RightIconAndPlaceholder} />
+	<Story of={TextFieldMeta.BothIconsAndPlaceholder} />
+</Canvas>
+
+## Helper text and counter
+
+#### With helper text:
+
+A helper text under the input can be shown using the `helperText` prop.
+
+<Canvas of={TextFieldMeta.WithHelperText} />
+
+#### With characters counter:
+
+Also the number of characters can be limited using the `maxLength` prop:
+
+<Canvas of={TextFieldMeta.WithCounter} />
+
+## Custom
+
+You can use some provided custom textfields using the `type` prop:
+
+#### Date
+
+A custom TextField for dates using the `DatePicker` component.
+
+<Canvas of={TextFieldMeta.Date} />
+
+#### Numeric
+
+A TextField for numeric values. It has custom arrows and a default minimum value of `0`.
+
+<Canvas of={TextFieldMeta.Numeric} />
+
+#### Password
+
+A custom TextField for passwords where password can be shown or hidden.
+
+<Canvas of={TextFieldMeta.Password} />
+
+# TextField API
+
+<ArgTypes of={TextField} />

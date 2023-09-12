@@ -1,0 +1,103 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Tabs from 'components/Tabs';
+
+import * as TabsMeta from './Tabs.stories';
+
+<Meta of={TabsMeta} />
+
+# Tabs
+
+A component used to render an Tabs.
+
+<Canvas of={TabsMeta.Playground} />
+
+<Controls />
+
+# Tabs
+
+A component used to render tabs to organize content across different views, and where only one view can be visible at a time.
+
+When the list of tab exceeds the width of the Tabs component , the user must scroll to the right to see the next ones.
+
+The active tab may be set using the `defaultTab` prop.
+
+### Tabs.Header vs Tabs.Menu
+
+The reason for having two nested `Box` like this relapses on the different kind of situations and designs that `Tabs` can have.
+
+By default the `Tabs.Header` will come with a border on the bottom. So it's easy to identify it.
+
+You can play with those `Box` depending if you need a fluid content or inside a container.
+
+## Tabs menu layout
+
+The tabs items in the menu can have diferent sizes and layouts depending on the `tabsLayout` prop available in the `Tabs` component. The options are:
+
+### `big-evenly`:
+
+The tabs width are the same distributed evenly through all tabs. This is the default.
+
+<Canvas of={TabsMeta.BigEvenly} />
+
+### `small-left`:
+
+The tabs width depends on the content and they're place on the left.
+
+<Canvas of={TabsMeta.SmallLeft} />
+
+### `small-evenly`:
+
+The tabs width depends on the content and they're placed evenly.
+
+<Canvas of={TabsMeta.SmallEvenly} />
+
+## Default state
+
+By default, every tab has `hover` state except the active one.
+
+<Canvas of={TabsMeta.Default} />
+
+## With error
+
+You can add the `isError` prop to a tab, to hightlight errors.
+
+<Canvas of={TabsMeta.Error} />
+
+## Disabled tab
+
+Also, you can disable id adding the `isDisabled` prop.
+
+<Canvas of={TabsMeta.Disabled} />
+
+## Tabs with counter
+
+You can use Counter to show errors in a tab, inside a form, for example.
+
+<Canvas of={TabsMeta.TabsWithCounter} />
+
+## Tabs with icon
+
+You can use Icon and Status to show errors in a tab, inside a form, for example. Useful in mobile views.
+
+<Canvas of={TabsMeta.WithIcon} />
+
+# Tabs API
+
+<ArgTypes of={Tabs} />
+
+# Tabs Header API
+
+<ArgTypes of={Tabs.Header} />
+
+# Tabs Menu API
+
+<ArgTypes of={Tabs.Menu} />
+
+# Tabs Tab API
+
+<ArgTypes of={Tabs.Tab} />
+
+# Tabs Content API
+
+<ArgTypes of={Tabs.Content} />

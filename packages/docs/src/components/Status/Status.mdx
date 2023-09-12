@@ -1,0 +1,32 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Status from 'components/Status';
+
+import * as StatusMeta from './Status.stories';
+
+<Meta of={StatusMeta} />
+
+# Status
+
+Status component.
+
+<Canvas of={StatusMeta.Playground} />
+
+<Controls />
+
+## Variants
+
+Change the `Status` styling using the different availables variants changing the `variant` prop:
+
+<Canvas>
+	<Story of={StatusMeta.Grey} />
+	<Story of={StatusMeta.Red} />
+	<Story of={StatusMeta.Blue} />
+	<Story of={StatusMeta.Green} />
+	<Story of={StatusMeta.Yellow} />
+	<Story of={StatusMeta.CustomColor} />
+</Canvas>
+
+# API
+
+<ArgTypes of={Status} />

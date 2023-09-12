@@ -1,0 +1,97 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Stepper from 'components/Stepper';
+
+import * as StepperMeta from './Stepper.stories';
+
+<Meta of={StepperMeta} />
+
+# Stepper
+
+A component to show the steps through a process.
+
+<Canvas of={StepperMeta.Playground} />
+
+<Controls />
+
+## Variants
+
+The stepper can be used in some different variants, using the `variant` prop:
+
+#### Vertical
+
+<Canvas of={StepperMeta.Vertical} />
+
+#### Horizontal
+
+<Canvas of={StepperMeta.Horizontal} />
+
+#### Compacted
+
+<Canvas of={StepperMeta.Compacted} />
+
+#### Compacted without lines
+
+<Canvas of={StepperMeta.CompactedWithoutLine} />
+
+## With icons
+
+You can use the `Stepper.Icon` inside the `Stepper.Circle` to use custom icons:
+
+<Canvas of={StepperMeta.WithIcons} />
+
+With Font Awesome icons:
+
+<Canvas of={StepperMeta.WithFontAwesomeIcons} />
+
+## With numbers
+
+You can use numbers inside the `Stepper.Circle` to use number based stepper:
+
+<Canvas of={StepperMeta.WithNumbers} />
+
+## With custom content
+
+You can put whatever inside the `Stepper.Circle`:
+
+<Canvas of={StepperMeta.WithCustomContent} />
+
+## With only icons
+
+You can use only icons without any text:
+
+<Canvas of={StepperMeta.WithOnlyIcons} />
+
+## With an optional text
+
+You can use the `Stepper.TextOptional` component to print an optional label:
+
+<Canvas of={StepperMeta.WithOptionalTextVertical} />
+<Canvas of={StepperMeta.WithOptionalTextHorizontal} />
+
+## Showing a check icon in previous steps
+
+If you want to use a check icon for previous steps, use the `showCheckIcon` prop:
+
+<Canvas of={StepperMeta.WithCheckIconVertical} />
+<Canvas of={StepperMeta.WithCheckIconHorizontal} />
+
+# Stepper API
+
+<ArgTypes of={Stepper} />
+
+# Stepper Step API
+
+<ArgTypes of={Stepper.Step} />
+
+# Stepper Circle API
+
+<ArgTypes of={Stepper.Circle} />
+
+# Stepper Text API
+
+<ArgTypes of={Stepper.Text} />
+
+# Stepper Icon API
+
+<ArgTypes of={Stepper.Icon} />

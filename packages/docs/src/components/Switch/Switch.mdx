@@ -1,0 +1,42 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Switch from 'components/Switch';
+
+import * as SwitchMeta from './Switch.stories';
+
+<Meta of={SwitchMeta} />
+
+# Switch
+
+A component used to render a Switch, wich would to toggle the state of a single item on or off.
+
+<Canvas of={SwitchMeta.Playground} />
+
+<Controls />
+
+## AspectSize prop
+
+The prop `aspectSize` can receive the values `s` or `m`.
+
+Based on that value it changes the `width and height` styles of the Switch component.
+
+All sizes icons:
+
+<Canvas>
+	<Story of={SwitchMeta.Small} />
+	<Story of={SwitchMeta.Medium} />
+</Canvas>
+
+## Active state
+
+By default, every switch has a `on/off` state and a `hover` that will change its colours and behaviour.
+
+<Canvas of={SwitchMeta.Checked} />
+
+## Disabled switch
+
+You can disable it adding the `isDisabled` prop.
+
+<Canvas of={SwitchMeta.Disabled} />
+
+<ArgTypes of={Switch} />

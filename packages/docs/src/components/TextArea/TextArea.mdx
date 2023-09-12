@@ -1,0 +1,76 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import TextArea from 'components/TextArea';
+
+import * as TextAreaMeta from './TextArea.stories';
+
+<Meta of={TextAreaMeta} />
+
+# TextArea
+
+This is an auto-grow `TextArea`. It will grow depending on how much content it has.
+
+By default it will allow two rows, and then It will grow automatically. If you remove the content it will get narrow.
+
+<Canvas of={TextAreaMeta.Playground} />
+
+<Controls />
+
+## Character counter
+
+If you pass the `maxLength` prop to a textarea, this will allow you to write that certain numbers of characters.
+
+Also a character counter will be shown under. This character counter, will be hightlighted in `warning` color when you reach the 90% of the max-length, and in `error`color when you reach the 100%.
+
+<Canvas of={TextAreaMeta.CharacterCounter} />
+
+## States
+
+<Canvas>
+	<Story of={TextAreaMeta.Default} />
+	<Story of={TextAreaMeta.Disabled} />
+	<Story of={TextAreaMeta.Error} />
+	<Story of={TextAreaMeta.Success} />
+</Canvas>
+
+## Custom Size
+
+You can get a custom fixed size providing either the `size`, `height` or `width` prop.
+
+<Canvas of={TextAreaMeta.CustomSize} />
+
+## Labels and placeholders
+
+You can pass a label using the `label` prop and a placeholder using the `placeholder` prop.
+
+Labels can be positioned inside or outside the input element using the `labelPosition` prop:
+
+#### With label inside:
+
+<Canvas of={TextAreaMeta.LabelInside} />
+
+#### With label outside:
+
+<Canvas of={TextAreaMeta.LabelOutside} />
+
+#### With placeholder:
+
+<Canvas of={TextAreaMeta.WithPlaceholder} />
+
+## Helper text and counter
+
+#### With helper text:
+
+A helper text under the input can be shown using the `helperText` prop.
+
+<Canvas of={TextAreaMeta.WithHelperText} />
+
+#### With characters counter:
+
+Also the number of characters can be limited using the `maxLength` prop:
+
+<Canvas of={TextAreaMeta.WithCounter} />
+
+# TextArea API
+
+<ArgTypes of={TextArea} />{' '}
