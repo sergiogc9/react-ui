@@ -1,0 +1,72 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Tooltip from 'components/Tooltip';
+
+import * as TooltipMeta from './Tooltip.stories';
+
+<Meta of={TooltipMeta} />
+
+# Tooltip
+
+This is a tooltip component, helpful to show content next of another one when hovering, clicking or focusing.
+
+The Tooltip component is based on the `Popover` component.
+
+<Canvas of={TooltipMeta.Playground} />
+
+## Variants
+
+There are two pre-defined variants. A customized tooltip can also be used:
+
+<Canvas>
+	<Story of={ToopltipMeta.Dark} />
+	<Story of={ToopltipMeta.Light} />
+	<Story of={ToopltipMeta.Custom} />
+</Canvas>
+
+## Timing
+
+You can change the enter and exit timing using the `enterDelay` and `exitDelay` props:
+
+<Canvas>
+	<Story of={ToopltipMeta.Timing} />
+	<Story of={ToopltipMeta.ExitTiming} />
+</Canvas>
+
+## Interactive tooltip
+
+By default, the tooltip is hidden when exiting the trigger. This behavior can be changed using the `isInteractive` prop:
+
+<Canvas>
+	<Story of={ToopltipMeta.NotInteractive} />
+	<Story of={ToopltipMeta.Interactive} />
+</Canvas>
+
+## Changing trigger event
+
+By default, the tooltip is shown when hovering the trigger. You can change it using the `trigger` prop:
+
+<Canvas>
+	<Story of={ToopltipMeta.OnHover} />
+	<Story of={ToopltipMeta.OnClick} />
+</Canvas>
+
+## Using without provider and trigger
+
+You can use the tooltip without the provider and trigger, using the `reference` prop with the element that will act as the trigger.
+
+<Canvas of={ToopltipMeta.Positioning} />
+
+## Positioning
+
+You can locate the tooltip in different places around the trigger component. See the `placement` prop for all values:
+
+<Canvas of={ToopltipMeta.WithoutProvider} />
+
+# Tooltip Content API
+
+<ArgTypes of={TooltipContent} />
+
+# Tooltip Trigger API
+
+<ArgTypes of={TooltipTrigger} /> */}

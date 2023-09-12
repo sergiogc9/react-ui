@@ -1,0 +1,53 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Spinner from 'components/Spinner';
+
+import * as SpinerCircleMeta from './SpinnerCircle.stories';
+
+<Meta of={SpinerCircleMeta} />
+
+# Circle spinner
+
+<Canvas of={SpinerCircleMeta.Playground} />
+
+<Controls />
+
+## Number of circles
+
+There are 3 different variants depending on the number of circles visible:
+
+<Canvas>
+	<Story of={SpinerCircleMeta.OneCircle} />
+	<Story of={SpinerCircleMeta.TwoCircles} />
+	<Story of={SpinerCircleMeta.ThreeCircles} />
+</Canvas>
+
+## Customizing colors
+
+Change the default used colors using the props `color`, `color2` and `color3` colors:
+
+<Canvas>
+	<Story of={SpinerCircleMeta.OneCircleCustomColors} />
+	<Story of={SpinerCircleMeta.TwoCirclesCustomColors} />
+	<Story of={SpinerCircleMeta.ThreeCirclesCustomColors} />
+</Canvas>
+
+## Customizing size
+
+Use the prop `size` and `circleSizes` to resize the spinner and achieve custom results:
+
+<Canvas>
+	<Story of={SpinerCircleMeta.OneSmall} />
+	<Story of={SpinerCircleMeta.TwoSmall} />
+	<Story of={SpinerCircleMeta.ThreeSmall} />
+</Canvas>
+
+<Canvas>
+	<Story of={SpinerCircleMeta.OneBig} />
+	<Story of={SpinerCircleMeta.TwoBig} />
+	<Story of={SpinerCircleMeta.ThreeBig} />
+</Canvas>
+
+# API
+
+<ArgTypes of={Spinner.Circle} include={['color']} />

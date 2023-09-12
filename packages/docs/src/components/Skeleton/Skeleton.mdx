@@ -1,0 +1,82 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Skeleton from 'components/Skeleton';
+
+import * as SkeletonMeta from './Skeleton.stories';
+
+<Meta of={SkeletonMeta} />
+
+# Skeleton
+
+The Skeleton component can be used as a loading fallback before some data is fetched or loaded.
+
+Most important features:
+
+- Renders a customizable skeleton based on children.
+- The animation is performed through all children elements.
+- Circle and Rect namespaced components are provided. Use them as `Skeleton.Circle` and `Skeleton.Rect`.
+- Change color from theme colors or use a custom one.
+- Disable or customize animation speed.
+- Use an absolute based layout, a flex layout or a grid layout using `Box` and `Grid` components. The Skeleton component is a `Box` component itself.
+
+A sample example:
+
+<Canvas of={SkeletonMeta.Playground} style={{backgroundColor: '#333333', padding: '0px'}}/>
+
+<Controls />
+
+## Custom colors
+
+Use the `color` prop to use a different color. You can also customize each child element with a custom color:
+
+<Canvas of={SkeletonMeta.CustomColors} />
+
+## Without animation
+
+Use the `animate` prop with a false value to disable the animation.
+
+<Canvas of={SkeletonMeta.WithoutAnimation} />
+
+## Customizing animation
+
+Use the `duration` prop to modify the animation speed:
+
+<Canvas of={SkeletonMeta.WithCustomAnimation} />
+
+## Different layouts
+
+You can use three different layouts or even a combination of them:
+
+- Absolute layout: Use childs with absolute position.
+- Flex layout: Use simple Box components or flex containers as children.
+- Grid layout: Use a `Grid` component as the first child.
+
+#### Absolute layout
+
+You can define the layout using an absolute position. Use childs with an `absolute` position prop to handle it:
+
+<Canvas of={SkeletonMeta.AbsoluteLayout} />
+
+#### Flex layout
+
+Use simple Box components or flex containers as children. The `Skeleton.Circle` and `Skeleton.Rect` namespaced components are Box components by default.
+
+<Canvas of={SkeletonMeta.WithFlexLayout} />
+
+#### Grid layout
+
+Use a `Grid` component as the first child. Then use the prop `type` with a `grid` value in `Skeleton.Circle` and `Skeleton.Rect` components to convert them to a `Grid.Box` component.
+
+<Canvas of={SkeletonMeta.WithGridLayout} />
+
+## Skeleton API
+
+<ArgTypes of={Skeleton} include={['color']} />
+
+## Skeleton.Circle API
+
+<ArgTypes of={Skeleton.Circle} />
+
+## Skeleton.Rect API
+
+<ArgTypes of={Skeleton.Rect} />

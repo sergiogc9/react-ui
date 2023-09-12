@@ -1,0 +1,42 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Svg from 'components/Svg';
+
+import * as SvgMeta from './Svg.stories';
+
+<Meta of={SvgMeta} />
+
+# Svg
+
+A component used to render SVG using custom svg content as children or a svg file using the `src` prop.
+
+<Canvas of={SvgMeta.Playground} />
+
+<Controls />
+
+## Sizing
+
+The SVG will be sized based on (from more to less priority):
+
+- The `width` and `height` props.
+- If src is provided, the width and height of the `src` svg is used.
+- If src is provided, the width and height obtained from the `viewBox` of the `src` svg.
+- The width and height values in the `viewBox` prop.
+- A default viewBox is used: `0 0 0 0`. That means that no SVG is shown.
+
+## Using SVG files
+
+The src prop lets the Svg component to work with svg files. Import the svg file and pass it using the `src` prop:
+
+```tsx
+import { ReactComponent as Logo } from './logo.svg';
+
+<Svg src={Logo} />;
+```
+
+<Canvas>
+	<Story of={SvgMeta.UsingFile} />
+	<Story of={SvgMeta.UsingContent} />
+</Canvas>
+
+<ArgTypes of={Svg} />

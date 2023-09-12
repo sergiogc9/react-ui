@@ -1,0 +1,29 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Spinner from 'components/Spinner';
+
+import * as SpinerPulseMeta from './SpinnerPulse.stories';
+
+<Meta of={SpinerPulseMeta} />
+
+# Pulse spinner
+
+<Canvas of={SpinerPulseMeta.Playground} />
+
+<Controls />
+
+## Customizing the spinner
+
+You can change the color, distance between pulse elements and size using the props used in Box.
+
+To handle different animation starting points between Pulse elements, use the index prop:
+
+<Canvas>
+	<Story of={SpinerPulseMeta.One} />
+	<Story of={SpinerPulseMeta.ManySameTime} />
+	<Story of={SpinerPulseMeta.ManyDifferentTime} />
+</Canvas>
+
+# API
+
+<ArgTypes of={Spinner.Pulse} include={['color']} />{' '}

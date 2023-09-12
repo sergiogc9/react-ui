@@ -11,11 +11,20 @@ import { StepperTextProps } from './Text/types';
 import Stepper from './Stepper';
 import { StepperProps } from './types';
 
-export { StepperProps, StepperCircleProps, StepperIconProps, StepperStepProps, StepperTextProps };
-export default createNameSpacedComponent(Stepper, {
+const NamespacedStepper = createNameSpacedComponent(Stepper, {
 	Circle: StepperCircle,
 	Icon: StepperIcon,
 	Step: StepperStep,
 	Text: StepperText,
 	TextOptional: StepperTextOptional
 });
+
+NamespacedStepper.displayName = 'Stepper';
+StepperCircle.displayName = 'Stepper.Circle';
+StepperIcon.displayName = 'Stepper.Icon';
+StepperStep.displayName = 'Stepper.Step';
+StepperText.displayName = 'Stepper.Text';
+StepperTextOptional.displayName = 'Stepper.TextOptional';
+
+export type { StepperProps, StepperCircleProps, StepperIconProps, StepperStepProps, StepperTextProps };
+export default NamespacedStepper;

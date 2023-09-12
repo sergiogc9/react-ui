@@ -1,0 +1,33 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Text from 'components/Text';
+
+import * as TextMeta from './Text.stories';
+
+<Meta of={TextMeta} />
+
+# Text
+
+Text component.
+
+<Canvas of={TextMeta.Playground} />
+
+<Controls />
+
+## AspectSize prop
+
+The prop `aspectSize` receives a `string` value.
+
+Based on that value it changes the `font-weight, font-size and line-height` styles of the Text component.
+
+<Canvas>
+	<Story of={TextMeta.ExtraSmall} />
+	<Story of={TextMeta.Small} />
+	<Story of={TextMeta.Medium} />
+	<Story of={TextMeta.Large} />
+	<Story of={TextMeta.ExtraLarge} />
+</Canvas>
+
+# API
+
+<ArgTypes of={Text} />
