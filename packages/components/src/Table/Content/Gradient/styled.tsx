@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import Animation from 'components/Animation';
@@ -7,7 +6,7 @@ import Flex from 'components/Flex';
 import location from './variants/location';
 import { TableContentGradientProps } from './types';
 
-const StyledTableGradient: React.FC<TableContentGradientProps> = styled(Flex)`
+const StyledTableGradient = styled(Flex)<TableContentGradientProps>`
 	${location}
 `;
 

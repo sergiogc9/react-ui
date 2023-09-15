@@ -5,9 +5,9 @@ import css from '@styled-system/css';
 import Text from 'components/Text';
 
 import StatusColor from '../collaborator/StatusColor';
-import { InputHelperTextProps } from './types';
+import { InputHelperTextComponent, InputHelperTextProps } from './types';
 
-const InputHelperText: React.FC<InputHelperTextProps> = styled(Text)<InputHelperTextProps>`
+const InputHelperText: InputHelperTextComponent = styled(Text)<InputHelperTextProps>`
 	${({ aspectSize = 'm', theme, ...props }) => {
 		const statusColor = new StatusColor(props, theme);
 		const { fontSize: fontSizeProp } = theme.components.input;

@@ -3,11 +3,9 @@ import React from 'react';
 import Flex from 'components/Flex';
 import Skeleton from 'components/Skeleton';
 
-import { ImageProps } from './types';
+import { ImageComponent, ImageProps } from './types';
 
-const ImageFlex: React.FC<ImageProps> = Flex;
-
-const Image: React.FC<ImageProps> = ({ as = 'img', onLoad, onError, src, style, ...rest }) => {
+const Image: ImageComponent = ({ as = 'img', onLoad, onError, src, style, ...rest }) => {
 	const [isError, setIsError] = React.useState(false);
 	const [isLoaded, setIsLoaded] = React.useState(false);
 
@@ -38,8 +36,8 @@ const Image: React.FC<ImageProps> = ({ as = 'img', onLoad, onError, src, style, 
 					<Skeleton.Rect borderRadius="0px" height="100%" width="100%" />
 				</Skeleton>
 			)}
-			<ImageFlex
-				as={as}
+			<Flex
+				as={as as any}
 				onError={onLoadError}
 				onLoad={onImageLoaded}
 				src={src}

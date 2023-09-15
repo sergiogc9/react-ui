@@ -8,7 +8,7 @@ type Props = {
 	readonly aspectSize?: 's' | 'xs' | 'm' | 'l' | 'xl';
 } & ComposedTextProps;
 
-type TextProps<T extends React.ElementType = 'div'> = BaseComponentProps<T, Props>;
+type TextProps<T extends React.ElementType = 'span'> = BaseComponentProps<Props, T>;
 
 type TextComponent = BaseComponent<
 	<T extends React.ElementType = keyof JSX.IntrinsicElements>(

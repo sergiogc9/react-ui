@@ -1,10 +1,16 @@
 import React from 'react';
 
-import { FlexProps } from 'components/Flex';
+import { ExtendedFlexComponent, ExtendedFlexProps } from 'components/types';
 
-export interface ImageProps extends Omit<FlexProps<React.ImgHTMLAttributes<HTMLImageElement>>, 'src'> {
+type Props = {
 	/**
 	 * The source of the image
 	 */
 	readonly src: string;
-}
+};
+
+type ImageProps<T extends React.ElementType = 'img'> = ExtendedFlexProps<Props, T, ['src']>;
+
+type ImageComponent = ExtendedFlexComponent<Props>;
+
+export { ImageComponent, ImageProps };

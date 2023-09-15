@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { FlexProps } from 'components/Flex';
+import { ExtendedFlexComponent, ExtendedFlexProps } from 'components/types';
 
-export interface IconButtonProps extends FlexProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+type Props = {
 	/**
 	 * The size of the button.
 	 */
@@ -11,4 +11,10 @@ export interface IconButtonProps extends FlexProps<React.ButtonHTMLAttributes<HT
 	 * If true, the button is disabled
 	 */
 	readonly isDisabled?: boolean;
-}
+};
+
+type IconButtonProps<T extends React.ElementType = 'button'> = ExtendedFlexProps<Props, T>;
+
+type IconButtonComponent = ExtendedFlexComponent<Props>;
+
+export { IconButtonComponent, IconButtonProps };

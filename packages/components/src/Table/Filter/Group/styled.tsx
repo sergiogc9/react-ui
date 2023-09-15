@@ -4,7 +4,7 @@ import Flex from 'components/Flex';
 
 import { TableFilterGroupProps } from './types';
 
-const StyledTableFilterGroup: React.FC<TableFilterGroupProps> = styled(Flex)<TableFilterGroupProps>``;
+const StyledTableFilterGroup = styled(Flex)<TableFilterGroupProps>``;
 
 StyledTableFilterGroup.defaultProps = {
 	alignItems: 'center',

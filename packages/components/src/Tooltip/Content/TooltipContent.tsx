@@ -56,7 +56,7 @@ const TooltipContent: React.FC<TooltipContentProps> = ({
 				<StyledTooltip
 					duration={duration}
 					isVisible={isPopoverVisible}
-					ref={ref}
+					ref={ref as any}
 					variant={variant}
 					{...rest}
 					{...attrs}

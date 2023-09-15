@@ -19,7 +19,7 @@ type Props = {
 	readonly rows?: number;
 };
 
-type GridProps<T extends React.ElementType = 'div'> = BaseComponentProps<T, ComposedGridProps & Props>;
+type GridProps<T extends React.ElementType = 'div'> = BaseComponentProps<ComposedGridProps & Props, T>;
 
 type GridComponent = BaseComponent<
 	<T extends React.ElementType = keyof JSX.IntrinsicElements>(

@@ -4,14 +4,14 @@ import css from '@styled-system/css';
 import Flex from 'components/Flex';
 import { DatePickerMonthProps, StyledMonthBoxProps } from './types';
 
-const StyledDatePickerMonth: React.FC<DatePickerMonthProps> = styled(Flex)<DatePickerMonthProps>``;
+const StyledDatePickerMonth = styled(Flex)<DatePickerMonthProps>``;
 
 StyledDatePickerMonth.defaultProps = {
 	flexDirection: 'column',
 	margin: 3
 };
 
-const StyledMonthBox: React.FC<StyledMonthBoxProps> = styled(Flex)<StyledMonthBoxProps>`
+const StyledMonthBox = styled(Flex)<StyledMonthBoxProps>`
 	transition-property: background-color border-radius;
 	transition-timing-function: ease-in;
 	transition-duration: 0.2s;

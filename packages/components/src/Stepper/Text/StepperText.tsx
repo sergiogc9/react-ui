@@ -2,9 +2,9 @@ import React from 'react';
 
 import { StepperStepContext } from '../Context';
 import StyledStepText from './styled';
-import { StepperTextProps } from './types';
+import { StepperTextComponent, StepperTextProps } from './types';
 
-const StepperText: React.FC<StepperTextProps> = props => {
+const StepperText: StepperTextComponent = props => {
 	const { current, index, variant } = React.useContext(StepperStepContext);
 
 	return <StyledStepText {...props} isCurrent={current === index} isEnabled={current >= index} variant={variant} />;

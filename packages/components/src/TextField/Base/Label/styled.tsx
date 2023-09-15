@@ -6,7 +6,7 @@ import { InputLabel } from 'components/private/components/Input';
 import aspectSize from './variants/aspectSize';
 import { TextFieldLabelProps } from './types';
 
-const TextFieldLabel: React.FC<TextFieldLabelProps> = styled(InputLabel)<TextFieldLabelProps>`
+const TextFieldLabel = styled(InputLabel)<TextFieldLabelProps>`
 	${aspectSize}
 
 	${({ placeholder, theme, value }) =>

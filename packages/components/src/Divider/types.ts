@@ -1,5 +1,11 @@
-import { FlexProps } from 'components/Flex';
+import { ExtendedFlexComponent, ExtendedFlexProps } from 'components/types';
 
-export interface DividerProps extends FlexProps<React.HTMLAttributes<HTMLSpanElement>, HTMLDivElement> {
+type Props = {
 	readonly isVertical?: boolean;
-}
+};
+
+type DividerProps<T extends React.ElementType = 'span'> = ExtendedFlexProps<Props, T>;
+
+type DividerComponent = ExtendedFlexComponent<Props>;
+
+export { DividerComponent, DividerProps };

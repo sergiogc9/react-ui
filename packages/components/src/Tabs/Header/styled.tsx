@@ -1,11 +1,10 @@
-import React from 'react';
 import styled from 'styled-components';
 import css from '@styled-system/css';
 
 import Flex from 'components/Flex';
 import { TabsHeaderProps } from './types';
 
-const StyledTabsHeader: React.FC<TabsHeaderProps> = styled(Flex)`
+const StyledTabsHeader = styled(Flex)<TabsHeaderProps>`
 	&::after {
 		content: '';
 		height: 1px;

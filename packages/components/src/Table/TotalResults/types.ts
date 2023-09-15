@@ -6,7 +6,7 @@ interface TableTotalResultsRenderProps {
 	totalResults: number;
 }
 
-export interface TableTotalResultsProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
+export type TableTotalResultsProps<T extends React.ElementType = 'div'> = FlexProps<T> & {
 	readonly render: (props: TableTotalResultsRenderProps) => ReactNode;
-}
-export interface StyledTableTotalResultsProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}
+};
+export type StyledTableTotalResultsProps<T extends React.ElementType = 'div'> = FlexProps<T>;

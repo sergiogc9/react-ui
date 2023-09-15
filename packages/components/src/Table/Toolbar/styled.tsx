@@ -4,7 +4,7 @@ import Flex from 'components/Flex';
 
 import { TableToolbarProps } from './types';
 
-const TableToolbar: React.FC<TableToolbarProps> = styled(Flex)<TableToolbarProps>``;
+const TableToolbar = styled(Flex)<TableToolbarProps>``;
 
 TableToolbar.defaultProps = {
 	alignItems: 'center',

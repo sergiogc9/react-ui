@@ -1,3 +1,3 @@
 import { FlexProps } from 'components/Flex';
 
-export interface SpinnerProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}
+export type SpinnerProps<T extends React.ElementType = 'div'> = FlexProps<T>;

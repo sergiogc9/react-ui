@@ -4,7 +4,7 @@ import systemCSS from '@styled-system/css';
 import Flex from 'components/Flex';
 import { TextFieldBaseProps } from './types';
 
-const StyledTextFieldBaseWrapper: React.FC<TextFieldBaseProps> = styled(Flex)<TextFieldBaseProps>`
+const StyledTextFieldBaseWrapper = styled(Flex)<TextFieldBaseProps>`
 	${props => props.isDisabled && 'opacity: 0.4;'}
 `;
 
@@ -33,7 +33,7 @@ StyledTextFieldIconContent.defaultProps = {
 	zIndex: 1
 };
 
-const StyledTextFieldBase: React.FC<TextFieldBaseProps> = styled(Flex)<TextFieldBaseProps>`
+const StyledTextFieldBase = styled(Flex)<TextFieldBaseProps>`
 	&:hover #textFieldRemoveWrapper,
 	&:focus-within #textFieldRemoveWrapper {
 		display: flex;

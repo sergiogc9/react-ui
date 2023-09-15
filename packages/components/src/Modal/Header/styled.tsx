@@ -1,10 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import Flex from 'components/Flex';
 import { ModalHeaderProps } from './types';
 
-const ModalHeader: React.FC<ModalHeaderProps> = styled(Flex)<ModalHeaderProps>``;
+const ModalHeader = styled(Flex)<ModalHeaderProps>``;
 
 ModalHeader.defaultProps = {
 	alignItems: 'center',

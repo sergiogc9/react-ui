@@ -6,7 +6,7 @@ import Flex from 'components/Flex';
 import { StyledTextArea as BaseStyledTextArea } from 'components/private/components/Input';
 import { TextAreaProps, StyledTextAreaProps } from './types';
 
-const StyledTextArea: React.FC<StyledTextAreaProps> = styled(BaseStyledTextArea)<StyledTextAreaProps>`
+const StyledTextArea = styled(BaseStyledTextArea)<StyledTextAreaProps>`
 	${props =>
 		props.isDisabled &&
 		css({
@@ -34,7 +34,7 @@ StyledTextArea.defaultProps = {
 	width: '100%'
 };
 
-const StyledTextAreaWrapper: React.FC<TextAreaProps> = styled(Flex)<TextAreaProps>`
+const StyledTextAreaWrapper = styled(Flex)<TextAreaProps>`
 	${props => !props.paddingTop && props.labelPosition === 'outside' && css({ paddingTop: 4 })}
 `;
 

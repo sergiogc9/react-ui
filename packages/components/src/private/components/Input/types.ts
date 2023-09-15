@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlexProps } from 'components/Flex';
+import { ExtendedFlexComponent, ExtendedFlexProps } from 'components/types';
 
 export interface InputProps {
 	/**
@@ -23,11 +23,12 @@ export interface InputProps {
 	readonly isSuccess?: boolean;
 }
 
-export type StyledInputProps<
-	Attrs extends React.HTMLAttributes<any> = React.InputHTMLAttributes<HTMLInputElement>,
-	Ref = HTMLInputElement
-> = InputProps & FlexProps<Attrs, Ref>;
+type StyledInputProps<T extends React.ElementType = 'input'> = ExtendedFlexProps<InputProps, T>;
 
-export interface StyledTextAreaProps
-	extends InputProps,
-		FlexProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {}
+type StyledInputComponent = ExtendedFlexComponent<InputProps>;
+
+type StyledTextAreaProps<T extends React.ElementType = 'textarea'> = ExtendedFlexProps<InputProps, T>;
+
+type StyledTextAreaComponent = ExtendedFlexComponent<InputProps>;
+
+export { StyledInputComponent, StyledInputProps, StyledTextAreaComponent, StyledTextAreaProps };

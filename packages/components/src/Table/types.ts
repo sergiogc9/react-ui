@@ -1,6 +1,7 @@
 import { ColumnDef, FilterFns, Row, SortingFns, TableOptions } from '@tanstack/react-table';
 
 import { FlexProps } from 'components/Flex';
+import { ExtendedFlexComponent, ExtendedFlexProps } from 'components/types';
 
 type TableColumnDef<D extends Record<string, unknown>> = ColumnDef<D> & {
 	getCellWidthText?: (row: D) => string;
@@ -42,8 +43,13 @@ interface Props<D extends Record<string, unknown>> {
 type TableFilterFns = FilterFns;
 type TableSortingFns = SortingFns;
 
-export interface TableProps<D extends Record<string, unknown>>
-	extends Props<D>,
-		FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}
-export interface StyledTableWrapperProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}
-export { TableColumnDef, TableFilterFns, TableSortingFns, Row };
+type TableProps<D extends Record<string, unknown>, T extends React.ElementType = 'div'> = ExtendedFlexProps<
+	Props<D>,
+	T
+>;
+
+type TableComponent<D extends Record<string, unknown>> = ExtendedFlexComponent<Props<D>>;
+
+type StyledTableWrapperProps<T extends React.ElementType = 'div'> = FlexProps<T>;
+
+export { TableComponent, TableProps, TableColumnDef, TableFilterFns, TableSortingFns, Row, StyledTableWrapperProps };

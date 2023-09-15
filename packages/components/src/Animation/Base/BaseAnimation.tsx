@@ -1,9 +1,7 @@
-import React from 'react';
-
 import Flex, { FlexProps } from 'components/Flex';
 import withBaseAnimation from './withBaseAnimation';
-import { BaseAnimationProps } from './types';
+import { BaseAnimationComponent } from './types';
 
-const BaseAnimation: React.FC<BaseAnimationProps> = withBaseAnimation<FlexProps>(Flex);
+const BaseAnimation: BaseAnimationComponent = withBaseAnimation<FlexProps>(Flex as any) as BaseAnimationComponent;
 
 export default BaseAnimation;

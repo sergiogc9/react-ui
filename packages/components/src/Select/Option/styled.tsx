@@ -5,7 +5,7 @@ import aspectSize from './variants/aspectSize';
 import variant from './variants/variant';
 import { StyledSelectOptionProps } from './types';
 
-export const StyledSelectOption: React.FC<StyledSelectOptionProps> = styled(Flex)<StyledSelectOptionProps>`
+export const StyledSelectOption = styled(Flex)<StyledSelectOptionProps>`
 	${aspectSize}
 	${variant}
 `;

@@ -6,9 +6,9 @@ import composers from 'components/private/utils/composers';
 import Flex from 'components/Flex';
 
 import StatusColor from '../collaborator/StatusColor';
-import { InputLabelProps } from './types';
+import { InputLabelComponent, InputLabelProps } from './types';
 
-const InputLabel: React.FC<InputLabelProps> = styled(Flex).withConfig<InputLabelProps>({
+const InputLabel: InputLabelComponent = styled(Flex).withConfig<InputLabelProps>({
 	shouldForwardProp: prop => prop !== 'placeholder'
 })`
 	${composers.text}

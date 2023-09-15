@@ -8,7 +8,7 @@ type Props = {
 	readonly aspectSize?: 'uppercase' | 'subtle' | 's' | 'xs' | 'm' | 'l' | 'xl';
 } & ComposedTextProps;
 
-type TitleProps<T extends React.ElementType = 'div'> = BaseComponentProps<T, Props>;
+type TitleProps<T extends React.ElementType = 'div'> = BaseComponentProps<Props, T>;
 
 type TitleComponent = BaseComponent<
 	<T extends React.ElementType = keyof JSX.IntrinsicElements>(

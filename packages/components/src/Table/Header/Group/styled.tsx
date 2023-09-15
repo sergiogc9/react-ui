@@ -5,7 +5,7 @@ import Flex from 'components/Flex';
 
 import { TableHeaderGroupProps } from './types';
 
-const StyledTableHeaderGroup: React.FC<TableHeaderGroupProps> = styled(Flex)<TableHeaderGroupProps>`
+const StyledTableHeaderGroup = styled(Flex)<TableHeaderGroupProps>`
 	${props =>
 		css({
 			bg: props.theme.components.table.colors.header.bg,

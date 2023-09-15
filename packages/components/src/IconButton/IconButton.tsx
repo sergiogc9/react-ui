@@ -2,9 +2,9 @@ import React from 'react';
 
 import Ripple from 'components/Ripple';
 import StyledIconButton from './styled';
-import { IconButtonProps } from './types';
+import { IconButtonComponent, IconButtonProps } from './types';
 
-const IconButton: React.FC<IconButtonProps> = React.forwardRef(
+const IconButton: IconButtonComponent = React.forwardRef(
 	({ aspectSize = 'm', children, isDisabled = false, onClick, type = 'button', ...props }, ref) => {
 		const onBtnClicked = React.useCallback<NonNullable<IconButtonProps['onClick']>>(
 			ev => {
@@ -21,7 +21,7 @@ const IconButton: React.FC<IconButtonProps> = React.forwardRef(
 				disabled={isDisabled}
 				isDisabled={isDisabled}
 				onClick={onBtnClicked}
-				ref={ref}
+				ref={ref as any}
 				type={type}
 			>
 				{children}

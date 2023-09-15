@@ -11,9 +11,9 @@ import SelectPopover from './Popover';
 import { useFocusOptionWhilePressingKey } from './hooks';
 import { getInputLabelFromSelectedOptions, getSelectedIds, getSelectOptions } from './utils';
 import StyledSelect from './styled';
-import { SelectedOption, SelectProps } from './types';
+import { SelectComponent, SelectedOption } from './types';
 
-const Select: React.FC<SelectProps> = ({
+const Select: SelectComponent = ({
 	areExternalOptionsValid = false,
 	aspectSize = 'm',
 	children,

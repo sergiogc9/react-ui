@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { FlexProps } from 'components/Flex';
 import { TextFieldProps } from 'components/TextField';
+import { ExtendedFlexComponent, ExtendedFlexProps } from 'components/types';
 
 export type SelectedOption = Record<'label', string>;
 
-interface Props {
+type Props = {
 	/**
 	 * Boolean to tell the Select component that an external options are fetched and updated with last input change. It should be false at first, and only be true once a fetch is done.
 	 */
@@ -60,22 +60,23 @@ interface Props {
 	 * The color variant
 	 */
 	readonly variant?: 'neutral' | 'primary';
-}
+} & Pick<
+	TextFieldProps,
+	| 'hasRemoveButton'
+	| 'helperText'
+	| 'inputProps'
+	| 'isDisabled'
+	| 'isError'
+	| 'isSuccess'
+	| 'label'
+	| 'labelPosition'
+	| 'leftContent'
+	| 'name'
+	| 'placeholder'
+>;
 
-export interface SelectProps
-	extends Pick<
-			TextFieldProps,
-			| 'hasRemoveButton'
-			| 'helperText'
-			| 'inputProps'
-			| 'isDisabled'
-			| 'isError'
-			| 'isSuccess'
-			| 'label'
-			| 'labelPosition'
-			| 'leftContent'
-			| 'name'
-			| 'placeholder'
-		>,
-		Omit<FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, keyof Props>,
-		Props {}
+type SelectProps<T extends React.ElementType = 'div'> = Omit<ExtendedFlexProps<Props, T>, keyof Props> & Props;
+
+type SelectComponent = ExtendedFlexComponent<Props, ['defaultValue']>;
+
+export { SelectComponent, SelectProps };

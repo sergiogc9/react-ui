@@ -1,10 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import Text from 'components/Text';
 
-import { AlertTextProps } from './types';
+import { AlertTextComponent } from './types';
 
-const StyledAlertText: React.FC<AlertTextProps> = styled(Text)<AlertTextProps>``;
+const StyledAlertText: AlertTextComponent = styled(Text)``;
 
 export { StyledAlertText };

@@ -1,9 +1,7 @@
-import { ButtonHTMLAttributes } from 'react';
-
-import { FlexProps } from 'components/Flex';
 import { ExtractThemeAttributes, Theme } from '@sergiogc9/react-ui-theme';
+import { ExtendedFlexComponent, ExtendedFlexProps } from 'components/types';
 
-export interface ButtonProps extends FlexProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+type Props = {
 	/**
 	 * The size of the button.
 	 */
@@ -20,9 +18,16 @@ export interface ButtonProps extends FlexProps<ButtonHTMLAttributes<HTMLButtonEl
 	 * The variant type of the button
 	 */
 	readonly variant?: ExtractThemeAttributes<Theme>['ButtonVariant'];
-}
+};
 
-interface StyledProps {
+export interface StyledProps {
 	hasIcon: 'left' | 'right' | false;
 }
-export interface StyledButtonProps extends ButtonProps, StyledProps {}
+
+type ButtonProps<T extends React.ElementType = 'button'> = ExtendedFlexProps<Props, T>;
+type ButtonComponent = ExtendedFlexComponent<Props>;
+
+type StyledButtonProps<T extends React.ElementType = 'button'> = ButtonProps<T> & StyledProps;
+type StyledButtonComponent = ExtendedFlexComponent<Props & StyledProps>;
+
+export { ButtonComponent, ButtonProps, StyledButtonComponent, StyledButtonProps };

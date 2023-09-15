@@ -4,9 +4,9 @@ import CheckBox from 'components/CheckBox';
 
 import SelectContext from '../Context';
 import { StyledSelectOption } from './styled';
-import { SelectOptionProps } from './types';
+import { SelectOptionComponent, SelectOptionProps } from './types';
 
-const SelectOption: React.FC<SelectOptionProps> = ({ children, id, ...rest }) => {
+const SelectOption: SelectOptionComponent = ({ children, id, ...rest }) => {
 	const {
 		aspectSize,
 		inputValue,
@@ -36,7 +36,7 @@ const SelectOption: React.FC<SelectOptionProps> = ({ children, id, ...rest }) =>
 			<span
 				// eslint-disable-next-line react/no-danger
 				dangerouslySetInnerHTML={{
-					__html: children.replace(new RegExp(inputValue, 'gi'), match => `<strong>${match}</strong>`)
+					__html: children.replace(new RegExp(inputValue, 'gi'), (match: any) => `<strong>${match}</strong>`)
 				}}
 			/>
 		);

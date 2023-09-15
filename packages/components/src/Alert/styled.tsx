@@ -4,9 +4,9 @@ import Flex from 'components/Flex';
 
 import aspectSize from './variants/aspectSize';
 import status from './variants/status';
-import { AlertProps } from './types';
+import { AlertComponent } from './types';
 
-const StyledAlert: React.FC<AlertProps> = styled(Flex)<AlertProps>`
+const StyledAlert: AlertComponent = styled(Flex)`
 	${aspectSize}
 	${status}
 `;

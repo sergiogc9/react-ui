@@ -3,11 +3,9 @@ import css from '@styled-system/css';
 
 import Flex from 'components/Flex';
 
-import { StyledTableHeaderCellDefaultProps, StyledTableHeaderCellDefaultContentProps } from './types';
+import { StyledTableHeaderCellDefaultProps } from './types';
 
-const StyledTableHeaderCellDefault: React.FC<StyledTableHeaderCellDefaultProps> = styled(
-	Flex
-)<StyledTableHeaderCellDefaultProps>`
+const StyledTableHeaderCellDefault = styled(Flex)<StyledTableHeaderCellDefaultProps>`
 	flex-shrink: 1 !important;
 	${props => css({ color: props.color ?? props.theme.components.table.colors.header.text })}
 
@@ -44,7 +42,7 @@ StyledTableHeaderCellDefault.defaultProps = {
 	width: '100%'
 };
 
-const StyledTableHeaderCellDefaultContent: React.FC<StyledTableHeaderCellDefaultContentProps> = styled(Flex)`
+const StyledTableHeaderCellDefaultContent = styled(Flex)`
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;

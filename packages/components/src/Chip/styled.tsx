@@ -7,7 +7,7 @@ import aspectSize from './variants/aspectSize';
 import variant from './variants/variant';
 import { ChipProps } from './types';
 
-export const StyledChip: React.FC<ChipProps> = styled(Flex)`
+export const StyledChip = styled(Flex)<ChipProps>`
 	${aspectSize}
 	${variant}
   text-decoration: none;

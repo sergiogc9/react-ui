@@ -1,9 +1,7 @@
-import React from 'react';
-
-import Flex, { FlexProps } from 'components/Flex';
+import Flex from 'components/Flex';
 import withAnimate from './withAnimate';
-import { AnimateProps } from './types';
+import { AnimateComponent } from './types';
 
-const Animate: React.FC<AnimateProps> = withAnimate<FlexProps>(Flex);
+const Animate: AnimateComponent = withAnimate(Flex) as AnimateComponent;
 
 export default Animate;

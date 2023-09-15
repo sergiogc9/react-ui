@@ -1,3 +1,6 @@
-import { TextProps } from 'components/Text';
+import { TextComponent, TextProps } from 'components/Text/types';
 
-export type AlertTextProps = TextProps;
+type AlertTextProps = TextProps;
+type AlertTextComponent = TextComponent;
+
+export { AlertTextComponent, AlertTextProps };

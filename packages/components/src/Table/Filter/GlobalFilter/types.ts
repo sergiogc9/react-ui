@@ -5,4 +5,4 @@ interface Props {
 	textFieldProps?: Omit<TextFieldProps, 'onChange' | 'value'>;
 }
 
-export interface TableGlobalFilterProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined>, Props {}
+export type TableGlobalFilterProps<T extends React.ElementType = 'div'> = FlexProps<T> & Props;

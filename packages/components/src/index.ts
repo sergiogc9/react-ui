@@ -86,3 +86,16 @@ export {
 export { default as Title, TitleProps } from './Title';
 export { default as Toasts, ToastOptions, ToastsProps, useToasts } from './Toasts';
 export { default as Tooltip, TooltipProps, TooltipContentProps, TooltipTriggerProps } from './Tooltip';
+export {
+	BaseComponent,
+	BaseComponentProps,
+	BaseComponentRef,
+	ExtendedBoxComponent,
+	ExtendedBoxProps,
+	ExtendedFlexComponent,
+	ExtendedFlexProps,
+	ExtendedGridComponent,
+	ExtendedGridProps,
+	ExtendedTextComponent,
+	ExtendedTextProps
+} from './types';

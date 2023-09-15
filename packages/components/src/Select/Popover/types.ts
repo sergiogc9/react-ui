@@ -1,3 +1,3 @@
 import { PopoverContentProps } from 'components/Popover';
 
-export interface SelectPopoverProps extends PopoverContentProps {}
+export interface SelectPopoverProps extends PopoverContentProps<'ul'> {}

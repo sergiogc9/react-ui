@@ -1,9 +1,9 @@
 import { Keyframes } from 'styled-components';
 import CSS from 'csstype';
 
-import { FlexProps } from 'components/Flex';
+import { ExtendedFlexComponent, ExtendedFlexProps } from 'components/types';
 
-export interface AnimationProps {
+export type AnimationProps = {
 	/**
 	 * Boolean to enable or disable the animation at first mount
 	 */
@@ -93,6 +93,11 @@ export interface AnimationProps {
 	 * CSS rule: animation-timing-function
 	 */
 	readonly timingFunctionExit?: CSS.Properties['animationTimingFunction'];
-}
+};
 
-export type BaseAnimationProps<P = Record<string, unknown>> = AnimationProps & FlexProps & P;
+export type BaseAnimationProps<P = Record<string, unknown>, T extends React.ElementType = 'div'> = ExtendedFlexProps<
+	AnimationProps & P,
+	T
+>;
+
+export type BaseAnimationComponent<P = Record<string, unknown>> = ExtendedFlexComponent<AnimationProps & P>;

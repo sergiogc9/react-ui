@@ -1,14 +1,14 @@
 import React from 'react';
 
 import StyledLink from './styled';
-import { LinkProps } from './types';
+import { LinkComponent } from './types';
 
-const Link: React.FC<LinkProps> = ({ as = 'a', children, behavior = 'default', ...props }) => {
+const Link: LinkComponent = ({ as = 'a', children, behavior = 'default', ...props }) => {
 	return (
-		<StyledLink as={as} behavior={behavior} {...props}>
+		<StyledLink as={as as any} behavior={behavior} {...props}>
 			{children}
 		</StyledLink>
 	);
 };
 
-export default React.memo(Link);
+export default Link;

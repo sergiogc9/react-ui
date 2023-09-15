@@ -88,7 +88,7 @@ SwitchToggle.defaultProps = {
 	transition: 'background-color cubic-bezier(0.4, 0, 0.2, 1) 150ms, transform ease-in 150ms'
 };
 
-const StyledSwitch: React.FC<SwitchProps> = styled(Flex)<SwitchProps>`
+const StyledSwitch = styled(Flex)<SwitchProps>`
 	user-select: none;
 
 	@media (hover: hover) {

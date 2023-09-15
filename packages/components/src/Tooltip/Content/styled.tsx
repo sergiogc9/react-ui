@@ -28,7 +28,7 @@ const getArrowPosition = (props: TooltipContentProps) => {
 	}
 };
 
-const StyledTooltip: React.FC<TooltipContentProps> = styled(Flex)<TooltipContentProps>`
+const StyledTooltip = styled(Flex)<TooltipContentProps>`
 	opacity: ${props => (props.isVisible ? 1 : 0)};
 	transition-duration: ${props => props.duration}ms;
 	${props => variant(props)};

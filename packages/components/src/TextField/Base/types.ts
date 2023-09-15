@@ -1,23 +1,22 @@
 import React from 'react';
 
 import { StyledInputProps } from 'components/private/components/Input';
-import { FlexProps } from 'components/Flex';
+import { ExtendedFlexComponent, ExtendedFlexProps } from 'components/types';
 
-export interface Props
-	extends Pick<
-		StyledInputProps,
-		| 'aspectSize'
-		| 'isDisabled'
-		| 'isError'
-		| 'isSuccess'
-		| 'name'
-		| 'onBlur'
-		| 'onChange'
-		| 'onClick'
-		| 'placeholder'
-		| 'ref'
-		| 'type'
-	> {
+type Props = Pick<
+	StyledInputProps,
+	| 'aspectSize'
+	| 'isDisabled'
+	| 'isError'
+	| 'isSuccess'
+	| 'name'
+	| 'onBlur'
+	| 'onChange'
+	| 'onClick'
+	| 'placeholder'
+	| 'ref'
+	| 'type'
+> & {
 	/**
 	 * The default value used in the textField. Used only when textField is uncontrolled.
 	 */
@@ -94,8 +93,19 @@ export interface Props
 	 * The value attribute specifies the value of an input element. Used to control the textField from outside.
 	 */
 	readonly value?: string | number;
-}
+};
 
-export interface TextFieldBaseProps extends Props, Omit<FlexProps, keyof Props> {
+type TextFieldBaseInputProps = {
 	readonly inputProps?: Omit<StyledInputProps, keyof Props>;
-}
+};
+
+type TextFieldBaseProps<T extends React.ElementType = 'div'> = Omit<ExtendedFlexProps<Props, T>, keyof Props> &
+	Props &
+	TextFieldBaseInputProps;
+
+type TextFieldBaseComponent = ExtendedFlexComponent<
+	Props & TextFieldBaseInputProps,
+	['onBlur', 'onChange', 'onClick', 'placeholder', 'ref', 'defaultValue']
+>;
+
+export { TextFieldBaseComponent, TextFieldBaseProps };

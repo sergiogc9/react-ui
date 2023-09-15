@@ -16,7 +16,7 @@ const TableCellDate: React.FC<TableCellDateProps> = props => {
 	const date = value instanceof Date ? value : new Date(value);
 
 	return (
-		<TableCellText aspectSize="s" {...props}>
+		<TableCellText aspectSize="s" {...props} as={props.as as any}>
 			{date.toLocaleDateString(cell.getContext().table.options.meta?.locale ?? theme.locale, {
 				year: 'numeric',
 				month: 'short',

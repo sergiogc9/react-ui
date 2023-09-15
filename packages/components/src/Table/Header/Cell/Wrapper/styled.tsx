@@ -4,7 +4,7 @@ import Flex from 'components/Flex';
 
 import { TableHeaderCellWrapperProps } from './types';
 
-const TableHeaderCellWrapper: React.FC<TableHeaderCellWrapperProps> = styled(Flex)<TableHeaderCellWrapperProps>`
+const TableHeaderCellWrapper = styled(Flex)<TableHeaderCellWrapperProps>`
 	flex-shrink: 1 !important;
 `;
 

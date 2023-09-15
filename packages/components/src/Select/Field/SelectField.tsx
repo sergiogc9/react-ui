@@ -88,25 +88,25 @@ const SelectField: React.FC<SelectFieldProps> = React.forwardRef<HTMLInputElemen
 
 		return (
 			<StyledSelectField
-				aspectSize={aspectSize}
-				data-testid="select-field"
 				hasRemoveButton={hasRemoveButton ?? isExternalFiltered}
 				helperText={helperText}
 				inputProps={finalInputProps}
-				isDisabled={isDisabled}
-				isError={isError}
-				isSuccess={isSuccess}
-				label={label}
 				labelPosition={labelPosition}
-				onChange={onChange}
-				onClick={onTextFieldClicked}
-				onKeyDown={onTextFieldKeyPressed}
 				placeholder={placeholder}
-				ref={mergeRefs}
 				rightContent={rightContent}
 				selectedOptions={selectedOptions}
 				value={inputValue}
 				{...rest}
+				aspectSize={aspectSize}
+				data-testid="select-field"
+				isError={isError}
+				isSuccess={isSuccess}
+				label={label}
+				onChange={onChange}
+				onClick={onTextFieldClicked}
+				onKeyDown={onTextFieldKeyPressed}
+				isDisabled={isDisabled}
+				ref={mergeRefs}
 			/>
 		);
 	}

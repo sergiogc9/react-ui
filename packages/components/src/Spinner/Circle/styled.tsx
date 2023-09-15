@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import { getColorFromTheme } from '@sergiogc9/react-ui-theme';
 
@@ -102,7 +101,7 @@ const __getCircleCss = ({ circles }: SpinnerCircleProps) => {
 		`;
 };
 
-const Circle: React.FC<SpinnerCircleProps> = styled(Flex)<SpinnerCircleProps>`
+const Circle = styled(Flex)<SpinnerCircleProps>`
 	${__getCircleCss}
 `;
 

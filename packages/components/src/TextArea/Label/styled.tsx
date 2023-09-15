@@ -5,7 +5,7 @@ import css from '@styled-system/css';
 import { InputLabel } from 'components/private/components/Input';
 import { TextAreaLabelProps } from './types';
 
-const TextAreaLabel: React.FC<TextAreaLabelProps> = styled(InputLabel)<TextAreaLabelProps>`
+const TextAreaLabel = styled(InputLabel)<TextAreaLabelProps>`
 	${props => {
 		if (!props.value!.toString().trim() && !props.placeholder) {
 			return css({

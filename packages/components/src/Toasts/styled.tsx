@@ -5,7 +5,7 @@ import Flex from 'components/Flex';
 import placement from './variants/placement';
 import { StyledToastsProps } from './types';
 
-const StyledToasts: React.FC<StyledToastsProps> = styled(Flex)<StyledToastsProps>`
+const StyledToasts = styled(Flex)<StyledToastsProps>`
 	${placement}
 `;
 

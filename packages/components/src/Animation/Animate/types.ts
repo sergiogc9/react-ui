@@ -1,7 +1,7 @@
-import { FlexProps } from 'components/Flex';
 import { AnimationProps } from '../Base/types';
+import { ExtendedBoxComponent, ExtendedBoxProps } from 'components/types';
 
-export interface AnimateProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+type Props = {
 	/**
 	 * Boolean to enable or disable the animation at first mount
 	 */
@@ -74,4 +74,10 @@ export interface AnimateProps extends FlexProps<React.HTMLAttributes<HTMLDivElem
 	 * Array of timing functions to be used for each exit animation.
 	 */
 	readonly timingFunctionExit?: NonNullable<AnimationProps['timingFunctionExit']>[];
-}
+};
+
+type AnimateProps<T extends React.ElementType = 'div'> = ExtendedBoxProps<Props, T>;
+
+type AnimateComponent = ExtendedBoxComponent<Props>;
+
+export { AnimateComponent, AnimateProps };

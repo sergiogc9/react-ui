@@ -4,7 +4,7 @@ import Flex from 'components/Flex';
 
 import { TableContentProps } from './types';
 
-const StyledTableContent: React.FC<TableContentProps> = styled(Flex)<TableContentProps>`
+const StyledTableContent = styled(Flex)<TableContentProps>`
 	display: block;
 `;
 

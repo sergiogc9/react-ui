@@ -6,7 +6,7 @@ import { getColorFromTheme } from '@sergiogc9/react-ui-theme';
 import Flex from 'components/Flex';
 import { StyledTabsTabProps } from './types';
 
-const StyledTabsTab: React.FC<StyledTabsTabProps> = styled(Flex)<StyledTabsTabProps>`
+const StyledTabsTab = styled(Flex)<StyledTabsTabProps>`
 	${props =>
 		systemCSS({
 			color: props.theme.components.tab.colors.default,

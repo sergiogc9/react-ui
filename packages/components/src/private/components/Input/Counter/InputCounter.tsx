@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-import { InputCounterProps } from './types';
+import { InputCounterComponent } from './types';
 import { StyledInputCounter } from './styled';
 
-const InputCounter: React.FC<InputCounterProps> = ({ isDisabled = false, maxLength, valueContent = '' }) => {
+const InputCounter: InputCounterComponent = ({ isDisabled = false, maxLength, valueContent = '' }) => {
 	const [currentColor, setCurrentColor] = useState('neutral.700');
 
 	useEffect(() => {

@@ -1,10 +1,11 @@
-import { LabelHTMLAttributes } from 'react';
-
-import { FlexProps } from 'components/Flex';
 import { ComposedTextProps } from 'components/private/utils/composers';
 import { InputProps } from '../types';
+import { ExtendedFlexComponent, ExtendedFlexProps } from 'components/types';
 
-export interface InputLabelProps
-	extends InputProps,
-		ComposedTextProps,
-		FlexProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement> {}
+type Props = InputProps & ComposedTextProps;
+
+type InputLabelProps<T extends React.ElementType = 'label'> = ExtendedFlexProps<Props, T>;
+
+type InputLabelComponent = ExtendedFlexComponent<Props>;
+
+export { InputLabelComponent, InputLabelProps };

@@ -1,6 +1,6 @@
 import { FlexProps } from 'components/Flex';
 
-export interface TabsProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
+export type TabsProps<T extends React.ElementType = 'div'> = FlexProps<T> & {
 	/**
 	 * The default active tab ID
 	 */
@@ -15,4 +15,4 @@ export interface TabsProps extends FlexProps<React.HTMLAttributes<HTMLDivElement
 	 * Defines the layout for tabs.
 	 */
 	readonly tabsLayout?: 'small-left' | 'small-evenly' | 'big-evenly';
-}
+};

@@ -1,10 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import Flex from 'components/Flex';
 import { ModalFooterProps } from './types';
 
-const ModalFooter: React.FC<ModalFooterProps> = styled(Flex)<ModalFooterProps>``;
+const ModalFooter = styled(Flex)<ModalFooterProps>``;
 
 ModalFooter.defaultProps = {
 	alignItems: 'center',

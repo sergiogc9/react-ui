@@ -5,7 +5,7 @@ import { Flex } from '@sergiogc9/react-ui';
 
 import { UserMenuItemProps } from './types';
 
-const UserMenuItem: React.FC<UserMenuItemProps> = styled(Flex)<UserMenuItemProps>`
+const UserMenuItem = styled(Flex)<UserMenuItemProps>`
 	&:hover {
 		${props => css({ bg: props.theme.collections.userMenu.colors.bgHover })}
 	}

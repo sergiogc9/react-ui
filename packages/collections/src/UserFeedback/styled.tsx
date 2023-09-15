@@ -4,7 +4,7 @@ import { Flex } from '@sergiogc9/react-ui';
 
 import { StyledUserFeedbackProps } from './types';
 
-const StyledUserFeedback: React.FC<StyledUserFeedbackProps> = styled(Flex)``;
+const StyledUserFeedback = styled(Flex)<StyledUserFeedbackProps>``;
 
 StyledUserFeedback.defaultProps = {
 	alignItems: 'center',

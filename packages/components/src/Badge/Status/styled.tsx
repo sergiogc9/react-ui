@@ -6,7 +6,7 @@ import { BadgeStatusProps } from './types';
 
 const BadgeStatus: React.FC<BadgeStatusProps> = styled(Status)`
 	${location}
-`;
+` as React.FC<BadgeStatusProps>;
 
 BadgeStatus.defaultProps = {
 	position: 'absolute'

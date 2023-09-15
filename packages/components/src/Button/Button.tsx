@@ -5,9 +5,9 @@ import Spinner from 'components/Spinner';
 import ButtonText from 'components/Button/Text';
 import { ButtonContext, ButtonContextData } from './Context';
 import StyledButton from './styled';
-import { ButtonProps } from './types';
+import { ButtonComponent, ButtonProps } from './types';
 
-const Button: React.FC<ButtonProps> = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const Button: ButtonComponent = React.forwardRef<HTMLButtonElement, ButtonProps>(
 	(
 		{
 			aspectSize = 'm',
@@ -91,6 +91,6 @@ const Button: React.FC<ButtonProps> = React.forwardRef<HTMLButtonElement, Button
 			</ButtonContext.Provider>
 		);
 	}
-);
+) as ButtonComponent;
 
-export default React.memo(Button);
+export default React.memo(Button) as ButtonComponent;

@@ -3,7 +3,7 @@ import { DayPickerProps } from 'react-day-picker';
 import { FlexProps } from 'components/Flex';
 import { DatePickerProps } from '../types';
 
-export interface DatePickerDayProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
+export type DatePickerDayProps<T extends React.ElementType = 'div'> = FlexProps<T> & {
 	readonly date?: DatePickerProps['date'];
 	readonly dateRange?: DatePickerProps['dateRange'];
 	readonly defaultVisibleMonth?: DatePickerProps['defaultVisibleMonth'];
@@ -15,4 +15,4 @@ export interface DatePickerDayProps extends FlexProps<React.HTMLAttributes<HTMLD
 	readonly maxDate?: DatePickerProps['maxDate'];
 	readonly modifiers?: DatePickerProps['modifiers'];
 	readonly onDayClick?: DayPickerProps['onDayClick'];
-}
+};

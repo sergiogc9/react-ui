@@ -1,7 +1,7 @@
 import { FlexProps } from 'components/Flex';
 import { DatePickerProps } from '../types';
 
-export interface DatePickerMonthProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
+export type DatePickerMonthProps<T extends React.ElementType = 'div'> = FlexProps<T> & {
 	readonly date?: DatePickerProps['date'];
 	readonly dateRange?: DatePickerProps['dateRange'];
 	readonly defaultVisibleYear?: Date;
@@ -10,7 +10,7 @@ export interface DatePickerMonthProps extends FlexProps<React.HTMLAttributes<HTM
 	readonly minDate?: DatePickerProps['minDate'];
 	readonly maxDate?: DatePickerProps['maxDate'];
 	readonly onMonthClick?: (month: Date) => void;
-}
+};
 export interface StyledMonthBoxProps extends DatePickerMonthProps {
 	isDisabled: boolean;
 	isRangeEnd: boolean;

@@ -2,9 +2,7 @@ import { FlexProps } from 'components/Flex';
 
 import { PopoverWrapperProps } from 'components/Popover';
 
-export interface TooltipContentProps
-	extends Omit<PopoverWrapperProps, 'render'>,
-		Omit<FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLElement>, 'zIndex'> {
+export interface TooltipContentProps extends Omit<PopoverWrapperProps, 'render'>, Omit<FlexProps<'div'>, 'zIndex'> {
 	/**
 	 * Boolean to show or hide the arrow
 	 */

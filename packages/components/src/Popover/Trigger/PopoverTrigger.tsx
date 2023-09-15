@@ -8,7 +8,7 @@ const PopoverTrigger: React.FC<PopoverTriggerProps> = ({ children, ...props }) =
 	const { popoverRef } = React.useContext(PopoverContext);
 
 	return (
-		<Flex ref={popoverRef} width="min-content" {...props}>
+		<Flex ref={popoverRef} width="min-content" {...(props as any)}>
 			{children}
 		</Flex>
 	);

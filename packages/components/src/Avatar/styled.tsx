@@ -5,7 +5,7 @@ import aspectSize from './variants/aspectSize';
 import variant from './variants/variant';
 import { AvatarProps } from './types';
 
-const StyledAvatar: React.FC<AvatarProps> = styled(Flex)<AvatarProps>`
+const StyledAvatar = styled(Flex)`
 	overflow: hidden;
 	position: relative;
 	flex-shrink: 0;
@@ -38,6 +38,6 @@ const StyledAvatar: React.FC<AvatarProps> = styled(Flex)<AvatarProps>`
 
 	${props => aspectSize(props)};
 	${({ theme }) => variant(theme)};
-`;
+` as React.FC<AvatarProps>;
 
 export default StyledAvatar;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Popover from 'components/Popover';
 import { StyledDatePickerPopoverProps } from './types';
 
-const StyledDatePickerPopover: React.FC<StyledDatePickerPopoverProps> = styled(Popover.Content)``;
+const StyledDatePickerPopover = styled(Popover.Content)<StyledDatePickerPopoverProps>``;
 
 StyledDatePickerPopover.defaultProps = {
 	flexDirection: 'column',

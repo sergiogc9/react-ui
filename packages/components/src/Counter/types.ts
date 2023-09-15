@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { FlexProps } from 'components/Flex';
+import { ExtendedFlexComponent, ExtendedFlexProps } from 'components/types';
 
-export interface CounterProps extends Omit<FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'bg'> {
+type Props = {
 	/**
 	 * The size of the text.
 	 */
@@ -19,4 +19,10 @@ export interface CounterProps extends Omit<FlexProps<React.HTMLAttributes<HTMLDi
 	 * The color variant.
 	 */
 	readonly variant?: 'blue' | 'green' | 'grey' | 'red' | 'yellow';
-}
+};
+
+type CounterProps<T extends React.ElementType = 'div'> = ExtendedFlexProps<Props, T>;
+
+type CounterComponent = ExtendedFlexComponent<Props>;
+
+export { CounterComponent, CounterProps };

@@ -5,7 +5,7 @@ import Flex from 'components/Flex';
 import aspectSize from './variants/aspectSize';
 import { IconButtonProps } from './types';
 
-const StyledIconButton: React.FC<IconButtonProps> = styled(Flex)<IconButtonProps>`
+const StyledIconButton = styled(Flex)<IconButtonProps>`
 	${props =>
 		systemCSS({
 			bg: (props.bg as any) ?? props.theme.components.iconButton.colors.background.default,
