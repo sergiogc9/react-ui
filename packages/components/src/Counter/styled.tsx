@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import Flex from 'components/Flex';
 import aspectSize from './variants/aspectSize';
 import variant from './variants/variant';
-import { CounterProps } from './types';
+import { CounterComponent } from './types';
 
-export const StyledCounter: React.FC<CounterProps> = styled(Flex)`
+export const StyledCounter: CounterComponent = styled(Flex)`
 	${aspectSize}
 	${variant}
 `;

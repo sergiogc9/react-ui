@@ -13,7 +13,7 @@ const TableCellDefault: React.FC<TableCellDefaultProps> = props => {
 			{children}
 		</Flex>
 	) : (
-		<TableCellText {...rest} />
+		<TableCellText {...rest} as={rest.as as any} />
 	);
 };
 

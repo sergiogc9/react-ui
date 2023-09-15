@@ -1,3 +1,3 @@
 import { FlexProps } from 'components/Flex';
 
-export interface TableFilterCellWrapperProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}
+export type TableFilterCellWrapperProps<T extends React.ElementType = 'div'> = FlexProps<T>;

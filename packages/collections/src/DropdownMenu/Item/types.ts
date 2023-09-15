@@ -1,3 +1,10 @@
-import { FlexProps } from '@sergiogc9/react-ui';
+import { ExtendedFlexComponent, ExtendedFlexProps } from '@sergiogc9/react-ui';
 
-export interface DropdownMenuItemProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+// eslint-disable-next-line @typescript-eslint/ban-types
+type Props = {};
+
+type DropdownMenuItemProps<T extends React.ElementType = 'div'> = ExtendedFlexProps<Props, T>;
+
+type DropdownMenuItemComponent = ExtendedFlexComponent<Props>;
+
+export { DropdownMenuItemComponent, DropdownMenuItemProps };

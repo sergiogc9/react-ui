@@ -1,8 +1,14 @@
-import { TextProps } from 'components/Text';
+import { ExtendedTextComponent, ExtendedTextProps } from 'components/types';
 
-export interface LinkProps extends TextProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, undefined> {
+type Props = {
 	/**
 	 * Link behavior
 	 */
 	readonly behavior?: 'default' | 'opposite';
-}
+};
+
+type LinkProps<T extends React.ElementType = 'a'> = ExtendedTextProps<Props, T>;
+
+type LinkComponent = ExtendedTextComponent<Props>;
+
+export { LinkComponent, LinkProps };

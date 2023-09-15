@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import Flex from 'components/Flex';
@@ -7,7 +6,7 @@ import { ChipOverlayProps } from './types';
 import aspectSize from './variants/aspectSize';
 import variant from './variants/variant';
 
-const StyledChipOverlay: React.FC<ChipOverlayProps> = styled(Flex)`
+const StyledChipOverlay = styled(Flex)<ChipOverlayProps>`
 	${variant}
 	${aspectSize}
 `;

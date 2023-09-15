@@ -4,7 +4,7 @@ import { FlexProps } from 'components/Flex';
 
 import { TableBodyRowProps } from '../Body/Row/types';
 
-export interface TableContentProps<T = any> extends FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface TableContentProps<T = any> extends FlexProps<'div'> {
 	/**
 	 * A function to customize the row styles
 	 * @param row: The Row to customize

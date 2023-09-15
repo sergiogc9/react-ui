@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import Popover from 'components/Popover';
@@ -6,7 +5,7 @@ import Flex from 'components/Flex';
 
 import { SelectPopoverProps } from './types';
 
-const StyledSelectPopover: React.FC<SelectPopoverProps> = styled(Popover.Content)<SelectPopoverProps>`
+const StyledSelectPopover = styled(Popover.Content)<SelectPopoverProps>`
 	&[data-placement='top'] {
 		margin-top: 10px;
 	}
@@ -22,7 +21,7 @@ StyledSelectPopover.defaultProps = {
 	paddingY: 0
 };
 
-const StyledSelectPopoverFooter: React.FC<SelectPopoverProps> = styled(Flex)<SelectPopoverProps>``;
+const StyledSelectPopoverFooter = styled(Flex)<SelectPopoverProps>``;
 
 StyledSelectPopoverFooter.defaultProps = {
 	alignItems: 'center',
@@ -31,7 +30,7 @@ StyledSelectPopoverFooter.defaultProps = {
 	height: 64
 };
 
-const StyledSelectPopoverEmptyBox: React.FC<SelectPopoverProps> = styled(Flex)<SelectPopoverProps>``;
+const StyledSelectPopoverEmptyBox = styled(Flex)<SelectPopoverProps>``;
 
 StyledSelectPopoverEmptyBox.defaultProps = {
 	alignItems: 'center',
@@ -40,7 +39,7 @@ StyledSelectPopoverEmptyBox.defaultProps = {
 	height: 64
 };
 
-const StyledPopoverListBox: React.FC<SelectPopoverProps> = styled(Flex)<SelectPopoverProps>``;
+const StyledPopoverListBox = styled(Flex)<SelectPopoverProps>``;
 
 StyledPopoverListBox.defaultProps = {
 	as: 'ul',

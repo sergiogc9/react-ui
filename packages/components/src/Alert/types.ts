@@ -1,6 +1,6 @@
-import { FlexProps } from 'components/Flex';
+import { ExtendedBoxComponent, ExtendedFlexProps } from 'components/types';
 
-export interface AlertProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+type Props = {
 	/**
 	 * The size of the alert.
 	 */
@@ -9,4 +9,10 @@ export interface AlertProps extends FlexProps<React.HTMLAttributes<HTMLDivElemen
 	 * The status of the alert. Used to colorize the Alert.
 	 */
 	readonly status?: 'error' | 'info' | 'success' | 'warning';
-}
+};
+
+type AlertProps<T extends React.ElementType = 'div'> = ExtendedFlexProps<Props, T>;
+
+type AlertComponent = ExtendedBoxComponent<Props>;
+
+export { AlertComponent, AlertProps };

@@ -8,7 +8,14 @@ import { RemoveButtonProps } from './types';
 const RemoveButton: React.FC<RemoveButtonProps> = ({ onClick, ...props }) => {
 	return (
 		<StyledRemoveButtonWrapper id="textFieldRemoveWrapper" {...props}>
-			<IconButton data-testid="textfield__remove-button" onClick={onClick} aspectSize="s" tabIndex={-1} type="button">
+			<IconButton
+				as="button"
+				data-testid="textfield__remove-button"
+				onClick={onClick}
+				aspectSize="s"
+				tabIndex={-1}
+				type="button"
+			>
 				<Icon icon="close" styling="outlined" aspectSize="s" />
 			</IconButton>
 		</StyledRemoveButtonWrapper>

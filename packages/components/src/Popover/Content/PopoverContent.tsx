@@ -3,9 +3,9 @@ import React from 'react';
 import PopoverWrapper from '../Wrapper';
 import { StyledPopover } from './styled';
 import { TestFakeStyledPopoverContent } from './tests';
-import { PopoverContentProps } from './types';
+import { PopoverContentComponent, PopoverContentProps } from './types';
 
-const PopoverContent: React.FC<PopoverContentProps> = ({
+const PopoverContent: PopoverContentComponent = ({
 	children,
 	distance,
 	duration = 250,

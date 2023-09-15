@@ -7,7 +7,7 @@ import Flex from 'components/Flex';
 import aspectSize from './variants/aspectSize';
 import { ModalProps } from './types';
 
-const StyledModal: React.FC<ModalProps> = styled(Flex)<ModalProps>`
+const StyledModal = styled(Flex)<ModalProps>`
 	${aspectSize}
 
 	${props =>
@@ -54,7 +54,7 @@ StyledModal.defaultProps = {
 	maxWidth: '100%'
 };
 
-const StyledModalWrapper: React.FC<ModalProps> = styled(Flex)<ModalProps>``;
+const StyledModalWrapper = styled(Flex)<ModalProps>``;
 
 StyledModalWrapper.defaultProps = {
 	alignItems: 'center',

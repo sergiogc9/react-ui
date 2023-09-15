@@ -3,6 +3,7 @@ import React, { ComponentProps } from 'react';
 import { BoxProps } from './Box';
 import { FlexProps } from './Flex';
 import { GridProps } from './Grid';
+import { TextProps } from './Text';
 
 export type RecursivePartial<T> = {
 	[P in keyof T]?: RecursivePartial<T[P]>;
@@ -24,7 +25,7 @@ type BaseProps = {
 	fakeProp: string
 }
 
-type FakeBaseComponentProps<T extends React.ElementType = 'div'> = BaseComponentProps<T, BaseProps>;
+type FakeBaseComponentProps<T extends React.ElementType = 'div'> = BaseComponentProps<BaseProps, T>;
 
 type FakeBaseComponent = BaseComponent<
 	<T extends React.ElementType = keyof JSX.IntrinsicElements>(
@@ -35,10 +36,12 @@ type FakeBaseComponent = BaseComponent<
 const FakeBase: FakeBaseComponent = styled.div``;
 */
 
-type BaseComponentProps<T extends React.ElementType = 'div', Props = object> = React.PropsWithChildren<
-	Props & AsProp<T>
-> &
-	Omit<React.ComponentPropsWithoutRef<T>, PropsToOmit<T, Props>> & {
+type BaseComponentProps<
+	Props = object,
+	T extends React.ElementType = keyof JSX.IntrinsicElements,
+	OmitKeys extends Array<string> = []
+> = React.PropsWithChildren<Props & AsProp<T>> &
+	Omit<React.ComponentPropsWithoutRef<T>, PropsToOmit<T, Props> | OmitKeys[number]> & {
 		ref?: BaseComponentRef<T>;
 	};
 
@@ -57,37 +60,88 @@ type Props = {
 	fakeProp: string
 };
 
-type FakeComponentProps<T extends React.ElementType = 'div'> = ExtendedBoxProps<T, Props>;
+type FakeComponentProps<T extends React.ElementType = 'div'> = ExtendedBoxProps<Props, T>;
 
 type FakeComponent = ExtendedBoxComponent<Props>;
 
 const Fake: FakeComponent = styled(Box)``;
+
+IF you want to omit some props to override them:
+
+type FakeComponentProps<T extends React.ElementType = 'div'> = ExtendedBoxProps<Props, T, ['onClick','defaultValue']>;
+
+type FakeComponent = ExtendedBoxComponent<Props, ['onClick','defaultValue']>;
 */
 
-type ExtendedBoxProps<T extends React.ElementType = 'div', Props = object> = BaseComponentProps<T, BoxProps<T> & Props>;
-type ExtendedBoxComponent<Props extends object> = BaseComponent<
+type ExtendedBoxProps<
+	Props = object,
+	T extends React.ElementType = 'div',
+	OmitKeys extends Array<string> | undefined = undefined
+> = BaseComponentProps<
+	(OmitKeys extends string[] ? Omit<BoxProps<T>, OmitKeys[number]> : BoxProps<T>) & Props,
+	T,
+	OmitKeys extends undefined ? [] : OmitKeys
+>;
+type ExtendedBoxComponent<
+	Props extends ExtendedBoxProps,
+	OmitKeys extends Array<string> | undefined = undefined
+> = BaseComponent<
 	<T extends React.ElementType = keyof JSX.IntrinsicElements>(
-		props: BoxProps<T> & Props
+		props: (OmitKeys extends Array<string> ? Omit<BoxProps<T>, OmitKeys[number]> : BoxProps<T>) & Props
 	) => React.ReactElement<Props, any> | null
 >;
 
-type ExtendedFlexProps<T extends React.ElementType = 'div', Props = object> = BaseComponentProps<
+type ExtendedFlexProps<
+	Props = object,
+	T extends React.ElementType = 'div',
+	OmitKeys extends Array<string> | undefined = undefined
+> = BaseComponentProps<
+	(OmitKeys extends string[] ? Omit<FlexProps<T>, OmitKeys[number]> : FlexProps<T>) & Props,
 	T,
-	FlexProps<T> & Props
+	OmitKeys extends undefined ? [] : OmitKeys
 >;
-type ExtendedFlexComponent<Props extends object> = BaseComponent<
+type ExtendedFlexComponent<
+	Props extends ExtendedFlexProps,
+	OmitKeys extends Array<string> | undefined = undefined
+> = BaseComponent<
 	<T extends React.ElementType = keyof JSX.IntrinsicElements>(
-		props: FlexProps<T> & Props
+		props: (OmitKeys extends Array<string> ? Omit<FlexProps<T>, OmitKeys[number]> : FlexProps<T>) & Props
 	) => React.ReactElement<Props, any> | null
 >;
 
-type ExtendedGridProps<T extends React.ElementType = 'div', Props = object> = BaseComponentProps<
+type ExtendedGridProps<
+	Props = object,
+	T extends React.ElementType = 'div',
+	OmitKeys extends Array<string> | undefined = undefined
+> = BaseComponentProps<
+	(OmitKeys extends string[] ? Omit<GridProps<T>, OmitKeys[number]> : GridProps<T>) & Props,
 	T,
-	GridProps<T> & Props
+	OmitKeys extends undefined ? [] : OmitKeys
 >;
-type ExtendedGridComponent<Props extends object> = BaseComponent<
+type ExtendedGridComponent<
+	Props extends ExtendedGridProps,
+	OmitKeys extends Array<string> | undefined = undefined
+> = BaseComponent<
 	<T extends React.ElementType = keyof JSX.IntrinsicElements>(
-		props: GridProps<T> & Props
+		props: (OmitKeys extends Array<string> ? Omit<GridProps<T>, OmitKeys[number]> : GridProps<T>) & Props
+	) => React.ReactElement<Props, any> | null
+>;
+
+type ExtendedTextProps<
+	Props = object,
+	T extends React.ElementType = 'div',
+	OmitKeys extends Array<string> | undefined = undefined
+> = BaseComponentProps<
+	(OmitKeys extends string[] ? Omit<TextProps<T>, OmitKeys[number]> : TextProps<T>) & Props,
+	T,
+	OmitKeys extends undefined ? [] : OmitKeys
+>;
+type ExtendedTextComponent<
+	Props extends ExtendedTextProps,
+	OmitKeys extends Array<string> | undefined = undefined
+> = BaseComponent<
+	<T extends React.ElementType = keyof JSX.IntrinsicElements>(
+		props: (OmitKeys extends Array<string> ? Omit<TextProps<T>, OmitKeys[number]> : TextProps<T>) & Props
 	) => React.ReactElement<Props, any> | null
 >;
 
@@ -95,10 +149,12 @@ export {
 	BaseComponent,
 	BaseComponentProps,
 	BaseComponentRef,
-	ExtendedBoxProps,
 	ExtendedBoxComponent,
-	ExtendedFlexProps,
+	ExtendedBoxProps,
 	ExtendedFlexComponent,
+	ExtendedFlexProps,
+	ExtendedGridComponent,
 	ExtendedGridProps,
-	ExtendedGridComponent
+	ExtendedTextComponent,
+	ExtendedTextProps
 };

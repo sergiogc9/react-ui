@@ -6,7 +6,7 @@ import Spinner from 'components/Spinner';
 import FloatingButtonContext from './Context';
 import FloatingButtonText from './Text';
 import StyledButton from './styled';
-import { FloatingButtonProps } from './types';
+import { FloatingButtonComponent, FloatingButtonProps } from './types';
 import { FloatingButtonContextData } from './Context/types';
 
 const SPINNER_SIZES: Record<NonNullable<FloatingButtonProps['aspectSize']>, { mx: string; size: string }> = {
@@ -15,7 +15,7 @@ const SPINNER_SIZES: Record<NonNullable<FloatingButtonProps['aspectSize']>, { mx
 	l: { mx: '2px', size: '6px' }
 };
 
-const FloatingButton: React.FC<FloatingButtonProps> = React.forwardRef<HTMLButtonElement, FloatingButtonProps>(
+const FloatingButton: FloatingButtonComponent = React.forwardRef<HTMLButtonElement, FloatingButtonProps>(
 	({ aspectSize = 'm', children, isDisabled = false, isLoading = false, onClick, type = 'button', ...props }, ref) => {
 		const onBtnClicked = React.useCallback<NonNullable<FloatingButtonProps['onClick']>>(
 			ev => {
@@ -80,6 +80,6 @@ const FloatingButton: React.FC<FloatingButtonProps> = React.forwardRef<HTMLButto
 			</FloatingButtonContext.Provider>
 		);
 	}
-);
+) as FloatingButtonComponent;
 
-export default React.memo(FloatingButton);
+export default React.memo(FloatingButton) as FloatingButtonComponent;

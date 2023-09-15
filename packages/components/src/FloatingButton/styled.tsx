@@ -6,7 +6,7 @@ import Flex from 'components/Flex';
 import aspectSize from './variants/aspectSize';
 import { StyledFloatingButtonProps } from './types';
 
-const StyledFloatingButton: React.FC<StyledFloatingButtonProps> = styled(Flex)<StyledFloatingButtonProps>`
+const StyledFloatingButton = styled(Flex)<StyledFloatingButtonProps>`
 	${props =>
 		systemCSS({
 			bg: (props.bg as any) ?? props.theme.components.floatingButton.colors.background.default,

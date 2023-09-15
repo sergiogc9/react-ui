@@ -1,10 +1,19 @@
 import { StepperProps } from 'components/Stepper';
-import { TextProps } from 'components/Text';
+import { ExtendedTextComponent, ExtendedTextProps } from 'components/types';
 
-export interface StyledStepperTextProps extends TextProps<React.HTMLAttributes<HTMLSpanElement>, undefined> {
+type StyledProps = {
 	isCurrent: boolean;
 	isEnabled: boolean;
 	variant: StepperProps['variant'];
-}
+};
 
-export interface StepperTextProps extends TextProps<React.HTMLAttributes<HTMLSpanElement>, undefined> {}
+// eslint-disable-next-line @typescript-eslint/ban-types
+type Props = {};
+
+type StepperTextProps<T extends React.ElementType = 'span'> = ExtendedTextProps<Props, T>;
+
+type StepperTextComponent = ExtendedTextComponent<Props>;
+
+type StyledStepperTextProps<T extends React.ElementType = 'span'> = ExtendedTextProps<StyledProps, T>;
+
+export { StepperTextProps, StepperTextComponent, StyledStepperTextProps };

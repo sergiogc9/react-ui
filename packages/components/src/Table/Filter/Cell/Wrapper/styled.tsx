@@ -4,7 +4,7 @@ import Flex from 'components/Flex';
 
 import { TableFilterCellWrapperProps } from './types';
 
-const TableFilterCellWrapper: React.FC<TableFilterCellWrapperProps> = styled(Flex)<TableFilterCellWrapperProps>`
+const TableFilterCellWrapper = styled(Flex)<TableFilterCellWrapperProps>`
 	flex-shrink: 1 !important;
 `;
 

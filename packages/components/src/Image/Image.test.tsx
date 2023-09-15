@@ -29,7 +29,7 @@ describe('Image', () => {
 	});
 
 	it('should render as div', () => {
-		renderComponent({ as: 'div' });
+		renderComponent({ as: 'div' as any });
 
 		expect(screen.getByTestId('image')).toBeInTheDocument();
 	});

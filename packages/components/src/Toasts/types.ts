@@ -8,6 +8,4 @@ export interface ToastsProps {
 	 */
 	readonly placement?: 'bottom' | 'bottom-left' | 'bottom-right' | 'top' | 'top-left' | 'top-right';
 }
-export interface StyledToastsProps
-	extends ToastsProps,
-		Omit<FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined>, 'children'> {}
+export interface StyledToastsProps extends ToastsProps, Omit<FlexProps<'div'>, 'children'> {}

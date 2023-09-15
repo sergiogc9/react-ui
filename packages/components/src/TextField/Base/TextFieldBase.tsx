@@ -85,7 +85,7 @@ const TextField: React.FC<TextFieldBaseProps> = React.forwardRef<HTMLInputElemen
 		}, [hasRemoveButton, rightContent]);
 
 		return (
-			<StyledTextFieldBaseWrapper isDisabled={isDisabled} {...rest}>
+			<StyledTextFieldBaseWrapper isDisabled={isDisabled} {...rest} as={rest.as as any}>
 				<StyledTextFieldBase labelPosition={labelPosition}>
 					<Flex position="absolute" height="100%" width="100%">
 						<StyledTextFieldIconContent ml={3}>{leftContent}</StyledTextFieldIconContent>

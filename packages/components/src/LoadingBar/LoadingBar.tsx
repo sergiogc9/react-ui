@@ -2,9 +2,9 @@ import React from 'react';
 import { useUpdateEffect } from '@sergiogc9/react-hooks';
 
 import StyledLoadingBar, { StyledLoadingBarProgress } from './styled';
-import { LoadingBarProps } from './types';
+import { LoadingBarComponent } from './types';
 
-const LoadingBar: React.FC<LoadingBarProps> = ({ isVisible, ...rest }) => {
+const LoadingBar: LoadingBarComponent = ({ isVisible, ...rest }) => {
 	const [isBarEnabled, setIsBarEnabled] = React.useState(isVisible);
 	const [percentage, setPercentage] = React.useState(0);
 	const [isOneSecondExceeded, setIsOneSecondExceeded] = React.useState(false);

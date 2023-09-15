@@ -6,7 +6,7 @@ import variant from './variants/variant';
 import aspectSize from './variants/aspectSize';
 import { ActionWrapperProps } from './types';
 
-const ActionWrapper: React.FC<ActionWrapperProps> = styled(Flex)<ActionWrapperProps>`
+const ActionWrapper = styled(Flex)<ActionWrapperProps>`
 	${variant}
 	${aspectSize}
 `;

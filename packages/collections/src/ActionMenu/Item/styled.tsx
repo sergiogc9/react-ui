@@ -5,7 +5,7 @@ import { Text } from '@sergiogc9/react-ui';
 import { ActionMenuItemProps } from './types';
 import variant from './variants/variant';
 
-const StyledActionMenuItem: React.FC<ActionMenuItemProps> = styled(Text)<ActionMenuItemProps>`
+const StyledActionMenuItem = styled(Text)<ActionMenuItemProps>`
 	align-items: center;
 	${variant}
 `;

@@ -4,7 +4,7 @@ import { Decorator } from '@storybook/react';
 import { Avatar, Flex } from '@sergiogc9/react-ui';
 
 const DropdownMenuDecorator: Decorator = (story, context) => {
-	const avatarRef = React.useRef();
+	const avatarRef = React.useRef(null);
 
 	const newContext = {
 		...context,

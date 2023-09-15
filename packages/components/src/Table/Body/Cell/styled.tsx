@@ -5,7 +5,7 @@ import Flex from 'components/Flex';
 
 import { TableBodyCellProps } from './types';
 
-const TableBodyCell: React.FC<TableBodyCellProps> = styled(Flex)<TableBodyCellProps>`
+const TableBodyCell = styled(Flex)<TableBodyCellProps>`
 	flex-shrink: 1 !important;
 
 	&:first-child {

@@ -2,15 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Animation, Flex, Icon, IconButton } from '@sergiogc9/react-ui';
 
-import { UserMenuFullScreenProps } from './types';
+import { UserMenuFullScreenComponent } from './types';
 
-const UserMenuFullScreen: React.FC<UserMenuFullScreenProps> = ({
-	appendTo,
-	children,
-	isVisible,
-	onClose,
-	reference
-}) => {
+const UserMenuFullScreen: UserMenuFullScreenComponent = ({ appendTo, children, isVisible, onClose, reference }) => {
 	const [isMenuVisible, setIsMenuVisible] = React.useState<boolean>(!!isVisible);
 	const targetElement: HTMLElement = appendTo?.current || document.body;
 

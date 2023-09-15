@@ -4,7 +4,7 @@ import Flex from 'components/Flex';
 
 import { StyledTableWrapperProps } from './types';
 
-const StyledTableWrapper: React.FC<StyledTableWrapperProps> = styled(Flex)<StyledTableWrapperProps>``;
+const StyledTableWrapper = styled(Flex)<StyledTableWrapperProps>``;
 
 StyledTableWrapper.defaultProps = {
 	flexDirection: 'column'

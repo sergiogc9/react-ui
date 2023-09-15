@@ -1,7 +1,13 @@
-import { TextProps } from 'components/Text';
+import { ExtendedTextComponent, ExtendedTextProps } from 'components/types';
 
-export interface InputCounterProps extends TextProps<React.HTMLAttributes<HTMLSpanElement>, undefined> {
+type Props = {
 	isDisabled?: boolean;
 	maxLength: number;
 	valueContent?: string;
-}
+};
+
+type InputCounterProps<T extends React.ElementType = 'span'> = ExtendedTextProps<Props, T>;
+
+type InputCounterComponent = ExtendedTextComponent<Props>;
+
+export { InputCounterComponent, InputCounterProps };

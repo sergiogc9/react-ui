@@ -4,7 +4,7 @@ import Flex from 'components/Flex';
 
 import { TabsContentProps } from './types';
 
-const StyledTabsContent: React.FC<TabsContentProps> = styled(Flex)<TabsContentProps>``;
+const StyledTabsContent = styled(Flex)<TabsContentProps>``;
 
 StyledTabsContent.defaultProps = {
 	flexGrow: 1,

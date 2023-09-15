@@ -37,7 +37,7 @@ const Chip: React.FC<ChipProps> = ({
 			}}
 		>
 			<StyledChip
-				as={href ? as || 'a' : 'div'}
+				as={href ? (as as any) || 'a' : 'div'}
 				aspectSize={aspectSize}
 				variant={variant}
 				isOverlayAlwaysVisible={isOverlayAlwaysVisible}

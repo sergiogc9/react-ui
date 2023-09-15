@@ -22,7 +22,7 @@ type Props = ComposedGridProps & {
 	readonly rows?: ResponsiveValue<number>;
 };
 
-type GridBoxProps<T extends React.ElementType = 'div'> = ExtendedBoxProps<T, Props>;
+type GridBoxProps<T extends React.ElementType = 'div'> = ExtendedBoxProps<Props, T>;
 
 type GridBoxComponent = ExtendedBoxComponent<Props>;
 

@@ -1,8 +1,8 @@
 import { FlexProps } from 'components/Flex';
 
-export interface SpinnerPulseProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
+export type SpinnerPulseProps<T extends React.ElementType = 'div'> = FlexProps<T> & {
 	/**
 	 * The position index of the pulse element, starting from 1.
 	 */
 	index: number;
-}
+};

@@ -34,7 +34,7 @@ const commonStyles = css`
 	}}
 `;
 
-export const StyledInput: React.FC<StyledInputProps> = styled(InputBox)<StyledInputProps>`
+export const StyledInput = styled(InputBox)<StyledInputProps>`
 	${commonStyles}
 
 	${({ aspectSize = 'm', theme }) => {
@@ -56,7 +56,7 @@ StyledInput.defaultProps = {
 	width: '100%'
 };
 
-export const StyledTextArea: React.FC<StyledTextAreaProps> = styled(InputBox)<StyledTextAreaProps>`
+export const StyledTextArea = styled(InputBox)<StyledTextAreaProps>`
 	${commonStyles}
 	resize: none;
 `;

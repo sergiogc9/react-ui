@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import Flex from 'components/Flex';
 import { RemoveButtonProps } from './types';
 
-const StyledRemoveButtonWrapper: React.FC<RemoveButtonProps> = styled(Flex)<RemoveButtonProps>`
+const StyledRemoveButtonWrapper = styled(Flex)<RemoveButtonProps>`
 	${props =>
 		!props.value &&
 		css`

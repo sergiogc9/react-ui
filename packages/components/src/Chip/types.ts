@@ -1,8 +1,6 @@
-import { LinkHTMLAttributes } from 'react';
+import { ExtendedFlexComponent, ExtendedFlexProps } from 'components/types';
 
-import { FlexProps } from 'components/Flex/types';
-
-export interface ChipProps extends FlexProps<LinkHTMLAttributes<HTMLLinkElement>, undefined> {
+type Props = {
 	/**
 	 * Choose one size
 	 */
@@ -23,4 +21,10 @@ export interface ChipProps extends FlexProps<LinkHTMLAttributes<HTMLLinkElement>
 	 * Choose the color variant
 	 */
 	readonly variant?: 'blue' | 'green' | 'grey' | 'red' | 'yellow' | 'transparent';
-}
+};
+
+type ChipProps<T extends React.ElementType = 'link'> = ExtendedFlexProps<Props, T>;
+
+type ChipComponent = ExtendedFlexComponent<Props>;
+
+export { ChipComponent, ChipProps };

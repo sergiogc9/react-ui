@@ -6,7 +6,7 @@ import Text from 'components/Text';
 
 import { StyledInputCheckLabelProps } from './types';
 
-const InputCheckLabel: React.FC<StyledInputCheckLabelProps> = styled(Text)<StyledInputCheckLabelProps>`
+const InputCheckLabel = styled(Text)<StyledInputCheckLabelProps>`
 	${props =>
 		css({
 			marginTop: props.aspectSize === 'm' ? '8px' : '9px'

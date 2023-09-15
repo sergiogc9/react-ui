@@ -42,14 +42,14 @@ export type Props<FormValues extends Record<string, unknown> = Record<string, un
 };
 
 export type FormProps<FormValues extends Record<string, unknown> = Record<string, unknown>> = Props<FormValues> &
-	Omit<FlexProps<React.HTMLAttributes<HTMLFormElement>>, 'onChange' | 'onSubmit'>;
+	Omit<FlexProps<'form'>, 'onChange' | 'onSubmit'>;
 
 export type FormErrors<FormValues extends Record<string, unknown> = Record<string, unknown>> = DeepMap<
 	DeepPartial<FormValues>,
 	FieldError
 >;
 
-export type StyledFormProps = FlexProps<React.HTMLAttributes<HTMLFormElement>>;
+export type StyledFormProps = FlexProps<'form'>;
 
 export type FormEffectProps<FormValues extends Record<string, unknown> = Record<string, unknown>> = Pick<
 	FormProps<FormValues>,

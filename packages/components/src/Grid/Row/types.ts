@@ -3,7 +3,7 @@ import { ExtendedBoxComponent, ExtendedBoxProps } from 'components/types';
 
 type Props = ComposedGridProps;
 
-type GridRowProps<T extends React.ElementType = 'div'> = ExtendedBoxProps<T, Props>;
+type GridRowProps<T extends React.ElementType = 'div'> = ExtendedBoxProps<Props, T>;
 
 type GridRowComponent = ExtendedBoxComponent<Props>;
 

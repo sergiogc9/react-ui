@@ -1,3 +1,3 @@
 import { FlexProps } from 'components/Flex';
 
-export interface PopoverTriggerProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {}
+export type PopoverTriggerProps<T extends React.ElementType = 'div'> = FlexProps<T>;

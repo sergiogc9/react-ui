@@ -38,7 +38,9 @@ const getComponent = (props: Partial<FormProps> = {}) => {
 			>
 				<Form.TextField name="name" placeholder="name" />
 				<Form.ButtonSubmit>Submit</Form.ButtonSubmit>
-				<Button type="submit">Submit always enabled</Button>
+				<Button as="button" type="submit">
+					Submit always enabled
+				</Button>
 			</Form>
 		)
 	);

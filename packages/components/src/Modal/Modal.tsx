@@ -6,9 +6,9 @@ import Overlay from 'components/Overlay';
 
 import ModalContext, { ModalContextData } from './Context';
 import StyledModal, { StyledModalWrapper } from './styled';
-import { ModalProps } from './types';
+import { ModalComponent } from './types';
 
-const Modal: React.FC<ModalProps> = ({
+const Modal: ModalComponent = ({
 	aspectSize = 'm',
 	children,
 	closeOnOutsideClick = true,

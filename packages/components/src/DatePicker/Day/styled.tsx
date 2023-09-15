@@ -74,7 +74,7 @@ const dayPickerLibraryStyles = css`
 	}
 `;
 
-const StyledDatePickerDay: React.FC<DatePickerDayProps> = styled(Flex)<DatePickerDayProps>`
+const StyledDatePickerDay = styled(Flex)<DatePickerDayProps>`
 	${dayPickerLibraryStyles}
 
 	.DayPicker-wrapper {

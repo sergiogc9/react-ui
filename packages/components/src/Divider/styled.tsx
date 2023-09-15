@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import css from '@styled-system/css';
 
 import Flex from 'components/Flex';
-import { DividerProps } from './types';
+import { DividerComponent, DividerProps } from './types';
 
-export const Divider: React.FC<DividerProps> = styled(Flex)<DividerProps>`
+export const Divider: DividerComponent = styled(Flex)<DividerProps>`
 	${props =>
 		props.isVertical
 			? css({

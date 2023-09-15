@@ -4,7 +4,7 @@ import { Decorator } from '@storybook/react';
 import { Flex, IconButton, Icon } from '@sergiogc9/react-ui';
 
 const ActionMenuDecorator: Decorator = (story, context) => {
-	const iconRef = React.useRef();
+	const iconRef = React.useRef(null);
 
 	const newContext = {
 		...context,

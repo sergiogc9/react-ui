@@ -5,7 +5,7 @@ import Flex from 'components/Flex';
 
 import { TableBodyRowProps } from './types';
 
-const StyledTableBodyRow: React.FC<TableBodyRowProps> = styled(Flex)<TableBodyRowProps>`
+const StyledTableBodyRow = styled(Flex)<TableBodyRowProps>`
 	${props =>
 		css({
 			bg:

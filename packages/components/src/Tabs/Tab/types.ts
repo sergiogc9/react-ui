@@ -4,7 +4,7 @@ import { FlexProps } from 'components/Flex';
 
 import { TabsProps } from '../types';
 
-export interface TabsTabProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
+export type TabsTabProps<T extends React.ElementType = 'div'> = FlexProps<T> & {
 	/**
 	 * The content of the tab
 	 */
@@ -21,7 +21,9 @@ export interface TabsTabProps extends FlexProps<React.HTMLAttributes<HTMLDivElem
 	 * True if the current tab contains errors
 	 */
 	readonly isError?: boolean;
-}
-export interface StyledTabsTabProps extends TabsTabProps, Required<Pick<TabsProps, 'tabsLayout'>> {
-	activeID?: string;
-}
+};
+
+export type StyledTabsTabProps<T extends React.ElementType = 'div'> = TabsTabProps<T> &
+	Required<Pick<TabsProps, 'tabsLayout'>> & {
+		activeID?: string;
+	};

@@ -1,3 +1,3 @@
 import { FlexProps } from 'components/Flex';
 
-export interface TableEmptyProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+export type TableEmptyProps<T extends React.ElementType = 'div'> = FlexProps<T>;

@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 import Flex from 'components/Flex';
 import variant from './variants/variant';
-import { StatusProps } from './types';
+import { StatusComponent } from './types';
 
-const Status: React.FC<StatusProps> = styled(Flex)`
+const Status: StatusComponent = styled(Flex)`
 	${variant}
 `;
 

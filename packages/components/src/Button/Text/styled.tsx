@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 import { getColorFromTheme } from '@sergiogc9/react-ui-theme';
 
@@ -7,7 +6,7 @@ import Text from 'components/Text';
 import aspectSize from './variants/aspectSize';
 import { StyledButtonTextProps } from './types';
 
-const StyledButtonText: React.FC<StyledButtonTextProps> = styled(Text)<StyledButtonTextProps>`
+const StyledButtonText = styled(Text)<StyledButtonTextProps>`
 	${props =>
 		!props.isDisabled &&
 		props.variant === 'link' &&

@@ -8,7 +8,7 @@ import Text from 'components/Text';
 import behavior from './variants/behavior';
 import { LinkProps } from './types';
 
-const StyledLink: React.FC<LinkProps> = styled(Text)<LinkProps>`
+const StyledLink = styled(Text)<LinkProps>`
 	background: none;
 	border: none;
 	position: relative;
@@ -36,7 +36,7 @@ const StyledLink: React.FC<LinkProps> = styled(Text)<LinkProps>`
 			}
 		`}
 	${composers.text}
-  ${aspectSize}
+  ${aspectSize as any}
   ${behavior}
 `;
 

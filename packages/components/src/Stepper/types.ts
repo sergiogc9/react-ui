@@ -1,6 +1,6 @@
 import { FlexProps } from 'components/Flex';
 
-export interface StepperProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
+export type StepperProps<T extends React.ElementType = 'div'> = FlexProps<T> & {
 	/**
 	 * The current step starting from 1.
 	 */
@@ -17,4 +17,4 @@ export interface StepperProps extends FlexProps<React.HTMLAttributes<HTMLDivElem
 	 * The variant of the stepper.
 	 */
 	readonly variant?: 'compacted' | 'compacted-no-line' | 'horizontal' | 'vertical';
-}
+};

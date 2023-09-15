@@ -1,7 +1,10 @@
-import { TextProps } from 'components/Text';
-
 import { InputProps } from '../types';
+import { ExtendedTextComponent, ExtendedTextProps } from 'components/types';
 
-export interface InputHelperTextProps
-	extends InputProps,
-		Omit<TextProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, 'aspectSize'> {}
+type Props = InputProps;
+
+type InputHelperTextProps<T extends React.ElementType = 'span'> = ExtendedTextProps<Props, T, ['aspectSize']>;
+
+type InputHelperTextComponent = ExtendedTextComponent<Props, ['aspectSize']>;
+
+export { InputHelperTextComponent, InputHelperTextProps };

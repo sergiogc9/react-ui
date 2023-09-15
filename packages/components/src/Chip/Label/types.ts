@@ -1,9 +1,7 @@
-import React from 'react';
-
 import { TextProps } from 'components/Text';
 import { ChipProps } from '../types';
 
-export interface ChipLabelProps extends TextProps<React.HTMLAttributes<HTMLSpanElement>, undefined> {
+export interface ChipLabelProps extends TextProps<'span'> {
 	/**
 	 * Choose one size
 	 */

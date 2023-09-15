@@ -63,7 +63,7 @@ const TextArea: React.FC<TextAreaProps> = React.forwardRef(
 		const finalContent = value ?? textAreaContent;
 
 		return (
-			<StyledTextAreaWrapper height={height} labelPosition={labelPosition} size={size} {...rest}>
+			<StyledTextAreaWrapper height={height} labelPosition={labelPosition} size={size} {...(rest as any)}>
 				<Flex
 					position="absolute"
 					height="100%"

@@ -7,7 +7,7 @@ import isEnabled from './variants/isEnabled';
 import variant from './variants/variant';
 import { StyledStepperTextProps } from './types';
 
-const StepperText: React.FC<StyledStepperTextProps> = styled(Text)<StyledStepperTextProps>`
+const StepperText = styled(Text)<StyledStepperTextProps>`
 	${isEnabled}
 	${variant}
   transition-delay: ${props => (props.isCurrent ? '0.5s' : '0s')};

@@ -1,6 +1,6 @@
-import { FlexProps } from 'components/Flex';
+import { ExtendedFlexComponent, ExtendedFlexProps } from 'components/types';
 
-export interface ModalProps extends FlexProps<React.HTMLAttributes<HTMLDivElement>, undefined> {
+type Props = {
 	/**
 	 * The size of the Modal
 	 */
@@ -33,4 +33,10 @@ export interface ModalProps extends FlexProps<React.HTMLAttributes<HTMLDivElemen
 	 * Boolean to insert the modal using a portal or not. If true, the modal will be inserted inside a div with an id equal to `modals` or into `document.body` if not found.
 	 */
 	readonly withPortal?: boolean;
-}
+};
+
+type ModalProps<T extends React.ElementType = 'div'> = ExtendedFlexProps<Props, T>;
+
+type ModalComponent = ExtendedFlexComponent<Props>;
+
+export { ModalComponent, ModalProps };

@@ -6,7 +6,7 @@ import Flex from 'components/Flex';
 import variant from './variants/variant';
 import { StyledStepperCircleLineProps } from './types';
 
-const StyledStepperCircleLine: React.FC<StyledStepperCircleLineProps> = styled(Flex)<StyledStepperCircleLineProps>`
+const StyledStepperCircleLine = styled(Flex)<StyledStepperCircleLineProps>`
 	${variant}
 
 	background-color: ${props => getColorFromTheme(props.theme, props.theme.components.stepper.colors.disabledLine)};

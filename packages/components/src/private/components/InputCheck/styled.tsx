@@ -3,9 +3,9 @@ import styled, { css } from 'styled-components';
 
 import Flex from 'components/Flex';
 
-import { InputCheckProps } from './types';
+import { InputCheckComponent, InputCheckProps } from './types';
 
-const StyledInputCheck: React.FC<InputCheckProps> = styled(Flex)<InputCheckProps>`
+const StyledInputCheck = styled(Flex)<InputCheckProps>`
 	input {
 		cursor: inherit;
 		height: 100%;
@@ -153,7 +153,7 @@ StyledInputCheck.defaultProps = {
 	width: '40px'
 };
 
-const StyledInputCheckWrapper: React.FC<InputCheckProps> = styled(Flex)<InputCheckProps>``;
+const StyledInputCheckWrapper: InputCheckComponent = styled(Flex)<InputCheckProps>``;
 
 StyledInputCheckWrapper.defaultProps = {
 	minHeight: '40px'
