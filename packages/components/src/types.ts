@@ -1,50 +1,104 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 
-type CommonStyledComponentProps = {
-	readonly as?: keyof JSX.IntrinsicElements;
-	readonly key?: React.Key | null;
-};
-
-/**
- * This generic type helps to define the correct props type for a based styled-components component.
- *
- * Example when creating a new base component:
- * type BoxProps = StyledComponentProps<ComposedBoxProps, React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
- *
- * If you are extending a styled-component based on Box and using a div use BoxProps directly.
- * If you need use another HTML dom element, use this helper to generate the correct props.
- * Example with a textarea:
- * type TextAreaBoxProps = BoxProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>
- * The TextAreaBoxProps will have all props from Box except those related to the div element but with the textarea specified props added.
- */
-export type StyledComponentProps<
-	/**
-	 * Any composed props defined in composers. e.g. ComposedBoxProps or ComposedTextProps
-	 */
-	// eslint-disable-next-line @typescript-eslint/ban-types
-	ComposedProps extends {},
-	/**
-	 * The attributes for the final rendered DOM element. e.g. for an input: React.InputHTMLAttributes<HTMLInputAttributes>
-	 */
-	/**
-	 * This is needed to add dom-specific attributes to the component props.
-	 */
-	T extends React.HTMLAttributes<any> = React.HTMLAttributes<HTMLDivElement>,
-	/**
-	 *  The reference element type. If passed the component props will have a ref prop with Ref type.
-	 */
-	Ref = undefined
-> = React.PropsWithChildren<
-	ComposedProps &
-		CommonStyledComponentProps &
-		/**
-		 *  Discard from T props already added by styled-components and styled-system to avoid type conflicts.
-		 */
-		Omit<T, keyof ComposedProps> &
-		// eslint-disable-next-line @typescript-eslint/ban-types
-		(Ref extends undefined ? {} : { ref?: React.Ref<Ref> })
->;
+import { BoxProps } from './Box';
+import { FlexProps } from './Flex';
+import { GridProps } from './Grid';
 
 export type RecursivePartial<T> = {
 	[P in keyof T]?: RecursivePartial<T[P]>;
+};
+
+type AsProp<T extends React.ElementType> = {
+	/**
+	 * Use any valid DOM element type
+	 */
+	as?: T;
+};
+
+type PropsToOmit<T extends React.ElementType, P> = keyof (AsProp<T> & P);
+
+/*
+Type helpers to use when creating base layout components. To extend from them, use the Extended types below
+
+type BaseProps = {
+	fakeProp: string
+}
+
+type FakeBaseComponentProps<T extends React.ElementType = 'div'> = BaseComponentProps<T, BaseProps>;
+
+type FakeBaseComponent = BaseComponent<
+	<T extends React.ElementType = keyof JSX.IntrinsicElements>(
+		props: FakeBaseComponentProps<T>
+	) => React.ReactElement<FakeBaseComponentProps<T>, any> | null
+>;
+
+const FakeBase: FakeBaseComponent = styled.div``;
+*/
+
+type BaseComponentProps<T extends React.ElementType = 'div', Props = object> = React.PropsWithChildren<
+	Props & AsProp<T>
+> &
+	Omit<React.ComponentPropsWithoutRef<T>, PropsToOmit<T, Props>> & {
+		ref?: BaseComponentRef<T>;
+	};
+
+type BaseComponentRef<T extends React.ElementType> = React.ComponentPropsWithRef<T>['ref'];
+
+type BaseComponent<C extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>> = C & {
+	defaultProps?: Partial<ComponentProps<C>>;
+	displayName?: string;
+};
+
+/*
+Type helpers to use when extending base layout components (e.g. using styled(Box))
+Example of usage:
+
+type Props = {
+	fakeProp: string
+};
+
+type FakeComponentProps<T extends React.ElementType = 'div'> = ExtendedBoxProps<T, Props>;
+
+type FakeComponent = ExtendedBoxComponent<Props>;
+
+const Fake: FakeComponent = styled(Box)``;
+*/
+
+type ExtendedBoxProps<T extends React.ElementType = 'div', Props = object> = BaseComponentProps<T, BoxProps<T> & Props>;
+type ExtendedBoxComponent<Props extends object> = BaseComponent<
+	<T extends React.ElementType = keyof JSX.IntrinsicElements>(
+		props: BoxProps<T> & Props
+	) => React.ReactElement<Props, any> | null
+>;
+
+type ExtendedFlexProps<T extends React.ElementType = 'div', Props = object> = BaseComponentProps<
+	T,
+	FlexProps<T> & Props
+>;
+type ExtendedFlexComponent<Props extends object> = BaseComponent<
+	<T extends React.ElementType = keyof JSX.IntrinsicElements>(
+		props: FlexProps<T> & Props
+	) => React.ReactElement<Props, any> | null
+>;
+
+type ExtendedGridProps<T extends React.ElementType = 'div', Props = object> = BaseComponentProps<
+	T,
+	GridProps<T> & Props
+>;
+type ExtendedGridComponent<Props extends object> = BaseComponent<
+	<T extends React.ElementType = keyof JSX.IntrinsicElements>(
+		props: GridProps<T> & Props
+	) => React.ReactElement<Props, any> | null
+>;
+
+export {
+	BaseComponent,
+	BaseComponentProps,
+	BaseComponentRef,
+	ExtendedBoxProps,
+	ExtendedBoxComponent,
+	ExtendedFlexProps,
+	ExtendedFlexComponent,
+	ExtendedGridProps,
+	ExtendedGridComponent
 };

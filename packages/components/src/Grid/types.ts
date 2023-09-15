@@ -1,7 +1,7 @@
 import React from 'react';
 import { ResponsiveValue } from 'styled-system';
 
-import { StyledComponentProps } from 'components/types';
+import { BaseComponent, BaseComponentProps } from 'components/types';
 import { ComposedGridProps } from 'components/private/utils/composers/types';
 
 type Props = {
@@ -19,7 +19,12 @@ type Props = {
 	readonly rows?: number;
 };
 
-export type GridProps<
-	Attrs extends React.HTMLAttributes<any> = React.HTMLAttributes<HTMLDivElement>,
-	Ref = any
-> = Props & StyledComponentProps<ComposedGridProps, Attrs, Ref>;
+type GridProps<T extends React.ElementType = 'div'> = BaseComponentProps<T, ComposedGridProps & Props>;
+
+type GridComponent = BaseComponent<
+	<T extends React.ElementType = keyof JSX.IntrinsicElements>(
+		props: GridProps<T>
+	) => React.ReactElement<GridProps<T>, any> | null
+>;
+
+export { GridComponent, GridProps };

@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 import composers from 'components/private/utils/composers';
 import Box from 'components/Flex';
-import { GridRowProps } from './types';
+import { GridRowComponent } from './types';
 
-const GridRow: React.FC<GridRowProps> = styled(Box)`
+const GridRow: GridRowComponent = styled(Box)`
 	${composers.grid}
 `;
 

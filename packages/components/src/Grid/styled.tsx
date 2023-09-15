@@ -1,10 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
 import { ConfigStyle, Scale, system } from 'styled-system';
 
 import { shouldStyledComponentForwardProp } from 'components/private/utils/components';
 import composers from 'components/private/utils/composers';
-import { GridProps } from './types';
+import { GridComponent, GridProps } from './types';
 
 const gridCustomComposers = system({
 	columns: {
@@ -22,12 +21,12 @@ const gridCustomComposers = system({
 	}
 });
 
-const Grid: React.FC<GridProps> = React.memo(styled.div.withConfig<GridProps>({
+const Grid: GridComponent = styled.div.withConfig<GridProps>({
 	shouldForwardProp: shouldStyledComponentForwardProp
 })`
 	${gridCustomComposers}
 	${composers.grid};
-`);
+`;
 
 Grid.defaultProps = {
 	columns: { xs: 4, md: 8, lg: 12 },
