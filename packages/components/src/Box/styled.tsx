@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 import { shouldStyledComponentForwardProp } from 'components/private/utils/components';
 import composers from 'components/private/utils/composers';
-import { BoxProps } from './types';
+import { BoxComponent } from './types';
 
-const Box: React.FC<BoxProps> = styled.div.withConfig<BoxProps>({
+const Box: BoxComponent = styled.div.withConfig({
 	shouldForwardProp: shouldStyledComponentForwardProp
 })`
 	${composers.box}

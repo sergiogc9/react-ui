@@ -1,6 +1,10 @@
 import { ComposedGridProps } from 'components/private/utils/composers/types';
-import { FlexProps } from 'components/Flex';
+import { ExtendedBoxComponent, ExtendedBoxProps } from 'components/types';
 
-export interface GridRowProps
-	extends FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
-		ComposedGridProps {}
+type Props = ComposedGridProps;
+
+type GridRowProps<T extends React.ElementType = 'div'> = ExtendedBoxProps<T, Props>;
+
+type GridRowComponent = ExtendedBoxComponent<Props>;
+
+export { GridRowComponent, GridRowProps };

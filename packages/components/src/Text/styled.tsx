@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { shouldStyledComponentForwardProp } from 'components/private/utils/components';
 import composers from 'components/private/utils/composers';
 import aspectSize from './variants/aspectSize';
-import { TextProps } from './types';
+import { TextComponent } from './types';
 
-export const Text: React.FC<TextProps> = styled.span.withConfig<TextProps>({
+export const Text: TextComponent = styled.span.withConfig({
 	shouldForwardProp: shouldStyledComponentForwardProp
 })`
 	${composers.text}

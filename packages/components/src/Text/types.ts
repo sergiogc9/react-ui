@@ -1,14 +1,19 @@
-import { StyledComponentProps } from 'components/types';
+import { BaseComponent, BaseComponentProps } from 'components/types';
 import { ComposedTextProps } from 'components/private/utils/composers/types';
 
-export interface Props {
+type Props = {
 	/**
 	 * The size of the text.
 	 */
 	readonly aspectSize?: 's' | 'xs' | 'm' | 'l' | 'xl';
-}
+} & ComposedTextProps;
 
-export type TextProps<
-	Attrs extends React.HTMLAttributes<any> = React.HTMLAttributes<HTMLSpanElement>,
-	Ref = any
-> = Props & StyledComponentProps<ComposedTextProps, Attrs, Ref>;
+type TextProps<T extends React.ElementType = 'div'> = BaseComponentProps<T, Props>;
+
+type TextComponent = BaseComponent<
+	<T extends React.ElementType = keyof JSX.IntrinsicElements>(
+		props: TextProps<T>
+	) => React.ReactElement<TextProps<T>, any> | null
+>;
+
+export { TextComponent, TextProps };

@@ -1,11 +1,9 @@
 import { ResponsiveValue } from 'styled-system';
 
-import { FlexProps } from 'components/Flex';
 import { ComposedGridProps } from 'components/private/utils/composers/types';
+import { ExtendedBoxComponent, ExtendedBoxProps } from 'components/types';
 
-export interface GridBoxProps
-	extends FlexProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
-		ComposedGridProps {
+type Props = ComposedGridProps & {
 	/**
 	 * The number of explicit columns space to take
 	 */
@@ -22,4 +20,10 @@ export interface GridBoxProps
 	 * The number of explicit rows space to take
 	 */
 	readonly rows?: ResponsiveValue<number>;
-}
+};
+
+type GridBoxProps<T extends React.ElementType = 'div'> = ExtendedBoxProps<T, Props>;
+
+type GridBoxComponent = ExtendedBoxComponent<Props>;
+
+export { GridBoxComponent, GridBoxProps };

@@ -1,10 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
 import { system } from 'styled-system';
 
 import Box from 'components/Flex';
 import composers from 'components/private/utils/composers';
-import { GridBoxProps } from './types';
+import { GridBoxComponent } from './types';
 
 const gridItemComposers = system({
 	columns: {
@@ -25,7 +24,7 @@ const gridItemComposers = system({
 	}
 });
 
-const GridBox: React.FC<GridBoxProps> = styled(Box)<GridBoxProps>`
+const GridBox: GridBoxComponent = styled(Box)`
 	${gridItemComposers}
 	${composers.grid}
 `;
