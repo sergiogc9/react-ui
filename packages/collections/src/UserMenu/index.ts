@@ -6,10 +6,16 @@ import UserMenuTitle from './Title';
 import { UserMenuProps } from './types';
 import UserMenu from './UserMenu';
 
-export type { UserMenuProps };
-
-export default createNameSpacedComponent(UserMenu, {
+const NamespacedUserMenu = createNameSpacedComponent(UserMenu, {
 	Footer: UserMenuFooter,
 	Item: UserMenuItem,
 	Title: UserMenuTitle
 });
+
+NamespacedUserMenu.displayName = 'UserMenu';
+UserMenuFooter.displayName = 'UserMenu.Footer';
+UserMenuItem.displayName = 'UserMenu.Item';
+UserMenuTitle.displayName = 'UserMenu.Title';
+
+export type { UserMenuProps };
+export default NamespacedUserMenu;

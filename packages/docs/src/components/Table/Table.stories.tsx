@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Table from 'components/Table';
+import { Table } from '@sergiogc9/react-ui';
+
 import Text from 'components/Text';
 import Title from 'components/Title';
 import { getExcludedArgTypes } from 'storybook/parameters';

@@ -4,7 +4,12 @@ import ActionMenu from './ActionMenu';
 import ActionMenuItem from './Item';
 import { ActionMenuProps } from './types';
 
-export type { ActionMenuProps };
-export default createNameSpacedComponent(ActionMenu, {
+const NamespacedActionMenu = createNameSpacedComponent(ActionMenu, {
 	Item: ActionMenuItem
 });
+
+NamespacedActionMenu.displayName = 'ActionMenu';
+ActionMenuItem.displayName = 'ActionMenu.Item';
+
+export type { ActionMenuProps };
+export default NamespacedActionMenu;

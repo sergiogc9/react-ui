@@ -1,0 +1,26 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import UserFeedback from 'collections/UserFeedback';
+
+import * as UserFeedbackMeta from './UserFeedback.stories';
+
+<Meta of={UserFeedbackMeta} />
+
+# UserFeedback
+
+A composed component to give feedback to the user after something happened.
+
+It includes:
+
+- An image (required).
+- A title (required).
+- A text or custom React element (optional).
+- A button (optional).
+
+<Canvas of={UserFeedbackMeta.Playground} />
+
+<Controls />
+
+## UserFeedback API
+
+<ArgTypes of={UserFeedback} />

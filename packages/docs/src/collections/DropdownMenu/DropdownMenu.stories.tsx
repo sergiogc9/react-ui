@@ -1,110 +1,31 @@
-import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { faHeadset } from '@fortawesome/free-solid-svg-icons';
 
-import DropdownMenuDecorator from 'storybook/decorators/DropdownMenu';
-import { getFixedStoryParams, getPlaygroundStoryParams } from 'storybook/parameters';
-import DropdownMenu from 'collections/DropdownMenu';
 import Button from 'components/Button';
-import Flex from 'components/Flex';
+import DropdownMenu from 'collections/DropdownMenu';
+import { getExcludedArgTypes } from 'storybook/parameters';
+import DropdownMenuDecorator from 'storybook/decorators/DropdownMenu/DropdownMenu';
 
-<Meta title="Collections/DropdownMenu" component={DropdownMenu} decorators={[DropdownMenuDecorator]} />
+type Story = StoryObj<typeof DropdownMenu>;
 
-<Story
-	name="playground"
-	args={{ isInteractive: true, minWidth: 200, placement: 'bottom' }}
-	parameters={getPlaygroundStoryParams()}
->
-	{args => (
-		<DropdownMenu {...args}>
-			<DropdownMenu.Title>Sergio Gómez</DropdownMenu.Title>
-			<DropdownMenu.Item onClick={() => alert('User settings!')}>
-				<DropdownMenu.Item.Icon icon="user-circle" styling="outlined" />
-				<DropdownMenu.Item.Text>User settings</DropdownMenu.Item.Text>
-			</DropdownMenu.Item>
-			<DropdownMenu.Item onClick={() => alert('Company settings!')}>
-				<DropdownMenu.Item.Icon icon="business" styling="outlined" />
-				<DropdownMenu.Item.Text>Company settings</DropdownMenu.Item.Text>
-			</DropdownMenu.Item>
-			<DropdownMenu.Item onClick={() => alert('Chat support!')}>
-				<DropdownMenu.Item.Icon.FontAwesome icon={faHeadset} />
-				<DropdownMenu.Item.Text>Chat support</DropdownMenu.Item.Text>
-			</DropdownMenu.Item>
-			<DropdownMenu.Footer justifyContent="flex-end">
-				<Button
-					aspectSize="s"
-					variant="link"
-					onClick={() => {
-						alert('Logout!');
-					}}
-				>
-					Logout
-				</Button>
-			</DropdownMenu.Footer>
-		</DropdownMenu>
-	)}
-</Story>
-
-# DropdownMenu
-
-The Dropdown Menu is a `PopoverContent` wrapper in order to show a drop down when hovering or clicking an element.
-
-Most important features:
-
-- It is a `Popover.Content` component, hence it inherits all its props.
-- Includes the `MenuDropdown.Title`, `MenuDropdown.Icon` and `MenuDropdown.Footer` namespaced components ready to use.
-
-## Usage
-
-Look for `Popover` docs for further info. Use the `reference` prop with a ref linked to the component that acts as the trigger.
-
-```tsx
-const App = props => {
-	const triggerRef = React.useRef();
-
-	return (
-		<>
-			<Flex cursor="pointer" ref={triggerRef}>
-				I am the trigger 😄
-			</Flex>
-			<DropdownMenu reference={triggerRef}>
-				<DropdownMenu.Title>Sergio Gómez</DropdownMenu.Title>
-				<DropdownMenu.Item onClick={() => alert('User settings!')}>
-					<DropdownMenu.Item.Icon icon="user-circle" styling="outlined" />
-					<DropdownMenu.Item.Text>User settings</DropdownMenu.Item.Text>
-				</DropdownMenu.Item>
-				<DropdownMenu.Item onClick={() => alert('Company settings!')}>
-					<DropdownMenu.Item.Icon icon="business" styling="outlined" />
-					<DropdownMenu.Item.Text>Company settings</DropdownMenu.Item.Text>
-				</DropdownMenu.Item>
-				<DropdownMenu.Item onClick={() => alert('Chat support!')}>
-					<DropdownMenu.Item.Icon.FontAwesome icon={faHeadset} />
-					<DropdownMenu.Item.Text>Chat support</DropdownMenu.Item.Text>
-				</DropdownMenu.Item>
-				<DropdownMenu.Footer justifyContent="flex-end">
-					<Button aspectSize="s">Logout</Button>
-				</DropdownMenu.Footer>
-			</DropdownMenu>
-		</>
-	);
+const meta: Meta<typeof DropdownMenu> = {
+	title: 'Collections/DropdownMenu',
+	component: DropdownMenu,
+	decorators: [DropdownMenuDecorator],
+	argTypes: getExcludedArgTypes(),
+	args: {
+		isInteractive: true,
+		minWidth: 200,
+		placement: 'left-start'
+	}
 };
-```
 
-## Positioning
+export default meta;
 
-Use the `placement` prop to place the component. Example with some placements:
-
-<Canvas>
-	<Story
-		name="left-start"
-		args={{
-			isInteractive: true,
-			minWidth: 200,
-			placement: 'left-start',
-			title: 'left-start'
-		}}
-		parameters={getFixedStoryParams()}
-	>
-		{args => (
+export const Playground: Story = {
+	render: args => {
+		return (
 			<DropdownMenu {...args}>
 				<DropdownMenu.Title>Sergio Gómez</DropdownMenu.Title>
 				<DropdownMenu.Item onClick={() => alert('User settings!')}>
@@ -131,19 +52,17 @@ Use the `placement` prop to place the component. Example with some placements:
 					</Button>
 				</DropdownMenu.Footer>
 			</DropdownMenu>
-		)}
-	</Story>
-	<Story
-		name="bottom"
-		args={{
-			isInteractive: true,
-			minWidth: 200,
-			placement: 'bottom',
-			title: 'bottom'
-		}}
-		parameters={getFixedStoryParams()}
-	>
-		{args => (
+		);
+	}
+};
+
+export const LeftStart: Story = {
+	args: {
+		placement: 'left-start',
+		title: 'left-start'
+	},
+	render: args => {
+		return (
 			<DropdownMenu {...args}>
 				<DropdownMenu.Title>Sergio Gómez</DropdownMenu.Title>
 				<DropdownMenu.Item onClick={() => alert('User settings!')}>
@@ -170,19 +89,17 @@ Use the `placement` prop to place the component. Example with some placements:
 					</Button>
 				</DropdownMenu.Footer>
 			</DropdownMenu>
-		)}
-	</Story>
-	<Story
-		name="right"
-		args={{
-			isInteractive: true,
-			minWidth: 200,
-			placement: 'right',
-			title: 'right'
-		}}
-		parameters={getFixedStoryParams()}
-	>
-		{args => (
+		);
+	}
+};
+
+export const Bottom: Story = {
+	args: {
+		placement: 'bottom',
+		title: 'bottom'
+	},
+	render: args => {
+		return (
 			<DropdownMenu {...args}>
 				<DropdownMenu.Title>Sergio Gómez</DropdownMenu.Title>
 				<DropdownMenu.Item onClick={() => alert('User settings!')}>
@@ -209,26 +126,17 @@ Use the `placement` prop to place the component. Example with some placements:
 					</Button>
 				</DropdownMenu.Footer>
 			</DropdownMenu>
-		)}
-	</Story>
-</Canvas>
+		);
+	}
+};
 
-## User interaction
-
-By default, the dropdown menu is shown when hovering the trigger element and is hidden when unhoverint it. This behavior can be changes using the `isInteractive` prop which keeps the dropdown visible if the user hovers it.
-
-<Canvas>
-	<Story
-		name="non interactive"
-		args={{
-			isInteractive: false,
-			minWidth: 200,
-			placement: 'bottom',
-			title: 'non interactive'
-		}}
-		parameters={getFixedStoryParams()}
-	>
-		{args => (
+export const Right: Story = {
+	args: {
+		placement: 'right',
+		title: 'right'
+	},
+	render: args => {
+		return (
 			<DropdownMenu {...args}>
 				<DropdownMenu.Title>Sergio Gómez</DropdownMenu.Title>
 				<DropdownMenu.Item onClick={() => alert('User settings!')}>
@@ -255,19 +163,18 @@ By default, the dropdown menu is shown when hovering the trigger element and is 
 					</Button>
 				</DropdownMenu.Footer>
 			</DropdownMenu>
-		)}
-	</Story>
-	<Story
-		name="interactive"
-		args={{
-			isInteractive: true,
-			minWidth: 200,
-			placement: 'bottom',
-			title: 'interactive'
-		}}
-		parameters={getFixedStoryParams()}
-	>
-		{args => (
+		);
+	}
+};
+
+export const NonInteractive: Story = {
+	args: {
+		isInteractive: false,
+		placement: 'bottom',
+		title: 'non interactive'
+	},
+	render: args => {
+		return (
 			<DropdownMenu {...args}>
 				<DropdownMenu.Title>Sergio Gómez</DropdownMenu.Title>
 				<DropdownMenu.Item onClick={() => alert('User settings!')}>
@@ -294,27 +201,17 @@ By default, the dropdown menu is shown when hovering the trigger element and is 
 					</Button>
 				</DropdownMenu.Footer>
 			</DropdownMenu>
-		)}
-	</Story>
-</Canvas>
+		);
+	}
+};
 
-## Event trigger
-
-The dropdown is shown when hovering the trigger by default. This can be changes using the `trigger` prop:
-
-<Canvas>
-	<Story
-		name="show when hover"
-		args={{
-			isInteractive: true,
-			minWidth: 200,
-			placement: 'bottom',
-			title: 'show when hover',
-			trigger: 'mouseenter'
-		}}
-		parameters={getFixedStoryParams()}
-	>
-		{args => (
+export const Interactive: Story = {
+	args: {
+		placement: 'bottom',
+		title: 'interactive'
+	},
+	render: args => {
+		return (
 			<DropdownMenu {...args}>
 				<DropdownMenu.Title>Sergio Gómez</DropdownMenu.Title>
 				<DropdownMenu.Item onClick={() => alert('User settings!')}>
@@ -341,20 +238,18 @@ The dropdown is shown when hovering the trigger by default. This can be changes 
 					</Button>
 				</DropdownMenu.Footer>
 			</DropdownMenu>
-		)}
-	</Story>
-	<Story
-		name="show when click"
-		args={{
-			isInteractive: true,
-			minWidth: 200,
-			placement: 'bottom',
-			title: 'show when click',
-			trigger: 'click'
-		}}
-		parameters={getFixedStoryParams()}
-	>
-		{args => (
+		);
+	}
+};
+
+export const Hover: Story = {
+	args: {
+		placement: 'bottom',
+		title: 'show when hover',
+		trigger: 'mouseenter'
+	},
+	render: args => {
+		return (
 			<DropdownMenu {...args}>
 				<DropdownMenu.Title>Sergio Gómez</DropdownMenu.Title>
 				<DropdownMenu.Item onClick={() => alert('User settings!')}>
@@ -381,22 +276,44 @@ The dropdown is shown when hovering the trigger by default. This can be changes 
 					</Button>
 				</DropdownMenu.Footer>
 			</DropdownMenu>
-		)}
-	</Story>
-</Canvas>
+		);
+	}
+};
 
-## DropdownMenu API
-
-<ArgsTable of={DropdownMenu} />
-
-## DropdownMenu.Footer API
-
-<ArgsTable of={DropdownMenu.Footer} />
-
-## DropdownMenu.Item API
-
-<ArgsTable of={DropdownMenu.Item} />
-
-## DropdownMenu.Title API
-
-<ArgsTable of={DropdownMenu.Title} />
+export const Click: Story = {
+	args: {
+		placement: 'bottom',
+		title: 'show when click',
+		trigger: 'click'
+	},
+	render: args => {
+		return (
+			<DropdownMenu {...args}>
+				<DropdownMenu.Title>Sergio Gómez</DropdownMenu.Title>
+				<DropdownMenu.Item onClick={() => alert('User settings!')}>
+					<DropdownMenu.Item.Icon icon="user-circle" styling="outlined" />
+					<DropdownMenu.Item.Text>User settings</DropdownMenu.Item.Text>
+				</DropdownMenu.Item>
+				<DropdownMenu.Item onClick={() => alert('Company settings!')}>
+					<DropdownMenu.Item.Icon icon="business" styling="outlined" />
+					<DropdownMenu.Item.Text>Company settings</DropdownMenu.Item.Text>
+				</DropdownMenu.Item>
+				<DropdownMenu.Item onClick={() => alert('Chat support!')}>
+					<DropdownMenu.Item.Icon.FontAwesome icon={faHeadset} />
+					<DropdownMenu.Item.Text>Chat support</DropdownMenu.Item.Text>
+				</DropdownMenu.Item>
+				<DropdownMenu.Footer justifyContent="flex-end">
+					<Button
+						aspectSize="s"
+						variant="link"
+						onClick={() => {
+							alert('Logout!');
+						}}
+					>
+						Logout
+					</Button>
+				</DropdownMenu.Footer>
+			</DropdownMenu>
+		);
+	}
+};
