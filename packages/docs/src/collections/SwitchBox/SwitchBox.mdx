@@ -1,0 +1,54 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import SwitchBox from 'collections/SwitchBox';
+
+import * as SwitchBoxMeta from './SwitchBox.stories';
+
+<Meta of={SwitchBoxMeta} />
+
+# SwitchBox
+
+A Modal based component to ask for a confirmation to the user.
+
+It needs:
+
+- A title.
+- A content. It can be a simple text or a custom element.
+- The cancel button text. If not provided, the button is not shown.
+- The confirm button text. If not provided, the button is not shown.
+
+<Canvas of={SwitchBoxMeta.Playground} />
+
+<Controls />
+
+# SwitchBox
+
+A composed component to give some extra information related to a Switch component.
+
+It includes:
+
+- A switch component.
+- Some children elements. Use the namespaced built-in components `SwitchBox.Chip`, `SwitchBox.Content` and `SwitchBox.Icon`.
+
+## Usage
+
+Example of use (playground):
+
+```tsx
+<SwitchBox>
+	<SwitchBox.Icon icon="help" styling="outlined" />
+	<SwitchBox.Content display="block">
+		Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+		<SwitchBox.Chip ml={1} variant="green">
+			<Chip.Label>lorem</Chip.Label>
+		</SwitchBox.Chip>
+		<SwitchBox.Chip ml={1} variant="blue">
+			<Chip.Label>ipsum</Chip.Label>
+		</SwitchBox.Chip>
+	</SwitchBox.Content>
+</SwitchBox>
+```
+
+## SwitchBox API
+
+<ArgTypes of={SwitchBox} />

@@ -1,0 +1,26 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import Dialog from 'collections/Dialog';
+
+import * as DialogMeta from './Dialog.stories';
+
+<Meta of={DialogMeta} />
+
+# Dialog
+
+A Modal based component to ask for a confirmation to the user.
+
+It needs:
+
+- A title.
+- A content. It can be a simple text or a custom element.
+- The cancel button text. If not provided, the button is not shown.
+- The confirm button text. If not provided, the button is not shown.
+
+<Canvas of={DialogMeta.Playground} />
+
+<Controls />
+
+## Dialog API
+
+<ArgTypes of={Dialog} />

@@ -10,11 +10,7 @@ const config: StorybookConfig = {
 			}
 		}
 	},
-	// stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-	stories: [
-		'../src/components/(Icon|IconButton|Image|Link|LoadingBar||Modal|Overlay|Popover|RadioButton|Ripple|Select|Skeleton|Spinner|Status|Stepper|Svg|Switch|Table|Tabs|Text|Title|TextArea|TextField|Toasts|Tooltip)/**/*.mdx',
-		'../src/components/(Icon|IconButton|Image|Link|LoadingBar||Modal|Overlay|Popover|RadioButton|Ripple|Select|Skeleton|Spinner|Status|Stepper|Svg|Switch|Table|Tabs|Text|Title|TextArea|TextField|Toasts|Tooltip)/**/*.stories.@(js|jsx|ts|tsx)'
-	],
+	stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
 	docs: {
 		autodocs: true
 	},

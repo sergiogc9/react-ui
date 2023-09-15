@@ -6,7 +6,8 @@
 			"docs/*": ["./src/*"],
 			"storybook/*": ["./.storybook/*"],
 			"collections/*": ["./../../packages/collections/src/*"],
-			"components/*": ["./../../packages/components/src/*"]
+			"components/*": ["./../../packages/components/src/*"],
+			"form/*": ["./../../packages/form/src/*"]
 		}
 	},
 	"include": ["src/**/*", ".storybook/**/*"],

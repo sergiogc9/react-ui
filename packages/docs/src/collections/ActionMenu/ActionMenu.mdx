@@ -1,0 +1,79 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import ActionMenu from 'collections/ActionMenu';
+
+import * as ActionMenuMeta from './ActionMenu.stories';
+
+<Meta of={ActionMenuMeta} />
+
+# ActionMenu
+
+The Action Menu is a `PopoverContent` wrapper in order to show a drop down when hovering or clicking an element.
+
+Most important features:
+
+- It is a `Popover.Content` component, hence it inherits all its props.
+- Includes the `ActionMenu.Item` namespaced component ready to use
+
+<Canvas of={ActionMenuMeta.Playground} />
+
+<Controls />
+
+## Usage
+
+Look for `Popover` docs for further info. Use the `reference` prop with a ref linked to the component that acts as the trigger.
+
+```tsx
+const App = props => {
+	const triggerRef = React.useRef();
+
+	return (
+		<>
+			<Flex cursor="pointer" ref={triggerRef}>
+				I am the trigger 😄
+			</Flex>
+			<ActionMenu reference={triggerRef}>
+				<ActionMenu.Item onClick={() => console.log('Edit')}>Edit</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Clone')}>Clone</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Archive')}>Archive</ActionMenu.Item>
+				<ActionMenu.Item onClick={() => console.log('Delete')} variant="danger">
+					Delete
+				</ActionMenu.Item>
+			</ActionMenu>
+		</>
+	);
+};
+```
+
+## Positioning
+
+Use the `placement` prop to place the component. Example with some placements:
+
+<Canvas>
+	<Story of={ActionMenuMeta.LeftStart} />
+	<Story of={ActionMenuMeta.Bottom} />
+	<Story of={ActionMenuMeta.Right} />
+</Canvas>
+
+## Event trigger
+
+The dropdown is shown when hovering the trigger by default. This can be changes using the `trigger` prop:
+
+<Canvas>
+	<Story of={ActionMenuMeta.Hover} />
+	<Story of={ActionMenuMeta.Click} />
+</Canvas>
+
+## ActionMenuItem Variants
+
+The `ActionMenu.Item` can be different given a `variant` prop.
+
+<Canvas of={ActionMenuMeta.Items} />
+
+## ActionMenu API
+
+<ArgTypes of={ActionMenu} />
+
+## ActionMenu.Item API
+
+<ArgTypes of={ActionMenu.Item} />

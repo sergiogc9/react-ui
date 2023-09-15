@@ -1,11 +1,10 @@
-import { ArgsTable, Meta, Story, Canvas } from 'storybook/utils/components';
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
 
-import FormDecorator from 'storybook/decorators/Form';
-import { getFixedStoryParams } from 'storybook/parameters';
-import Flex from 'components/Flex';
-import { Form } from 'form';
+import Form from 'form/components/Form';
 
-<Meta title="Form/Form" component={Form} decorators={[FormDecorator]} />
+import * as FormMeta from './Form.stories';
+
+<Meta of={FormMeta} />
 
 # Form
 
@@ -13,24 +12,9 @@ The Form component is a high level wrapper using `react-hook-form` and some comp
 
 Example:
 
-<Canvas>
-	<Story name="playground" parameters={getFixedStoryParams()}>
-		{args => (
-			<Form {...args}>
-				<Flex flexDirection="column" my={4} rowGap={3} width="100%">
-					<Form.TextField aspectSize="s" label="Name" name="name" />
-					<Form.TextField aspectSize="s" label="Age" name="age" type="number" />
-					<Flex columnGap={2}>
-						<Form.TextField aspectSize="s" label="Email" name="email" type="email" />
-						<Form.TextField aspectSize="s" label="Phone number" name="phone" type="tel" />
-					</Flex>
-					<Form.TextArea height={150} label="Description" name="comments" />
-					<Form.ButtonSubmit variant="primary">SUBMIT</Form.ButtonSubmit>
-				</Flex>
-			</Form>
-		)}
-	</Story>
-</Canvas>
+<Canvas of={FormMeta.Playground} />
+
+<Controls />
 
 ## Usage
 
@@ -117,4 +101,4 @@ The code for the example above is:
 
 ## Form API
 
-<ArgsTable of={Form} />
+<ArgTypes of={Form} />

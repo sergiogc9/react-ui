@@ -1,0 +1,108 @@
+import { ArgTypes, Controls, Meta, Story, Canvas, Preview } from 'storybook/utils/components';
+
+import UserMenu from 'collections/UserMenu';
+
+import * as UserMenuMeta from './UserMenu.stories';
+
+<Meta of={UserMenuMeta} />
+
+# UserMenu
+
+The User Menu is a `PopoverContent` wrapper in order to show a drop down when hovering or clicking an element.
+
+Most important features:
+
+- It is a `Popover.Content` component, hence it inherits all its props.
+- Includes the `UserMenu.Title`, `UserMenu.Icon` and `UserMenu.Footer` namespaced components ready to use.
+
+<Canvas of={UserMenuMeta.Playground} />
+
+<Controls />
+
+## Usage
+
+- Look for `Popover` docs for further info. Use the `reference` prop with a ref linked to the component that acts as the trigger.
+- By default the user menu doesn't close by itself when a UserMenu.Item is clicked, use the `onClose` handler and the `isVisible` prop to reach the wanted behavior.
+
+```tsx
+const App = props => {
+	const triggerRef = React.useRef();
+
+	return (
+		<>
+			<Flex cursor="pointer" ref={triggerRef}>
+				I am the trigger 😄
+			</Flex>
+			<UserMenu reference={triggerRef}>
+				<UserMenu.Title>Sergio Gómez</UserMenu.Title>
+				<UserMenu.Item onClick={() => alert('User settings!')}>
+					<UserMenu.Item.Icon icon="user-circle" styling="outlined" />
+					<UserMenu.Item.Text>User settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Item onClick={() => alert('Company settings!')}>
+					<UserMenu.Item.Icon icon="business" styling="outlined" />
+					<UserMenu.Item.Text>Company settings</UserMenu.Item.Text>
+				</UserMenu.Item>
+				<UserMenu.Footer>
+					<UserMenu.Item onClick={() => alert('Logout')}>
+						<UserMenu.Item.Icon icon="logout" styling="outlined" />
+						<UserMenu.Item.Text>Logout</UserMenu.Item.Text>
+					</UserMenu.Item>
+				</UserMenu.Footer>
+			</UserMenu>
+		</>
+	);
+};
+```
+
+## Positioning
+
+Use the `placement` prop to place the component. Example with some placements:
+
+<Canvas>
+	<Story of={UserMenuMeta.LeftStart} />
+	<Story of={UserMenuMeta.Bottom} />
+	<Story of={UserMenuMeta.Right} />
+</Canvas>
+
+## User interaction
+
+By default, the user menu is shown when hovering the trigger element and is hidden when unhoverint it. This behavior can be changes using the `isInteractive` prop which keeps the dropdown visible if the user hovers it.
+
+<Canvas>
+	<Story of={UserMenuMeta.NonInteractive} />
+	<Story of={UserMenuMeta.Interactive} />
+</Canvas>
+
+## Event trigger
+
+The dropdown is shown when hovering the trigger by default. This can be changes using the `trigger` prop:
+
+<Canvas>
+	<Story of={UserMenuMeta.Hover} />
+	<Story of={UserMenuMeta.Click} />
+</Canvas>
+
+## Fullscreen mode on mobile
+
+By default the UserMenu changes when using it on mobile devices.
+
+Instead of showing a popover next to the trigger element it pops an overlay that fills all the viewport and can be closed by a close icon. This behavior can be disabled by setting `isMobileFullScreenEnabled` to `false`.
+
+**<font size="3">Warning: </font>** In order to work properly this component can either be uncontrolled by using passing the trigger element throught the prop `reference` **(take into account that it doesn't work with a `<Popover.Trigger>`)** or be controlled by using the props `isVisible` and `onClose`.
+
+## UserMenu API
+
+<ArgTypes of={UserMenu} />
+
+## UserMenu.Footer API
+
+<ArgTypes of={UserMenu.Footer} />
+
+## UserMenu.Item API
+
+<ArgTypes of={UserMenu.Item} />
+
+## UserMenu.Title API
+
+<ArgTypes of={UserMenu.Title} />{' '}
