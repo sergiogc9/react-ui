@@ -42,6 +42,13 @@ breakpoints.lg = breakpoints[3];
 breakpoints.xl = breakpoints[4];
 
 const space: Theme['space'] = [0, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80];
+space.none = space[0];
+space.xs = space[1];
+space.sm = space[2];
+space.md = space[3];
+space.lg = space[4];
+space.xl = space[5];
+space.xxl = space[6];
 
 const fonts: Theme['fonts'] = [
 	'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;',
@@ -72,20 +79,24 @@ const lineHeights: Theme['lineHeights'] = [
 	'56px'
 ];
 
-const radii: Theme['radii'] = ['4px', '8px', '16px', '24px'];
+const borderWidths: Theme['borderWidths'] = {
+	default: '1px',
+	emphasis: '2px'
+};
 
-const shadows: Theme['shadows'] = [
-	'0px 0px 0px 1px rgba(11, 21, 25, 0.16)',
-	'0px 0px 6px rgba(11, 21, 25, 0.16)',
-	'0px 0px 16px 2px rgba(11, 21, 25, 0.06)',
-	'0px -4px 16px 2px rgba(11, 21, 25, 0.06)',
-	'0px 4px 16px 2px rgba(11, 21, 25, 0.06)'
-];
-shadows.center1 = shadows[0];
-shadows.center2 = shadows[1];
-shadows.center3 = shadows[2];
-shadows.up = shadows[3];
-shadows.down = shadows[4];
+const radii: Theme['radii'] = ['4px', '8px', '16px', '24px'];
+radii.sm = radii[0];
+radii.md = radii[1];
+radii.lg = radii[2];
+radii.xl = radii[3];
+
+const shadows: Theme['shadows'] = {
+	center1: '0px 0px 0px 1px rgba(11, 21, 25, 0.16)',
+	center2: '0px 0px 6px rgba(11, 21, 25, 0.16)',
+	center3: '0px 0px 16px 2px rgba(11, 21, 25, 0.06)',
+	up: '0px -4px 16px 2px rgba(11, 21, 25, 0.06)',
+	down: '0px 4px 16px 2px rgba(11, 21, 25, 0.06)'
+};
 
 const zIndices: Theme['zIndices'] = [4, 8, 12, 16, 20, 24];
 zIndices.plain = 0;
@@ -102,6 +113,7 @@ const keys: Theme['keys'] = {
 };
 
 const theme: Theme = {
+	borderWidths,
 	breakpoints,
 	collections: {
 		actionMenu: actionMenuTheme,

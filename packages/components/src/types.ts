@@ -5,9 +5,12 @@ import { FlexProps } from './Flex';
 import { GridProps } from './Grid';
 import { TextProps } from './Text';
 
+// Some generic utils
 export type RecursivePartial<T> = {
 	[P in keyof T]?: RecursivePartial<T[P]>;
 };
+
+// Specific base layout components utils
 
 type AsProp<T extends React.ElementType> = {
 	/**
