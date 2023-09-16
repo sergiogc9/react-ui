@@ -32,17 +32,17 @@ import { Tooltip } from './themes/components/Tooltip';
 import { UserMenu } from './themes/collections/UserMenu';
 
 export interface ColorPalette {
-	readonly 0?: string;
-	readonly 50: string;
-	readonly 100: string;
-	readonly 200: string;
-	readonly 300: string;
-	readonly 400: string;
-	readonly 500: string;
-	readonly 600: string;
-	readonly 700: string;
-	readonly 800: string;
-	readonly 900: string;
+	readonly '0'?: string;
+	readonly '50': string;
+	readonly '100': string;
+	readonly '200': string;
+	readonly '300': string;
+	readonly '400': string;
+	readonly '500': string;
+	readonly '600': string;
+	readonly '700': string;
+	readonly '800': string;
+	readonly '900': string;
 }
 
 interface BrandColors {
@@ -51,7 +51,7 @@ interface BrandColors {
 
 export type ThemeColors<T extends Record<string, any>> = T & { modes: Record<ThemeColorMode, T> };
 
-export interface ThemePalette {
+export type ThemePalette = {
 	readonly primary: ColorPalette;
 	readonly secondary: string;
 	readonly neutral: ColorPalette;
@@ -61,13 +61,13 @@ export interface ThemePalette {
 	readonly green: ColorPalette;
 	readonly brand: BrandColors;
 	readonly common: Record<'background' | 'text', string>;
-}
+};
 
 export type ThemeColorMode = 'light' | 'dark';
 
 type BreakPoints = ArrayWithProps<string, Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl', string>>>;
 
-type Space = number[];
+type Space = ArrayWithProps<number, Partial<Record<'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl', number>>>;
 
 type Fonts = ArrayWithProps<string, Partial<Record<'main' | 'headings', string>>>;
 
@@ -77,9 +77,11 @@ type FontWeights = ArrayWithProps<number, Partial<Record<'light' | 'regular' | '
 
 type LineHeights = string[];
 
-type BorderRadius = string[];
+type BorderRadius = ArrayWithProps<string, Partial<Record<'sm' | 'md' | 'lg' | 'xl', string>>>;
 
-type Shadows = ArrayWithProps<string, Partial<Record<'center1' | 'center2' | 'center3' | 'up' | 'down', string>>>;
+type BorderWidths = Record<'default' | 'emphasis', string>;
+
+type Shadows = Record<'center1' | 'center2' | 'center3' | 'up' | 'down', string>;
 
 type ZIndices = ArrayWithProps<
 	number,
@@ -152,6 +154,7 @@ export interface DefaultThemeAttributes {
 export type ExtractThemeAttributes<Type> = Type extends Theme<infer X> ? X : null;
 
 export interface Theme<ThemeAttributes = DefaultThemeAttributes> {
+	readonly borderWidths: BorderWidths;
 	readonly breakpoints: BreakPoints;
 	readonly collections: Collections;
 	readonly colors: ThemeColors<ThemePalette>;
@@ -170,3 +173,24 @@ export interface Theme<ThemeAttributes = DefaultThemeAttributes> {
 	// This is necessary to make ThemeAttributes types to work fine
 	readonly _?: ThemeAttributes;
 }
+
+// @ref https://github.com/microsoft/TypeScript/issues/48552#issuecomment-1093107826
+export type TokenPath<T> = object extends Required<T>
+	? string
+	: T extends object
+	? (ExtractThemePropertyValues<keyof T> & string) | PathSubKeys<T, ExtractThemePropertyValues<keyof T> & string>
+	: never;
+
+type PathSubKeys<T, K extends string> = K extends keyof T ? `${K}.${TokenPath<T[K]>}` : never;
+
+type ExtractThemePropertyValues<T> = T extends keyof any[] ? never : T;
+
+export type TokenPathValue<T, Path extends string> = {
+	[K in Path]: K extends keyof T
+		? T[K]
+		: K extends `${infer P}.${infer S}`
+		? P extends keyof T
+			? TokenPathValue<T[P], S>
+			: never
+		: never;
+}[Path];
