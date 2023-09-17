@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { Select } from './types';
+export type { Select } from './types';

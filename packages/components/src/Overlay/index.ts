@@ -1,2 +1,2 @@
-export { OverlayProps } from './types';
+export type { OverlayProps } from './types';
 export { default } from './Overlay';

@@ -1,2 +1,2 @@
-export { SkeletonRectProps } from './types';
+export type { SkeletonRectProps } from './types';
 export { default } from './SkeletonRect';

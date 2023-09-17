@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { DropdownMenu } from './types';
+export type { DropdownMenu } from './types';

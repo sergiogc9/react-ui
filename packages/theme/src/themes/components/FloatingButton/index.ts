@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { FloatingButton } from './types';
+export type { FloatingButton } from './types';

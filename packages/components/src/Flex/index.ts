@@ -1,2 +1,2 @@
-export { FlexProps } from './types';
+export type { FlexProps } from './types';
 export { default } from './styled';

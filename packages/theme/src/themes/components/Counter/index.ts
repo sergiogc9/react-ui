@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { Counter } from './types';
+export type { Counter } from './types';

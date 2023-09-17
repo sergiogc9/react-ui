@@ -1,2 +1,2 @@
-export { InputHelperTextProps } from './types';
+export type { InputHelperTextProps } from './types';
 export { default } from './styled';

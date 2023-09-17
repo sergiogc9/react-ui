@@ -1,2 +1,2 @@
-export { SvgProps, SvgPathProps } from './types';
+export type { SvgProps, SvgPathProps } from './types';
 export { default } from './Svg';

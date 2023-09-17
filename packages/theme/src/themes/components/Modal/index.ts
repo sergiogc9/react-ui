@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { Modal } from './types';
+export type { Modal } from './types';

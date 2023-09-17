@@ -1,2 +1,2 @@
 export { default } from './UserMenuContext';
-export { UserMenuContextData } from './types';
+export type { UserMenuContextData } from './types';

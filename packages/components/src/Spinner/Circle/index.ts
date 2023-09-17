@@ -1,2 +1,2 @@
 export * from './styled';
-export { SpinnerCircleProps } from './types';
+export type { SpinnerCircleProps } from './types';

@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { Tooltip } from './types';
+export type { Tooltip } from './types';

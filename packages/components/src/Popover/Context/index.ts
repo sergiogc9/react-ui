@@ -1,2 +1,2 @@
 export { default } from './PopoverContext';
-export { PopoverContextData } from './types';
+export type { PopoverContextData } from './types';
