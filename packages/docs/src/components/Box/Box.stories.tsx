@@ -45,6 +45,7 @@ export const Background: Story = {
 	parameters: {
 		controls: { disable: true }
 	},
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	render: props => {
 		return (
 			<Box
@@ -61,6 +62,7 @@ export const Border: Story = {
 	parameters: {
 		controls: { disable: true }
 	},
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	render: props => {
 		return (
 			<Flex gap={24} alignItems="center">
@@ -82,6 +84,7 @@ export const Color: Story = {
 	parameters: {
 		controls: { disable: true }
 	},
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	render: props => {
 		return (
 			<Flex gap={24} alignItems="center">
@@ -103,6 +106,7 @@ export const Flexbox: Story = {
 	parameters: {
 		controls: { disable: true }
 	},
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	render: props => {
 		return (
 			<Flex gap={4} justifyContent="space-between" height={100} width="100%">
@@ -124,6 +128,7 @@ export const Layout: Story = {
 	parameters: {
 		controls: { disable: true }
 	},
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	render: props => {
 		return (
 			<Flex alignItems="flex-start" gap={4} height={100} width="100%">
@@ -147,6 +152,7 @@ export const Position: Story = {
 	parameters: {
 		controls: { disable: true }
 	},
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	render: props => {
 		return (
 			<Box border="thin solid black" height={200} position="relative" px="sm" py="xs" width={300}>
@@ -166,6 +172,7 @@ export const Shadow: Story = {
 	parameters: {
 		controls: { disable: true }
 	},
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	render: props => {
 		return (
 			<Flex alignItems="flex-start" gap={4} height={100} width="100%">
@@ -184,6 +191,7 @@ export const Space: Story = {
 	parameters: {
 		controls: { disable: true }
 	},
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	render: props => {
 		return (
 			<Flex alignItems="flex-start" gap={4} height={100} width="100%">
@@ -208,6 +216,7 @@ export const Typography: Story = {
 	parameters: {
 		controls: { disable: true }
 	},
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	render: props => {
 		return (
 			<Flex alignItems="flex-start" gap={4} height={100} width="100%">

@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { Switch } from './types';
+export type { Switch } from './types';

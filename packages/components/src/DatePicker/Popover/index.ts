@@ -1,2 +1,2 @@
-export { DatePickerPopoverProps } from './types';
+export type { DatePickerPopoverProps } from './types';
 export { default } from './DatePickerPopover';

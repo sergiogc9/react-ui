@@ -1,2 +1,2 @@
 export * from './styled';
-export { SpinnerPulseProps } from './types';
+export type { SpinnerPulseProps } from './types';

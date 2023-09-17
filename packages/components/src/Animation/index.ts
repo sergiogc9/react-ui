@@ -14,7 +14,7 @@ import {
 import BaseAnimation, { BaseAnimationProps, withBaseAnimation } from './Base';
 import AnimationList, { AnimationListProps } from './List';
 
-export { AnimationListProps, BaseAnimationProps };
+export type { AnimationListProps, BaseAnimationProps };
 export default {
 	// Animation components
 	Animate,

@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { LoadingBar } from './types';
+export type { LoadingBar } from './types';

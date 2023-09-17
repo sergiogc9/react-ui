@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { Input } from './types';
+export type { Input } from './types';

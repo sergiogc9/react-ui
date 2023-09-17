@@ -148,7 +148,10 @@ By default, the `Box` component will render a `div` HTML element. This behaviour
 
 The component detects the value provided in the `as` prop and changes the built-in props automatically. For example, if an `a` element is wanted, then the `href` property is available, otherwise TypeScript will complain:
 
-<StorybookAlert status="info" text='TIP: The BoxProps type has a generic parameter. Use it in case you need to customize the BoxProps when using the "as" prop.' />
+<StorybookAlert
+	status="info"
+	text='TIP: The BoxProps type has a generic parameter. Use it in case you need to customize the BoxProps when using the "as" prop.'
+/>
 
 ```tsx
 import { Box, BoxProps } from '@sergiogc9/react-ui';
@@ -197,10 +200,7 @@ Enables modifying some color properties as the text color, background color, etc
 
 Adds support for some flex css rules.
 
-<StorybookAlert
-	status="info"
-	text="These props only work when the Box component is placed inside a Flex container."
-/>
+<StorybookAlert status="info" text="These props only work when the Box component is placed inside a Flex container." />
 
 <Canvas of={Box.Flexbox} />
 

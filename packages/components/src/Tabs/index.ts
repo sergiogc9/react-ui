@@ -9,7 +9,7 @@ import { TabsContentProps } from './Content/types';
 import TabsTab from './Tab';
 import { TabsTabProps } from './Tab/types';
 
-export { TabsProps, TabsContentProps, TabsTabProps };
+export type { TabsProps, TabsContentProps, TabsTabProps };
 
 export default createNameSpacedComponent(Tabs, {
 	Content: TabsContent,

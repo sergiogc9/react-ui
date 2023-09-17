@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { Divider } from './types';
+export type { Divider } from './types';

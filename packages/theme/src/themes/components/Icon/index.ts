@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { Icon } from './types';
+export type { Icon } from './types';

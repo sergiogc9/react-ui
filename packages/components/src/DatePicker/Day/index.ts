@@ -1,2 +1,2 @@
-export { DatePickerDayProps } from './types';
+export type { DatePickerDayProps } from './types';
 export { default } from './DatePickerDay';

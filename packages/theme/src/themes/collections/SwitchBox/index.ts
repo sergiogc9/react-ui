@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { SwitchBox } from './types';
+export type { SwitchBox } from './types';

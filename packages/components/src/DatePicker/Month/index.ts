@@ -1,2 +1,2 @@
-export { DatePickerMonthProps } from './types';
+export type { DatePickerMonthProps } from './types';
 export { default } from './DatePickerMonth';

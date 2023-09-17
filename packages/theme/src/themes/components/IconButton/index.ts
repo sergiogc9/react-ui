@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { IconButton } from './types';
+export type { IconButton } from './types';

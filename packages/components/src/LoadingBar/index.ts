@@ -1,2 +1,2 @@
-export { LoadingBarProps } from './types';
+export type { LoadingBarProps } from './types';
 export { default } from './LoadingBar';

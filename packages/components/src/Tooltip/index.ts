@@ -7,7 +7,7 @@ import { TooltipTriggerProps } from './Trigger/types';
 import Tooltip from './Tooltip';
 import { TooltipProps } from './types';
 
-export { TooltipProps, TooltipTriggerProps, TooltipContentProps };
+export type { TooltipProps, TooltipTriggerProps, TooltipContentProps };
 export default createNameSpacedComponent(Tooltip, {
 	Content: TooltipContent,
 	Trigger: TooltipTrigger

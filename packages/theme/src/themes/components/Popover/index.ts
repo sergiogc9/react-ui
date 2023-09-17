@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { Popover } from './types';
+export type { Popover } from './types';

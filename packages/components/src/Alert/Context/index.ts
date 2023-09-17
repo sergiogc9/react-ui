@@ -1,2 +1,2 @@
-export { AlertContextData } from './types';
+export type { AlertContextData } from './types';
 export { default } from './AlertContext';

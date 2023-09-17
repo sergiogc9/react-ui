@@ -1,2 +1,2 @@
 export { default } from './PopoverWrapper';
-export { PopoverWrapperProps } from './types';
+export type { PopoverWrapperProps } from './types';

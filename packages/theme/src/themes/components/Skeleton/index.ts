@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { Skeleton } from './types';
+export type { Skeleton } from './types';

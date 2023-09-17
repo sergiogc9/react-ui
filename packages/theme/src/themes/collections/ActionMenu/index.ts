@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { ActionMenu } from './types';
+export type { ActionMenu } from './types';

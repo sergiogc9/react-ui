@@ -1,2 +1,2 @@
 export { default } from './theme';
-export { TextField } from './types';
+export type { TextField } from './types';
