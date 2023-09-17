@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/sergiogc9/react-ui/compare/v1.2.0...v1.3.0) (2023-09-17)
+
+### Features
+
+- Improve base layout components TS autocomplete typings ([43191e2](https://github.com/sergiogc9/react-ui/commit/43191e23235bc8a337737d79e58d931989fd01a3))
+
 # [0.10.0](https://github.com/sergiogc9/react-ui/compare/v0.9.2...v0.10.0) (2023-03-03)
 
 **Note:** Version bump only for package @sergiogc9/react-ui-theme

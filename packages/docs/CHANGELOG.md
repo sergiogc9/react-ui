@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/sergiogc9/react-ui/compare/v1.2.0...v1.3.0) (2023-09-17)
+
+### Features
+
+- Upgrade base layout type utils ([34154ca](https://github.com/sergiogc9/react-ui/commit/34154caae9766a8d5deb907bd510df768fcdaed4))
+
 # [1.2.0](https://github.com/sergiogc9/react-ui/compare/v1.1.0...v1.2.0) (2023-08-28)
 
 ### Bug Fixes

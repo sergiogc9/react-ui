@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/sergiogc9/react-ui/compare/v1.2.0...v1.3.0) (2023-09-17)
+
+### Bug Fixes
+
+- Remove default min 0 value in Form TextField number type ([e50a896](https://github.com/sergiogc9/react-ui/commit/e50a896b4165a03ae641b87f4072e6beae4a4fb6))
+- Solve issues with numeric textfield not working fine with negatives and dashes ([15a79e2](https://github.com/sergiogc9/react-ui/commit/15a79e2cc9b81a3d56b13505af147d9685bd8e6c))
+
+### Features
+
+- Improve base layout components TS autocomplete typings ([43191e2](https://github.com/sergiogc9/react-ui/commit/43191e23235bc8a337737d79e58d931989fd01a3))
+- Upgrade base layout type utils ([34154ca](https://github.com/sergiogc9/react-ui/commit/34154caae9766a8d5deb907bd510df768fcdaed4))
+- Use a better typed base layout components ([4425eaa](https://github.com/sergiogc9/react-ui/commit/4425eaabea6db86637f54398082ff3d74dc5301c))
+
 # [1.2.0](https://github.com/sergiogc9/react-ui/compare/v1.1.0...v1.2.0) (2023-08-28)
 
 ### Bug Fixes

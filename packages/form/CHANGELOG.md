@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/sergiogc9/react-ui/compare/v1.2.0...v1.3.0) (2023-09-17)
+
+### Bug Fixes
+
+- Solve issues with numeric textfield not working fine with negatives and dashes ([15a79e2](https://github.com/sergiogc9/react-ui/commit/15a79e2cc9b81a3d56b13505af147d9685bd8e6c))
+
+### Features
+
+- Upgrade base layout type utils ([34154ca](https://github.com/sergiogc9/react-ui/commit/34154caae9766a8d5deb907bd510df768fcdaed4))
+
 # [1.2.0](https://github.com/sergiogc9/react-ui/compare/v1.1.0...v1.2.0) (2023-08-28)
 
 ### Bug Fixes
