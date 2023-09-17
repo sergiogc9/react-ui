@@ -1,11 +1,8 @@
 import React from 'react';
 import { useController } from 'react-hook-form';
-import isEmpty from 'lodash/isEmpty';
 import { TextField, TextFieldDateProps } from '@sergiogc9/react-ui';
 
 import { FormTextFieldProps } from './types';
-
-const formatNumber = (value: string) => (value.endsWith('.') ? value : +value);
 
 const FormInput: React.FC<FormTextFieldProps> = props => {
 	const { helperText, isDisabled, name, type, ...rest } = props;
@@ -20,14 +17,6 @@ const FormInput: React.FC<FormTextFieldProps> = props => {
 				defaultDate: field.value || undefined,
 				onDateChange: date => {
 					field.onChange(date);
-				}
-			};
-
-		if (type === 'number')
-			return {
-				onChange: ev => {
-					const { value } = ev.currentTarget;
-					field.onChange(isEmpty(value) ? null : formatNumber(value));
 				}
 			};
 

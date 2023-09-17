@@ -95,15 +95,11 @@ describe('FormTextField', () => {
 
 		const input = container.querySelector('input')!;
 
-		expect(input).toHaveValue('20');
+		expect(input).toHaveValue(20);
 
 		userEvent.type(input, '0');
 
-		expect(input).toHaveValue('200');
-
-		userEvent.clear(input);
-
-		expect(input).toHaveAttribute('value', '');
+		expect(input).toHaveValue(200);
 	});
 
 	it('should render the textfield as disabled when submitting', async () => {

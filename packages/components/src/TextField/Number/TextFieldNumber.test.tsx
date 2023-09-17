@@ -22,7 +22,7 @@ describe('TextFieldNumber component', () => {
 		renderTextFieldNumber();
 		const input = screen.getByTestId(textFieldNumberTestId)!.querySelector('input')!;
 		expect(input).toHaveAttribute('inputmode', 'decimal');
-		expect(input).toHaveAttribute('type', 'text');
+		expect(input).toHaveAttribute('type', 'number');
 	});
 
 	it('should render input with no value by default', () => {

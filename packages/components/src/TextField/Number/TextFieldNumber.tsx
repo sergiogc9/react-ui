@@ -57,8 +57,6 @@ const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInp
 			ev => {
 				const newValue = ev.currentTarget.value.trim();
 
-				if (ev.currentTarget.validity.badInput || Number.isNaN(+newValue)) return;
-
 				const currentValue = value ?? numberValue;
 				if (
 					newValue !== currentValue &&
@@ -90,7 +88,7 @@ const TextFieldNumber: React.FC<TextFieldNumberProps> = React.forwardRef<HTMLInp
 				onKeyDown={onKeyPressed}
 				ref={mergeRefs}
 				rightContent={rightContent}
-				type="text"
+				type="number"
 				value={value ?? numberValue}
 			/>
 		);
