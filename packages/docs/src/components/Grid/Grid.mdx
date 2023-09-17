@@ -1,0 +1,75 @@
+import { Meta, Canvas, Story, Props, Preview, ArgTypes, Controls, StorybookAlert } from 'storybook/utils/components';
+
+import Box from 'components/Box';
+
+import * as Grid from './Grid.stories';
+
+<Meta of={Grid} />
+
+# Grid
+
+The `Grid` set of components are useful to create layouts using the `grid css` API. More info about it here:
+
+[https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids)<br/>
+[https://css-tricks.com/snippets/css/complete-guide-grid](https://css-tricks.com/snippets/css/complete-guide-grid)
+
+<StorybookAlert status="info" text="This documentation assumes the knowledge of the Grid CSS API." />
+
+<Canvas of={Grid.Default} />
+
+<StorybookAlert status="info" text="The props listed below are only a subset of all available props." />
+
+<Controls />
+
+By default, it creates a grid layout with `12` explicit columns and `1` explicit row:
+
+<Canvas of={Grid.DefaultGrid} />
+
+By default it uses an equal width for all columns (it uses `1fr`). Use the boolean `hasEqualColumns` prop to change this behaviour:
+
+With equal columns:
+
+<Canvas of={Grid.EqualColumns} />
+
+Without equal columns:
+
+<Canvas of={Grid.NotEqualColumns} />
+
+The Grid container has a default `gap` value. You can modify them using the `columnGap` and `rowGap` props:
+
+<Canvas of={Grid.CustomGaps} />
+
+Finally, you can override all these default behaviors using the final grid css props (e.g. `gridTemplateColumns`, `gridTemplateRows`, etc.):
+
+<Canvas of={Grid.WithCssProperties} />
+
+## Grid Box
+
+The `Grid.Box` component represents a grid item inside the container. By default it represents a unique cell (i.e. 1 column and 1 row) but it can be easily changed using its props.
+
+You can specify how many columns does the Box takes using the `columns` prop:
+
+<Canvas of={Grid.BoxColumns} />
+
+You can change the start column for a Box, you can use the `initialColumn` prop:
+
+<Canvas of={Grid.BoxInitialColumn} />
+
+You can use the same approach with rows using the `rows` and `intialRow` props:
+
+<Canvas of={Grid.BoxInitialRow} />
+
+If the layout depends on the device, all props can be used as responsive arrays or objects:
+
+<Canvas of={Grid.BoxColumnsResponsive} />
+
+## Grid Row
+
+The `Grid.Row` is baiscally a `Box` component with grid css API features added. It takes up the space of the following available row:
+
+<Canvas of={Grid.Row} />
+
+<StorybookAlert
+	status="info"
+	text="Keep in mind that the `Grid.Row` component is not a grid container. You can not use a `Grid.Box` component inside it."
+/>

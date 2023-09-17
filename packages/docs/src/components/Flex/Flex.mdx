@@ -1,0 +1,42 @@
+import { Meta, Canvas, Story, Props, Preview, ArgTypes, Controls, StorybookAlert } from 'storybook/utils/components';
+
+import Box from 'components/Box';
+import * as Flex from './Flex.stories';
+
+<Meta of={Flex} />
+
+# Flex
+
+The `Flex` component is useful to create layouts using the `flexbox CSS` API. More info about it here:
+
+[https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)<br/>
+[https://css-tricks.com/snippets/css/a-guide-to-flexbox/](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+<StorybookAlert status="info" text="This documentation assumes the knowledge of the Flexbox CSS API." />
+
+The `Flex` component is basically a `Box` component with `display: flex` enabled.
+
+<StorybookAlert status="info" text="Read the docs for the Box component to see all its features" />
+
+<Canvas of={Flex.Default} />
+
+<StorybookAlert status="info" text="The props listed below are only a subset of all available props." />
+
+<Controls />
+
+## Basic usage
+
+Using it is really straightforward. Just import it and start using everywhere in your app:
+
+```tsx
+import { Flex } from '@typeform/kitt';
+
+const Component = () => {
+	return (
+		<Flex justifyContent="space-between" py={5} width={300}>
+			<Box>First component</Box>
+			<Box>Second component</Box>
+		</Flex>
+	);
+};
+```
