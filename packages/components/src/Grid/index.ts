@@ -7,8 +7,14 @@ import { GridRowProps } from './Row/types';
 import { Grid } from './styled';
 import { GridProps } from './types';
 
-export { GridProps, GridBoxProps, GridRowProps };
-export default createNameSpacedComponent(Grid, {
+const NamespacedGrid = createNameSpacedComponent(Grid, {
 	Box: GridBox,
 	Row: GridRow
 });
+
+NamespacedGrid.displayName = 'Grid';
+GridBox.displayName = 'Grid.Box';
+GridRow.displayName = 'Grid.Row';
+
+export type { GridProps, GridBoxProps, GridRowProps };
+export default NamespacedGrid;

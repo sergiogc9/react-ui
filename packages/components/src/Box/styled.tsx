@@ -14,4 +14,6 @@ Box.defaultProps = {
 	position: 'relative'
 };
 
+Box.displayName = 'Box';
+
 export default Box;

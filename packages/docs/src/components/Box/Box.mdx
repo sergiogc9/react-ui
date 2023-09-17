@@ -1,0 +1,268 @@
+import { Meta, Canvas, Story, Props, Preview, ArgTypes, Controls, StorybookAlert } from 'storybook/utils/components';
+
+import Flex from 'components/Box';
+
+import * as Box from './Box.stories';
+
+<Meta of={Box} />
+
+# Box
+
+The `Box` components is the base component to be used everywhere in the design system.
+
+This component is based on [`styled-system`](https://styled-system.com/) which provides a great base to build custom components with constraint-based style props.
+
+<Canvas of={Box.Default} />
+
+<StorybookAlert status="info" text="The props listed below are only a subset of all available props." />
+
+<Controls />
+
+The list of features implemented are:
+
+- Built-in CSS props. Change the CSS styles using the available props.
+- Includes some shorthand props to simplify its usage (e.g. `mx` for `margin-left` and `margin-right`).
+- Change the final rendered HTML element using the `as` prop.
+- Responsive styles depending on the screen width by passing an object or an array to the desired prop.
+- Get values directly from the theme specification.
+- Easily extendable to reuse its features inside other components.
+- It has not any logic inside, it's pure UI.
+
+## Basic usage
+
+Using it is really straightforward. Just import it and start using everywhere in your app:
+
+```tsx
+import { Box } from '@sergiogc9/react-ui';
+
+const Component = () => {
+	return (
+		<Box color="green" py={5} width={300}>
+			Example component
+		</Box>
+	);
+};
+```
+
+## Extending the component
+
+One of the key features is the possibility to extend the component to easily create other components with all the benefits the `Box` component brings.
+
+Extending the component is as easy as using the `styled` method provided by `styled-components`. An example can be the `Flex` component available in this library:
+
+```tsx
+import styled from 'styled-components';
+import { ExtendedFlexProps, ExtendedFlexProps } from '@sergiogc9/react-ui';
+
+type Props = {
+  fake: string
+}
+
+type FakeComponentProps<T extends React.ElementType = 'div'> = ExtendedFlexProps<Props, T>;
+
+type FakeComponent = ExtendedFlexComponent<Props>;
+
+const Fake: FakeComponent = styled(Box)``;
+
+Fake.defaultProps = {
+	...
+};
+```
+
+## Getting values from theme
+
+The base layout components are fully compatible with the design tokens. The token paths can be used in order to get the values from the theme.
+
+There are two methods to get those values:
+
+#### 1. Using custom CSS props:
+
+Some of the props accept a string representing the path of the token inside the theme structure. The IDE should autocomplete with the possible values:
+
+```tsx
+const Component = () => {
+	return (
+		<Box bg="green.300" borderRadius="sm" padding="lg">
+			Awesome!
+		</Box>
+	);
+};
+```
+
+#### 2. Using the `themeGet` util:
+
+The library exports a util named `themeGet` which gets values from the theme:
+
+```tsx
+import { useTheme } from 'styled-components';
+import { themeGet } from '@sergiogc9/react-ui/theme-utils';
+
+const Component = () => {
+	const theme = useTheme();
+
+	return (
+		<Box bg={themeGet('colors.green.500')({ theme })} padding={themeGet('space.xl')({ theme })}>
+			Box component
+		</Box>
+	);
+};
+```
+
+In this case, you need to know the specific prexif for each prop. It also provides better type checking as the `themeGet` doesn't accept other string values as the `Box` props do.
+
+## Responsive styles
+
+The built-in props are able to behave different depending on the screen size, based on the theme breakpoints definition.
+
+Different values for a prop can be set depending on the size. Just use an object containing different values for each screen size:
+
+```tsx
+const Component = () => {
+	return (
+		<Box
+			bg={{
+				sm: 'green.500',
+				md: 'red.500',
+				lg: 'yellow.500'
+			}}
+		>
+			Awesome!
+		</Box>
+	);
+};
+```
+
+Example:
+
+<Canvas of={Box.Responsive} />
+
+## API
+
+The `Box` component provides many built-in props. All of them are provided by the `styled-system` [composers](https://styled-system.com/api).
+
+In this section all used composers are introduced with some examples but it's highly recommended to check its API for a more detailed information.
+
+### `as` prop
+
+By default, the `Box` component will render a `div` HTML element. This behaviour can easily changed by using the `as` prop, which accepts all HTML native elements.
+
+The component detects the value provided in the `as` prop and changes the built-in props automatically. For example, if an `a` element is wanted, then the `href` property is available, otherwise TypeScript will complain:
+
+<StorybookAlert status="info" text='TIP: The BoxProps type has a generic parameter. Use it in case you need to customize the BoxProps when using the "as" prop.' />
+
+```tsx
+import { Box, BoxProps } from '@sergiogc9/react-ui';
+
+const Component = () => {
+	// TS error: Property 'href' does not exist on type ...
+	return <Box href="...">I'm not an anchor</Box>;
+};
+
+const Component: BoxProps<'a'> = () => {
+	return (
+		<Box as="a" href="...">
+			Awesome! Click me :D
+		</Box>
+	);
+};
+```
+
+### Background
+
+[Styled-system docs](https://styled-system.com/api#background)
+
+Enables the possibility to change some background positioning rules:
+
+<Canvas of={Box.Background} />
+
+### Border
+
+[Styled-system docs](https://styled-system.com/api#border)
+
+Enables the possibilty to change everything related to borders. It has some built-in shorthands. It accepts
+
+<Canvas of={Box.Border} />
+
+### Color
+
+[Styled-system docs](https://styled-system.com/api#color)
+
+Enables modifying some color properties as the text color, background color, etc. It has some built-in shorthands. Grabs colors from the theme defined in the `colors` property.
+
+<Canvas of={Box.Color} />
+
+### Flexbox
+
+[Styled-system docs](https://styled-system.com/api#flexbox)
+
+Adds support for some flex css rules.
+
+<StorybookAlert
+	status="info"
+	text="These props only work when the Box component is placed inside a Flex container."
+/>
+
+<Canvas of={Box.Flexbox} />
+
+### Layout
+
+[Styled-system docs](https://styled-system.com/api#layout)
+
+Enables some basic layout CSS rules as `width`, `height`, `display` or `overflow`. It has some shorthands as, for example, the `size` prop.
+
+<StorybookAlert
+	status="info"
+	text="Read the documentation to understand how numerical values are handled and how values from theme are retrieved."
+/>
+
+<Canvas of={Box.Layout} />
+
+### Position
+
+[Styled-system docs](https://styled-system.com/api#position)
+
+Adds support for positioning CSS rules.
+
+<Canvas of={Box.Position} />
+
+### Shadow
+
+[Styled-system docs](https://styled-system.com/api#shadow)
+
+Enables shadows in text and box.
+
+<Canvas of={Box.Shadow} />
+
+### Space
+
+[Styled-system docs](https://styled-system.com/api#space)
+
+Enables some spacing CSS rules for margins and paddings including many shorthands.
+
+<StorybookAlert
+	status="info"
+	text="Read the documentation to understand how numerical values are handled and how values from theme are retrieved."
+/>
+
+<Canvas of={Box.Space} />
+
+### Typography
+
+[Styled-system docs](https://styled-system.com/api#typography)
+
+Adds CSS rules for updating font and text related CSS rules.
+
+<StorybookAlert
+	status="info"
+	text="Read the documentation to understand how numerical values are handled and how values from theme are retrieved."
+/>
+
+<Canvas of={Box.Typography} />
+
+### Custom CSS rules
+
+The `styled-system` composers don't include all current and future CSS properties. Because of this, sometimes we need to add some of these rules. This can be easily done thanks to our custom composer.
+
+The custom composer let's us to add built-in props to the `Box` component (and all the components extending it automatically). You can see the custom props added [here]() TODO!.
+
+If a new prop is needed, add it to the custom composer following the docs for the [system util](https://styled-system.com/custom-props) from `styled-system`.
