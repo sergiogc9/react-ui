@@ -18,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.13.1]
+        node-version: [16.16.0]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     # Steps represent a sequence of tasks that will be executed as part of the job
